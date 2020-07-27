@@ -1,0 +1,310 @@
+CRITICAL - 2020-07-25 10:07:44 --> 22 : The requested URL returned error: 405 Method Not Allowed
+#0 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(821): CodeIgniter\HTTP\Exceptions\HTTPException::forCurlError('22', 'The requested U...')
+#1 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(449): CodeIgniter\HTTP\CURLRequest->sendRequest(Array)
+#2 /home/rizcky/git/project.alcentrali/officer/core/Models/OfficerKeyModel.php(59): CodeIgniter\HTTP\CURLRequest->send('put', 'http://localhos...')
+#3 /home/rizcky/git/project.alcentrali/officer/core/Controllers/Setup.php(36): App\Models\OfficerKeyModel->requestNewToken()
+#4 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Setup->setup()
+#5 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Setup))
+#6 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /home/rizcky/git/project.alcentrali/officer/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2020-07-25 10:26:33 --> fopen(../sysconf/.fmkiddo): failed to open stream: No such file or directory
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'fopen(../syscon...', '/home/rizcky/gi...', 33, Array)
+#1 /home/rizcky/git/project.alcentrali/officer/core/Models/OfficerKeyModel.php(33): fopen('../sysconf/.fmk...', 'w+')
+#2 /home/rizcky/git/project.alcentrali/officer/core/Models/BaseModel.php(21): App\Models\OfficerKeyModel->init()
+#3 /home/rizcky/git/project.alcentrali/officer/core/Controllers/Setup.php(14): App\Models\BaseModel->__construct()
+#4 /home/rizcky/git/project.alcentrali/officer/core/Controllers/BaseController.php(30): App\Controllers\Setup->init()
+#5 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(891): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+#6 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(399): CodeIgniter\CodeIgniter->createController()
+#7 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /home/rizcky/git/project.alcentrali/officer/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2020-07-25 10:27:10 --> fopen(../sysconf/.fmkiddo): failed to open stream: No such file or directory
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'fopen(../syscon...', '/home/rizcky/gi...', 33, Array)
+#1 /home/rizcky/git/project.alcentrali/officer/core/Models/OfficerKeyModel.php(33): fopen('../sysconf/.fmk...', 'w+')
+#2 /home/rizcky/git/project.alcentrali/officer/core/Models/BaseModel.php(21): App\Models\OfficerKeyModel->init()
+#3 /home/rizcky/git/project.alcentrali/officer/core/Controllers/Setup.php(14): App\Models\BaseModel->__construct()
+#4 /home/rizcky/git/project.alcentrali/officer/core/Controllers/BaseController.php(30): App\Controllers\Setup->init()
+#5 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(891): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+#6 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(399): CodeIgniter\CodeIgniter->createController()
+#7 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /home/rizcky/git/project.alcentrali/officer/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2020-07-25 10:27:11 --> fopen(../sysconf/.fmkiddo): failed to open stream: No such file or directory
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'fopen(../syscon...', '/home/rizcky/gi...', 33, Array)
+#1 /home/rizcky/git/project.alcentrali/officer/core/Models/OfficerKeyModel.php(33): fopen('../sysconf/.fmk...', 'w+')
+#2 /home/rizcky/git/project.alcentrali/officer/core/Models/BaseModel.php(21): App\Models\OfficerKeyModel->init()
+#3 /home/rizcky/git/project.alcentrali/officer/core/Controllers/Setup.php(14): App\Models\BaseModel->__construct()
+#4 /home/rizcky/git/project.alcentrali/officer/core/Controllers/BaseController.php(30): App\Controllers\Setup->init()
+#5 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(891): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+#6 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(399): CodeIgniter\CodeIgniter->createController()
+#7 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /home/rizcky/git/project.alcentrali/officer/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2020-07-25 10:27:11 --> fopen(../sysconf/.fmkiddo): failed to open stream: No such file or directory
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'fopen(../syscon...', '/home/rizcky/gi...', 33, Array)
+#1 /home/rizcky/git/project.alcentrali/officer/core/Models/OfficerKeyModel.php(33): fopen('../sysconf/.fmk...', 'w+')
+#2 /home/rizcky/git/project.alcentrali/officer/core/Models/BaseModel.php(21): App\Models\OfficerKeyModel->init()
+#3 /home/rizcky/git/project.alcentrali/officer/core/Controllers/Setup.php(14): App\Models\BaseModel->__construct()
+#4 /home/rizcky/git/project.alcentrali/officer/core/Controllers/BaseController.php(30): App\Controllers\Setup->init()
+#5 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(891): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+#6 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(399): CodeIgniter\CodeIgniter->createController()
+#7 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /home/rizcky/git/project.alcentrali/officer/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2020-07-25 10:27:11 --> fopen(../sysconf/.fmkiddo): failed to open stream: No such file or directory
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'fopen(../syscon...', '/home/rizcky/gi...', 33, Array)
+#1 /home/rizcky/git/project.alcentrali/officer/core/Models/OfficerKeyModel.php(33): fopen('../sysconf/.fmk...', 'w+')
+#2 /home/rizcky/git/project.alcentrali/officer/core/Models/BaseModel.php(21): App\Models\OfficerKeyModel->init()
+#3 /home/rizcky/git/project.alcentrali/officer/core/Controllers/Setup.php(14): App\Models\BaseModel->__construct()
+#4 /home/rizcky/git/project.alcentrali/officer/core/Controllers/BaseController.php(30): App\Controllers\Setup->init()
+#5 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(891): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+#6 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(399): CodeIgniter\CodeIgniter->createController()
+#7 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /home/rizcky/git/project.alcentrali/officer/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2020-07-25 10:27:11 --> fopen(../sysconf/.fmkiddo): failed to open stream: No such file or directory
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'fopen(../syscon...', '/home/rizcky/gi...', 33, Array)
+#1 /home/rizcky/git/project.alcentrali/officer/core/Models/OfficerKeyModel.php(33): fopen('../sysconf/.fmk...', 'w+')
+#2 /home/rizcky/git/project.alcentrali/officer/core/Models/BaseModel.php(21): App\Models\OfficerKeyModel->init()
+#3 /home/rizcky/git/project.alcentrali/officer/core/Controllers/Setup.php(14): App\Models\BaseModel->__construct()
+#4 /home/rizcky/git/project.alcentrali/officer/core/Controllers/BaseController.php(30): App\Controllers\Setup->init()
+#5 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(891): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+#6 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(399): CodeIgniter\CodeIgniter->createController()
+#7 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /home/rizcky/git/project.alcentrali/officer/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2020-07-25 10:27:12 --> fopen(../sysconf/.fmkiddo): failed to open stream: No such file or directory
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'fopen(../syscon...', '/home/rizcky/gi...', 33, Array)
+#1 /home/rizcky/git/project.alcentrali/officer/core/Models/OfficerKeyModel.php(33): fopen('../sysconf/.fmk...', 'w+')
+#2 /home/rizcky/git/project.alcentrali/officer/core/Models/BaseModel.php(21): App\Models\OfficerKeyModel->init()
+#3 /home/rizcky/git/project.alcentrali/officer/core/Controllers/Setup.php(14): App\Models\BaseModel->__construct()
+#4 /home/rizcky/git/project.alcentrali/officer/core/Controllers/BaseController.php(30): App\Controllers\Setup->init()
+#5 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(891): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+#6 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(399): CodeIgniter\CodeIgniter->createController()
+#7 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /home/rizcky/git/project.alcentrali/officer/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2020-07-25 10:27:12 --> fopen(../sysconf/.fmkiddo): failed to open stream: No such file or directory
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'fopen(../syscon...', '/home/rizcky/gi...', 33, Array)
+#1 /home/rizcky/git/project.alcentrali/officer/core/Models/OfficerKeyModel.php(33): fopen('../sysconf/.fmk...', 'w+')
+#2 /home/rizcky/git/project.alcentrali/officer/core/Models/BaseModel.php(21): App\Models\OfficerKeyModel->init()
+#3 /home/rizcky/git/project.alcentrali/officer/core/Controllers/Setup.php(14): App\Models\BaseModel->__construct()
+#4 /home/rizcky/git/project.alcentrali/officer/core/Controllers/BaseController.php(30): App\Controllers\Setup->init()
+#5 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(891): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+#6 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(399): CodeIgniter\CodeIgniter->createController()
+#7 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /home/rizcky/git/project.alcentrali/officer/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2020-07-25 10:27:12 --> fopen(../sysconf/.fmkiddo): failed to open stream: No such file or directory
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'fopen(../syscon...', '/home/rizcky/gi...', 33, Array)
+#1 /home/rizcky/git/project.alcentrali/officer/core/Models/OfficerKeyModel.php(33): fopen('../sysconf/.fmk...', 'w+')
+#2 /home/rizcky/git/project.alcentrali/officer/core/Models/BaseModel.php(21): App\Models\OfficerKeyModel->init()
+#3 /home/rizcky/git/project.alcentrali/officer/core/Controllers/Setup.php(14): App\Models\BaseModel->__construct()
+#4 /home/rizcky/git/project.alcentrali/officer/core/Controllers/BaseController.php(30): App\Controllers\Setup->init()
+#5 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(891): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+#6 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(399): CodeIgniter\CodeIgniter->createController()
+#7 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /home/rizcky/git/project.alcentrali/officer/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2020-07-25 10:27:12 --> fopen(../sysconf/.fmkiddo): failed to open stream: No such file or directory
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'fopen(../syscon...', '/home/rizcky/gi...', 33, Array)
+#1 /home/rizcky/git/project.alcentrali/officer/core/Models/OfficerKeyModel.php(33): fopen('../sysconf/.fmk...', 'w+')
+#2 /home/rizcky/git/project.alcentrali/officer/core/Models/BaseModel.php(21): App\Models\OfficerKeyModel->init()
+#3 /home/rizcky/git/project.alcentrali/officer/core/Controllers/Setup.php(14): App\Models\BaseModel->__construct()
+#4 /home/rizcky/git/project.alcentrali/officer/core/Controllers/BaseController.php(30): App\Controllers\Setup->init()
+#5 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(891): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+#6 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(399): CodeIgniter\CodeIgniter->createController()
+#7 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /home/rizcky/git/project.alcentrali/officer/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2020-07-25 10:28:44 --> mkdir(): Permission denied
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'mkdir(): Permis...', '/home/rizcky/gi...', 28, Array)
+#1 /home/rizcky/git/project.alcentrali/officer/core/Models/OfficerKeyModel.php(28): mkdir('../sysconf', '0777', true)
+#2 /home/rizcky/git/project.alcentrali/officer/core/Models/BaseModel.php(21): App\Models\OfficerKeyModel->init()
+#3 /home/rizcky/git/project.alcentrali/officer/core/Controllers/Setup.php(14): App\Models\BaseModel->__construct()
+#4 /home/rizcky/git/project.alcentrali/officer/core/Controllers/BaseController.php(30): App\Controllers\Setup->init()
+#5 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(891): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+#6 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(399): CodeIgniter\CodeIgniter->createController()
+#7 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /home/rizcky/git/project.alcentrali/officer/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2020-07-25 10:30:05 --> mkdir(): Permission denied
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'mkdir(): Permis...', '/home/rizcky/gi...', 28, Array)
+#1 /home/rizcky/git/project.alcentrali/officer/core/Models/OfficerKeyModel.php(28): mkdir('../sysconf', '0777', true)
+#2 /home/rizcky/git/project.alcentrali/officer/core/Models/BaseModel.php(21): App\Models\OfficerKeyModel->init()
+#3 /home/rizcky/git/project.alcentrali/officer/core/Controllers/Setup.php(14): App\Models\BaseModel->__construct()
+#4 /home/rizcky/git/project.alcentrali/officer/core/Controllers/BaseController.php(30): App\Controllers\Setup->init()
+#5 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(891): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+#6 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(399): CodeIgniter\CodeIgniter->createController()
+#7 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /home/rizcky/git/project.alcentrali/officer/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2020-07-25 10:30:31 --> fopen(../sysconf/.fmkiddo): failed to open stream: Permission denied
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'fopen(../syscon...', '/home/rizcky/gi...', 33, Array)
+#1 /home/rizcky/git/project.alcentrali/officer/core/Models/OfficerKeyModel.php(33): fopen('../sysconf/.fmk...', 'w+')
+#2 /home/rizcky/git/project.alcentrali/officer/core/Models/BaseModel.php(21): App\Models\OfficerKeyModel->init()
+#3 /home/rizcky/git/project.alcentrali/officer/core/Controllers/Setup.php(14): App\Models\BaseModel->__construct()
+#4 /home/rizcky/git/project.alcentrali/officer/core/Controllers/BaseController.php(30): App\Controllers\Setup->init()
+#5 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(891): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+#6 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(399): CodeIgniter\CodeIgniter->createController()
+#7 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /home/rizcky/git/project.alcentrali/officer/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2020-07-25 11:06:44 --> syntax error, unexpected '}'
+#0 /home/rizcky/git/project.alcentrali/engine/Autoloader/Autoloader.php(296): CodeIgniter\Autoloader\Autoloader->requireFile('/home/rizcky/gi...')
+#1 /home/rizcky/git/project.alcentrali/engine/Autoloader/Autoloader.php(258): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Models\\Offi...')
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Models\\Offi...')
+#3 /home/rizcky/git/project.alcentrali/officer/core/Controllers/Setup.php(14): spl_autoload_call('App\\Models\\Offi...')
+#4 /home/rizcky/git/project.alcentrali/officer/core/Controllers/BaseController.php(30): App\Controllers\Setup->init()
+#5 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(891): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+#6 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(399): CodeIgniter\CodeIgniter->createController()
+#7 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /home/rizcky/git/project.alcentrali/officer/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2020-07-25 11:19:08 --> fopen(../config): failed to open stream: Is a directory
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'fopen(../config...', '/home/rizcky/gi...', 59, Array)
+#1 /home/rizcky/git/project.alcentrali/rest/core/Models/KeyModel.php(59): fopen('../config', 'r+w')
+#2 /home/rizcky/git/project.alcentrali/rest/core/Controllers/OfficerRequest.php(59): App\Models\KeyModel->saveOfficerKeyToFile(Array)
+#3 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\OfficerRequest->setup()
+#4 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\OfficerRequest))
+#5 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /home/rizcky/git/project.alcentrali/rest/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2020-07-25 11:19:08 --> 22 : The requested URL returned error: 500 Internal Server Error
+#0 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(821): CodeIgniter\HTTP\Exceptions\HTTPException::forCurlError('22', 'The requested U...')
+#1 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(449): CodeIgniter\HTTP\CURLRequest->sendRequest(Array)
+#2 /home/rizcky/git/project.alcentrali/officer/core/Models/OfficerKeyModel.php(68): CodeIgniter\HTTP\CURLRequest->send('put', 'http://localhos...')
+#3 /home/rizcky/git/project.alcentrali/officer/core/Controllers/Setup.php(30): App\Models\OfficerKeyModel->requestSubmitToken(Array)
+#4 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Setup->setup()
+#5 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Setup))
+#6 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /home/rizcky/git/project.alcentrali/officer/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2020-07-25 11:20:01 --> Undefined index: secureToken
+#0 /home/rizcky/git/project.alcentrali/rest/core/Models/TokenModel.php(27): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', '/home/rizcky/gi...', 27, Array)
+#1 /home/rizcky/git/project.alcentrali/rest/core/Controllers/OfficerRequest.php(55): App\Models\TokenModel->validateToken(Array)
+#2 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\OfficerRequest->setup()
+#3 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\OfficerRequest))
+#4 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 /home/rizcky/git/project.alcentrali/rest/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2020-07-25 11:20:24 --> Undefined index: username
+#0 /home/rizcky/git/project.alcentrali/rest/core/Models/KeyModel.php(51): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', '/home/rizcky/gi...', 51, Array)
+#1 /home/rizcky/git/project.alcentrali/rest/core/Controllers/OfficerRequest.php(59): App\Models\KeyModel->saveOfficerKeyToFile(Array)
+#2 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\OfficerRequest->setup()
+#3 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\OfficerRequest))
+#4 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 /home/rizcky/git/project.alcentrali/rest/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2020-07-25 11:21:25 --> Undefined index: generated-key
+#0 /home/rizcky/git/project.alcentrali/rest/core/Models/KeyModel.php(53): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', '/home/rizcky/gi...', 53, Array)
+#1 /home/rizcky/git/project.alcentrali/rest/core/Controllers/OfficerRequest.php(59): App\Models\KeyModel->saveOfficerKeyToFile(Array)
+#2 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\OfficerRequest->setup()
+#3 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\OfficerRequest))
+#4 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 /home/rizcky/git/project.alcentrali/rest/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2020-07-25 11:21:46 --> fopen(../config): failed to open stream: Is a directory
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'fopen(../config...', '/home/rizcky/gi...', 59, Array)
+#1 /home/rizcky/git/project.alcentrali/rest/core/Models/KeyModel.php(59): fopen('../config', 'r+w')
+#2 /home/rizcky/git/project.alcentrali/rest/core/Controllers/OfficerRequest.php(59): App\Models\KeyModel->saveOfficerKeyToFile(Array)
+#3 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\OfficerRequest->setup()
+#4 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\OfficerRequest))
+#5 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /home/rizcky/git/project.alcentrali/rest/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2020-07-25 11:22:13 --> fopen(../config): failed to open stream: Is a directory
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'fopen(../config...', '/home/rizcky/gi...', 59, Array)
+#1 /home/rizcky/git/project.alcentrali/rest/core/Models/KeyModel.php(59): fopen('../config', 'r+w')
+#2 /home/rizcky/git/project.alcentrali/rest/core/Controllers/OfficerRequest.php(59): App\Models\KeyModel->saveOfficerKeyToFile(Array)
+#3 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\OfficerRequest->setup()
+#4 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\OfficerRequest))
+#5 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /home/rizcky/git/project.alcentrali/rest/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2020-07-25 11:22:36 --> fopen(../config): failed to open stream: Is a directory
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'fopen(../config...', '/home/rizcky/gi...', 59, Array)
+#1 /home/rizcky/git/project.alcentrali/rest/core/Models/KeyModel.php(59): fopen('../config', 'r+w')
+#2 /home/rizcky/git/project.alcentrali/rest/core/Controllers/OfficerRequest.php(59): App\Models\KeyModel->saveOfficerKeyToFile(Array)
+#3 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\OfficerRequest->setup()
+#4 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\OfficerRequest))
+#5 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /home/rizcky/git/project.alcentrali/rest/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2020-07-25 11:23:11 --> fopen(../config/.fmkiddo.conf): failed to open stream: No such file or directory
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'fopen(../config...', '/home/rizcky/gi...', 59, Array)
+#1 /home/rizcky/git/project.alcentrali/rest/core/Models/KeyModel.php(59): fopen('../config/.fmki...', 'r+w')
+#2 /home/rizcky/git/project.alcentrali/rest/core/Controllers/OfficerRequest.php(59): App\Models\KeyModel->saveOfficerKeyToFile(Array)
+#3 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\OfficerRequest->setup()
+#4 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\OfficerRequest))
+#5 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /home/rizcky/git/project.alcentrali/rest/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2020-07-25 11:23:24 --> fopen(../config/.fmkiddo.conf): failed to open stream: No such file or directory
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'fopen(../config...', '/home/rizcky/gi...', 59, Array)
+#1 /home/rizcky/git/project.alcentrali/rest/core/Models/KeyModel.php(59): fopen('../config/.fmki...', 'r')
+#2 /home/rizcky/git/project.alcentrali/rest/core/Controllers/OfficerRequest.php(59): App\Models\KeyModel->saveOfficerKeyToFile(Array)
+#3 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\OfficerRequest->setup()
+#4 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\OfficerRequest))
+#5 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /home/rizcky/git/project.alcentrali/rest/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2020-07-25 11:29:13 --> fopen(../sysconf/.fmkiddo): failed to open stream: Permission denied
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'fopen(../syscon...', '/home/rizcky/gi...', 51, Array)
+#1 /home/rizcky/git/project.alcentrali/officer/core/Models/OfficerKeyModel.php(51): fopen('../sysconf/.fmk...', 'w')
+#2 /home/rizcky/git/project.alcentrali/officer/core/Models/BaseModel.php(21): App\Models\OfficerKeyModel->init()
+#3 /home/rizcky/git/project.alcentrali/officer/core/Controllers/Setup.php(14): App\Models\BaseModel->__construct()
+#4 /home/rizcky/git/project.alcentrali/officer/core/Controllers/BaseController.php(30): App\Controllers\Setup->init()
+#5 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(891): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+#6 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(399): CodeIgniter\CodeIgniter->createController()
+#7 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /home/rizcky/git/project.alcentrali/officer/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2020-07-25 11:34:09 --> fopen(../sysconf/.fmkiddo): failed to open stream: Permission denied
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'fopen(../syscon...', '/home/rizcky/gi...', 54, Array)
+#1 /home/rizcky/git/project.alcentrali/officer/core/Models/OfficerKeyModel.php(54): fopen('../sysconf/.fmk...', 'w')
+#2 /home/rizcky/git/project.alcentrali/officer/core/Models/BaseModel.php(21): App\Models\OfficerKeyModel->init()
+#3 /home/rizcky/git/project.alcentrali/officer/core/Controllers/Setup.php(14): App\Models\BaseModel->__construct()
+#4 /home/rizcky/git/project.alcentrali/officer/core/Controllers/BaseController.php(30): App\Controllers\Setup->init()
+#5 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(891): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+#6 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(399): CodeIgniter\CodeIgniter->createController()
+#7 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /home/rizcky/git/project.alcentrali/officer/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2020-07-25 11:35:45 --> Cannot use object of type CodeIgniter\HTTP\Response as array
+#0 /home/rizcky/git/project.alcentrali/officer/core/Controllers/Setup.php(30): App\Models\OfficerKeyModel->requestSubmitToken(Array)
+#1 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Setup->setup()
+#2 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Setup))
+#3 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /home/rizcky/git/project.alcentrali/officer/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2020-07-25 11:37:34 --> Cannot use object of type CodeIgniter\HTTP\Response as array
+#0 /home/rizcky/git/project.alcentrali/officer/core/Controllers/Setup.php(30): App\Models\OfficerKeyModel->requestSubmitToken(Array)
+#1 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Setup->setup()
+#2 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Setup))
+#3 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /home/rizcky/git/project.alcentrali/officer/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2020-07-25 12:08:59 --> mkdir(): Permission denied
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'mkdir(): Permis...', '/home/rizcky/gi...', 47, Array)
+#1 /home/rizcky/git/project.alcentrali/officer/core/Models/OfficerKeyModel.php(47): mkdir('../sysconf', '0755', true)
+#2 /home/rizcky/git/project.alcentrali/officer/core/Models/BaseModel.php(21): App\Models\OfficerKeyModel->init()
+#3 /home/rizcky/git/project.alcentrali/officer/core/Controllers/Setup.php(14): App\Models\BaseModel->__construct()
+#4 /home/rizcky/git/project.alcentrali/officer/core/Controllers/BaseController.php(30): App\Controllers\Setup->init()
+#5 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(891): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+#6 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(399): CodeIgniter\CodeIgniter->createController()
+#7 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /home/rizcky/git/project.alcentrali/officer/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2020-07-25 12:09:55 --> mkdir(): Permission denied
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'mkdir(): Permis...', '/home/rizcky/gi...', 46, Array)
+#1 /home/rizcky/git/project.alcentrali/officer/core/Models/OfficerKeyModel.php(46): mkdir('../sysconf', '0755', true)
+#2 /home/rizcky/git/project.alcentrali/officer/core/Models/BaseModel.php(21): App\Models\OfficerKeyModel->init()
+#3 /home/rizcky/git/project.alcentrali/officer/core/Controllers/Setup.php(14): App\Models\BaseModel->__construct()
+#4 /home/rizcky/git/project.alcentrali/officer/core/Controllers/BaseController.php(30): App\Controllers\Setup->init()
+#5 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(891): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+#6 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(399): CodeIgniter\CodeIgniter->createController()
+#7 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /home/rizcky/git/project.alcentrali/officer/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#9 {main}

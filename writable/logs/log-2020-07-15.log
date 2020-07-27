@@ -1,0 +1,193 @@
+CRITICAL - 2020-07-15 14:52:33 --> Call to undefined method App\Controllers\Dashboard::respond()
+#0 /home/rizcky/git/project.asman/engine/CodeIgniter.php(860): App\Controllers\Dashboard->services()
+#1 /home/rizcky/git/project.asman/engine/CodeIgniter.php(381): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#2 /home/rizcky/git/project.asman/engine/CodeIgniter.php(297): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /home/rizcky/git/project.asman/server/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2020-07-15 14:53:32 --> json_decode() expects parameter 1 to be string, array given
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'json_decode() e...', '/home/rizcky/gi...', 110, Array)
+#1 /home/rizcky/git/project.asman/server/core/Controllers/Dashboard.php(110): json_decode(Array)
+#2 /home/rizcky/git/project.asman/engine/CodeIgniter.php(860): App\Controllers\Dashboard->services()
+#3 /home/rizcky/git/project.asman/engine/CodeIgniter.php(381): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#4 /home/rizcky/git/project.asman/engine/CodeIgniter.php(297): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 /home/rizcky/git/project.asman/server/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2020-07-15 15:10:23 --> json_decode() expects parameter 1 to be string, array given
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'json_decode() e...', '/home/rizcky/gi...', 122, Array)
+#1 /home/rizcky/git/project.asman/server/core/Controllers/Dashboard.php(122): json_decode(Array)
+#2 /home/rizcky/git/project.asman/engine/CodeIgniter.php(860): App\Controllers\Dashboard->services()
+#3 /home/rizcky/git/project.asman/engine/CodeIgniter.php(381): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#4 /home/rizcky/git/project.asman/engine/CodeIgniter.php(297): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 /home/rizcky/git/project.asman/server/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2020-07-15 16:04:08 --> Class 'App\Entities\ClientInfo' not found
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2020-07-15 16:04:08 --> 22 : The requested URL returned error: 500 Internal Server Error
+#0 /home/rizcky/git/project.asman/engine/HTTP/CURLRequest.php(761): CodeIgniter\HTTP\Exceptions\HTTPException::forCurlError('22', 'The requested U...')
+#1 /home/rizcky/git/project.asman/engine/HTTP/CURLRequest.php(441): CodeIgniter\HTTP\CURLRequest->sendRequest(Array)
+#2 /home/rizcky/git/project.asman/engine/HTTP/CURLRequest.php(157): CodeIgniter\HTTP\CURLRequest->send('put', 'http://localhos...')
+#3 /home/rizcky/git/project.asman/engine/HTTP/CURLRequest.php(264): CodeIgniter\HTTP\CURLRequest->request('put', 'http://localhos...', Array)
+#4 /home/rizcky/git/project.asman/server/core/Controllers/Dashboard.php(140): CodeIgniter\HTTP\CURLRequest->put('http://localhos...', Array)
+#5 /home/rizcky/git/project.asman/engine/CodeIgniter.php(860): App\Controllers\Dashboard->services()
+#6 /home/rizcky/git/project.asman/engine/CodeIgniter.php(381): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#7 /home/rizcky/git/project.asman/engine/CodeIgniter.php(297): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /home/rizcky/git/project.asman/server/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2020-07-15 16:04:19 --> Class 'App\Entities\ClientInfo' not found
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2020-07-15 16:04:19 --> 22 : The requested URL returned error: 500 Internal Server Error
+#0 /home/rizcky/git/project.asman/engine/HTTP/CURLRequest.php(761): CodeIgniter\HTTP\Exceptions\HTTPException::forCurlError('22', 'The requested U...')
+#1 /home/rizcky/git/project.asman/engine/HTTP/CURLRequest.php(441): CodeIgniter\HTTP\CURLRequest->sendRequest(Array)
+#2 /home/rizcky/git/project.asman/engine/HTTP/CURLRequest.php(157): CodeIgniter\HTTP\CURLRequest->send('put', 'http://localhos...')
+#3 /home/rizcky/git/project.asman/engine/HTTP/CURLRequest.php(264): CodeIgniter\HTTP\CURLRequest->request('put', 'http://localhos...', Array)
+#4 /home/rizcky/git/project.asman/server/core/Controllers/Dashboard.php(140): CodeIgniter\HTTP\CURLRequest->put('http://localhos...', Array)
+#5 /home/rizcky/git/project.asman/engine/CodeIgniter.php(860): App\Controllers\Dashboard->services()
+#6 /home/rizcky/git/project.asman/engine/CodeIgniter.php(381): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#7 /home/rizcky/git/project.asman/engine/CodeIgniter.php(297): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /home/rizcky/git/project.asman/server/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2020-07-15 16:05:09 --> Class 'App\Entities\ClientInfo' not found
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2020-07-15 16:05:09 --> 22 : The requested URL returned error: 500 Internal Server Error
+#0 /home/rizcky/git/project.asman/engine/HTTP/CURLRequest.php(761): CodeIgniter\HTTP\Exceptions\HTTPException::forCurlError('22', 'The requested U...')
+#1 /home/rizcky/git/project.asman/engine/HTTP/CURLRequest.php(441): CodeIgniter\HTTP\CURLRequest->sendRequest(Array)
+#2 /home/rizcky/git/project.asman/engine/HTTP/CURLRequest.php(157): CodeIgniter\HTTP\CURLRequest->send('put', 'http://localhos...')
+#3 /home/rizcky/git/project.asman/engine/HTTP/CURLRequest.php(264): CodeIgniter\HTTP\CURLRequest->request('put', 'http://localhos...', Array)
+#4 /home/rizcky/git/project.asman/server/core/Controllers/Dashboard.php(140): CodeIgniter\HTTP\CURLRequest->put('http://localhos...', Array)
+#5 /home/rizcky/git/project.asman/engine/CodeIgniter.php(860): App\Controllers\Dashboard->services()
+#6 /home/rizcky/git/project.asman/engine/CodeIgniter.php(381): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#7 /home/rizcky/git/project.asman/engine/CodeIgniter.php(297): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /home/rizcky/git/project.asman/server/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2020-07-15 16:05:19 --> Class 'App\Entities\ClientInfo' not found
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2020-07-15 16:05:19 --> 22 : The requested URL returned error: 500 Internal Server Error
+#0 /home/rizcky/git/project.asman/engine/HTTP/CURLRequest.php(761): CodeIgniter\HTTP\Exceptions\HTTPException::forCurlError('22', 'The requested U...')
+#1 /home/rizcky/git/project.asman/engine/HTTP/CURLRequest.php(441): CodeIgniter\HTTP\CURLRequest->sendRequest(Array)
+#2 /home/rizcky/git/project.asman/engine/HTTP/CURLRequest.php(157): CodeIgniter\HTTP\CURLRequest->send('put', 'http://localhos...')
+#3 /home/rizcky/git/project.asman/engine/HTTP/CURLRequest.php(264): CodeIgniter\HTTP\CURLRequest->request('put', 'http://localhos...', Array)
+#4 /home/rizcky/git/project.asman/server/core/Controllers/Dashboard.php(140): CodeIgniter\HTTP\CURLRequest->put('http://localhos...', Array)
+#5 /home/rizcky/git/project.asman/engine/CodeIgniter.php(860): App\Controllers\Dashboard->services()
+#6 /home/rizcky/git/project.asman/engine/CodeIgniter.php(381): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#7 /home/rizcky/git/project.asman/engine/CodeIgniter.php(297): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /home/rizcky/git/project.asman/server/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2020-07-15 16:06:36 --> Class 'App\Entities\ClientInfo' not found
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2020-07-15 16:06:36 --> 22 : The requested URL returned error: 500 Internal Server Error
+#0 /home/rizcky/git/project.asman/engine/HTTP/CURLRequest.php(761): CodeIgniter\HTTP\Exceptions\HTTPException::forCurlError('22', 'The requested U...')
+#1 /home/rizcky/git/project.asman/engine/HTTP/CURLRequest.php(441): CodeIgniter\HTTP\CURLRequest->sendRequest(Array)
+#2 /home/rizcky/git/project.asman/engine/HTTP/CURLRequest.php(157): CodeIgniter\HTTP\CURLRequest->send('put', 'http://localhos...')
+#3 /home/rizcky/git/project.asman/engine/HTTP/CURLRequest.php(264): CodeIgniter\HTTP\CURLRequest->request('put', 'http://localhos...', Array)
+#4 /home/rizcky/git/project.asman/server/core/Controllers/Dashboard.php(140): CodeIgniter\HTTP\CURLRequest->put('http://localhos...', Array)
+#5 /home/rizcky/git/project.asman/engine/CodeIgniter.php(860): App\Controllers\Dashboard->services()
+#6 /home/rizcky/git/project.asman/engine/CodeIgniter.php(381): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#7 /home/rizcky/git/project.asman/engine/CodeIgniter.php(297): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /home/rizcky/git/project.asman/server/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2020-07-15 16:07:49 --> Class 'App\Entities\ClientInfo' not found
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2020-07-15 16:07:49 --> 22 : The requested URL returned error: 500 Internal Server Error
+#0 /home/rizcky/git/project.asman/engine/HTTP/CURLRequest.php(761): CodeIgniter\HTTP\Exceptions\HTTPException::forCurlError('22', 'The requested U...')
+#1 /home/rizcky/git/project.asman/engine/HTTP/CURLRequest.php(441): CodeIgniter\HTTP\CURLRequest->sendRequest(Array)
+#2 /home/rizcky/git/project.asman/engine/HTTP/CURLRequest.php(157): CodeIgniter\HTTP\CURLRequest->send('put', 'http://localhos...')
+#3 /home/rizcky/git/project.asman/engine/HTTP/CURLRequest.php(264): CodeIgniter\HTTP\CURLRequest->request('put', 'http://localhos...', Array)
+#4 /home/rizcky/git/project.asman/server/core/Controllers/Dashboard.php(140): CodeIgniter\HTTP\CURLRequest->put('http://localhos...', Array)
+#5 /home/rizcky/git/project.asman/engine/CodeIgniter.php(860): App\Controllers\Dashboard->services()
+#6 /home/rizcky/git/project.asman/engine/CodeIgniter.php(381): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#7 /home/rizcky/git/project.asman/engine/CodeIgniter.php(297): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /home/rizcky/git/project.asman/server/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2020-07-15 16:08:43 --> count(): Parameter must be an array or an object that implements Countable
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'count(): Parame...', '/home/rizcky/gi...', 136, Array)
+#1 /home/rizcky/git/project.asman/server/core/Controllers/ServerRequest.php(136): count(NULL)
+#2 /home/rizcky/git/project.asman/engine/CodeIgniter.php(860): App\Controllers\ServerRequest->index()
+#3 /home/rizcky/git/project.asman/engine/CodeIgniter.php(381): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ServerRequest))
+#4 /home/rizcky/git/project.asman/engine/CodeIgniter.php(297): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 /home/rizcky/git/project.asman/server/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2020-07-15 16:08:43 --> 22 : The requested URL returned error: 500 Internal Server Error
+#0 /home/rizcky/git/project.asman/engine/HTTP/CURLRequest.php(761): CodeIgniter\HTTP\Exceptions\HTTPException::forCurlError('22', 'The requested U...')
+#1 /home/rizcky/git/project.asman/engine/HTTP/CURLRequest.php(441): CodeIgniter\HTTP\CURLRequest->sendRequest(Array)
+#2 /home/rizcky/git/project.asman/engine/HTTP/CURLRequest.php(157): CodeIgniter\HTTP\CURLRequest->send('put', 'http://localhos...')
+#3 /home/rizcky/git/project.asman/engine/HTTP/CURLRequest.php(264): CodeIgniter\HTTP\CURLRequest->request('put', 'http://localhos...', Array)
+#4 /home/rizcky/git/project.asman/server/core/Controllers/Dashboard.php(140): CodeIgniter\HTTP\CURLRequest->put('http://localhos...', Array)
+#5 /home/rizcky/git/project.asman/engine/CodeIgniter.php(860): App\Controllers\Dashboard->services()
+#6 /home/rizcky/git/project.asman/engine/CodeIgniter.php(381): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#7 /home/rizcky/git/project.asman/engine/CodeIgniter.php(297): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /home/rizcky/git/project.asman/server/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2020-07-15 16:12:38 --> Cannot pass parameter 2 by reference
+#0 /home/rizcky/git/project.asman/server/core/Controllers/ServerRequest.php(142): App\Models\ClientKeyModel->generateNewClientKey('PTJODAMO2015')
+#1 /home/rizcky/git/project.asman/engine/CodeIgniter.php(860): App\Controllers\ServerRequest->index()
+#2 /home/rizcky/git/project.asman/engine/CodeIgniter.php(381): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ServerRequest))
+#3 /home/rizcky/git/project.asman/engine/CodeIgniter.php(297): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /home/rizcky/git/project.asman/server/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2020-07-15 16:12:38 --> 22 : The requested URL returned error: 500 Internal Server Error
+#0 /home/rizcky/git/project.asman/engine/HTTP/CURLRequest.php(761): CodeIgniter\HTTP\Exceptions\HTTPException::forCurlError('22', 'The requested U...')
+#1 /home/rizcky/git/project.asman/engine/HTTP/CURLRequest.php(441): CodeIgniter\HTTP\CURLRequest->sendRequest(Array)
+#2 /home/rizcky/git/project.asman/engine/HTTP/CURLRequest.php(157): CodeIgniter\HTTP\CURLRequest->send('put', 'http://localhos...')
+#3 /home/rizcky/git/project.asman/engine/HTTP/CURLRequest.php(264): CodeIgniter\HTTP\CURLRequest->request('put', 'http://localhos...', Array)
+#4 /home/rizcky/git/project.asman/server/core/Controllers/Dashboard.php(140): CodeIgniter\HTTP\CURLRequest->put('http://localhos...', Array)
+#5 /home/rizcky/git/project.asman/engine/CodeIgniter.php(860): App\Controllers\Dashboard->services()
+#6 /home/rizcky/git/project.asman/engine/CodeIgniter.php(381): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#7 /home/rizcky/git/project.asman/engine/CodeIgniter.php(297): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /home/rizcky/git/project.asman/server/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2020-07-15 19:10:14 --> Cannot use object of type CodeIgniter\HTTP\Response as array
+#0 /home/rizcky/git/project.asman/engine/CodeIgniter.php(860): App\Controllers\Dashboard->index()
+#1 /home/rizcky/git/project.asman/engine/CodeIgniter.php(381): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#2 /home/rizcky/git/project.asman/engine/CodeIgniter.php(297): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /home/rizcky/git/project.asman/server/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2020-07-15 19:11:28 --> Cannot use object of type CodeIgniter\HTTP\Response as array
+#0 /home/rizcky/git/project.asman/engine/CodeIgniter.php(860): App\Controllers\Dashboard->index()
+#1 /home/rizcky/git/project.asman/engine/CodeIgniter.php(381): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#2 /home/rizcky/git/project.asman/engine/CodeIgniter.php(297): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /home/rizcky/git/project.asman/server/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2020-07-15 19:11:43 --> Cannot use object of type CodeIgniter\HTTP\Response as array
+#0 /home/rizcky/git/project.asman/engine/CodeIgniter.php(860): App\Controllers\Dashboard->index()
+#1 /home/rizcky/git/project.asman/engine/CodeIgniter.php(381): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#2 /home/rizcky/git/project.asman/engine/CodeIgniter.php(297): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /home/rizcky/git/project.asman/server/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2020-07-15 19:12:05 --> Cannot use object of type CodeIgniter\HTTP\Response as array
+#0 /home/rizcky/git/project.asman/engine/CodeIgniter.php(860): App\Controllers\Dashboard->index()
+#1 /home/rizcky/git/project.asman/engine/CodeIgniter.php(381): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#2 /home/rizcky/git/project.asman/engine/CodeIgniter.php(297): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /home/rizcky/git/project.asman/server/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2020-07-15 19:18:12 --> json_decode() expects parameter 1 to be string, object given
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'json_decode() e...', '/home/rizcky/gi...', 67, Array)
+#1 /home/rizcky/git/project.asman/server/core/Controllers/Dashboard.php(67): json_decode(Object(CodeIgniter\HTTP\Response), true)
+#2 /home/rizcky/git/project.asman/engine/CodeIgniter.php(860): App\Controllers\Dashboard->index()
+#3 /home/rizcky/git/project.asman/engine/CodeIgniter.php(381): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#4 /home/rizcky/git/project.asman/engine/CodeIgniter.php(297): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 /home/rizcky/git/project.asman/server/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2020-07-15 19:21:10 --> Undefined index: status
+#0 /home/rizcky/git/project.asman/server/core/Controllers/Dashboard.php(68): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', '/home/rizcky/gi...', 68, Array)
+#1 /home/rizcky/git/project.asman/engine/CodeIgniter.php(860): App\Controllers\Dashboard->index()
+#2 /home/rizcky/git/project.asman/engine/CodeIgniter.php(381): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#3 /home/rizcky/git/project.asman/engine/CodeIgniter.php(297): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /home/rizcky/git/project.asman/server/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2020-07-15 19:54:05 --> 22 : The requested URL returned error: 404 Not Found
+#0 /home/rizcky/git/project.asman/engine/HTTP/CURLRequest.php(761): CodeIgniter\HTTP\Exceptions\HTTPException::forCurlError('22', 'The requested U...')
+#1 /home/rizcky/git/project.asman/engine/HTTP/CURLRequest.php(441): CodeIgniter\HTTP\CURLRequest->sendRequest(Array)
+#2 /home/rizcky/git/project.asman/engine/HTTP/CURLRequest.php(157): CodeIgniter\HTTP\CURLRequest->send('put', 'http://localhos...')
+#3 /home/rizcky/git/project.asman/engine/HTTP/CURLRequest.php(264): CodeIgniter\HTTP\CURLRequest->request('put', 'http://localhos...', Array)
+#4 /home/rizcky/git/project.asman/server/core/Controllers/Dashboard.php(67): CodeIgniter\HTTP\CURLRequest->put('http://localhos...', Array)
+#5 /home/rizcky/git/project.asman/engine/CodeIgniter.php(860): App\Controllers\Dashboard->index()
+#6 /home/rizcky/git/project.asman/engine/CodeIgniter.php(381): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#7 /home/rizcky/git/project.asman/engine/CodeIgniter.php(297): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /home/rizcky/git/project.asman/server/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#9 {main}
