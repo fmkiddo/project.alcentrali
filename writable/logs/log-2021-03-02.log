@@ -1,0 +1,221 @@
+CRITICAL - 2021-03-02 00:29:29 --> Undefined index: input-username
+#0 /home/rizcky/git/project.alcentrali/server/syscore/Controllers/OfficerRequest.php(37): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', '/home/rizcky/gi...', 37, Array)
+#1 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\OfficerRequest->officerValidation()
+#2 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\OfficerRequest))
+#3 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /home/rizcky/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-03-02 00:29:40 --> Undefined index: input-username
+#0 /home/rizcky/git/project.alcentrali/server/syscore/Controllers/OfficerRequest.php(37): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', '/home/rizcky/gi...', 37, Array)
+#1 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\OfficerRequest->officerValidation()
+#2 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\OfficerRequest))
+#3 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /home/rizcky/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-03-02 00:29:40 --> 22 : The requested URL returned error: 500 Internal Server Error
+#0 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(821): CodeIgniter\HTTP\Exceptions\HTTPException::forCurlError('22', 'The requested U...')
+#1 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(449): CodeIgniter\HTTP\CURLRequest->sendRequest(Array)
+#2 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(158): CodeIgniter\HTTP\CURLRequest->send('put', 'http://localhos...')
+#3 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(265): CodeIgniter\HTTP\CURLRequest->request('put', 'http://localhos...', Array)
+#4 /home/rizcky/git/project.alcentrali/officer/appcore/Controllers/Officer.php(56): CodeIgniter\HTTP\CURLRequest->put('http://localhos...', Array)
+#5 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Officer->do('process-login')
+#6 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Officer))
+#7 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /home/rizcky/git/project.alcentrali/officer/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2021-03-02 00:30:32 --> Undefined index: input-username
+#0 /home/rizcky/git/project.alcentrali/server/syscore/Controllers/OfficerRequest.php(37): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', '/home/rizcky/gi...', 37, Array)
+#1 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\OfficerRequest->officerValidation()
+#2 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\OfficerRequest))
+#3 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /home/rizcky/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-03-02 00:34:36 --> Undefined variable: session
+#0 /home/rizcky/git/project.alcentrali/server/syscore/Controllers/OfficerRequest.php(54): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', '/home/rizcky/gi...', 54, Array)
+#1 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\OfficerRequest->officerValidation()
+#2 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\OfficerRequest))
+#3 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /home/rizcky/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-03-02 00:34:36 --> 22 : The requested URL returned error: 500 Internal Server Error
+#0 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(821): CodeIgniter\HTTP\Exceptions\HTTPException::forCurlError('22', 'The requested U...')
+#1 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(449): CodeIgniter\HTTP\CURLRequest->sendRequest(Array)
+#2 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(158): CodeIgniter\HTTP\CURLRequest->send('put', 'http://localhos...')
+#3 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(265): CodeIgniter\HTTP\CURLRequest->request('put', 'http://localhos...', Array)
+#4 /home/rizcky/git/project.alcentrali/officer/appcore/Controllers/Officer.php(57): CodeIgniter\HTTP\CURLRequest->put('http://localhos...', Array)
+#5 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Officer->do('process-login')
+#6 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Officer))
+#7 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /home/rizcky/git/project.alcentrali/officer/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2021-03-02 01:00:52 --> Class 'App\Entities\Obfuscator' not found
+#0 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(891): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+#1 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(399): CodeIgniter\CodeIgniter->createController()
+#2 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /home/rizcky/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2021-03-02 01:06:20 --> Undefined index: server-token
+#0 /home/rizcky/git/project.alcentrali/server/syscore/Controllers/Tools.php(57): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', '/home/rizcky/gi...', 57, Array)
+#1 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Tools->generator()
+#2 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Tools))
+#3 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /home/rizcky/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-03-02 02:17:32 --> Call to undefined method App\Models\KeyGenModel::invalidatedToken
+#0 /home/rizcky/git/project.alcentrali/server/syscore/Controllers/Tools.php(82): CodeIgniter\Model->__call('invalidatedToke...', Array)
+#1 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Tools->generator()
+#2 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Tools))
+#3 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /home/rizcky/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-03-02 19:23:08 --> unlink(/home/rizcky/git/project.alcentrali/writable/debugbar/debugbar_1614670604.json): No such file or directory
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'unlink(/home/ri...', '/home/rizcky/gi...', 106, Array)
+#1 /home/rizcky/git/project.alcentrali/engine/Debug/Toolbar/Collectors/History.php(106): unlink('/home/rizcky/gi...')
+#2 /home/rizcky/git/project.alcentrali/engine/Debug/Toolbar.php(483): CodeIgniter\Debug\Toolbar\Collectors\History->setFiles(1614734586, 20)
+#3 /home/rizcky/git/project.alcentrali/engine/Debug/Toolbar.php(455): CodeIgniter\Debug\Toolbar->format(Array, 'html')
+#4 /home/rizcky/git/project.alcentrali/officer/appcore/Config/Events.php(50): CodeIgniter\Debug\Toolbar->respond()
+#5 [internal function]: CodeIgniter\Events\Events::Config\{closure}()
+#6 /home/rizcky/git/project.alcentrali/engine/Events/Events.php(188): call_user_func(Object(Closure))
+#7 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(293): CodeIgniter\Events\Events::trigger('pre_system')
+#8 /home/rizcky/git/project.alcentrali/officer/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2021-03-02 20:43:22 --> Invalid file: .php
+#0 /home/rizcky/git/project.alcentrali/engine/View/View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('.php')
+#1 /home/rizcky/git/project.alcentrali/engine/Common.php(1119): CodeIgniter\View\View->render('', Array, true)
+#2 /home/rizcky/git/project.alcentrali/officer/appcore/Controllers/Starter.php(41): view('', Array)
+#3 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Starter->setup()
+#4 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Starter))
+#5 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /home/rizcky/git/project.alcentrali/officer/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2021-03-02 20:52:22 --> Undefined variable: post
+#0 /home/rizcky/git/project.alcentrali/officer/appcore/Controllers/Starter.php(44): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', '/home/rizcky/gi...', 44, Array)
+#1 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Starter->setup()
+#2 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Starter))
+#3 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /home/rizcky/git/project.alcentrali/officer/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-03-02 20:53:50 --> Invalid file: .php
+#0 /home/rizcky/git/project.alcentrali/engine/View/View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('.php')
+#1 /home/rizcky/git/project.alcentrali/engine/Common.php(1119): CodeIgniter\View\View->render('', Array, true)
+#2 /home/rizcky/git/project.alcentrali/officer/appcore/Controllers/Starter.php(41): view('', Array)
+#3 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Starter->setup()
+#4 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Starter))
+#5 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /home/rizcky/git/project.alcentrali/officer/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2021-03-02 21:00:59 --> Undefined variable: session
+#0 /home/rizcky/git/project.alcentrali/server/syscore/Controllers/OfficerRequest.php(54): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', '/home/rizcky/gi...', 54, Array)
+#1 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\OfficerRequest->officerValidation()
+#2 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\OfficerRequest))
+#3 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /home/rizcky/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-03-02 21:00:59 --> 22 : The requested URL returned error: 500 Internal Server Error
+#0 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(821): CodeIgniter\HTTP\Exceptions\HTTPException::forCurlError('22', 'The requested U...')
+#1 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(449): CodeIgniter\HTTP\CURLRequest->sendRequest(Array)
+#2 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(158): CodeIgniter\HTTP\CURLRequest->send('put', 'http://localhos...')
+#3 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(265): CodeIgniter\HTTP\CURLRequest->request('put', 'http://localhos...', Array)
+#4 /home/rizcky/git/project.alcentrali/officer/appcore/Controllers/Officer.php(56): CodeIgniter\HTTP\CURLRequest->put('http://localhos...', Array)
+#5 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Officer->do('process-login')
+#6 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Officer))
+#7 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /home/rizcky/git/project.alcentrali/officer/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2021-03-02 21:02:39 --> Undefined variable: session
+#0 /home/rizcky/git/project.alcentrali/server/syscore/Controllers/OfficerRequest.php(54): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', '/home/rizcky/gi...', 54, Array)
+#1 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\OfficerRequest->officerValidation()
+#2 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\OfficerRequest))
+#3 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /home/rizcky/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-03-02 21:02:39 --> 22 : The requested URL returned error: 500 Internal Server Error
+#0 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(821): CodeIgniter\HTTP\Exceptions\HTTPException::forCurlError('22', 'The requested U...')
+#1 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(449): CodeIgniter\HTTP\CURLRequest->sendRequest(Array)
+#2 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(158): CodeIgniter\HTTP\CURLRequest->send('put', 'http://localhos...')
+#3 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(265): CodeIgniter\HTTP\CURLRequest->request('put', 'http://localhos...', Array)
+#4 /home/rizcky/git/project.alcentrali/officer/appcore/Controllers/Officer.php(56): CodeIgniter\HTTP\CURLRequest->put('http://localhos...', Array)
+#5 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Officer->do('process-login')
+#6 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Officer))
+#7 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /home/rizcky/git/project.alcentrali/officer/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2021-03-02 21:06:36 --> Undefined variable: session
+#0 /home/rizcky/git/project.alcentrali/server/syscore/Controllers/OfficerRequest.php(54): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', '/home/rizcky/gi...', 54, Array)
+#1 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\OfficerRequest->officerValidation()
+#2 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\OfficerRequest))
+#3 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /home/rizcky/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-03-02 21:06:36 --> 22 : The requested URL returned error: 500 Internal Server Error
+#0 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(821): CodeIgniter\HTTP\Exceptions\HTTPException::forCurlError('22', 'The requested U...')
+#1 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(449): CodeIgniter\HTTP\CURLRequest->sendRequest(Array)
+#2 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(158): CodeIgniter\HTTP\CURLRequest->send('put', 'http://localhos...')
+#3 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(265): CodeIgniter\HTTP\CURLRequest->request('put', 'http://localhos...', Array)
+#4 /home/rizcky/git/project.alcentrali/officer/appcore/Controllers/Officer.php(56): CodeIgniter\HTTP\CURLRequest->put('http://localhos...', Array)
+#5 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Officer->do('process-login')
+#6 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Officer))
+#7 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /home/rizcky/git/project.alcentrali/officer/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2021-03-02 21:13:02 --> Undefined variable: session
+#0 /home/rizcky/git/project.alcentrali/server/syscore/Controllers/OfficerRequest.php(54): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', '/home/rizcky/gi...', 54, Array)
+#1 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\OfficerRequest->officerValidation()
+#2 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\OfficerRequest))
+#3 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /home/rizcky/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-03-02 21:13:02 --> 22 : The requested URL returned error: 500 Internal Server Error
+#0 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(821): CodeIgniter\HTTP\Exceptions\HTTPException::forCurlError('22', 'The requested U...')
+#1 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(449): CodeIgniter\HTTP\CURLRequest->sendRequest(Array)
+#2 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(158): CodeIgniter\HTTP\CURLRequest->send('put', 'http://localhos...')
+#3 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(265): CodeIgniter\HTTP\CURLRequest->request('put', 'http://localhos...', Array)
+#4 /home/rizcky/git/project.alcentrali/officer/appcore/Controllers/Officer.php(60): CodeIgniter\HTTP\CURLRequest->put('http://localhos...', Array)
+#5 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Officer->do('process-login')
+#6 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Officer))
+#7 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /home/rizcky/git/project.alcentrali/officer/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2021-03-02 21:13:16 --> Undefined variable: session
+#0 /home/rizcky/git/project.alcentrali/server/syscore/Controllers/OfficerRequest.php(54): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', '/home/rizcky/gi...', 54, Array)
+#1 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\OfficerRequest->officerValidation()
+#2 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\OfficerRequest))
+#3 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /home/rizcky/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-03-02 21:13:16 --> 22 : The requested URL returned error: 500 Internal Server Error
+#0 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(821): CodeIgniter\HTTP\Exceptions\HTTPException::forCurlError('22', 'The requested U...')
+#1 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(449): CodeIgniter\HTTP\CURLRequest->sendRequest(Array)
+#2 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(158): CodeIgniter\HTTP\CURLRequest->send('put', 'http://localhos...')
+#3 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(265): CodeIgniter\HTTP\CURLRequest->request('put', 'http://localhos...', Array)
+#4 /home/rizcky/git/project.alcentrali/officer/appcore/Controllers/Officer.php(60): CodeIgniter\HTTP\CURLRequest->put('http://localhos...', Array)
+#5 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Officer->do('process-login')
+#6 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Officer))
+#7 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /home/rizcky/git/project.alcentrali/officer/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2021-03-02 21:13:20 --> Undefined variable: session
+#0 /home/rizcky/git/project.alcentrali/server/syscore/Controllers/OfficerRequest.php(54): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', '/home/rizcky/gi...', 54, Array)
+#1 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\OfficerRequest->officerValidation()
+#2 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\OfficerRequest))
+#3 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /home/rizcky/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-03-02 21:13:20 --> 22 : The requested URL returned error: 500 Internal Server Error
+#0 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(821): CodeIgniter\HTTP\Exceptions\HTTPException::forCurlError('22', 'The requested U...')
+#1 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(449): CodeIgniter\HTTP\CURLRequest->sendRequest(Array)
+#2 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(158): CodeIgniter\HTTP\CURLRequest->send('put', 'http://localhos...')
+#3 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(265): CodeIgniter\HTTP\CURLRequest->request('put', 'http://localhos...', Array)
+#4 /home/rizcky/git/project.alcentrali/officer/appcore/Controllers/Officer.php(60): CodeIgniter\HTTP\CURLRequest->put('http://localhos...', Array)
+#5 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Officer->do('process-login')
+#6 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Officer))
+#7 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /home/rizcky/git/project.alcentrali/officer/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2021-03-02 21:14:15 --> Undefined index: status
+#0 /home/rizcky/git/project.alcentrali/officer/appcore/Controllers/Officer.php(62): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', '/home/rizcky/gi...', 62, Array)
+#1 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Officer->do('process-login')
+#2 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Officer))
+#3 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /home/rizcky/git/project.alcentrali/officer/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}

@@ -1,0 +1,44 @@
+CRITICAL - 2021-03-16 03:25:52 --> Array to string conversion
+#0 /home/rizcky/git/project.alcentrali/officer/appcore/Views/officer/dashboard/footer.php(13): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Array to string...', '/home/rizcky/gi...', 13, Array)
+#1 /home/rizcky/git/project.alcentrali/officer/appcore/Views/officer/dashboard/welcome.php(5): include('/home/rizcky/gi...')
+#2 /home/rizcky/git/project.alcentrali/engine/View/View.php(246): include('/home/rizcky/gi...')
+#3 /home/rizcky/git/project.alcentrali/engine/Common.php(1119): CodeIgniter\View\View->render('officer/dashboa...', Array, true)
+#4 /home/rizcky/git/project.alcentrali/officer/appcore/Controllers/Officer.php(57): view('officer/dashboa...', Array)
+#5 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Officer->dashboard('welcome')
+#6 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Officer))
+#7 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /home/rizcky/git/project.alcentrali/officer/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2021-03-16 03:25:56 --> Array to string conversion
+#0 /home/rizcky/git/project.alcentrali/officer/appcore/Views/officer/dashboard/footer.php(13): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Array to string...', '/home/rizcky/gi...', 13, Array)
+#1 /home/rizcky/git/project.alcentrali/officer/appcore/Views/officer/dashboard/welcome.php(5): include('/home/rizcky/gi...')
+#2 /home/rizcky/git/project.alcentrali/engine/View/View.php(246): include('/home/rizcky/gi...')
+#3 /home/rizcky/git/project.alcentrali/engine/Common.php(1119): CodeIgniter\View\View->render('officer/dashboa...', Array, true)
+#4 /home/rizcky/git/project.alcentrali/officer/appcore/Controllers/Officer.php(57): view('officer/dashboa...', Array)
+#5 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Officer->dashboard('welcome')
+#6 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Officer))
+#7 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /home/rizcky/git/project.alcentrali/officer/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2021-03-16 03:49:18 --> Undefined variable: isset
+#0 /home/rizcky/git/project.alcentrali/officer/appcore/Views/officer/dashboard/html-header.php(21): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', '/home/rizcky/gi...', 21, Array)
+#1 /home/rizcky/git/project.alcentrali/officer/appcore/Views/officer/dashboard/welcome.php(1): include('/home/rizcky/gi...')
+#2 /home/rizcky/git/project.alcentrali/engine/View/View.php(246): include('/home/rizcky/gi...')
+#3 /home/rizcky/git/project.alcentrali/engine/Common.php(1119): CodeIgniter\View\View->render('officer/dashboa...', Array, true)
+#4 /home/rizcky/git/project.alcentrali/officer/appcore/Controllers/Officer.php(59): view('officer/dashboa...', Array)
+#5 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Officer->dashboard('welcome')
+#6 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Officer))
+#7 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /home/rizcky/git/project.alcentrali/officer/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2021-03-16 03:49:22 --> Undefined variable: isset
+#0 /home/rizcky/git/project.alcentrali/officer/appcore/Views/officer/dashboard/html-header.php(21): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', '/home/rizcky/gi...', 21, Array)
+#1 /home/rizcky/git/project.alcentrali/officer/appcore/Views/officer/dashboard/welcome.php(1): include('/home/rizcky/gi...')
+#2 /home/rizcky/git/project.alcentrali/engine/View/View.php(246): include('/home/rizcky/gi...')
+#3 /home/rizcky/git/project.alcentrali/engine/Common.php(1119): CodeIgniter\View\View->render('officer/dashboa...', Array, true)
+#4 /home/rizcky/git/project.alcentrali/officer/appcore/Controllers/Officer.php(59): view('officer/dashboa...', Array)
+#5 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Officer->dashboard('welcome')
+#6 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Officer))
+#7 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /home/rizcky/git/project.alcentrali/officer/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#9 {main}

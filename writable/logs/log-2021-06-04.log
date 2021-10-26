@@ -1,0 +1,10 @@
+CRITICAL - 2021-06-04 08:29:29 --> array_push() expects parameter 1 to be array, null given
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'array_push() ex...', '/home/rizcky/gi...', 65, Array)
+#1 /home/rizcky/git/project.alcentrali/server/syscore/Libraries/APIModules/OsamModule.php(65): array_push(NULL)
+#2 /home/rizcky/git/project.alcentrali/server/syscore/Controllers/ClientRequest.php(62): App\Libraries\APIModules\OsamModule->executeRequest('asset-location')
+#3 /home/rizcky/git/project.alcentrali/server/syscore/Controllers/ClientRequest.php(143): App\Controllers\ClientRequest->requestExecution()
+#4 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\ClientRequest->dataRequest()
+#5 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientRequest))
+#6 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /home/rizcky/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}

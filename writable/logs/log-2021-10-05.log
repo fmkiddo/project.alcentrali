@@ -1,0 +1,82 @@
+CRITICAL - 2021-10-05 23:19:06 --> Too few arguments to function App\Libraries\Document::generateDocnum(), 0 passed in /home/fmkiddo/git/project.alcentrali/server/syscore/Libraries/APIModules/OsamModule.php on line 531 and at least 1 expected
+#0 /home/fmkiddo/git/project.alcentrali/server/syscore/Libraries/APIModules/OsamModule.php(531): App\Libraries\Document->generateDocnum()
+#1 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/ClientRequest.php(62): App\Libraries\APIModules\OsamModule->executeRequest('moveout-request')
+#2 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/ClientRequest.php(143): App\Controllers\ClientRequest->requestExecution()
+#3 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\ClientRequest->dataRequest()
+#4 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientRequest))
+#5 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /home/fmkiddo/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2021-10-05 23:19:17 --> Too few arguments to function App\Libraries\Document::generateDocnum(), 0 passed in /home/fmkiddo/git/project.alcentrali/server/syscore/Libraries/APIModules/OsamModule.php on line 531 and at least 1 expected
+#0 /home/fmkiddo/git/project.alcentrali/server/syscore/Libraries/APIModules/OsamModule.php(531): App\Libraries\Document->generateDocnum()
+#1 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/ClientRequest.php(62): App\Libraries\APIModules\OsamModule->executeRequest('moveout-request')
+#2 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/ClientRequest.php(143): App\Controllers\ClientRequest->requestExecution()
+#3 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\ClientRequest->dataRequest()
+#4 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientRequest))
+#5 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /home/fmkiddo/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2021-10-05 23:19:25 --> Undefined variable: lastRowDocNum
+#0 /home/fmkiddo/git/project.alcentrali/server/syscore/Libraries/APIModules/OsamModule.php(536): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', '/home/fmkiddo/g...', 536, Array)
+#1 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/ClientRequest.php(62): App\Libraries\APIModules\OsamModule->executeRequest('moveout-request')
+#2 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/ClientRequest.php(143): App\Controllers\ClientRequest->requestExecution()
+#3 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\ClientRequest->dataRequest()
+#4 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientRequest))
+#5 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /home/fmkiddo/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2021-10-05 23:53:23 --> substr_count() expects parameter 1 to be string, object given
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'substr_count() ...', '/home/fmkiddo/g...', 36, Array)
+#1 /home/fmkiddo/git/project.alcentrali/server/syscore/Libraries/Document.php(36): substr_count(Object(CodeIgniter\Entity), 'Y')
+#2 /home/fmkiddo/git/project.alcentrali/server/syscore/Libraries/APIModules/OsamModule.php(532): App\Libraries\Document->generateDocnum('01', '210901000003')
+#3 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/ClientRequest.php(62): App\Libraries\APIModules\OsamModule->executeRequest('moveout-request')
+#4 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/ClientRequest.php(143): App\Controllers\ClientRequest->requestExecution()
+#5 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\ClientRequest->dataRequest()
+#6 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientRequest))
+#7 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /home/fmkiddo/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2021-10-05 23:53:46 --> substr_count() expects parameter 1 to be string, object given
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'substr_count() ...', '/home/fmkiddo/g...', 36, Array)
+#1 /home/fmkiddo/git/project.alcentrali/server/syscore/Libraries/Document.php(36): substr_count(Object(CodeIgniter\Entity), 'Y')
+#2 /home/fmkiddo/git/project.alcentrali/server/syscore/Libraries/APIModules/OsamModule.php(532): App\Libraries\Document->generateDocnum('01', '210901000003')
+#3 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/ClientRequest.php(62): App\Libraries\APIModules\OsamModule->executeRequest('moveout-request')
+#4 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/ClientRequest.php(143): App\Controllers\ClientRequest->requestExecution()
+#5 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\ClientRequest->dataRequest()
+#6 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientRequest))
+#7 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /home/fmkiddo/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2021-10-05 23:54:20 --> substr_count() expects parameter 1 to be string, object given
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'substr_count() ...', '/home/fmkiddo/g...', 36, Array)
+#1 /home/fmkiddo/git/project.alcentrali/server/syscore/Libraries/Document.php(36): substr_count(Object(CodeIgniter\Entity), 'Y')
+#2 /home/fmkiddo/git/project.alcentrali/server/syscore/Libraries/APIModules/OsamModule.php(532): App\Libraries\Document->generateDocnum('01', '210901000003')
+#3 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/ClientRequest.php(62): App\Libraries\APIModules\OsamModule->executeRequest('moveout-request')
+#4 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/ClientRequest.php(143): App\Controllers\ClientRequest->requestExecution()
+#5 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\ClientRequest->dataRequest()
+#6 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientRequest))
+#7 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /home/fmkiddo/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2021-10-05 23:55:18 --> substr_count() expects parameter 1 to be string, object given
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'substr_count() ...', '/home/fmkiddo/g...', 36, Array)
+#1 /home/fmkiddo/git/project.alcentrali/server/syscore/Libraries/Document.php(36): substr_count(Object(CodeIgniter\Entity), 'Y')
+#2 /home/fmkiddo/git/project.alcentrali/server/syscore/Libraries/APIModules/OsamModule.php(531): App\Libraries\Document->generateDocnum('01', '210901000003')
+#3 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/ClientRequest.php(62): App\Libraries\APIModules\OsamModule->executeRequest('moveout-request')
+#4 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/ClientRequest.php(143): App\Controllers\ClientRequest->requestExecution()
+#5 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\ClientRequest->dataRequest()
+#6 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientRequest))
+#7 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /home/fmkiddo/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2021-10-05 23:56:52 --> substr_count() expects parameter 1 to be string, object given
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'substr_count() ...', '/home/fmkiddo/g...', 36, Array)
+#1 /home/fmkiddo/git/project.alcentrali/server/syscore/Libraries/Document.php(36): substr_count(Object(CodeIgniter\Entity), 'Y')
+#2 /home/fmkiddo/git/project.alcentrali/server/syscore/Libraries/APIModules/OsamModule.php(531): App\Libraries\Document->generateDocnum('01', '211001000001')
+#3 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/ClientRequest.php(62): App\Libraries\APIModules\OsamModule->executeRequest('moveout-request')
+#4 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/ClientRequest.php(143): App\Controllers\ClientRequest->requestExecution()
+#5 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\ClientRequest->dataRequest()
+#6 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientRequest))
+#7 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /home/fmkiddo/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#9 {main}

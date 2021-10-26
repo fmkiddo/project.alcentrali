@@ -1,0 +1,198 @@
+CRITICAL - 2021-04-11 23:14:21 --> Undefined index: data-transmit
+#0 /home/rizcky/git/project.alcentrali/server/syscore/Controllers/OfficerRequest.php(215): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', '/home/rizcky/gi...', 215, Array)
+#1 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\OfficerRequest->dataRequest()
+#2 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\OfficerRequest))
+#3 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /home/rizcky/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-04-11 23:14:21 --> 22 : The requested URL returned error: 500 Internal Server Error
+#0 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(821): CodeIgniter\HTTP\Exceptions\HTTPException::forCurlError('22', 'The requested U...')
+#1 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(449): CodeIgniter\HTTP\CURLRequest->sendRequest(Array)
+#2 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(158): CodeIgniter\HTTP\CURLRequest->send('put', 'http://localhos...')
+#3 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(265): CodeIgniter\HTTP\CURLRequest->request('put', 'http://localhos...', Array)
+#4 /home/rizcky/git/project.alcentrali/officer/appcore/Controllers/Officer.php(26): CodeIgniter\HTTP\CURLRequest->put('http://localhos...', Array)
+#5 /home/rizcky/git/project.alcentrali/officer/appcore/Controllers/Officer.php(229): App\Controllers\Officer->dataRequest('api/dataaccess', Array)
+#6 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Officer->dashboard('officer')
+#7 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Officer))
+#8 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /home/rizcky/git/project.alcentrali/officer/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2021-04-11 23:14:33 --> Undefined index: data-transmit
+#0 /home/rizcky/git/project.alcentrali/server/syscore/Controllers/OfficerRequest.php(215): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', '/home/rizcky/gi...', 215, Array)
+#1 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\OfficerRequest->dataRequest()
+#2 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\OfficerRequest))
+#3 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /home/rizcky/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-04-11 23:14:33 --> 22 : The requested URL returned error: 500 Internal Server Error
+#0 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(821): CodeIgniter\HTTP\Exceptions\HTTPException::forCurlError('22', 'The requested U...')
+#1 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(449): CodeIgniter\HTTP\CURLRequest->sendRequest(Array)
+#2 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(158): CodeIgniter\HTTP\CURLRequest->send('put', 'http://localhos...')
+#3 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(265): CodeIgniter\HTTP\CURLRequest->request('put', 'http://localhos...', Array)
+#4 /home/rizcky/git/project.alcentrali/officer/appcore/Controllers/Officer.php(26): CodeIgniter\HTTP\CURLRequest->put('http://localhos...', Array)
+#5 /home/rizcky/git/project.alcentrali/officer/appcore/Controllers/Officer.php(229): App\Controllers\Officer->dataRequest('api/dataaccess', Array)
+#6 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Officer->dashboard('officer')
+#7 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Officer))
+#8 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /home/rizcky/git/project.alcentrali/officer/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2021-04-11 23:15:00 --> openssl_decrypt(): IV passed is 17 bytes long which is longer than the 16 expected by selected cipher, truncating
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'openssl_decrypt...', '/home/rizcky/gi...', 29, Array)
+#1 /home/rizcky/git/project.alcentrali/server/syscore/Libraries/Obfuscator.php(29): openssl_decrypt('\xD8\xED\xE3@\x1C\x034_\xEB\xB0\f\xF0\xE5\x90\x18...', 'aes-256-cbc', '44\x905\x0Fs;\xBD\xC4O\x8D\x03%\v\xF7...', 1, '_\x8F\xAB$\xB4\xAD\xE6\xA2\x9B\xFC\x87?\x06Q\xFE...')
+#2 /home/rizcky/git/project.alcentrali/server/syscore/Controllers/OfficerRequest.php(25): App\Libraries\Obfuscator->decrypt('\xD8\xED\xE3@\x1C\x034_\xEB\xB0\f\xF0\xE5\x90\x18...', 'NDSQNQ9zO73ET40...', '_\x8F\xAB$\xB4\xAD\xE6\xA2\x9B\xFC\x87?\x06Q\xFE...')
+#3 /home/rizcky/git/project.alcentrali/server/syscore/Controllers/OfficerRequest.php(285): App\Controllers\OfficerRequest->officerDataDecoding('fmkiddo 2O3jQBw...')
+#4 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\OfficerRequest->officerValidation()
+#5 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\OfficerRequest))
+#6 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /home/rizcky/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-04-11 23:15:01 --> Uncaught CodeIgniter\Format\Exceptions\FormatException: Failed to parse json string, error: "Malformed UTF-8 characters, possibly incorrectly encoded". in /home/rizcky/git/project.alcentrali/engine/Format/Exceptions/FormatException.php:9
+Stack trace:
+#0 /home/rizcky/git/project.alcentrali/engine/Format/JSONFormatter.php(71): CodeIgniter\Format\Exceptions\FormatException::forInvalidJSON('Malformed UTF-8...')
+#1 /home/rizcky/git/project.alcentrali/engine/API/ResponseTrait.php(414): CodeIgniter\Format\JSONFormatter->format(Array)
+#2 /home/rizcky/git/project.alcentrali/engine/API/ResponseTrait.php(134): CodeIgniter\Debug\Exceptions->format(Array)
+#3 /home/rizcky/git/project.alcentrali/engine/Debug/Exceptions.php(168): CodeIgniter\Debug\Exceptions->respond(Array, 500)
+#4 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(ErrorException))
+#5 {main}
+  thrown
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2021-04-11 23:15:01 --> 22 : The requested URL returned error: 500 Internal Server Error
+#0 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(821): CodeIgniter\HTTP\Exceptions\HTTPException::forCurlError('22', 'The requested U...')
+#1 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(449): CodeIgniter\HTTP\CURLRequest->sendRequest(Array)
+#2 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(158): CodeIgniter\HTTP\CURLRequest->send('put', 'http://localhos...')
+#3 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(265): CodeIgniter\HTTP\CURLRequest->request('put', 'http://localhos...', Array)
+#4 /home/rizcky/git/project.alcentrali/officer/appcore/Controllers/BaseController.php(95): CodeIgniter\HTTP\CURLRequest->put('http://localhos...', Array)
+#5 /home/rizcky/git/project.alcentrali/officer/appcore/Controllers/Officer.php(188): App\Controllers\BaseController->sessionCheck()
+#6 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Officer->dashboard('officer')
+#7 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Officer))
+#8 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /home/rizcky/git/project.alcentrali/officer/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2021-04-11 23:15:08 --> Undefined index: data-transmit
+#0 /home/rizcky/git/project.alcentrali/server/syscore/Controllers/OfficerRequest.php(215): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', '/home/rizcky/gi...', 215, Array)
+#1 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\OfficerRequest->dataRequest()
+#2 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\OfficerRequest))
+#3 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /home/rizcky/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-04-11 23:15:08 --> 22 : The requested URL returned error: 500 Internal Server Error
+#0 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(821): CodeIgniter\HTTP\Exceptions\HTTPException::forCurlError('22', 'The requested U...')
+#1 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(449): CodeIgniter\HTTP\CURLRequest->sendRequest(Array)
+#2 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(158): CodeIgniter\HTTP\CURLRequest->send('put', 'http://localhos...')
+#3 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(265): CodeIgniter\HTTP\CURLRequest->request('put', 'http://localhos...', Array)
+#4 /home/rizcky/git/project.alcentrali/officer/appcore/Controllers/Officer.php(26): CodeIgniter\HTTP\CURLRequest->put('http://localhos...', Array)
+#5 /home/rizcky/git/project.alcentrali/officer/appcore/Controllers/Officer.php(229): App\Controllers\Officer->dataRequest('api/dataaccess', Array)
+#6 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Officer->dashboard('officer')
+#7 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Officer))
+#8 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /home/rizcky/git/project.alcentrali/officer/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2021-04-11 23:16:38 --> Undefined index: data-transmit
+#0 /home/rizcky/git/project.alcentrali/server/syscore/Controllers/OfficerRequest.php(215): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', '/home/rizcky/gi...', 215, Array)
+#1 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\OfficerRequest->dataRequest()
+#2 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\OfficerRequest))
+#3 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /home/rizcky/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-04-11 23:16:38 --> 22 : The requested URL returned error: 500 Internal Server Error
+#0 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(821): CodeIgniter\HTTP\Exceptions\HTTPException::forCurlError('22', 'The requested U...')
+#1 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(449): CodeIgniter\HTTP\CURLRequest->sendRequest(Array)
+#2 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(158): CodeIgniter\HTTP\CURLRequest->send('put', 'http://localhos...')
+#3 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(265): CodeIgniter\HTTP\CURLRequest->request('put', 'http://localhos...', Array)
+#4 /home/rizcky/git/project.alcentrali/officer/appcore/Controllers/Officer.php(26): CodeIgniter\HTTP\CURLRequest->put('http://localhos...', Array)
+#5 /home/rizcky/git/project.alcentrali/officer/appcore/Controllers/Officer.php(229): App\Controllers\Officer->dataRequest('api/dataaccess', Array)
+#6 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Officer->dashboard('officer')
+#7 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Officer))
+#8 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /home/rizcky/git/project.alcentrali/officer/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2021-04-11 23:37:26 --> Undefined index: data-transmit
+#0 /home/rizcky/git/project.alcentrali/server/syscore/Controllers/OfficerRequest.php(215): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', '/home/rizcky/gi...', 215, Array)
+#1 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\OfficerRequest->dataRequest()
+#2 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\OfficerRequest))
+#3 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /home/rizcky/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-04-11 23:37:26 --> 22 : The requested URL returned error: 500 Internal Server Error
+#0 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(821): CodeIgniter\HTTP\Exceptions\HTTPException::forCurlError('22', 'The requested U...')
+#1 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(449): CodeIgniter\HTTP\CURLRequest->sendRequest(Array)
+#2 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(158): CodeIgniter\HTTP\CURLRequest->send('put', 'http://localhos...')
+#3 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(265): CodeIgniter\HTTP\CURLRequest->request('put', 'http://localhos...', Array)
+#4 /home/rizcky/git/project.alcentrali/officer/appcore/Controllers/Officer.php(26): CodeIgniter\HTTP\CURLRequest->put('http://localhos...', Array)
+#5 /home/rizcky/git/project.alcentrali/officer/appcore/Controllers/Officer.php(229): App\Controllers\Officer->dataRequest('api/dataaccess', Array)
+#6 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Officer->dashboard('officer')
+#7 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Officer))
+#8 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /home/rizcky/git/project.alcentrali/officer/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2021-04-11 23:38:48 --> Undefined index: data-transmit
+#0 /home/rizcky/git/project.alcentrali/server/syscore/Controllers/OfficerRequest.php(215): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', '/home/rizcky/gi...', 215, Array)
+#1 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\OfficerRequest->dataRequest()
+#2 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\OfficerRequest))
+#3 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /home/rizcky/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-04-11 23:38:48 --> 22 : The requested URL returned error: 500 Internal Server Error
+#0 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(821): CodeIgniter\HTTP\Exceptions\HTTPException::forCurlError('22', 'The requested U...')
+#1 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(449): CodeIgniter\HTTP\CURLRequest->sendRequest(Array)
+#2 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(158): CodeIgniter\HTTP\CURLRequest->send('put', 'http://localhos...')
+#3 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(265): CodeIgniter\HTTP\CURLRequest->request('put', 'http://localhos...', Array)
+#4 /home/rizcky/git/project.alcentrali/officer/appcore/Controllers/Officer.php(26): CodeIgniter\HTTP\CURLRequest->put('http://localhos...', Array)
+#5 /home/rizcky/git/project.alcentrali/officer/appcore/Controllers/Officer.php(229): App\Controllers\Officer->dataRequest('api/dataaccess', Array)
+#6 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Officer->dashboard('officer')
+#7 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Officer))
+#8 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /home/rizcky/git/project.alcentrali/officer/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2021-04-11 23:39:32 --> Undefined variable: cookieData
+#0 /home/rizcky/git/project.alcentrali/officer/appcore/Controllers/Officer.php(228): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', '/home/rizcky/gi...', 228, Array)
+#1 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Officer->dashboard('officer')
+#2 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Officer))
+#3 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /home/rizcky/git/project.alcentrali/officer/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-04-11 23:40:21 --> Undefined index: data-transmit
+#0 /home/rizcky/git/project.alcentrali/server/syscore/Controllers/OfficerRequest.php(215): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', '/home/rizcky/gi...', 215, Array)
+#1 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\OfficerRequest->dataRequest()
+#2 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\OfficerRequest))
+#3 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /home/rizcky/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-04-11 23:40:21 --> 22 : The requested URL returned error: 500 Internal Server Error
+#0 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(821): CodeIgniter\HTTP\Exceptions\HTTPException::forCurlError('22', 'The requested U...')
+#1 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(449): CodeIgniter\HTTP\CURLRequest->sendRequest(Array)
+#2 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(158): CodeIgniter\HTTP\CURLRequest->send('put', 'http://localhos...')
+#3 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(265): CodeIgniter\HTTP\CURLRequest->request('put', 'http://localhos...', Array)
+#4 /home/rizcky/git/project.alcentrali/officer/appcore/Controllers/Officer.php(26): CodeIgniter\HTTP\CURLRequest->put('http://localhos...', Array)
+#5 /home/rizcky/git/project.alcentrali/officer/appcore/Controllers/Officer.php(231): App\Controllers\Officer->dataRequest('api/dataaccess', Array)
+#6 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Officer->dashboard('officer')
+#7 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Officer))
+#8 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /home/rizcky/git/project.alcentrali/officer/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2021-04-11 23:48:01 --> Cannot use object of type CodeIgniter\Entity as array
+#0 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\OfficerRequest->dataRequest()
+#1 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\OfficerRequest))
+#2 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /home/rizcky/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2021-04-11 23:48:01 --> 22 : The requested URL returned error: 500 Internal Server Error
+#0 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(821): CodeIgniter\HTTP\Exceptions\HTTPException::forCurlError('22', 'The requested U...')
+#1 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(449): CodeIgniter\HTTP\CURLRequest->sendRequest(Array)
+#2 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(158): CodeIgniter\HTTP\CURLRequest->send('put', 'http://localhos...')
+#3 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(265): CodeIgniter\HTTP\CURLRequest->request('put', 'http://localhos...', Array)
+#4 /home/rizcky/git/project.alcentrali/officer/appcore/Controllers/Officer.php(26): CodeIgniter\HTTP\CURLRequest->put('http://localhos...', Array)
+#5 /home/rizcky/git/project.alcentrali/officer/appcore/Controllers/Officer.php(231): App\Controllers\Officer->dataRequest('api/dataaccess', Array)
+#6 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Officer->dashboard('officer')
+#7 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Officer))
+#8 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /home/rizcky/git/project.alcentrali/officer/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2021-04-11 23:59:23 --> Undefined index: header
+#0 /home/rizcky/git/project.alcentrali/officer/appcore/Controllers/Officer.php(234): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', '/home/rizcky/gi...', 234, Array)
+#1 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Officer->dashboard('officer')
+#2 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Officer))
+#3 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /home/rizcky/git/project.alcentrali/officer/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}

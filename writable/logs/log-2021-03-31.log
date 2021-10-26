@@ -1,0 +1,56 @@
+CRITICAL - 2021-03-31 00:03:01 --> Undefined variable: formpupdaction
+#0 /home/rizcky/git/project.alcentrali/officer/appcore/Views/officer/dashboard/profile.php(249): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', '/home/rizcky/gi...', 249, Array)
+#1 /home/rizcky/git/project.alcentrali/engine/View/View.php(246): include('/home/rizcky/gi...')
+#2 /home/rizcky/git/project.alcentrali/engine/Common.php(1119): CodeIgniter\View\View->render('officer/dashboa...', Array, true)
+#3 /home/rizcky/git/project.alcentrali/officer/appcore/Controllers/Officer.php(222): view('officer/dashboa...', Array)
+#4 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Officer->dashboard('profile')
+#5 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Officer))
+#6 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /home/rizcky/git/project.alcentrali/officer/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-03-31 00:03:26 --> Undefined variable: formpupdaction
+#0 /home/rizcky/git/project.alcentrali/officer/appcore/Views/officer/dashboard/profile.php(249): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', '/home/rizcky/gi...', 249, Array)
+#1 /home/rizcky/git/project.alcentrali/engine/View/View.php(246): include('/home/rizcky/gi...')
+#2 /home/rizcky/git/project.alcentrali/engine/Common.php(1119): CodeIgniter\View\View->render('officer/dashboa...', Array, true)
+#3 /home/rizcky/git/project.alcentrali/officer/appcore/Controllers/Officer.php(222): view('officer/dashboa...', Array)
+#4 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Officer->dashboard('profile')
+#5 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Officer))
+#6 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /home/rizcky/git/project.alcentrali/officer/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-03-31 03:42:15 --> Invalid argument supplied for foreach()
+#0 /home/rizcky/git/project.alcentrali/officer/appcore/Controllers/Officer.php(111): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Invalid argumen...', '/home/rizcky/gi...', 111, Array)
+#1 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Officer->dataprocessing('updateprofilesa...')
+#2 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Officer))
+#3 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /home/rizcky/git/project.alcentrali/officer/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-03-31 03:42:21 --> Invalid argument supplied for foreach()
+#0 /home/rizcky/git/project.alcentrali/officer/appcore/Controllers/Officer.php(111): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Invalid argumen...', '/home/rizcky/gi...', 111, Array)
+#1 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Officer->dataprocessing('updateprofilesa...')
+#2 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Officer))
+#3 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /home/rizcky/git/project.alcentrali/officer/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-03-31 20:19:21 --> Unable to connect to the database.
+#0 /home/rizcky/git/project.alcentrali/engine/Database/BaseConnection.php(646): CodeIgniter\Database\BaseConnection->initialize()
+#1 /home/rizcky/git/project.alcentrali/engine/Database/BaseBuilder.php(1860): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 /home/rizcky/git/project.alcentrali/engine/Model.php(462): CodeIgniter\Database\BaseBuilder->get()
+#3 /home/rizcky/git/project.alcentrali/server/syscore/Controllers/OfficerRequest.php(382): CodeIgniter\Model->findAll()
+#4 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\OfficerRequest->officerValidation()
+#5 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\OfficerRequest))
+#6 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /home/rizcky/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-03-31 20:19:22 --> 22 : The requested URL returned error: 500 Internal Server Error
+#0 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(821): CodeIgniter\HTTP\Exceptions\HTTPException::forCurlError('22', 'The requested U...')
+#1 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(449): CodeIgniter\HTTP\CURLRequest->sendRequest(Array)
+#2 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(158): CodeIgniter\HTTP\CURLRequest->send('put', 'http://localhos...')
+#3 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(265): CodeIgniter\HTTP\CURLRequest->request('put', 'http://localhos...', Array)
+#4 /home/rizcky/git/project.alcentrali/officer/appcore/Controllers/BaseController.php(294): CodeIgniter\HTTP\CURLRequest->put('http://localhos...', Array)
+#5 /home/rizcky/git/project.alcentrali/officer/appcore/Controllers/Starter.php(23): App\Controllers\BaseController->isSuperAdminConfigured()
+#6 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Starter->index()
+#7 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Starter))
+#8 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /home/rizcky/git/project.alcentrali/officer/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#10 {main}

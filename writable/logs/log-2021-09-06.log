@@ -1,0 +1,63 @@
+CRITICAL - 2021-09-06 23:28:07 --> Class 'App\Models\Osam\UserGroupModel' not found
+#0 /home/fmkiddo/git/project.alcentrali/server/syscore/Libraries/APIModules/OsamModule.php(363): App\Libraries\APIModules\Modules->initModel('UserGroupModel')
+#1 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/ClientRequest.php(62): App\Libraries\APIModules\OsamModule->executeRequest('userform-data')
+#2 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/ClientRequest.php(143): App\Controllers\ClientRequest->requestExecution()
+#3 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\ClientRequest->dataRequest()
+#4 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientRequest))
+#5 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /home/fmkiddo/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2021-09-06 23:28:44 --> Class 'App\Models\Osam\UserGroupModel' not found
+#0 /home/fmkiddo/git/project.alcentrali/server/syscore/Libraries/APIModules/OsamModule.php(363): App\Libraries\APIModules\Modules->initModel('UserGroupModel')
+#1 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/ClientRequest.php(62): App\Libraries\APIModules\OsamModule->executeRequest('userform-data')
+#2 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/ClientRequest.php(143): App\Controllers\ClientRequest->requestExecution()
+#3 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\ClientRequest->dataRequest()
+#4 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientRequest))
+#5 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /home/fmkiddo/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2021-09-06 23:28:54 --> Class 'App\Models\Osam\UserGroupModel' not found
+#0 /home/fmkiddo/git/project.alcentrali/server/syscore/Libraries/APIModules/OsamModule.php(363): App\Libraries\APIModules\Modules->initModel('UserGroupModel')
+#1 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/ClientRequest.php(62): App\Libraries\APIModules\OsamModule->executeRequest('userform-data')
+#2 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/ClientRequest.php(143): App\Controllers\ClientRequest->requestExecution()
+#3 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\ClientRequest->dataRequest()
+#4 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientRequest))
+#5 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /home/fmkiddo/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2021-09-06 23:29:09 --> Class 'App\Models\Osam\UserGroupModel' not found
+#0 /home/fmkiddo/git/project.alcentrali/server/syscore/Libraries/APIModules/OsamModule.php(363): App\Libraries\APIModules\Modules->initModel('UserGroupModel')
+#1 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/ClientRequest.php(62): App\Libraries\APIModules\OsamModule->executeRequest('userform-data')
+#2 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/ClientRequest.php(143): App\Controllers\ClientRequest->requestExecution()
+#3 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\ClientRequest->dataRequest()
+#4 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientRequest))
+#5 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /home/fmkiddo/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2021-09-06 23:30:07 --> Class 'App\Models\Osam\UserGroupModel' not found
+#0 /home/fmkiddo/git/project.alcentrali/server/syscore/Libraries/APIModules/OsamModule.php(363): App\Libraries\APIModules\Modules->initModel('UserGroupModel')
+#1 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/ClientRequest.php(62): App\Libraries\APIModules\OsamModule->executeRequest('userform-data')
+#2 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/ClientRequest.php(143): App\Controllers\ClientRequest->requestExecution()
+#3 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\ClientRequest->dataRequest()
+#4 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientRequest))
+#5 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /home/fmkiddo/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2021-09-06 23:30:16 --> Class 'App\Models\Osam\UserGroupModel' not found
+#0 /home/fmkiddo/git/project.alcentrali/server/syscore/Libraries/APIModules/OsamModule.php(363): App\Libraries\APIModules\Modules->initModel('UserGroupModel')
+#1 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/ClientRequest.php(62): App\Libraries\APIModules\OsamModule->executeRequest('userform-data')
+#2 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/ClientRequest.php(143): App\Controllers\ClientRequest->requestExecution()
+#3 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\ClientRequest->dataRequest()
+#4 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientRequest))
+#5 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /home/fmkiddo/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2021-09-06 23:31:08 --> Class 'App\Models\Osam\UserGroupModel' not found
+#0 /home/fmkiddo/git/project.alcentrali/server/syscore/Libraries/APIModules/OsamModule.php(363): App\Libraries\APIModules\Modules->initModel('UserGroupModel')
+#1 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/ClientRequest.php(62): App\Libraries\APIModules\OsamModule->executeRequest('userform-data')
+#2 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/ClientRequest.php(143): App\Controllers\ClientRequest->requestExecution()
+#3 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\ClientRequest->dataRequest()
+#4 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientRequest))
+#5 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /home/fmkiddo/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}

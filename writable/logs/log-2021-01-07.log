@@ -1,0 +1,162 @@
+CRITICAL - 2021-01-07 22:12:22 --> Undefined index: page-title
+#0 /home/rizcky/git/project.alcentrali/officer/appcore/Views/header.php(28): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', '/home/rizcky/gi...', 28, Array)
+#1 /home/rizcky/git/project.alcentrali/officer/appcore/Views/setup/administration.php(1): include('/home/rizcky/gi...')
+#2 /home/rizcky/git/project.alcentrali/engine/View/View.php(246): include('/home/rizcky/gi...')
+#3 /home/rizcky/git/project.alcentrali/engine/Common.php(1119): CodeIgniter\View\View->render('setup/administr...', Array, true)
+#4 /home/rizcky/git/project.alcentrali/officer/appcore/Controllers/Starter.php(39): view('setup/administr...', Array)
+#5 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Starter->setup()
+#6 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Starter))
+#7 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /home/rizcky/git/project.alcentrali/officer/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2021-01-07 22:12:35 --> Undefined index: page-description
+#0 /home/rizcky/git/project.alcentrali/officer/appcore/Views/header.php(29): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', '/home/rizcky/gi...', 29, Array)
+#1 /home/rizcky/git/project.alcentrali/officer/appcore/Views/setup/administration.php(1): include('/home/rizcky/gi...')
+#2 /home/rizcky/git/project.alcentrali/engine/View/View.php(246): include('/home/rizcky/gi...')
+#3 /home/rizcky/git/project.alcentrali/engine/Common.php(1119): CodeIgniter\View\View->render('setup/administr...', Array, true)
+#4 /home/rizcky/git/project.alcentrali/officer/appcore/Controllers/Starter.php(40): view('setup/administr...', Array)
+#5 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Starter->setup()
+#6 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Starter))
+#7 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /home/rizcky/git/project.alcentrali/officer/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2021-01-07 22:12:44 --> Undefined index: body-title
+#0 /home/rizcky/git/project.alcentrali/officer/appcore/Views/setup/administration.php(7): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', '/home/rizcky/gi...', 7, Array)
+#1 /home/rizcky/git/project.alcentrali/engine/View/View.php(246): include('/home/rizcky/gi...')
+#2 /home/rizcky/git/project.alcentrali/engine/Common.php(1119): CodeIgniter\View\View->render('setup/administr...', Array, true)
+#3 /home/rizcky/git/project.alcentrali/officer/appcore/Controllers/Starter.php(42): view('setup/administr...', Array)
+#4 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Starter->setup()
+#5 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Starter))
+#6 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /home/rizcky/git/project.alcentrali/officer/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-01-07 22:12:52 --> Undefined index: body-description
+#0 /home/rizcky/git/project.alcentrali/officer/appcore/Views/setup/administration.php(8): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', '/home/rizcky/gi...', 8, Array)
+#1 /home/rizcky/git/project.alcentrali/engine/View/View.php(246): include('/home/rizcky/gi...')
+#2 /home/rizcky/git/project.alcentrali/engine/Common.php(1119): CodeIgniter\View\View->render('setup/administr...', Array, true)
+#3 /home/rizcky/git/project.alcentrali/officer/appcore/Controllers/Starter.php(42): view('setup/administr...', Array)
+#4 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Starter->setup()
+#5 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Starter))
+#6 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /home/rizcky/git/project.alcentrali/officer/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-01-07 22:13:00 --> Undefined index: tusername
+#0 /home/rizcky/git/project.alcentrali/officer/appcore/Views/setup/administration.php(15): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', '/home/rizcky/gi...', 15, Array)
+#1 /home/rizcky/git/project.alcentrali/engine/View/View.php(246): include('/home/rizcky/gi...')
+#2 /home/rizcky/git/project.alcentrali/engine/Common.php(1119): CodeIgniter\View\View->render('setup/administr...', Array, true)
+#3 /home/rizcky/git/project.alcentrali/officer/appcore/Controllers/Starter.php(43): view('setup/administr...', Array)
+#4 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Starter->setup()
+#5 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Starter))
+#6 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /home/rizcky/git/project.alcentrali/officer/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-01-07 22:13:08 --> Undefined index: tuserdesc
+#0 /home/rizcky/git/project.alcentrali/officer/appcore/Views/setup/administration.php(16): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', '/home/rizcky/gi...', 16, Array)
+#1 /home/rizcky/git/project.alcentrali/engine/View/View.php(246): include('/home/rizcky/gi...')
+#2 /home/rizcky/git/project.alcentrali/engine/Common.php(1119): CodeIgniter\View\View->render('setup/administr...', Array, true)
+#3 /home/rizcky/git/project.alcentrali/officer/appcore/Controllers/Starter.php(44): view('setup/administr...', Array)
+#4 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Starter->setup()
+#5 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Starter))
+#6 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /home/rizcky/git/project.alcentrali/officer/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-01-07 22:13:16 --> Undefined index: temail
+#0 /home/rizcky/git/project.alcentrali/officer/appcore/Views/setup/administration.php(19): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', '/home/rizcky/gi...', 19, Array)
+#1 /home/rizcky/git/project.alcentrali/engine/View/View.php(246): include('/home/rizcky/gi...')
+#2 /home/rizcky/git/project.alcentrali/engine/Common.php(1119): CodeIgniter\View\View->render('setup/administr...', Array, true)
+#3 /home/rizcky/git/project.alcentrali/officer/appcore/Controllers/Starter.php(45): view('setup/administr...', Array)
+#4 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Starter->setup()
+#5 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Starter))
+#6 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /home/rizcky/git/project.alcentrali/officer/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-01-07 22:13:26 --> Undefined index: tphone
+#0 /home/rizcky/git/project.alcentrali/officer/appcore/Views/setup/administration.php(23): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', '/home/rizcky/gi...', 23, Array)
+#1 /home/rizcky/git/project.alcentrali/engine/View/View.php(246): include('/home/rizcky/gi...')
+#2 /home/rizcky/git/project.alcentrali/engine/Common.php(1119): CodeIgniter\View\View->render('setup/administr...', Array, true)
+#3 /home/rizcky/git/project.alcentrali/officer/appcore/Controllers/Starter.php(46): view('setup/administr...', Array)
+#4 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Starter->setup()
+#5 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Starter))
+#6 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /home/rizcky/git/project.alcentrali/officer/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-01-07 22:13:34 --> Undefined index: tpassword
+#0 /home/rizcky/git/project.alcentrali/officer/appcore/Views/setup/administration.php(27): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', '/home/rizcky/gi...', 27, Array)
+#1 /home/rizcky/git/project.alcentrali/engine/View/View.php(246): include('/home/rizcky/gi...')
+#2 /home/rizcky/git/project.alcentrali/engine/Common.php(1119): CodeIgniter\View\View->render('setup/administr...', Array, true)
+#3 /home/rizcky/git/project.alcentrali/officer/appcore/Controllers/Starter.php(47): view('setup/administr...', Array)
+#4 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Starter->setup()
+#5 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Starter))
+#6 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /home/rizcky/git/project.alcentrali/officer/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-01-07 22:13:41 --> Undefined index: tpconfirm
+#0 /home/rizcky/git/project.alcentrali/officer/appcore/Views/setup/administration.php(31): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', '/home/rizcky/gi...', 31, Array)
+#1 /home/rizcky/git/project.alcentrali/engine/View/View.php(246): include('/home/rizcky/gi...')
+#2 /home/rizcky/git/project.alcentrali/engine/Common.php(1119): CodeIgniter\View\View->render('setup/administr...', Array, true)
+#3 /home/rizcky/git/project.alcentrali/officer/appcore/Controllers/Starter.php(48): view('setup/administr...', Array)
+#4 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Starter->setup()
+#5 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Starter))
+#6 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /home/rizcky/git/project.alcentrali/officer/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-01-07 22:13:48 --> Undefined index: tnext
+#0 /home/rizcky/git/project.alcentrali/officer/appcore/Views/setup/administration.php(37): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', '/home/rizcky/gi...', 37, Array)
+#1 /home/rizcky/git/project.alcentrali/engine/View/View.php(246): include('/home/rizcky/gi...')
+#2 /home/rizcky/git/project.alcentrali/engine/Common.php(1119): CodeIgniter\View\View->render('setup/administr...', Array, true)
+#3 /home/rizcky/git/project.alcentrali/officer/appcore/Controllers/Starter.php(49): view('setup/administr...', Array)
+#4 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Starter->setup()
+#5 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Starter))
+#6 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /home/rizcky/git/project.alcentrali/officer/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-01-07 22:13:54 --> Undefined index: treset
+#0 /home/rizcky/git/project.alcentrali/officer/appcore/Views/setup/administration.php(42): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', '/home/rizcky/gi...', 42, Array)
+#1 /home/rizcky/git/project.alcentrali/engine/View/View.php(246): include('/home/rizcky/gi...')
+#2 /home/rizcky/git/project.alcentrali/engine/Common.php(1119): CodeIgniter\View\View->render('setup/administr...', Array, true)
+#3 /home/rizcky/git/project.alcentrali/officer/appcore/Controllers/Starter.php(50): view('setup/administr...', Array)
+#4 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Starter->setup()
+#5 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Starter))
+#6 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /home/rizcky/git/project.alcentrali/officer/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-01-07 22:14:04 --> Undefined index: message1
+#0 /home/rizcky/git/project.alcentrali/officer/appcore/Views/setup/administration.php(82): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', '/home/rizcky/gi...', 82, Array)
+#1 /home/rizcky/git/project.alcentrali/engine/View/View.php(246): include('/home/rizcky/gi...')
+#2 /home/rizcky/git/project.alcentrali/engine/Common.php(1119): CodeIgniter\View\View->render('setup/administr...', Array, true)
+#3 /home/rizcky/git/project.alcentrali/officer/appcore/Controllers/Starter.php(51): view('setup/administr...', Array)
+#4 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Starter->setup()
+#5 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Starter))
+#6 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /home/rizcky/git/project.alcentrali/officer/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-01-07 22:14:14 --> Undefined index: title1
+#0 /home/rizcky/git/project.alcentrali/officer/appcore/Views/setup/administration.php(83): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', '/home/rizcky/gi...', 83, Array)
+#1 /home/rizcky/git/project.alcentrali/engine/View/View.php(246): include('/home/rizcky/gi...')
+#2 /home/rizcky/git/project.alcentrali/engine/Common.php(1119): CodeIgniter\View\View->render('setup/administr...', Array, true)
+#3 /home/rizcky/git/project.alcentrali/officer/appcore/Controllers/Starter.php(52): view('setup/administr...', Array)
+#4 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Starter->setup()
+#5 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Starter))
+#6 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /home/rizcky/git/project.alcentrali/officer/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-01-07 22:14:21 --> Undefined index: message2
+#0 /home/rizcky/git/project.alcentrali/officer/appcore/Views/setup/administration.php(93): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', '/home/rizcky/gi...', 93, Array)
+#1 /home/rizcky/git/project.alcentrali/engine/View/View.php(246): include('/home/rizcky/gi...')
+#2 /home/rizcky/git/project.alcentrali/engine/Common.php(1119): CodeIgniter\View\View->render('setup/administr...', Array, true)
+#3 /home/rizcky/git/project.alcentrali/officer/appcore/Controllers/Starter.php(53): view('setup/administr...', Array)
+#4 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Starter->setup()
+#5 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Starter))
+#6 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /home/rizcky/git/project.alcentrali/officer/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-01-07 22:14:28 --> Undefined index: title2
+#0 /home/rizcky/git/project.alcentrali/officer/appcore/Views/setup/administration.php(94): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', '/home/rizcky/gi...', 94, Array)
+#1 /home/rizcky/git/project.alcentrali/engine/View/View.php(246): include('/home/rizcky/gi...')
+#2 /home/rizcky/git/project.alcentrali/engine/Common.php(1119): CodeIgniter\View\View->render('setup/administr...', Array, true)
+#3 /home/rizcky/git/project.alcentrali/officer/appcore/Controllers/Starter.php(54): view('setup/administr...', Array)
+#4 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Starter->setup()
+#5 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Starter))
+#6 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /home/rizcky/git/project.alcentrali/officer/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}

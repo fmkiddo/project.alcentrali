@@ -1,0 +1,175 @@
+CRITICAL - 2021-06-15 22:51:45 --> Unable to connect to the database.
+#0 /home/fmkiddo/git/project.alcentrali/engine/Database/BaseConnection.php(646): CodeIgniter\Database\BaseConnection->initialize()
+#1 /home/fmkiddo/git/project.alcentrali/engine/Database/BaseBuilder.php(2249): CodeIgniter\Database\BaseConnection->query('INSERT INTO `fm...', Array, false)
+#2 /home/fmkiddo/git/project.alcentrali/engine/Model.php(755): CodeIgniter\Database\BaseBuilder->insert()
+#3 /home/fmkiddo/git/project.alcentrali/server/syscore/Models/KeyGenModel.php(49): CodeIgniter\Model->insert(Array)
+#4 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/Tools.php(103): App\Models\KeyGenModel->generateToken('64')
+#5 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Tools->generator()
+#6 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Tools))
+#7 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /home/fmkiddo/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2021-06-15 23:03:21 --> Unable to connect to the database.
+#0 /home/fmkiddo/git/project.alcentrali/engine/Database/BaseConnection.php(646): CodeIgniter\Database\BaseConnection->initialize()
+#1 /home/fmkiddo/git/project.alcentrali/engine/Database/BaseBuilder.php(2249): CodeIgniter\Database\BaseConnection->query('INSERT INTO `fm...', Array, false)
+#2 /home/fmkiddo/git/project.alcentrali/engine/Model.php(755): CodeIgniter\Database\BaseBuilder->insert()
+#3 /home/fmkiddo/git/project.alcentrali/server/syscore/Models/KeyGenModel.php(49): CodeIgniter\Model->insert(Array)
+#4 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/Tools.php(103): App\Models\KeyGenModel->generateToken('64')
+#5 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Tools->generator()
+#6 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Tools))
+#7 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /home/fmkiddo/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2021-06-15 23:23:01 --> 22 : The requested URL returned error: 405 Method Not Allowed
+#0 /home/fmkiddo/git/project.alcentrali/engine/HTTP/CURLRequest.php(821): CodeIgniter\HTTP\Exceptions\HTTPException::forCurlError('22', 'The requested U...')
+#1 /home/fmkiddo/git/project.alcentrali/engine/HTTP/CURLRequest.php(449): CodeIgniter\HTTP\CURLRequest->sendRequest(Array)
+#2 /home/fmkiddo/git/project.alcentrali/engine/HTTP/CURLRequest.php(158): CodeIgniter\HTTP\CURLRequest->send('put', 'http://localhos...')
+#3 /home/fmkiddo/git/project.alcentrali/engine/HTTP/CURLRequest.php(265): CodeIgniter\HTTP\CURLRequest->request('put', 'http://localhos...', Array)
+#4 /home/fmkiddo/git/project.alcentrali/officer/appcore/Controllers/BaseController.php(269): CodeIgniter\HTTP\CURLRequest->put('http://localhos...', Array)
+#5 /home/fmkiddo/git/project.alcentrali/officer/appcore/Controllers/Starter.php(21): App\Controllers\BaseController->isServerAccessKeyConfigured()
+#6 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Starter->index()
+#7 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Starter))
+#8 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /home/fmkiddo/git/project.alcentrali/officer/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2021-06-15 23:23:34 --> Trying to get property 'id' of non-object
+#0 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/OfficerRequest.php(874): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to get p...', '/home/fmkiddo/g...', 874, Array)
+#1 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\OfficerRequest->localedata()
+#2 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\OfficerRequest))
+#3 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /home/fmkiddo/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-06-15 23:23:34 --> 22 : The requested URL returned error: 500 Internal Server Error
+#0 /home/fmkiddo/git/project.alcentrali/engine/HTTP/CURLRequest.php(821): CodeIgniter\HTTP\Exceptions\HTTPException::forCurlError('22', 'The requested U...')
+#1 /home/fmkiddo/git/project.alcentrali/engine/HTTP/CURLRequest.php(449): CodeIgniter\HTTP\CURLRequest->sendRequest(Array)
+#2 /home/fmkiddo/git/project.alcentrali/engine/HTTP/CURLRequest.php(158): CodeIgniter\HTTP\CURLRequest->send('PUT', 'http://localhos...')
+#3 /home/fmkiddo/git/project.alcentrali/officer/appcore/Controllers/BaseController.php(207): CodeIgniter\HTTP\CURLRequest->request('PUT', 'http://localhos...', Array)
+#4 /home/fmkiddo/git/project.alcentrali/officer/appcore/Controllers/Starter.php(232): App\Controllers\BaseController->getLocaleResource('C0001')
+#5 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Starter->setup()
+#6 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Starter))
+#7 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /home/fmkiddo/git/project.alcentrali/officer/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2021-06-15 23:28:58 --> Trying to get property 'id' of non-object
+#0 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/OfficerRequest.php(874): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to get p...', '/home/fmkiddo/g...', 874, Array)
+#1 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\OfficerRequest->localedata()
+#2 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\OfficerRequest))
+#3 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /home/fmkiddo/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-06-15 23:28:58 --> 22 : The requested URL returned error: 500 Internal Server Error
+#0 /home/fmkiddo/git/project.alcentrali/engine/HTTP/CURLRequest.php(821): CodeIgniter\HTTP\Exceptions\HTTPException::forCurlError('22', 'The requested U...')
+#1 /home/fmkiddo/git/project.alcentrali/engine/HTTP/CURLRequest.php(449): CodeIgniter\HTTP\CURLRequest->sendRequest(Array)
+#2 /home/fmkiddo/git/project.alcentrali/engine/HTTP/CURLRequest.php(158): CodeIgniter\HTTP\CURLRequest->send('PUT', 'http://localhos...')
+#3 /home/fmkiddo/git/project.alcentrali/officer/appcore/Controllers/BaseController.php(207): CodeIgniter\HTTP\CURLRequest->request('PUT', 'http://localhos...', Array)
+#4 /home/fmkiddo/git/project.alcentrali/officer/appcore/Controllers/Starter.php(232): App\Controllers\BaseController->getLocaleResource('C0001')
+#5 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Starter->setup()
+#6 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Starter))
+#7 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /home/fmkiddo/git/project.alcentrali/officer/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2021-06-15 23:29:02 --> Undefined index: content
+#0 /home/fmkiddo/git/project.alcentrali/officer/appcore/Controllers/BaseController.php(209): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', '/home/fmkiddo/g...', 209, Array)
+#1 /home/fmkiddo/git/project.alcentrali/officer/appcore/Controllers/Starter.php(232): App\Controllers\BaseController->getLocaleResource('C0001')
+#2 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Starter->setup()
+#3 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Starter))
+#4 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 /home/fmkiddo/git/project.alcentrali/officer/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2021-06-15 23:29:33 --> Undefined index: content
+#0 /home/fmkiddo/git/project.alcentrali/officer/appcore/Controllers/BaseController.php(209): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', '/home/fmkiddo/g...', 209, Array)
+#1 /home/fmkiddo/git/project.alcentrali/officer/appcore/Controllers/Starter.php(232): App\Controllers\BaseController->getLocaleResource('C0001')
+#2 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Starter->setup()
+#3 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Starter))
+#4 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 /home/fmkiddo/git/project.alcentrali/officer/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2021-06-15 23:32:22 --> Undefined index: content
+#0 /home/fmkiddo/git/project.alcentrali/officer/appcore/Controllers/BaseController.php(209): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', '/home/fmkiddo/g...', 209, Array)
+#1 /home/fmkiddo/git/project.alcentrali/officer/appcore/Controllers/Starter.php(232): App\Controllers\BaseController->getLocaleResource('C0001')
+#2 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Starter->setup()
+#3 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Starter))
+#4 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 /home/fmkiddo/git/project.alcentrali/officer/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2021-06-15 23:45:57 --> Undefined index: content
+#0 /home/fmkiddo/git/project.alcentrali/officer/appcore/Controllers/BaseController.php(209): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', '/home/fmkiddo/g...', 209, Array)
+#1 /home/fmkiddo/git/project.alcentrali/officer/appcore/Controllers/Starter.php(232): App\Controllers\BaseController->getLocaleResource('C0001')
+#2 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Starter->setup()
+#3 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Starter))
+#4 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 /home/fmkiddo/git/project.alcentrali/officer/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2021-06-15 23:46:28 --> Undefined index: content
+#0 /home/fmkiddo/git/project.alcentrali/officer/appcore/Controllers/BaseController.php(209): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', '/home/fmkiddo/g...', 209, Array)
+#1 /home/fmkiddo/git/project.alcentrali/officer/appcore/Controllers/Starter.php(232): App\Controllers\BaseController->getLocaleResource('C0001')
+#2 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Starter->setup()
+#3 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Starter))
+#4 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 /home/fmkiddo/git/project.alcentrali/officer/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2021-06-15 23:46:34 --> Trying to get property 'id' of non-object
+#0 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/OfficerRequest.php(874): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to get p...', '/home/fmkiddo/g...', 874, Array)
+#1 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\OfficerRequest->localedata()
+#2 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\OfficerRequest))
+#3 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /home/fmkiddo/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-06-15 23:46:34 --> 22 : The requested URL returned error: 500 Internal Server Error
+#0 /home/fmkiddo/git/project.alcentrali/engine/HTTP/CURLRequest.php(821): CodeIgniter\HTTP\Exceptions\HTTPException::forCurlError('22', 'The requested U...')
+#1 /home/fmkiddo/git/project.alcentrali/engine/HTTP/CURLRequest.php(449): CodeIgniter\HTTP\CURLRequest->sendRequest(Array)
+#2 /home/fmkiddo/git/project.alcentrali/engine/HTTP/CURLRequest.php(158): CodeIgniter\HTTP\CURLRequest->send('PUT', 'http://localhos...')
+#3 /home/fmkiddo/git/project.alcentrali/officer/appcore/Controllers/BaseController.php(207): CodeIgniter\HTTP\CURLRequest->request('PUT', 'http://localhos...', Array)
+#4 /home/fmkiddo/git/project.alcentrali/officer/appcore/Controllers/Starter.php(232): App\Controllers\BaseController->getLocaleResource('C0001')
+#5 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Starter->setup()
+#6 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Starter))
+#7 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /home/fmkiddo/git/project.alcentrali/officer/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2021-06-15 23:46:40 --> Trying to get property 'id' of non-object
+#0 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/OfficerRequest.php(874): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to get p...', '/home/fmkiddo/g...', 874, Array)
+#1 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\OfficerRequest->localedata()
+#2 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\OfficerRequest))
+#3 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /home/fmkiddo/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-06-15 23:46:40 --> 22 : The requested URL returned error: 500 Internal Server Error
+#0 /home/fmkiddo/git/project.alcentrali/engine/HTTP/CURLRequest.php(821): CodeIgniter\HTTP\Exceptions\HTTPException::forCurlError('22', 'The requested U...')
+#1 /home/fmkiddo/git/project.alcentrali/engine/HTTP/CURLRequest.php(449): CodeIgniter\HTTP\CURLRequest->sendRequest(Array)
+#2 /home/fmkiddo/git/project.alcentrali/engine/HTTP/CURLRequest.php(158): CodeIgniter\HTTP\CURLRequest->send('PUT', 'http://localhos...')
+#3 /home/fmkiddo/git/project.alcentrali/officer/appcore/Controllers/BaseController.php(207): CodeIgniter\HTTP\CURLRequest->request('PUT', 'http://localhos...', Array)
+#4 /home/fmkiddo/git/project.alcentrali/officer/appcore/Controllers/Starter.php(232): App\Controllers\BaseController->getLocaleResource('C0001')
+#5 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Starter->setup()
+#6 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Starter))
+#7 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /home/fmkiddo/git/project.alcentrali/officer/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2021-06-15 23:46:45 --> Undefined index: content
+#0 /home/fmkiddo/git/project.alcentrali/officer/appcore/Controllers/BaseController.php(209): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', '/home/fmkiddo/g...', 209, Array)
+#1 /home/fmkiddo/git/project.alcentrali/officer/appcore/Controllers/Starter.php(232): App\Controllers\BaseController->getLocaleResource('C0001')
+#2 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Starter->setup()
+#3 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Starter))
+#4 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 /home/fmkiddo/git/project.alcentrali/officer/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2021-06-15 23:48:24 --> Call to a member function getValue() on null
+#0 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/OfficerRequest.php(854): App\Controllers\BaseRESTController->isAccessKeyValid()
+#1 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\OfficerRequest->localedata()
+#2 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\OfficerRequest))
+#3 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /home/fmkiddo/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-06-15 23:49:28 --> Trying to access array offset on value of type null
+#0 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/OfficerRequest.php(861): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', '/home/fmkiddo/g...', 861, Array)
+#1 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\OfficerRequest->localedata()
+#2 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\OfficerRequest))
+#3 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /home/fmkiddo/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-06-15 23:51:06 --> Undefined index: locale-data
+#0 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/OfficerRequest.php(861): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', '/home/fmkiddo/g...', 861, Array)
+#1 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\OfficerRequest->localedata()
+#2 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\OfficerRequest))
+#3 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /home/fmkiddo/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}

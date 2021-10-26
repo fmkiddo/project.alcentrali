@@ -1,0 +1,186 @@
+CRITICAL - 2021-09-17 01:26:24 --> Undefined variable: requestResponse
+#0 /home/fmkiddo/git/project.alcentrali/server/syscore/Libraries/APIModules/OsamModule.php(492): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', '/home/fmkiddo/g...', 492, Array)
+#1 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/ClientRequest.php(62): App\Libraries\APIModules\OsamModule->executeRequest('new-moveout-doc...')
+#2 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/ClientRequest.php(143): App\Controllers\ClientRequest->requestExecution()
+#3 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\ClientRequest->dataRequest()
+#4 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientRequest))
+#5 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /home/fmkiddo/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2021-09-17 01:26:37 --> Undefined variable: requestResponse
+#0 /home/fmkiddo/git/project.alcentrali/server/syscore/Libraries/APIModules/OsamModule.php(493): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', '/home/fmkiddo/g...', 493, Array)
+#1 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/ClientRequest.php(62): App\Libraries\APIModules\OsamModule->executeRequest('new-moveout-doc...')
+#2 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/ClientRequest.php(143): App\Controllers\ClientRequest->requestExecution()
+#3 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\ClientRequest->dataRequest()
+#4 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientRequest))
+#5 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /home/fmkiddo/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2021-09-17 01:27:22 --> Undefined variable: requestResponse
+#0 /home/fmkiddo/git/project.alcentrali/server/syscore/Libraries/APIModules/OsamModule.php(492): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', '/home/fmkiddo/g...', 492, Array)
+#1 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/ClientRequest.php(62): App\Libraries\APIModules\OsamModule->executeRequest('new-moveout-doc...')
+#2 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/ClientRequest.php(143): App\Controllers\ClientRequest->requestExecution()
+#3 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\ClientRequest->dataRequest()
+#4 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientRequest))
+#5 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /home/fmkiddo/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2021-09-17 01:28:21 --> Undefined variable: requestResponse
+#0 /home/fmkiddo/git/project.alcentrali/server/syscore/Libraries/APIModules/OsamModule.php(493): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', '/home/fmkiddo/g...', 493, Array)
+#1 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/ClientRequest.php(62): App\Libraries\APIModules\OsamModule->executeRequest('new-moveout-doc...')
+#2 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/ClientRequest.php(143): App\Controllers\ClientRequest->requestExecution()
+#3 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\ClientRequest->dataRequest()
+#4 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientRequest))
+#5 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /home/fmkiddo/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2021-09-17 01:28:35 --> Undefined variable: requestResponse
+#0 /home/fmkiddo/git/project.alcentrali/server/syscore/Libraries/APIModules/OsamModule.php(493): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', '/home/fmkiddo/g...', 493, Array)
+#1 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/ClientRequest.php(62): App\Libraries\APIModules\OsamModule->executeRequest('new-moveout-doc...')
+#2 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/ClientRequest.php(143): App\Controllers\ClientRequest->requestExecution()
+#3 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\ClientRequest->dataRequest()
+#4 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientRequest))
+#5 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /home/fmkiddo/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2021-09-17 01:34:43 --> Undefined variable: requestResponse
+#0 /home/fmkiddo/git/project.alcentrali/server/syscore/Libraries/APIModules/OsamModule.php(492): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', '/home/fmkiddo/g...', 492, Array)
+#1 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/ClientRequest.php(62): App\Libraries\APIModules\OsamModule->executeRequest('moveout-documen...')
+#2 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/ClientRequest.php(143): App\Controllers\ClientRequest->requestExecution()
+#3 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\ClientRequest->dataRequest()
+#4 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientRequest))
+#5 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /home/fmkiddo/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2021-09-17 01:49:24 --> Class 'App\Models\Osam\' not found
+#0 /home/fmkiddo/git/project.alcentrali/server/syscore/Libraries/APIModules/OsamModule.php(490): App\Libraries\APIModules\Modules->initModel('')
+#1 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/ClientRequest.php(62): App\Libraries\APIModules\OsamModule->executeRequest('moveout-documen...')
+#2 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/ClientRequest.php(143): App\Controllers\ClientRequest->requestExecution()
+#3 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\ClientRequest->dataRequest()
+#4 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientRequest))
+#5 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /home/fmkiddo/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2021-09-17 02:34:11 --> Field 'created_by' doesn't have a default value
+#0 /home/fmkiddo/git/project.alcentrali/engine/Database/MySQLi/Connection.php(331): mysqli->query('INSERT INTO `as...')
+#1 /home/fmkiddo/git/project.alcentrali/engine/Database/BaseConnection.php(741): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `as...')
+#2 /home/fmkiddo/git/project.alcentrali/engine/Database/BaseConnection.php(669): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `as...')
+#3 /home/fmkiddo/git/project.alcentrali/engine/Database/BaseBuilder.php(2249): CodeIgniter\Database\BaseConnection->query('INSERT INTO `as...', Array, false)
+#4 /home/fmkiddo/git/project.alcentrali/engine/Model.php(755): CodeIgniter\Database\BaseBuilder->insert()
+#5 /home/fmkiddo/git/project.alcentrali/server/syscore/Libraries/APIModules/OsamModule.php(521): CodeIgniter\Model->insert(Array)
+#6 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/ClientRequest.php(62): App\Libraries\APIModules\OsamModule->executeRequest('moveout-documen...')
+#7 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/ClientRequest.php(143): App\Controllers\ClientRequest->requestExecution()
+#8 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\ClientRequest->dataRequest()
+#9 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientRequest))
+#10 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 /home/fmkiddo/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2021-09-17 02:34:35 --> Field 'created_by' doesn't have a default value
+#0 /home/fmkiddo/git/project.alcentrali/engine/Database/MySQLi/Connection.php(331): mysqli->query('INSERT INTO `as...')
+#1 /home/fmkiddo/git/project.alcentrali/engine/Database/BaseConnection.php(741): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `as...')
+#2 /home/fmkiddo/git/project.alcentrali/engine/Database/BaseConnection.php(669): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `as...')
+#3 /home/fmkiddo/git/project.alcentrali/engine/Database/BaseBuilder.php(2249): CodeIgniter\Database\BaseConnection->query('INSERT INTO `as...', Array, false)
+#4 /home/fmkiddo/git/project.alcentrali/engine/Model.php(755): CodeIgniter\Database\BaseBuilder->insert()
+#5 /home/fmkiddo/git/project.alcentrali/server/syscore/Libraries/APIModules/OsamModule.php(520): CodeIgniter\Model->insert(Array)
+#6 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/ClientRequest.php(62): App\Libraries\APIModules\OsamModule->executeRequest('moveout-documen...')
+#7 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/ClientRequest.php(143): App\Controllers\ClientRequest->requestExecution()
+#8 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\ClientRequest->dataRequest()
+#9 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientRequest))
+#10 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 /home/fmkiddo/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2021-09-17 02:42:06 --> Column 'ousr_approval' cannot be null
+#0 /home/fmkiddo/git/project.alcentrali/engine/Database/MySQLi/Connection.php(331): mysqli->query('INSERT INTO `as...')
+#1 /home/fmkiddo/git/project.alcentrali/engine/Database/BaseConnection.php(741): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `as...')
+#2 /home/fmkiddo/git/project.alcentrali/engine/Database/BaseConnection.php(669): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `as...')
+#3 /home/fmkiddo/git/project.alcentrali/engine/Database/BaseBuilder.php(2249): CodeIgniter\Database\BaseConnection->query('INSERT INTO `as...', Array, false)
+#4 /home/fmkiddo/git/project.alcentrali/engine/Model.php(755): CodeIgniter\Database\BaseBuilder->insert()
+#5 /home/fmkiddo/git/project.alcentrali/server/syscore/Libraries/APIModules/OsamModule.php(531): CodeIgniter\Model->insert(Array)
+#6 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/ClientRequest.php(62): App\Libraries\APIModules\OsamModule->executeRequest('moveout-documen...')
+#7 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/ClientRequest.php(143): App\Controllers\ClientRequest->requestExecution()
+#8 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\ClientRequest->dataRequest()
+#9 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientRequest))
+#10 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 /home/fmkiddo/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2021-09-17 02:45:53 --> Column 'ousr_approval' cannot be null
+#0 /home/fmkiddo/git/project.alcentrali/engine/Database/MySQLi/Connection.php(331): mysqli->query('INSERT INTO `as...')
+#1 /home/fmkiddo/git/project.alcentrali/engine/Database/BaseConnection.php(741): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `as...')
+#2 /home/fmkiddo/git/project.alcentrali/engine/Database/BaseConnection.php(669): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `as...')
+#3 /home/fmkiddo/git/project.alcentrali/engine/Database/BaseBuilder.php(2249): CodeIgniter\Database\BaseConnection->query('INSERT INTO `as...', Array, false)
+#4 /home/fmkiddo/git/project.alcentrali/engine/Model.php(755): CodeIgniter\Database\BaseBuilder->insert()
+#5 /home/fmkiddo/git/project.alcentrali/server/syscore/Libraries/APIModules/OsamModule.php(531): CodeIgniter\Model->insert(Array)
+#6 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/ClientRequest.php(62): App\Libraries\APIModules\OsamModule->executeRequest('moveout-documen...')
+#7 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/ClientRequest.php(143): App\Controllers\ClientRequest->requestExecution()
+#8 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\ClientRequest->dataRequest()
+#9 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientRequest))
+#10 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 /home/fmkiddo/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2021-09-17 02:48:40 --> Column 'ousr_approval' cannot be null
+#0 /home/fmkiddo/git/project.alcentrali/engine/Database/MySQLi/Connection.php(331): mysqli->query('INSERT INTO `as...')
+#1 /home/fmkiddo/git/project.alcentrali/engine/Database/BaseConnection.php(741): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `as...')
+#2 /home/fmkiddo/git/project.alcentrali/engine/Database/BaseConnection.php(669): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `as...')
+#3 /home/fmkiddo/git/project.alcentrali/engine/Database/BaseBuilder.php(2249): CodeIgniter\Database\BaseConnection->query('INSERT INTO `as...', Array, false)
+#4 /home/fmkiddo/git/project.alcentrali/engine/Model.php(755): CodeIgniter\Database\BaseBuilder->insert()
+#5 /home/fmkiddo/git/project.alcentrali/server/syscore/Libraries/APIModules/OsamModule.php(532): CodeIgniter\Model->insert(Array)
+#6 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/ClientRequest.php(62): App\Libraries\APIModules\OsamModule->executeRequest('moveout-documen...')
+#7 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/ClientRequest.php(143): App\Controllers\ClientRequest->requestExecution()
+#8 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\ClientRequest->dataRequest()
+#9 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientRequest))
+#10 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 /home/fmkiddo/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2021-09-17 02:49:14 --> Column 'ousr_approval' cannot be null
+#0 /home/fmkiddo/git/project.alcentrali/engine/Database/MySQLi/Connection.php(331): mysqli->query('INSERT INTO `as...')
+#1 /home/fmkiddo/git/project.alcentrali/engine/Database/BaseConnection.php(741): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `as...')
+#2 /home/fmkiddo/git/project.alcentrali/engine/Database/BaseConnection.php(669): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `as...')
+#3 /home/fmkiddo/git/project.alcentrali/engine/Database/BaseBuilder.php(2249): CodeIgniter\Database\BaseConnection->query('INSERT INTO `as...', Array, false)
+#4 /home/fmkiddo/git/project.alcentrali/engine/Model.php(755): CodeIgniter\Database\BaseBuilder->insert()
+#5 /home/fmkiddo/git/project.alcentrali/server/syscore/Libraries/APIModules/OsamModule.php(532): CodeIgniter\Model->insert(Array)
+#6 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/ClientRequest.php(62): App\Libraries\APIModules\OsamModule->executeRequest('moveout-documen...')
+#7 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/ClientRequest.php(143): App\Controllers\ClientRequest->requestExecution()
+#8 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\ClientRequest->dataRequest()
+#9 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientRequest))
+#10 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 /home/fmkiddo/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2021-09-17 02:52:03 --> Undefined index: moveout-fromlocation
+#0 /home/fmkiddo/git/project.alcentrali/server/syscore/Libraries/APIModules/OsamModule.php(509): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', '/home/fmkiddo/g...', 509, Array)
+#1 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/ClientRequest.php(62): App\Libraries\APIModules\OsamModule->executeRequest('moveout-documen...')
+#2 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/ClientRequest.php(143): App\Controllers\ClientRequest->requestExecution()
+#3 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\ClientRequest->dataRequest()
+#4 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientRequest))
+#5 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /home/fmkiddo/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2021-09-17 03:45:16 --> Undefined index: moveout-fromlocation
+#0 /home/fmkiddo/git/project.alcentrali/server/syscore/Libraries/APIModules/OsamModule.php(509): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', '/home/fmkiddo/g...', 509, Array)
+#1 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/ClientRequest.php(62): App\Libraries\APIModules\OsamModule->executeRequest('moveout-documen...')
+#2 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/ClientRequest.php(143): App\Controllers\ClientRequest->requestExecution()
+#3 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\ClientRequest->dataRequest()
+#4 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientRequest))
+#5 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /home/fmkiddo/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2021-09-17 03:45:50 --> Undefined variable: moveOutParam
+#0 /home/fmkiddo/git/project.alcentrali/server/syscore/Libraries/APIModules/OsamModule.php(512): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', '/home/fmkiddo/g...', 512, Array)
+#1 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/ClientRequest.php(62): App\Libraries\APIModules\OsamModule->executeRequest('moveout-documen...')
+#2 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/ClientRequest.php(143): App\Controllers\ClientRequest->requestExecution()
+#3 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\ClientRequest->dataRequest()
+#4 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientRequest))
+#5 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /home/fmkiddo/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2021-09-17 03:46:00 --> Undefined variable: moveOutParam
+#0 /home/fmkiddo/git/project.alcentrali/server/syscore/Libraries/APIModules/OsamModule.php(512): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', '/home/fmkiddo/g...', 512, Array)
+#1 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/ClientRequest.php(62): App\Libraries\APIModules\OsamModule->executeRequest('moveout-documen...')
+#2 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/ClientRequest.php(143): App\Controllers\ClientRequest->requestExecution()
+#3 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\ClientRequest->dataRequest()
+#4 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientRequest))
+#5 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /home/fmkiddo/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2021-09-17 03:48:15 --> Class 'tag_value`' not found
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}

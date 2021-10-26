@@ -1,0 +1,47 @@
+CRITICAL - 2021-10-24 21:53:19 --> Trying to access array offset on value of type null
+#0 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/ClientRequest.php(144): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', '/home/fmkiddo/g...', 144, Array)
+#1 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\ClientRequest->systemClientAuthentication()
+#2 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientRequest))
+#3 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /home/fmkiddo/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-10-24 23:26:24 --> Declaration of App\Libraries\APIModules\OsamModule::serverRequest($trigger) must be compatible with App\Libraries\ModuleInterface::serverRequest($trigger): array
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2021-10-24 23:26:40 --> Declaration of App\Libraries\APIModules\OsamModule::serverRequest($trigger) must be compatible with App\Libraries\ModuleInterface::serverRequest($trigger): array
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2021-10-24 23:28:30 --> Undefined variable: isAdminSet
+#0 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/ClientRequest.php(180): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', '/home/fmkiddo/g...', 180, Array)
+#1 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/ClientRequest.php(190): App\Controllers\ClientRequest->authorizationProcess()
+#2 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\ClientRequest->clientAuthentication()
+#3 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientRequest))
+#4 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 /home/fmkiddo/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2021-10-24 23:39:58 --> Declaration of App\Libraries\APIModules\OsamModule::serverRequest($trigger) must be compatible with App\Libraries\ModuleInterface::serverRequest($trigger): array
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2021-10-24 23:41:21 --> Declaration of App\Libraries\APIModules\OsamModule::serverRequest($trigger) must be compatible with App\Libraries\ModuleInterface::serverRequest($trigger): array
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2021-10-24 23:45:52 --> Declaration of App\Libraries\APIModules\OsamModule::serverRequest($trigger) must be compatible with App\Libraries\ModuleInterface::serverRequest($trigger): array
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2021-10-24 23:48:22 --> Undefined variable: moduleClass
+#0 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/ClientRequest.php(174): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', '/home/fmkiddo/g...', 174, Array)
+#1 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/ClientRequest.php(192): App\Controllers\ClientRequest->authorizationProcess()
+#2 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\ClientRequest->clientAuthentication()
+#3 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientRequest))
+#4 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 /home/fmkiddo/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2021-10-24 23:50:03 --> Declaration of App\Libraries\APIModules\OsamModule::serverRequest($trigger) must be compatible with App\Libraries\ModuleInterface::serverRequest($trigger): array
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2021-10-24 23:50:20 --> Declaration of App\Libraries\APIModules\OsamModule::serverRequest($trigger) must be compatible with App\Libraries\ModuleInterface::serverRequest($trigger): array
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2021-10-24 23:54:18 --> Declaration of App\Libraries\APIModules\OsamModule::serverRequest($trigger) must be compatible with App\Libraries\ModuleInterface::serverRequest($trigger): array
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}

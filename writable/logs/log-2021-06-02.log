@@ -1,0 +1,35 @@
+CRITICAL - 2021-06-02 21:05:48 --> Undefined index: clientkey
+#0 /home/rizcky/git/project.alcentrali/server/syscore/Controllers/ClientRequest.php(128): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', '/home/rizcky/gi...', 128, Array)
+#1 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\ClientRequest->clientAuthentication()
+#2 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientRequest))
+#3 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /home/rizcky/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-06-02 21:05:51 --> Undefined index: clientkey
+#0 /home/rizcky/git/project.alcentrali/server/syscore/Controllers/ClientRequest.php(128): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', '/home/rizcky/gi...', 128, Array)
+#1 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\ClientRequest->clientAuthentication()
+#2 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientRequest))
+#3 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /home/rizcky/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-06-02 21:06:11 --> Undefined index: clientkey
+#0 /home/rizcky/git/project.alcentrali/server/syscore/Controllers/ClientRequest.php(128): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', '/home/rizcky/gi...', 128, Array)
+#1 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\ClientRequest->clientAuthentication()
+#2 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientRequest))
+#3 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /home/rizcky/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-06-02 21:07:23 --> Undefined index: clientkey
+#0 /home/rizcky/git/project.alcentrali/server/syscore/Controllers/ClientRequest.php(128): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', '/home/rizcky/gi...', 128, Array)
+#1 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\ClientRequest->clientAuthentication()
+#2 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientRequest))
+#3 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /home/rizcky/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-06-02 21:09:01 --> Undefined index: clientkey
+#0 /home/rizcky/git/project.alcentrali/server/syscore/Controllers/ClientRequest.php(128): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', '/home/rizcky/gi...', 128, Array)
+#1 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\ClientRequest->clientAuthentication()
+#2 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientRequest))
+#3 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /home/rizcky/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}

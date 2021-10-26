@@ -1,0 +1,20 @@
+CRITICAL - 2021-02-04 01:17:24 --> Undefined index: sign-up-message
+#0 /home/rizcky/git/project.alcentrali/officer/appcore/Views/officer/dologin.php(36): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', '/home/rizcky/gi...', 36, Array)
+#1 /home/rizcky/git/project.alcentrali/engine/View/View.php(246): include('/home/rizcky/gi...')
+#2 /home/rizcky/git/project.alcentrali/engine/Common.php(1119): CodeIgniter\View\View->render('officer/dologin', Array, true)
+#3 /home/rizcky/git/project.alcentrali/officer/appcore/Controllers/Officer.php(35): view('officer/dologin', Array)
+#4 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Officer->do('login')
+#5 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Officer))
+#6 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /home/rizcky/git/project.alcentrali/officer/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-02-04 01:17:43 --> Undefined index: sign-up-message
+#0 /home/rizcky/git/project.alcentrali/officer/appcore/Views/officer/dologin.php(36): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', '/home/rizcky/gi...', 36, Array)
+#1 /home/rizcky/git/project.alcentrali/engine/View/View.php(246): include('/home/rizcky/gi...')
+#2 /home/rizcky/git/project.alcentrali/engine/Common.php(1119): CodeIgniter\View\View->render('officer/dologin', Array, true)
+#3 /home/rizcky/git/project.alcentrali/officer/appcore/Controllers/Officer.php(36): view('officer/dologin', Array)
+#4 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Officer->do('login')
+#5 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Officer))
+#6 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /home/rizcky/git/project.alcentrali/officer/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}

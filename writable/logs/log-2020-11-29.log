@@ -1,0 +1,139 @@
+CRITICAL - 2020-11-29 20:49:14 --> Undefined offset: 1
+#0 /home/rizcky/git/project.alcentrali/engine/Router/Router.php(488): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined offse...', '/home/rizcky/gi...', 488, Array)
+#1 /home/rizcky/git/project.alcentrali/engine/Router/Router.php(177): CodeIgniter\Router\Router->checkRoutes('generator')
+#2 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(793): CodeIgniter\Router\Router->handle('generator')
+#3 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(364): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#4 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 /home/rizcky/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2020-11-29 20:50:57 --> Undefined variable: basePath
+#0 /home/rizcky/git/project.alcentrali/server/syscore/Views/footer.php(24): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', '/home/rizcky/gi...', 24, Array)
+#1 /home/rizcky/git/project.alcentrali/server/syscore/Views/tools/randomizer.php(31): include('/home/rizcky/gi...')
+#2 /home/rizcky/git/project.alcentrali/engine/View/View.php(246): include('/home/rizcky/gi...')
+#3 /home/rizcky/git/project.alcentrali/engine/Common.php(1119): CodeIgniter\View\View->render('tools/randomize...', Array, true)
+#4 /home/rizcky/git/project.alcentrali/server/syscore/Controllers/Tools.php(13): view('tools/randomize...', Array)
+#5 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Tools->key_generator()
+#6 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Tools))
+#7 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /home/rizcky/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2020-11-29 20:51:15 --> Undefined variable: assetVendorsPath
+#0 /home/rizcky/git/project.alcentrali/server/syscore/Views/footer.php(24): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', '/home/rizcky/gi...', 24, Array)
+#1 /home/rizcky/git/project.alcentrali/server/syscore/Views/tools/randomizer.php(31): include('/home/rizcky/gi...')
+#2 /home/rizcky/git/project.alcentrali/engine/View/View.php(246): include('/home/rizcky/gi...')
+#3 /home/rizcky/git/project.alcentrali/engine/Common.php(1119): CodeIgniter\View\View->render('tools/randomize...', Array, true)
+#4 /home/rizcky/git/project.alcentrali/server/syscore/Controllers/Tools.php(15): view('tools/randomize...', Array)
+#5 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Tools->key_generator()
+#6 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Tools))
+#7 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /home/rizcky/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2020-11-29 20:51:34 --> Undefined variable: assetsPath
+#0 /home/rizcky/git/project.alcentrali/server/syscore/Views/footer.php(27): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', '/home/rizcky/gi...', 27, Array)
+#1 /home/rizcky/git/project.alcentrali/server/syscore/Views/tools/randomizer.php(31): include('/home/rizcky/gi...')
+#2 /home/rizcky/git/project.alcentrali/engine/View/View.php(246): include('/home/rizcky/gi...')
+#3 /home/rizcky/git/project.alcentrali/engine/Common.php(1119): CodeIgniter\View\View->render('tools/randomize...', Array, true)
+#4 /home/rizcky/git/project.alcentrali/server/syscore/Controllers/Tools.php(16): view('tools/randomize...', Array)
+#5 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Tools->key_generator()
+#6 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Tools))
+#7 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /home/rizcky/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2020-11-29 20:55:22 --> syntax error, unexpected ''htmlTitle'' (T_CONSTANT_ENCAPSED_STRING), expecting ']'
+#0 /home/rizcky/git/project.alcentrali/engine/Autoloader/Autoloader.php(296): CodeIgniter\Autoloader\Autoloader->requireFile('/home/rizcky/gi...')
+#1 /home/rizcky/git/project.alcentrali/engine/Autoloader/Autoloader.php(258): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers...')
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers...')
+#3 [internal function]: spl_autoload_call('App\\Controllers...')
+#4 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(869): class_exists('\\App\\Controller...', true)
+#5 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(394): CodeIgniter\CodeIgniter->startController()
+#6 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /home/rizcky/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2020-11-29 20:55:28 --> syntax error, unexpected ''htmlTitle'' (T_CONSTANT_ENCAPSED_STRING), expecting ']'
+#0 /home/rizcky/git/project.alcentrali/engine/Autoloader/Autoloader.php(296): CodeIgniter\Autoloader\Autoloader->requireFile('/home/rizcky/gi...')
+#1 /home/rizcky/git/project.alcentrali/engine/Autoloader/Autoloader.php(258): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers...')
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers...')
+#3 [internal function]: spl_autoload_call('App\\Controllers...')
+#4 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(869): class_exists('\\App\\Controller...', true)
+#5 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(394): CodeIgniter\CodeIgniter->startController()
+#6 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /home/rizcky/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2020-11-29 21:20:18 --> Undefined variable: basePath
+#0 /home/rizcky/git/project.alcentrali/server/syscore/Views/header.php(9): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', '/home/rizcky/gi...', 9, Array)
+#1 /home/rizcky/git/project.alcentrali/engine/View/View.php(246): include('/home/rizcky/gi...')
+#2 /home/rizcky/git/project.alcentrali/engine/Common.php(1119): CodeIgniter\View\View->render('header', Array, true)
+#3 /home/rizcky/git/project.alcentrali/server/syscore/Controllers/Tools.php(25): view('header', Array)
+#4 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Tools->key_generator()
+#5 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Tools))
+#6 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /home/rizcky/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2020-11-29 22:51:01 --> Invalid file: .php
+#0 /home/rizcky/git/project.alcentrali/engine/View/View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('.php')
+#1 /home/rizcky/git/project.alcentrali/engine/Common.php(1119): CodeIgniter\View\View->render('', Array, true)
+#2 /home/rizcky/git/project.alcentrali/server/syscore/Controllers/Tools.php(19): view('', Array)
+#3 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Tools->generator()
+#4 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Tools))
+#5 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /home/rizcky/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2020-11-29 22:51:06 --> Invalid file: .php
+#0 /home/rizcky/git/project.alcentrali/engine/View/View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('.php')
+#1 /home/rizcky/git/project.alcentrali/engine/Common.php(1119): CodeIgniter\View\View->render('', Array, true)
+#2 /home/rizcky/git/project.alcentrali/server/syscore/Controllers/Tools.php(19): view('', Array)
+#3 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Tools->generator()
+#4 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Tools))
+#5 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /home/rizcky/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2020-11-29 22:51:42 --> Invalid file: randomizer.php
+#0 /home/rizcky/git/project.alcentrali/engine/View/View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('randomizer.php')
+#1 /home/rizcky/git/project.alcentrali/engine/Common.php(1119): CodeIgniter\View\View->render('randomizer', Array, true)
+#2 /home/rizcky/git/project.alcentrali/server/syscore/Controllers/Tools.php(19): view('randomizer', Array)
+#3 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Tools->generator()
+#4 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Tools))
+#5 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /home/rizcky/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2020-11-29 22:51:48 --> Invalid file: randomizer.php
+#0 /home/rizcky/git/project.alcentrali/engine/View/View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('randomizer.php')
+#1 /home/rizcky/git/project.alcentrali/engine/Common.php(1119): CodeIgniter\View\View->render('randomizer', Array, true)
+#2 /home/rizcky/git/project.alcentrali/server/syscore/Controllers/Tools.php(19): view('randomizer', Array)
+#3 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Tools->generator()
+#4 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Tools))
+#5 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /home/rizcky/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2020-11-29 22:52:12 --> Undefined variable: basePath
+#0 /home/rizcky/git/project.alcentrali/server/syscore/Views/header.php(9): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', '/home/rizcky/gi...', 9, Array)
+#1 /home/rizcky/git/project.alcentrali/server/syscore/Views/tools/randomizer.php(1): include('/home/rizcky/gi...')
+#2 /home/rizcky/git/project.alcentrali/engine/View/View.php(246): include('/home/rizcky/gi...')
+#3 /home/rizcky/git/project.alcentrali/engine/Common.php(1119): CodeIgniter\View\View->render('tools/randomize...', Array, true)
+#4 /home/rizcky/git/project.alcentrali/server/syscore/Controllers/Tools.php(19): view('tools/randomize...', Array)
+#5 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Tools->generator()
+#6 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Tools))
+#7 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /home/rizcky/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2020-11-29 22:53:52 --> Undefined variable: view
+#0 /home/rizcky/git/project.alcentrali/server/syscore/Controllers/Tools.php(23): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', '/home/rizcky/gi...', 23, Array)
+#1 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Tools->generator()
+#2 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Tools))
+#3 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /home/rizcky/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2020-11-29 23:38:59 --> Too few arguments to function App\Models\TokenModel::generateToken(), 0 passed in /home/rizcky/git/project.alcentrali/server/syscore/Controllers/Tools.php on line 26 and exactly 1 expected
+#0 /home/rizcky/git/project.alcentrali/server/syscore/Controllers/Tools.php(26): App\Models\TokenModel->generateToken()
+#1 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Tools->generator()
+#2 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Tools))
+#3 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /home/rizcky/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2020-11-29 23:39:02 --> Too few arguments to function App\Models\TokenModel::generateToken(), 0 passed in /home/rizcky/git/project.alcentrali/server/syscore/Controllers/Tools.php on line 26 and exactly 1 expected
+#0 /home/rizcky/git/project.alcentrali/server/syscore/Controllers/Tools.php(26): App\Models\TokenModel->generateToken()
+#1 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Tools->generator()
+#2 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Tools))
+#3 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /home/rizcky/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}

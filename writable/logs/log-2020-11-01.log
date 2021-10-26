@@ -1,0 +1,79 @@
+CRITICAL - 2020-11-01 22:23:38 --> syntax error, unexpected '}'
+#0 /home/rizcky/git/project.alcentrali/engine/Autoloader/Autoloader.php(296): CodeIgniter\Autoloader\Autoloader->requireFile('/home/rizcky/gi...')
+#1 /home/rizcky/git/project.alcentrali/engine/Autoloader/Autoloader.php(258): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers...')
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers...')
+#3 /home/rizcky/git/project.alcentrali/officer/appcore/Controllers/Setup.php(5): spl_autoload_call('App\\Controllers...')
+#4 /home/rizcky/git/project.alcentrali/engine/Autoloader/Autoloader.php(365): require_once('/home/rizcky/gi...')
+#5 /home/rizcky/git/project.alcentrali/engine/Autoloader/Autoloader.php(296): CodeIgniter\Autoloader\Autoloader->requireFile('/home/rizcky/gi...')
+#6 /home/rizcky/git/project.alcentrali/engine/Autoloader/Autoloader.php(258): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers...')
+#7 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers...')
+#8 [internal function]: spl_autoload_call('App\\Controllers...')
+#9 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(869): class_exists('\\App\\Controller...', true)
+#10 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(394): CodeIgniter\CodeIgniter->startController()
+#11 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 /home/rizcky/git/project.alcentrali/officer/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#13 {main}
+CRITICAL - 2020-11-01 22:23:46 --> Call to undefined function App\Controllers\server_url()
+#0 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Setup->run('welcome')
+#1 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Setup))
+#2 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /home/rizcky/git/project.alcentrali/officer/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2020-11-01 22:26:53 --> Call to undefined function App\Controllers\server_url()
+#0 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Setup->run('welcome')
+#1 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Setup))
+#2 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /home/rizcky/git/project.alcentrali/officer/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2020-11-01 22:27:00 --> Call to undefined function App\Controllers\server_url()
+#0 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Setup->run('welcome')
+#1 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Setup))
+#2 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /home/rizcky/git/project.alcentrali/officer/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2020-11-01 22:27:47 --> Call to undefined function App\Controllers\server_url()
+#0 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Setup->run('welcome')
+#1 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Setup))
+#2 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /home/rizcky/git/project.alcentrali/officer/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2020-11-01 22:28:05 --> Undefined property: Config\App::$serverURL
+#0 /home/rizcky/git/project.alcentrali/officer/appcore/Helpers/url_helper.php(16): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', '/home/rizcky/gi...', 16, Array)
+#1 /home/rizcky/git/project.alcentrali/officer/appcore/Controllers/Setup.php(21): server_url('asdasdasd')
+#2 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Setup->run('welcome')
+#3 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Setup))
+#4 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 /home/rizcky/git/project.alcentrali/officer/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2020-11-01 22:29:43 --> Undefined property: Config\App::$serverUrl
+#0 /home/rizcky/git/project.alcentrali/officer/appcore/Helpers/url_helper.php(21): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', '/home/rizcky/gi...', 21, Array)
+#1 /home/rizcky/git/project.alcentrali/officer/appcore/Controllers/Setup.php(21): server_url('asdasdasd')
+#2 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Setup->run('welcome')
+#3 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Setup))
+#4 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 /home/rizcky/git/project.alcentrali/officer/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2020-11-01 22:30:41 --> Undefined property: Config\App::$serverUrl
+#0 /home/rizcky/git/project.alcentrali/officer/appcore/Helpers/url_helper.php(21): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', '/home/rizcky/gi...', 21, Array)
+#1 /home/rizcky/git/project.alcentrali/officer/appcore/Controllers/Setup.php(21): server_url('asdasdasd')
+#2 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Setup->run('welcome')
+#3 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Setup))
+#4 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 /home/rizcky/git/project.alcentrali/officer/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2020-11-01 22:31:05 --> Undefined property: Config\App::$serverURL
+#0 /home/rizcky/git/project.alcentrali/officer/appcore/Helpers/url_helper.php(21): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', '/home/rizcky/gi...', 21, Array)
+#1 /home/rizcky/git/project.alcentrali/officer/appcore/Controllers/Setup.php(21): server_url('asdasdasd')
+#2 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Setup->run('welcome')
+#3 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Setup))
+#4 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 /home/rizcky/git/project.alcentrali/officer/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2020-11-01 22:40:59 --> Undefined property: Config\App::$serverURL
+#0 /home/rizcky/git/project.alcentrali/officer/appcore/Helpers/url_helper.php(21): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', '/home/rizcky/gi...', 21, Array)
+#1 /home/rizcky/git/project.alcentrali/officer/appcore/Controllers/Setup.php(21): server_url('asdasdasd')
+#2 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Setup->run('welcome')
+#3 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Setup))
+#4 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 /home/rizcky/git/project.alcentrali/officer/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#6 {main}

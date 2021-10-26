@@ -1,0 +1,24 @@
+CRITICAL - 2021-10-01 00:51:50 --> Unable to connect to the database.
+#0 /home/fmkiddo/git/project.alcentrali/engine/Database/BaseConnection.php(646): CodeIgniter\Database\BaseConnection->initialize()
+#1 /home/fmkiddo/git/project.alcentrali/engine/Database/BaseBuilder.php(1860): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 /home/fmkiddo/git/project.alcentrali/server/syscore/Models/BaseModel.php(61): CodeIgniter\Database\BaseBuilder->get()
+#3 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/ClientRequest.php(73): App\Models\BaseModel->find('osamjodex_60d48...')
+#4 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/ClientRequest.php(40): App\Controllers\ClientRequest->getClient()
+#5 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/ClientRequest.php(143): App\Controllers\ClientRequest->requestExecution()
+#6 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\ClientRequest->dataRequest()
+#7 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientRequest))
+#8 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /home/fmkiddo/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2021-10-01 00:51:50 --> Unable to connect to the database.
+#0 /home/fmkiddo/git/project.alcentrali/engine/Database/BaseConnection.php(646): CodeIgniter\Database\BaseConnection->initialize()
+#1 /home/fmkiddo/git/project.alcentrali/engine/Database/BaseBuilder.php(1860): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 /home/fmkiddo/git/project.alcentrali/server/syscore/Models/BaseModel.php(61): CodeIgniter\Database\BaseBuilder->get()
+#3 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/ClientRequest.php(73): App\Models\BaseModel->find('osamjodex_60d48...')
+#4 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/ClientRequest.php(40): App\Controllers\ClientRequest->getClient()
+#5 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/ClientRequest.php(143): App\Controllers\ClientRequest->requestExecution()
+#6 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\ClientRequest->dataRequest()
+#7 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientRequest))
+#8 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /home/fmkiddo/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#10 {main}
