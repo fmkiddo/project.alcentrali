@@ -1,6 +1,0 @@
-CRITICAL - 2020-06-25 22:42:02 --> Access level to App\Controllers\ClientRequest::$response must be protected (as in class App\Controllers\BaseRESTController) or weaker
-#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
-#1 {main}
-CRITICAL - 2020-06-25 22:42:41 --> Access level to App\Controllers\ClientRequest::$response must be protected (as in class App\Controllers\BaseRESTController) or weaker
-#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
-#1 {main}

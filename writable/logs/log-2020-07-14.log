@@ -1,9 +1,0 @@
-CRITICAL - 2020-07-14 10:12:53 --> syntax error, unexpected end of file, expecting case (T_CASE) or default (T_DEFAULT) or '}'
-#0 /home/rizcky/git/project.asman/engine/View/View.php(239): include()
-#1 /home/rizcky/git/project.asman/engine/Common.php(1038): CodeIgniter\View\View->render('dashboard', Array, true)
-#2 /home/rizcky/git/project.asman/server/core/Controllers/Dashboard.php(40): view('dashboard', Array)
-#3 /home/rizcky/git/project.asman/engine/CodeIgniter.php(860): App\Controllers\Dashboard->index()
-#4 /home/rizcky/git/project.asman/engine/CodeIgniter.php(381): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
-#5 /home/rizcky/git/project.asman/engine/CodeIgniter.php(297): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
-#6 /home/rizcky/git/project.asman/server/public/index.php(44): CodeIgniter\CodeIgniter->run()
-#7 {main}

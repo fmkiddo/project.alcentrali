@@ -1,7 +1,0 @@
-CRITICAL - 2021-05-17 04:00:58 --> Undefined index: status
-#0 /home/rizcky/git/project.alcentrali/officer/appcore/Controllers/Officer.php(252): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', '/home/rizcky/gi...', 252, Array)
-#1 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Officer->dataprocessing('client')
-#2 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Officer))
-#3 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
-#4 /home/rizcky/git/project.alcentrali/officer/index/index.php(45): CodeIgniter\CodeIgniter->run()
-#5 {main}

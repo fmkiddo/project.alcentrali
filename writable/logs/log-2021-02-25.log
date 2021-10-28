@@ -1,7 +1,0 @@
-CRITICAL - 2021-02-25 20:52:29 --> Trying to access array offset on value of type null
-#0 /home/rizcky/git/project.alcentrali/officer/appcore/Controllers/Officer.php(46): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', '/home/rizcky/gi...', 46, Array)
-#1 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Officer->do('process-login')
-#2 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Officer))
-#3 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
-#4 /home/rizcky/git/project.alcentrali/officer/index/index.php(45): CodeIgniter\CodeIgniter->run()
-#5 {main}
