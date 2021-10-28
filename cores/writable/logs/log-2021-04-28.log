@@ -1,0 +1,400 @@
+CRITICAL - 2021-04-28 00:00:59 --> Call to undefined function App\Controllers\server_url()
+#0 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\OfficerRequest->dataRequest()
+#1 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\OfficerRequest))
+#2 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /home/rizcky/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2021-04-28 00:00:59 --> 22 : The requested URL returned error: 500 Internal Server Error
+#0 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(821): CodeIgniter\HTTP\Exceptions\HTTPException::forCurlError('22', 'The requested U...')
+#1 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(449): CodeIgniter\HTTP\CURLRequest->sendRequest(Array)
+#2 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(158): CodeIgniter\HTTP\CURLRequest->send('put', 'http://localhos...')
+#3 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(265): CodeIgniter\HTTP\CURLRequest->request('put', 'http://localhos...', Array)
+#4 /home/rizcky/git/project.alcentrali/officer/appcore/Controllers/Officer.php(26): CodeIgniter\HTTP\CURLRequest->put('http://localhos...', Array)
+#5 /home/rizcky/git/project.alcentrali/officer/appcore/Controllers/Officer.php(196): App\Controllers\Officer->dataRequest('api/dataaccess', Array)
+#6 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Officer->dataprocessing('client-processi...')
+#7 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Officer))
+#8 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /home/rizcky/git/project.alcentrali/officer/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2021-04-28 00:02:44 --> Call to undefined function App\Controllers\server_url()
+#0 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\OfficerRequest->dataRequest()
+#1 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\OfficerRequest))
+#2 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /home/rizcky/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2021-04-28 00:02:44 --> 22 : The requested URL returned error: 500 Internal Server Error
+#0 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(821): CodeIgniter\HTTP\Exceptions\HTTPException::forCurlError('22', 'The requested U...')
+#1 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(449): CodeIgniter\HTTP\CURLRequest->sendRequest(Array)
+#2 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(158): CodeIgniter\HTTP\CURLRequest->send('put', 'http://localhos...')
+#3 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(265): CodeIgniter\HTTP\CURLRequest->request('put', 'http://localhos...', Array)
+#4 /home/rizcky/git/project.alcentrali/officer/appcore/Controllers/Officer.php(26): CodeIgniter\HTTP\CURLRequest->put('http://localhos...', Array)
+#5 /home/rizcky/git/project.alcentrali/officer/appcore/Controllers/Officer.php(196): App\Controllers\Officer->dataRequest('api/dataaccess', Array)
+#6 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Officer->dataprocessing('client-processi...')
+#7 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Officer))
+#8 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /home/rizcky/git/project.alcentrali/officer/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2021-04-28 03:20:33 --> osam is not a valid database connection group.
+#0 /home/rizcky/git/project.alcentrali/engine/Database/Config.php(146): CodeIgniter\Database\Config::connect('osam')
+#1 /home/rizcky/git/project.alcentrali/server/syscore/Controllers/DataForgery.php(12): CodeIgniter\Database\Config::forge('osam')
+#2 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\DataForgery->start_forgery()
+#3 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DataForgery))
+#4 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 /home/rizcky/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2021-04-28 03:20:33 --> 22 : The requested URL returned error: 500 Internal Server Error
+#0 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(821): CodeIgniter\HTTP\Exceptions\HTTPException::forCurlError('22', 'The requested U...')
+#1 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(449): CodeIgniter\HTTP\CURLRequest->sendRequest(Array)
+#2 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(158): CodeIgniter\HTTP\CURLRequest->send('put', 'http://localhos...')
+#3 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(265): CodeIgniter\HTTP\CURLRequest->request('put', 'http://localhos...', Array)
+#4 /home/rizcky/git/project.alcentrali/server/syscore/Controllers/OfficerRequest.php(471): CodeIgniter\HTTP\CURLRequest->put('http://localhos...', Array)
+#5 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\OfficerRequest->dataRequest()
+#6 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\OfficerRequest))
+#7 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /home/rizcky/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2021-04-28 03:20:33 --> 22 : The requested URL returned error: 500 Internal Server Error
+#0 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(821): CodeIgniter\HTTP\Exceptions\HTTPException::forCurlError('22', 'The requested U...')
+#1 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(449): CodeIgniter\HTTP\CURLRequest->sendRequest(Array)
+#2 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(158): CodeIgniter\HTTP\CURLRequest->send('put', 'http://localhos...')
+#3 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(265): CodeIgniter\HTTP\CURLRequest->request('put', 'http://localhos...', Array)
+#4 /home/rizcky/git/project.alcentrali/officer/appcore/Controllers/Officer.php(26): CodeIgniter\HTTP\CURLRequest->put('http://localhos...', Array)
+#5 /home/rizcky/git/project.alcentrali/officer/appcore/Controllers/Officer.php(196): App\Controllers\Officer->dataRequest('api/dataaccess', Array)
+#6 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Officer->dataprocessing('client-processi...')
+#7 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Officer))
+#8 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /home/rizcky/git/project.alcentrali/officer/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2021-04-28 03:21:09 --> osam is not a valid database connection group.
+#0 /home/rizcky/git/project.alcentrali/engine/Database/Config.php(146): CodeIgniter\Database\Config::connect('osam')
+#1 /home/rizcky/git/project.alcentrali/server/syscore/Controllers/DataForgery.php(12): CodeIgniter\Database\Config::forge('osam')
+#2 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\DataForgery->start_forgery()
+#3 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DataForgery))
+#4 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 /home/rizcky/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2021-04-28 03:21:09 --> 22 : The requested URL returned error: 500 Internal Server Error
+#0 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(821): CodeIgniter\HTTP\Exceptions\HTTPException::forCurlError('22', 'The requested U...')
+#1 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(449): CodeIgniter\HTTP\CURLRequest->sendRequest(Array)
+#2 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(158): CodeIgniter\HTTP\CURLRequest->send('put', 'http://localhos...')
+#3 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(265): CodeIgniter\HTTP\CURLRequest->request('put', 'http://localhos...', Array)
+#4 /home/rizcky/git/project.alcentrali/server/syscore/Controllers/OfficerRequest.php(471): CodeIgniter\HTTP\CURLRequest->put('http://localhos...', Array)
+#5 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\OfficerRequest->dataRequest()
+#6 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\OfficerRequest))
+#7 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /home/rizcky/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2021-04-28 03:21:09 --> 22 : The requested URL returned error: 500 Internal Server Error
+#0 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(821): CodeIgniter\HTTP\Exceptions\HTTPException::forCurlError('22', 'The requested U...')
+#1 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(449): CodeIgniter\HTTP\CURLRequest->sendRequest(Array)
+#2 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(158): CodeIgniter\HTTP\CURLRequest->send('put', 'http://localhos...')
+#3 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(265): CodeIgniter\HTTP\CURLRequest->request('put', 'http://localhos...', Array)
+#4 /home/rizcky/git/project.alcentrali/officer/appcore/Controllers/Officer.php(26): CodeIgniter\HTTP\CURLRequest->put('http://localhos...', Array)
+#5 /home/rizcky/git/project.alcentrali/officer/appcore/Controllers/Officer.php(196): App\Controllers\Officer->dataRequest('api/dataaccess', Array)
+#6 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Officer->dataprocessing('client-processi...')
+#7 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Officer))
+#8 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /home/rizcky/git/project.alcentrali/officer/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2021-04-28 03:54:52 --> syntax error, unexpected '$result' (T_VARIABLE)
+#0 /home/rizcky/git/project.alcentrali/engine/Autoloader/Autoloader.php(296): CodeIgniter\Autoloader\Autoloader->requireFile('/home/rizcky/gi...')
+#1 /home/rizcky/git/project.alcentrali/engine/Autoloader/Autoloader.php(258): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers...')
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers...')
+#3 [internal function]: spl_autoload_call('App\\Controllers...')
+#4 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(869): class_exists('\\App\\Controller...', true)
+#5 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(394): CodeIgniter\CodeIgniter->startController()
+#6 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /home/rizcky/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-04-28 03:54:52 --> 22 : The requested URL returned error: 500 Internal Server Error
+#0 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(821): CodeIgniter\HTTP\Exceptions\HTTPException::forCurlError('22', 'The requested U...')
+#1 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(449): CodeIgniter\HTTP\CURLRequest->sendRequest(Array)
+#2 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(158): CodeIgniter\HTTP\CURLRequest->send('put', 'http://localhos...')
+#3 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(265): CodeIgniter\HTTP\CURLRequest->request('put', 'http://localhos...', Array)
+#4 /home/rizcky/git/project.alcentrali/server/syscore/Controllers/OfficerRequest.php(474): CodeIgniter\HTTP\CURLRequest->put('http://localhos...', Array)
+#5 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\OfficerRequest->dataRequest()
+#6 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\OfficerRequest))
+#7 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /home/rizcky/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2021-04-28 03:54:52 --> 22 : The requested URL returned error: 500 Internal Server Error
+#0 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(821): CodeIgniter\HTTP\Exceptions\HTTPException::forCurlError('22', 'The requested U...')
+#1 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(449): CodeIgniter\HTTP\CURLRequest->sendRequest(Array)
+#2 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(158): CodeIgniter\HTTP\CURLRequest->send('put', 'http://localhos...')
+#3 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(265): CodeIgniter\HTTP\CURLRequest->request('put', 'http://localhos...', Array)
+#4 /home/rizcky/git/project.alcentrali/officer/appcore/Controllers/Officer.php(26): CodeIgniter\HTTP\CURLRequest->put('http://localhos...', Array)
+#5 /home/rizcky/git/project.alcentrali/officer/appcore/Controllers/Officer.php(196): App\Controllers\Officer->dataRequest('api/dataaccess', Array)
+#6 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Officer->dataprocessing('client-processi...')
+#7 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Officer))
+#8 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /home/rizcky/git/project.alcentrali/officer/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2021-04-28 03:57:42 --> osam is not a valid database connection group.
+#0 /home/rizcky/git/project.alcentrali/engine/Database/Config.php(146): CodeIgniter\Database\Config::connect('osam')
+#1 /home/rizcky/git/project.alcentrali/server/syscore/Controllers/DataForgery.php(12): CodeIgniter\Database\Config::forge('osam')
+#2 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\DataForgery->start_forgery()
+#3 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DataForgery))
+#4 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 /home/rizcky/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2021-04-28 03:57:42 --> 22 : The requested URL returned error: 500 Internal Server Error
+#0 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(821): CodeIgniter\HTTP\Exceptions\HTTPException::forCurlError('22', 'The requested U...')
+#1 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(449): CodeIgniter\HTTP\CURLRequest->sendRequest(Array)
+#2 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(158): CodeIgniter\HTTP\CURLRequest->send('put', 'http://localhos...')
+#3 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(265): CodeIgniter\HTTP\CURLRequest->request('put', 'http://localhos...', Array)
+#4 /home/rizcky/git/project.alcentrali/server/syscore/Controllers/OfficerRequest.php(474): CodeIgniter\HTTP\CURLRequest->put('http://localhos...', Array)
+#5 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\OfficerRequest->dataRequest()
+#6 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\OfficerRequest))
+#7 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /home/rizcky/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2021-04-28 03:57:42 --> 22 : The requested URL returned error: 500 Internal Server Error
+#0 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(821): CodeIgniter\HTTP\Exceptions\HTTPException::forCurlError('22', 'The requested U...')
+#1 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(449): CodeIgniter\HTTP\CURLRequest->sendRequest(Array)
+#2 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(158): CodeIgniter\HTTP\CURLRequest->send('put', 'http://localhos...')
+#3 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(265): CodeIgniter\HTTP\CURLRequest->request('put', 'http://localhos...', Array)
+#4 /home/rizcky/git/project.alcentrali/officer/appcore/Controllers/Officer.php(26): CodeIgniter\HTTP\CURLRequest->put('http://localhos...', Array)
+#5 /home/rizcky/git/project.alcentrali/officer/appcore/Controllers/Officer.php(196): App\Controllers\Officer->dataRequest('api/dataaccess', Array)
+#6 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Officer->dataprocessing('client-processi...')
+#7 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Officer))
+#8 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /home/rizcky/git/project.alcentrali/officer/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2021-04-28 21:35:39 --> Undefined property: App\Controllers\DataForgery::$db
+#0 /home/rizcky/git/project.alcentrali/server/syscore/Controllers/DataForgery.php(18): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', '/home/rizcky/gi...', 18, Array)
+#1 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\DataForgery->start_forgery()
+#2 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DataForgery))
+#3 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /home/rizcky/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-04-28 21:35:39 --> 22 : The requested URL returned error: 500 Internal Server Error
+#0 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(821): CodeIgniter\HTTP\Exceptions\HTTPException::forCurlError('22', 'The requested U...')
+#1 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(449): CodeIgniter\HTTP\CURLRequest->sendRequest(Array)
+#2 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(158): CodeIgniter\HTTP\CURLRequest->send('put', 'http://localhos...')
+#3 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(265): CodeIgniter\HTTP\CURLRequest->request('put', 'http://localhos...', Array)
+#4 /home/rizcky/git/project.alcentrali/server/syscore/Controllers/OfficerRequest.php(474): CodeIgniter\HTTP\CURLRequest->put('http://localhos...', Array)
+#5 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\OfficerRequest->dataRequest()
+#6 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\OfficerRequest))
+#7 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /home/rizcky/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2021-04-28 21:35:39 --> 22 : The requested URL returned error: 500 Internal Server Error
+#0 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(821): CodeIgniter\HTTP\Exceptions\HTTPException::forCurlError('22', 'The requested U...')
+#1 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(449): CodeIgniter\HTTP\CURLRequest->sendRequest(Array)
+#2 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(158): CodeIgniter\HTTP\CURLRequest->send('put', 'http://localhos...')
+#3 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(265): CodeIgniter\HTTP\CURLRequest->request('put', 'http://localhos...', Array)
+#4 /home/rizcky/git/project.alcentrali/officer/appcore/Controllers/Officer.php(26): CodeIgniter\HTTP\CURLRequest->put('http://localhos...', Array)
+#5 /home/rizcky/git/project.alcentrali/officer/appcore/Controllers/Officer.php(196): App\Controllers\Officer->dataRequest('api/dataaccess', Array)
+#6 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Officer->dataprocessing('client-processi...')
+#7 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Officer))
+#8 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /home/rizcky/git/project.alcentrali/officer/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2021-04-28 22:01:02 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'PRIVILEGE ON osam_jodexMScX.* TO 'osam_jodexMScX'@'localhost'' at line 1
+#0 /home/rizcky/git/project.alcentrali/engine/Database/MySQLi/Connection.php(331): mysqli->query('GRANT ALL PRIVI...')
+#1 /home/rizcky/git/project.alcentrali/engine/Database/BaseConnection.php(741): CodeIgniter\Database\MySQLi\Connection->execute('GRANT ALL PRIVI...')
+#2 /home/rizcky/git/project.alcentrali/server/syscore/Controllers/DataForgery.php(34): CodeIgniter\Database\BaseConnection->simpleQuery('GRANT ALL PRIVI...')
+#3 /home/rizcky/git/project.alcentrali/server/syscore/Controllers/DataForgery.php(13): App\Controllers\DataForgery->createDatabaseUser('osam_jodexMScX', 'osam_jodexMScX', 'PXrGVf7OJ0spWqa...')
+#4 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\DataForgery->start_forgery()
+#5 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DataForgery))
+#6 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /home/rizcky/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-04-28 22:01:02 --> 22 : The requested URL returned error: 500 Internal Server Error
+#0 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(821): CodeIgniter\HTTP\Exceptions\HTTPException::forCurlError('22', 'The requested U...')
+#1 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(449): CodeIgniter\HTTP\CURLRequest->sendRequest(Array)
+#2 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(158): CodeIgniter\HTTP\CURLRequest->send('put', 'http://localhos...')
+#3 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(265): CodeIgniter\HTTP\CURLRequest->request('put', 'http://localhos...', Array)
+#4 /home/rizcky/git/project.alcentrali/server/syscore/Controllers/OfficerRequest.php(474): CodeIgniter\HTTP\CURLRequest->put('http://localhos...', Array)
+#5 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\OfficerRequest->dataRequest()
+#6 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\OfficerRequest))
+#7 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /home/rizcky/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2021-04-28 22:01:02 --> 22 : The requested URL returned error: 500 Internal Server Error
+#0 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(821): CodeIgniter\HTTP\Exceptions\HTTPException::forCurlError('22', 'The requested U...')
+#1 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(449): CodeIgniter\HTTP\CURLRequest->sendRequest(Array)
+#2 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(158): CodeIgniter\HTTP\CURLRequest->send('put', 'http://localhos...')
+#3 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(265): CodeIgniter\HTTP\CURLRequest->request('put', 'http://localhos...', Array)
+#4 /home/rizcky/git/project.alcentrali/officer/appcore/Controllers/Officer.php(26): CodeIgniter\HTTP\CURLRequest->put('http://localhos...', Array)
+#5 /home/rizcky/git/project.alcentrali/officer/appcore/Controllers/Officer.php(196): App\Controllers\Officer->dataRequest('api/dataaccess', Array)
+#6 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Officer->dataprocessing('client-processi...')
+#7 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Officer))
+#8 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /home/rizcky/git/project.alcentrali/officer/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2021-04-28 22:02:43 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'PRIVILEGE ON osam_jodexMScX.* TO 'osam_jodexMScX'@'localhost'' at line 1
+#0 /home/rizcky/git/project.alcentrali/engine/Database/MySQLi/Connection.php(331): mysqli->query('GRANT ALL PRIVI...')
+#1 /home/rizcky/git/project.alcentrali/engine/Database/BaseConnection.php(741): CodeIgniter\Database\MySQLi\Connection->execute('GRANT ALL PRIVI...')
+#2 /home/rizcky/git/project.alcentrali/server/syscore/Controllers/DataForgery.php(32): CodeIgniter\Database\BaseConnection->simpleQuery('GRANT ALL PRIVI...')
+#3 /home/rizcky/git/project.alcentrali/server/syscore/Controllers/DataForgery.php(13): App\Controllers\DataForgery->createDatabaseUser('osam_jodexMScX', 'osam_jodexMScX', 'PXrGVf7OJ0spWqa...')
+#4 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\DataForgery->start_forgery()
+#5 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DataForgery))
+#6 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /home/rizcky/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-04-28 22:02:43 --> 22 : The requested URL returned error: 500 Internal Server Error
+#0 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(821): CodeIgniter\HTTP\Exceptions\HTTPException::forCurlError('22', 'The requested U...')
+#1 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(449): CodeIgniter\HTTP\CURLRequest->sendRequest(Array)
+#2 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(158): CodeIgniter\HTTP\CURLRequest->send('put', 'http://localhos...')
+#3 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(265): CodeIgniter\HTTP\CURLRequest->request('put', 'http://localhos...', Array)
+#4 /home/rizcky/git/project.alcentrali/server/syscore/Controllers/OfficerRequest.php(474): CodeIgniter\HTTP\CURLRequest->put('http://localhos...', Array)
+#5 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\OfficerRequest->dataRequest()
+#6 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\OfficerRequest))
+#7 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /home/rizcky/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2021-04-28 22:02:43 --> 22 : The requested URL returned error: 500 Internal Server Error
+#0 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(821): CodeIgniter\HTTP\Exceptions\HTTPException::forCurlError('22', 'The requested U...')
+#1 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(449): CodeIgniter\HTTP\CURLRequest->sendRequest(Array)
+#2 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(158): CodeIgniter\HTTP\CURLRequest->send('put', 'http://localhos...')
+#3 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(265): CodeIgniter\HTTP\CURLRequest->request('put', 'http://localhos...', Array)
+#4 /home/rizcky/git/project.alcentrali/officer/appcore/Controllers/Officer.php(26): CodeIgniter\HTTP\CURLRequest->put('http://localhos...', Array)
+#5 /home/rizcky/git/project.alcentrali/officer/appcore/Controllers/Officer.php(196): App\Controllers\Officer->dataRequest('api/dataaccess', Array)
+#6 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Officer->dataprocessing('client-processi...')
+#7 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Officer))
+#8 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /home/rizcky/git/project.alcentrali/officer/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2021-04-28 22:07:11 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'PRIVILEGE ON osam_jodexMScX.* TO 'osam_jodexMScX'@'localhost'' at line 1
+#0 /home/rizcky/git/project.alcentrali/engine/Database/MySQLi/Connection.php(331): mysqli->query('GRANT ALL PRIVI...')
+#1 /home/rizcky/git/project.alcentrali/engine/Database/BaseConnection.php(741): CodeIgniter\Database\MySQLi\Connection->execute('GRANT ALL PRIVI...')
+#2 /home/rizcky/git/project.alcentrali/server/syscore/Controllers/DataForgery.php(32): CodeIgniter\Database\BaseConnection->simpleQuery('GRANT ALL PRIVI...')
+#3 /home/rizcky/git/project.alcentrali/server/syscore/Controllers/DataForgery.php(13): App\Controllers\DataForgery->createDatabaseUser('osam_jodexMScX', 'osam_jodexMScX', 'PXrGVf7OJ0spWqa...')
+#4 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\DataForgery->start_forgery()
+#5 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DataForgery))
+#6 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /home/rizcky/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-04-28 22:07:11 --> 22 : The requested URL returned error: 500 Internal Server Error
+#0 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(821): CodeIgniter\HTTP\Exceptions\HTTPException::forCurlError('22', 'The requested U...')
+#1 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(449): CodeIgniter\HTTP\CURLRequest->sendRequest(Array)
+#2 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(158): CodeIgniter\HTTP\CURLRequest->send('put', 'http://localhos...')
+#3 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(265): CodeIgniter\HTTP\CURLRequest->request('put', 'http://localhos...', Array)
+#4 /home/rizcky/git/project.alcentrali/server/syscore/Controllers/OfficerRequest.php(474): CodeIgniter\HTTP\CURLRequest->put('http://localhos...', Array)
+#5 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\OfficerRequest->dataRequest()
+#6 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\OfficerRequest))
+#7 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /home/rizcky/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2021-04-28 22:07:11 --> 22 : The requested URL returned error: 500 Internal Server Error
+#0 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(821): CodeIgniter\HTTP\Exceptions\HTTPException::forCurlError('22', 'The requested U...')
+#1 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(449): CodeIgniter\HTTP\CURLRequest->sendRequest(Array)
+#2 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(158): CodeIgniter\HTTP\CURLRequest->send('put', 'http://localhos...')
+#3 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(265): CodeIgniter\HTTP\CURLRequest->request('put', 'http://localhos...', Array)
+#4 /home/rizcky/git/project.alcentrali/officer/appcore/Controllers/Officer.php(26): CodeIgniter\HTTP\CURLRequest->put('http://localhos...', Array)
+#5 /home/rizcky/git/project.alcentrali/officer/appcore/Controllers/Officer.php(196): App\Controllers\Officer->dataRequest('api/dataaccess', Array)
+#6 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Officer->dataprocessing('client-processi...')
+#7 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Officer))
+#8 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /home/rizcky/git/project.alcentrali/officer/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2021-04-28 22:08:42 --> Trying to access array offset on value of type null
+#0 /home/rizcky/git/project.alcentrali/server/syscore/Controllers/DataForgery.php(12): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', '/home/rizcky/gi...', 12, Array)
+#1 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\DataForgery->start_forgery()
+#2 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DataForgery))
+#3 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /home/rizcky/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-04-28 22:09:39 --> Trying to access array offset on value of type null
+#0 /home/rizcky/git/project.alcentrali/server/syscore/Controllers/DataForgery.php(12): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', '/home/rizcky/gi...', 12, Array)
+#1 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\DataForgery->start_forgery()
+#2 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DataForgery))
+#3 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /home/rizcky/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-04-28 22:10:23 --> Trying to access array offset on value of type null
+#0 /home/rizcky/git/project.alcentrali/server/syscore/Controllers/DataForgery.php(12): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', '/home/rizcky/gi...', 12, Array)
+#1 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\DataForgery->start_forgery()
+#2 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DataForgery))
+#3 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /home/rizcky/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-04-28 22:11:24 --> Trying to access array offset on value of type null
+#0 /home/rizcky/git/project.alcentrali/server/syscore/Controllers/DataForgery.php(12): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', '/home/rizcky/gi...', 12, Array)
+#1 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\DataForgery->start_forgery()
+#2 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DataForgery))
+#3 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /home/rizcky/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-04-28 22:11:33 --> Trying to access array offset on value of type null
+#0 /home/rizcky/git/project.alcentrali/server/syscore/Controllers/DataForgery.php(12): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', '/home/rizcky/gi...', 12, Array)
+#1 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\DataForgery->start_forgery()
+#2 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DataForgery))
+#3 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /home/rizcky/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-04-28 22:12:30 --> Trying to access array offset on value of type null
+#0 /home/rizcky/git/project.alcentrali/server/syscore/Controllers/DataForgery.php(12): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', '/home/rizcky/gi...', 12, Array)
+#1 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\DataForgery->start_forgery()
+#2 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DataForgery))
+#3 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /home/rizcky/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-04-28 22:12:50 --> Trying to access array offset on value of type null
+#0 /home/rizcky/git/project.alcentrali/server/syscore/Controllers/DataForgery.php(12): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', '/home/rizcky/gi...', 12, Array)
+#1 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\DataForgery->start_forgery()
+#2 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DataForgery))
+#3 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /home/rizcky/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-04-28 22:14:33 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'PRIVILEGE ON osam_shdadad.* TO 'osam_shdadad'@'localhost'' at line 1
+#0 /home/rizcky/git/project.alcentrali/engine/Database/MySQLi/Connection.php(331): mysqli->query('GRANT ALL PRIVI...')
+#1 /home/rizcky/git/project.alcentrali/engine/Database/BaseConnection.php(741): CodeIgniter\Database\MySQLi\Connection->execute('GRANT ALL PRIVI...')
+#2 /home/rizcky/git/project.alcentrali/server/syscore/Controllers/DataForgery.php(32): CodeIgniter\Database\BaseConnection->simpleQuery('GRANT ALL PRIVI...')
+#3 /home/rizcky/git/project.alcentrali/server/syscore/Controllers/DataForgery.php(13): App\Controllers\DataForgery->createDatabaseUser('osam_shdadad', 'osam_shdadad', 'admin@1234')
+#4 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\DataForgery->start_forgery()
+#5 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DataForgery))
+#6 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /home/rizcky/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-04-28 22:40:47 --> Operation CREATE USER failed for 'osam_shdadad'@'localhost'
+#0 /home/rizcky/git/project.alcentrali/engine/Database/MySQLi/Connection.php(331): mysqli->query('CREATE USER 'os...')
+#1 /home/rizcky/git/project.alcentrali/engine/Database/BaseConnection.php(741): CodeIgniter\Database\MySQLi\Connection->execute('CREATE USER 'os...')
+#2 /home/rizcky/git/project.alcentrali/server/syscore/Controllers/DataForgery.php(47): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE USER 'os...')
+#3 /home/rizcky/git/project.alcentrali/server/syscore/Controllers/DataForgery.php(19): App\Controllers\DataForgery->createDatabaseUser('osam_shdadad', 'osam_shdadad', 'admin@1234')
+#4 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\DataForgery->start_forgery()
+#5 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DataForgery))
+#6 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /home/rizcky/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-04-28 22:46:22 --> Field information is required.
+#0 /home/rizcky/git/project.alcentrali/server/syscore/Controllers/DataForgery.php(61): CodeIgniter\Database\Forge->createTable('fmk_asm_oaci', true)
+#1 /home/rizcky/git/project.alcentrali/server/syscore/Controllers/DataForgery.php(26): App\Controllers\DataForgery->databaseForgery('osam')
+#2 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\DataForgery->start_forgery()
+#3 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DataForgery))
+#4 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 /home/rizcky/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2021-04-28 22:47:46 --> Field information is required.
+#0 /home/rizcky/git/project.alcentrali/server/syscore/Controllers/DataForgery.php(61): CodeIgniter\Database\Forge->createTable('fmk_asm_oaci')
+#1 /home/rizcky/git/project.alcentrali/server/syscore/Controllers/DataForgery.php(26): App\Controllers\DataForgery->databaseForgery('osam')
+#2 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\DataForgery->start_forgery()
+#3 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DataForgery))
+#4 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 /home/rizcky/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2021-04-28 22:55:30 --> Table 'fmk_asm_oaci' already exists
+#0 /home/rizcky/git/project.alcentrali/engine/Database/MySQLi/Connection.php(331): mysqli->query('CREATE TABLE `f...')
+#1 /home/rizcky/git/project.alcentrali/engine/Database/BaseConnection.php(741): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `f...')
+#2 /home/rizcky/git/project.alcentrali/engine/Database/BaseConnection.php(669): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `f...')
+#3 /home/rizcky/git/project.alcentrali/engine/Database/Forge.php(535): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `f...')
+#4 /home/rizcky/git/project.alcentrali/server/syscore/Controllers/DataForgery.php(66): CodeIgniter\Database\Forge->createTable('fmk_asm_oaci')
+#5 /home/rizcky/git/project.alcentrali/server/syscore/Controllers/DataForgery.php(29): App\Controllers\DataForgery->databaseForgery('osam')
+#6 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\DataForgery->start_forgery()
+#7 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DataForgery))
+#8 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /home/rizcky/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2021-04-28 22:58:26 --> Table 'fmk_asm_oaci' already exists
+#0 /home/rizcky/git/project.alcentrali/engine/Database/MySQLi/Connection.php(331): mysqli->query('CREATE TABLE `f...')
+#1 /home/rizcky/git/project.alcentrali/engine/Database/BaseConnection.php(741): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `f...')
+#2 /home/rizcky/git/project.alcentrali/engine/Database/BaseConnection.php(669): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `f...')
+#3 /home/rizcky/git/project.alcentrali/engine/Database/Forge.php(535): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `f...')
+#4 /home/rizcky/git/project.alcentrali/server/syscore/Controllers/DataForgery.php(66): CodeIgniter\Database\Forge->createTable('fmk_asm_oaci')
+#5 /home/rizcky/git/project.alcentrali/server/syscore/Controllers/DataForgery.php(29): App\Controllers\DataForgery->databaseForgery('osam')
+#6 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\DataForgery->start_forgery()
+#7 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DataForgery))
+#8 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /home/rizcky/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#10 {main}

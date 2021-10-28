@@ -1,0 +1,82 @@
+CRITICAL - 2021-10-06 02:04:10 --> Trying to get property 'name' of non-object
+#0 /home/fmkiddo/git/project.alcentrali/server/syscore/Libraries/APIModules/OsamModule.php(550): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to get p...', '/home/fmkiddo/g...', 550, Array)
+#1 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/ClientRequest.php(62): App\Libraries\APIModules\OsamModule->executeRequest('moveout-request')
+#2 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/ClientRequest.php(143): App\Controllers\ClientRequest->requestExecution()
+#3 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\ClientRequest->dataRequest()
+#4 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientRequest))
+#5 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /home/fmkiddo/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2021-10-06 02:05:27 --> Trying to get property 'name' of non-object
+#0 /home/fmkiddo/git/project.alcentrali/server/syscore/Libraries/APIModules/OsamModule.php(550): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to get p...', '/home/fmkiddo/g...', 550, Array)
+#1 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/ClientRequest.php(62): App\Libraries\APIModules\OsamModule->executeRequest('moveout-request')
+#2 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/ClientRequest.php(143): App\Controllers\ClientRequest->requestExecution()
+#3 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\ClientRequest->dataRequest()
+#4 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientRequest))
+#5 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /home/fmkiddo/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2021-10-06 02:05:37 --> Trying to get property 'name' of non-object
+#0 /home/fmkiddo/git/project.alcentrali/server/syscore/Libraries/APIModules/OsamModule.php(550): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to get p...', '/home/fmkiddo/g...', 550, Array)
+#1 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/ClientRequest.php(62): App\Libraries\APIModules\OsamModule->executeRequest('moveout-request')
+#2 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/ClientRequest.php(143): App\Controllers\ClientRequest->requestExecution()
+#3 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\ClientRequest->dataRequest()
+#4 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientRequest))
+#5 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /home/fmkiddo/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2021-10-06 02:05:51 --> Trying to get property 'name' of non-object
+#0 /home/fmkiddo/git/project.alcentrali/server/syscore/Libraries/APIModules/OsamModule.php(550): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to get p...', '/home/fmkiddo/g...', 550, Array)
+#1 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/ClientRequest.php(62): App\Libraries\APIModules\OsamModule->executeRequest('moveout-request')
+#2 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/ClientRequest.php(143): App\Controllers\ClientRequest->requestExecution()
+#3 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\ClientRequest->dataRequest()
+#4 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientRequest))
+#5 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /home/fmkiddo/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2021-10-06 02:06:10 --> Trying to get property 'name' of non-object
+#0 /home/fmkiddo/git/project.alcentrali/server/syscore/Libraries/APIModules/OsamModule.php(554): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to get p...', '/home/fmkiddo/g...', 554, Array)
+#1 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/ClientRequest.php(62): App\Libraries\APIModules\OsamModule->executeRequest('moveout-request')
+#2 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/ClientRequest.php(143): App\Controllers\ClientRequest->requestExecution()
+#3 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\ClientRequest->dataRequest()
+#4 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientRequest))
+#5 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /home/fmkiddo/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2021-10-06 02:48:52 --> Unknown column 'asm_omvo.docnum' in 'field list'
+#0 /home/fmkiddo/git/project.alcentrali/engine/Database/MySQLi/Connection.php(331): mysqli->query('SELECT `asm_omv...')
+#1 /home/fmkiddo/git/project.alcentrali/engine/Database/BaseConnection.php(741): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `asm_omv...')
+#2 /home/fmkiddo/git/project.alcentrali/engine/Database/BaseConnection.php(669): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `asm_omv...')
+#3 /home/fmkiddo/git/project.alcentrali/engine/Database/BaseBuilder.php(1860): CodeIgniter\Database\BaseConnection->query('SELECT `asm_omv...', Array, false)
+#4 /home/fmkiddo/git/project.alcentrali/server/syscore/Models/BaseModel.php(66): CodeIgniter\Database\BaseBuilder->get()
+#5 /home/fmkiddo/git/project.alcentrali/server/syscore/Libraries/APIModules/OsamModule.php(512): App\Models\BaseModel->find()
+#6 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/ClientRequest.php(62): App\Libraries\APIModules\OsamModule->executeRequest('movereq-documen...')
+#7 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/ClientRequest.php(143): App\Controllers\ClientRequest->requestExecution()
+#8 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\ClientRequest->dataRequest()
+#9 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientRequest))
+#10 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 /home/fmkiddo/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2021-10-06 02:50:09 --> Column 'olct_to' in where clause is ambiguous
+#0 /home/fmkiddo/git/project.alcentrali/engine/Database/MySQLi/Connection.php(331): mysqli->query('SELECT `asm_omv...')
+#1 /home/fmkiddo/git/project.alcentrali/engine/Database/BaseConnection.php(741): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `asm_omv...')
+#2 /home/fmkiddo/git/project.alcentrali/engine/Database/BaseConnection.php(669): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `asm_omv...')
+#3 /home/fmkiddo/git/project.alcentrali/engine/Database/BaseBuilder.php(1860): CodeIgniter\Database\BaseConnection->query('SELECT `asm_omv...', Array, false)
+#4 /home/fmkiddo/git/project.alcentrali/server/syscore/Models/BaseModel.php(66): CodeIgniter\Database\BaseBuilder->get()
+#5 /home/fmkiddo/git/project.alcentrali/server/syscore/Libraries/APIModules/OsamModule.php(512): App\Models\BaseModel->find()
+#6 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/ClientRequest.php(62): App\Libraries\APIModules\OsamModule->executeRequest('movereq-documen...')
+#7 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/ClientRequest.php(143): App\Controllers\ClientRequest->requestExecution()
+#8 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\ClientRequest->dataRequest()
+#9 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientRequest))
+#10 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 /home/fmkiddo/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2021-10-06 02:50:16 --> Undefined variable: mvrDocuments
+#0 /home/fmkiddo/git/project.alcentrali/server/syscore/Libraries/APIModules/OsamModule.php(516): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', '/home/fmkiddo/g...', 516, Array)
+#1 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/ClientRequest.php(62): App\Libraries\APIModules\OsamModule->executeRequest('movereq-documen...')
+#2 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/ClientRequest.php(143): App\Controllers\ClientRequest->requestExecution()
+#3 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\ClientRequest->dataRequest()
+#4 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientRequest))
+#5 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /home/fmkiddo/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}

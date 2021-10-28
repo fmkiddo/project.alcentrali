@@ -1,0 +1,10 @@
+CRITICAL - 2021-04-12 22:37:52 --> openssl_decrypt(): IV passed is 17 bytes long which is longer than the 16 expected by selected cipher, truncating
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'openssl_decrypt...', '/home/rizcky/gi...', 29, Array)
+#1 /home/rizcky/git/project.alcentrali/officer/appcore/Libraries/Obfuscator.php(29): openssl_decrypt('%O;\x9B4\xAA\xA8r\xC6f\x00\xAA\x88w\xE7...', 'aes-256-cbc', '44\x905\x0Fs;\xBD\xC4O\x8D\x03%\v\xF7...', 1, '_\xAC\x03\xAF\x82\xDCR\x8Eq\xB7W\x84]\x94\\...')
+#2 /home/rizcky/git/project.alcentrali/officer/appcore/Controllers/BaseController.php(127): App\Libraries\Obfuscator->decrypt('%O;\x9B4\xAA\xA8r\xC6f\x00\xAA\x88w\xE7...', 'NDSQNQ9zO73ET40...', '_\xAC\x03\xAF\x82\xDCR\x8Eq\xB7W\x84]\x94\\...')
+#3 /home/rizcky/git/project.alcentrali/officer/appcore/Controllers/Officer.php(232): App\Controllers\BaseController->officerDataDecoding('fmkiddo JU87mzS...')
+#4 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Officer->dashboard('officer')
+#5 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Officer))
+#6 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /home/rizcky/git/project.alcentrali/officer/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}

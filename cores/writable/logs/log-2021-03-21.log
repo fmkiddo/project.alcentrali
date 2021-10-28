@@ -1,0 +1,9 @@
+CRITICAL - 2021-03-21 21:34:59 --> Invalid file: officer/dashboard/officer.php
+#0 /home/rizcky/git/project.alcentrali/engine/View/View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('officer/dashboa...')
+#1 /home/rizcky/git/project.alcentrali/engine/Common.php(1119): CodeIgniter\View\View->render('officer/dashboa...', Array, true)
+#2 /home/rizcky/git/project.alcentrali/officer/appcore/Controllers/Officer.php(37): view('officer/dashboa...', Array)
+#3 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Officer->dashboard('profile')
+#4 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Officer))
+#5 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /home/rizcky/git/project.alcentrali/officer/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}

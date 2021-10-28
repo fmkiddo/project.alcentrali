@@ -1,0 +1,22 @@
+CRITICAL - 2021-03-14 21:47:42 --> include(./html-header.php): failed to open stream: No such file or directory
+#0 /home/rizcky/git/project.alcentrali/officer/appcore/Views/officer/dashboard/welcome.php(1): CodeIgniter\Debug\Exceptions->errorHandler(2, 'include(./html-...', '/home/rizcky/gi...', 1, Array)
+#1 /home/rizcky/git/project.alcentrali/officer/appcore/Views/officer/dashboard/welcome.php(1): include()
+#2 /home/rizcky/git/project.alcentrali/engine/View/View.php(246): include('/home/rizcky/gi...')
+#3 /home/rizcky/git/project.alcentrali/engine/Common.php(1119): CodeIgniter\View\View->render('officer/dashboa...', Array, true)
+#4 /home/rizcky/git/project.alcentrali/officer/appcore/Controllers/Officer.php(35): view('officer/dashboa...', Array)
+#5 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Officer->dashboard('welcome')
+#6 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Officer))
+#7 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /home/rizcky/git/project.alcentrali/officer/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2021-03-14 21:47:57 --> include(.\html-header.php): failed to open stream: No such file or directory
+#0 /home/rizcky/git/project.alcentrali/officer/appcore/Views/officer/dashboard/welcome.php(1): CodeIgniter\Debug\Exceptions->errorHandler(2, 'include(.\\html-...', '/home/rizcky/gi...', 1, Array)
+#1 /home/rizcky/git/project.alcentrali/officer/appcore/Views/officer/dashboard/welcome.php(1): include()
+#2 /home/rizcky/git/project.alcentrali/engine/View/View.php(246): include('/home/rizcky/gi...')
+#3 /home/rizcky/git/project.alcentrali/engine/Common.php(1119): CodeIgniter\View\View->render('officer/dashboa...', Array, true)
+#4 /home/rizcky/git/project.alcentrali/officer/appcore/Controllers/Officer.php(35): view('officer/dashboa...', Array)
+#5 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Officer->dashboard('welcome')
+#6 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Officer))
+#7 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /home/rizcky/git/project.alcentrali/officer/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#9 {main}

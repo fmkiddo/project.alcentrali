@@ -1,0 +1,20 @@
+CRITICAL - 2020-06-28 23:07:49 --> Undefined variable: text
+#0 /home/rizcky/git/project.asman/server/core/Views/dashboard.php(9): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', '/home/rizcky/gi...', 9, Array)
+#1 /home/rizcky/git/project.asman/engine/View/View.php(239): include('/home/rizcky/gi...')
+#2 /home/rizcky/git/project.asman/engine/Common.php(1038): CodeIgniter\View\View->render('dashboard', Array, true)
+#3 /home/rizcky/git/project.asman/server/core/Controllers/Dashboard.php(33): view('dashboard', Array)
+#4 /home/rizcky/git/project.asman/engine/CodeIgniter.php(860): App\Controllers\Dashboard->index()
+#5 /home/rizcky/git/project.asman/engine/CodeIgniter.php(381): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#6 /home/rizcky/git/project.asman/engine/CodeIgniter.php(297): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /home/rizcky/git/project.asman/server/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2020-06-28 23:09:33 --> Undefined variable: text
+#0 /home/rizcky/git/project.asman/server/core/Views/dashboard.php(9): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', '/home/rizcky/gi...', 9, Array)
+#1 /home/rizcky/git/project.asman/engine/View/View.php(239): include('/home/rizcky/gi...')
+#2 /home/rizcky/git/project.asman/engine/Common.php(1038): CodeIgniter\View\View->render('dashboard', Array, true)
+#3 /home/rizcky/git/project.asman/server/core/Controllers/Dashboard.php(33): view('dashboard', Array)
+#4 /home/rizcky/git/project.asman/engine/CodeIgniter.php(860): App\Controllers\Dashboard->index()
+#5 /home/rizcky/git/project.asman/engine/CodeIgniter.php(381): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#6 /home/rizcky/git/project.asman/engine/CodeIgniter.php(297): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /home/rizcky/git/project.asman/server/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#8 {main}

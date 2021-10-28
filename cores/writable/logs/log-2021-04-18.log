@@ -1,0 +1,151 @@
+CRITICAL - 2021-04-18 20:27:50 --> unlink(/home/rizcky/git/project.alcentrali/writable/debugbar/debugbar_1618639291.json): No such file or directory
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'unlink(/home/ri...', '/home/rizcky/gi...', 106, Array)
+#1 /home/rizcky/git/project.alcentrali/engine/Debug/Toolbar/Collectors/History.php(106): unlink('/home/rizcky/gi...')
+#2 /home/rizcky/git/project.alcentrali/engine/Debug/Toolbar.php(483): CodeIgniter\Debug\Toolbar\Collectors\History->setFiles(1618795334, 20)
+#3 /home/rizcky/git/project.alcentrali/engine/Debug/Toolbar.php(455): CodeIgniter\Debug\Toolbar->format(Array, 'html')
+#4 /home/rizcky/git/project.alcentrali/officer/appcore/Config/Events.php(50): CodeIgniter\Debug\Toolbar->respond()
+#5 [internal function]: CodeIgniter\Events\Events::Config\{closure}()
+#6 /home/rizcky/git/project.alcentrali/engine/Events/Events.php(188): call_user_func(Object(Closure))
+#7 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(293): CodeIgniter\Events\Events::trigger('pre_system')
+#8 /home/rizcky/git/project.alcentrali/officer/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2021-04-18 20:27:50 --> unlink(/home/rizcky/git/project.alcentrali/writable/debugbar/debugbar_1618639291.json): No such file or directory
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'unlink(/home/ri...', '/home/rizcky/gi...', 106, Array)
+#1 /home/rizcky/git/project.alcentrali/engine/Debug/Toolbar/Collectors/History.php(106): unlink('/home/rizcky/gi...')
+#2 /home/rizcky/git/project.alcentrali/engine/Debug/Toolbar.php(483): CodeIgniter\Debug\Toolbar\Collectors\History->setFiles(1618795665, 20)
+#3 /home/rizcky/git/project.alcentrali/engine/Debug/Toolbar.php(455): CodeIgniter\Debug\Toolbar->format(Array, 'html')
+#4 /home/rizcky/git/project.alcentrali/officer/appcore/Config/Events.php(50): CodeIgniter\Debug\Toolbar->respond()
+#5 [internal function]: CodeIgniter\Events\Events::Config\{closure}()
+#6 /home/rizcky/git/project.alcentrali/engine/Events/Events.php(188): call_user_func(Object(Closure))
+#7 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(293): CodeIgniter\Events\Events::trigger('pre_system')
+#8 /home/rizcky/git/project.alcentrali/officer/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2021-04-18 20:27:56 --> unlink(/home/rizcky/git/project.alcentrali/writable/debugbar/debugbar_1618639292.json): No such file or directory
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'unlink(/home/ri...', '/home/rizcky/gi...', 106, Array)
+#1 /home/rizcky/git/project.alcentrali/engine/Debug/Toolbar/Collectors/History.php(106): unlink('/home/rizcky/gi...')
+#2 /home/rizcky/git/project.alcentrali/engine/Debug/Toolbar.php(483): CodeIgniter\Debug\Toolbar\Collectors\History->setFiles(1618794684, 20)
+#3 /home/rizcky/git/project.alcentrali/engine/Debug/Toolbar.php(455): CodeIgniter\Debug\Toolbar->format(Array, 'html')
+#4 /home/rizcky/git/project.alcentrali/officer/appcore/Config/Events.php(50): CodeIgniter\Debug\Toolbar->respond()
+#5 [internal function]: CodeIgniter\Events\Events::Config\{closure}()
+#6 /home/rizcky/git/project.alcentrali/engine/Events/Events.php(188): call_user_func(Object(Closure))
+#7 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(293): CodeIgniter\Events\Events::trigger('pre_system')
+#8 /home/rizcky/git/project.alcentrali/officer/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2021-04-18 20:28:06 --> unlink(/home/rizcky/git/project.alcentrali/writable/debugbar/debugbar_1618639521.json): No such file or directory
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'unlink(/home/ri...', '/home/rizcky/gi...', 106, Array)
+#1 /home/rizcky/git/project.alcentrali/engine/Debug/Toolbar/Collectors/History.php(106): unlink('/home/rizcky/gi...')
+#2 /home/rizcky/git/project.alcentrali/engine/Debug/Toolbar.php(483): CodeIgniter\Debug\Toolbar\Collectors\History->setFiles(1618794688, 20)
+#3 /home/rizcky/git/project.alcentrali/engine/Debug/Toolbar.php(455): CodeIgniter\Debug\Toolbar->format(Array, 'html')
+#4 /home/rizcky/git/project.alcentrali/officer/appcore/Config/Events.php(50): CodeIgniter\Debug\Toolbar->respond()
+#5 [internal function]: CodeIgniter\Events\Events::Config\{closure}()
+#6 /home/rizcky/git/project.alcentrali/engine/Events/Events.php(188): call_user_func(Object(Closure))
+#7 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(293): CodeIgniter\Events\Events::trigger('pre_system')
+#8 /home/rizcky/git/project.alcentrali/officer/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2021-04-18 20:28:06 --> unlink(/home/rizcky/git/project.alcentrali/writable/debugbar/debugbar_1618639521.json): No such file or directory
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'unlink(/home/ri...', '/home/rizcky/gi...', 106, Array)
+#1 /home/rizcky/git/project.alcentrali/engine/Debug/Toolbar/Collectors/History.php(106): unlink('/home/rizcky/gi...')
+#2 /home/rizcky/git/project.alcentrali/engine/Debug/Toolbar.php(483): CodeIgniter\Debug\Toolbar\Collectors\History->setFiles(1618795327, 20)
+#3 /home/rizcky/git/project.alcentrali/engine/Debug/Toolbar.php(455): CodeIgniter\Debug\Toolbar->format(Array, 'html')
+#4 /home/rizcky/git/project.alcentrali/officer/appcore/Config/Events.php(50): CodeIgniter\Debug\Toolbar->respond()
+#5 [internal function]: CodeIgniter\Events\Events::Config\{closure}()
+#6 /home/rizcky/git/project.alcentrali/engine/Events/Events.php(188): call_user_func(Object(Closure))
+#7 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(293): CodeIgniter\Events\Events::trigger('pre_system')
+#8 /home/rizcky/git/project.alcentrali/officer/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2021-04-18 22:41:17 --> Undefined index: data-transmit
+#0 /home/rizcky/git/project.alcentrali/server/syscore/Controllers/OfficerRequest.php(269): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', '/home/rizcky/gi...', 269, Array)
+#1 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\OfficerRequest->dataRequest()
+#2 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\OfficerRequest))
+#3 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /home/rizcky/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-04-18 22:41:17 --> 22 : The requested URL returned error: 500 Internal Server Error
+#0 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(821): CodeIgniter\HTTP\Exceptions\HTTPException::forCurlError('22', 'The requested U...')
+#1 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(449): CodeIgniter\HTTP\CURLRequest->sendRequest(Array)
+#2 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(158): CodeIgniter\HTTP\CURLRequest->send('put', 'http://localhos...')
+#3 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(265): CodeIgniter\HTTP\CURLRequest->request('put', 'http://localhos...', Array)
+#4 /home/rizcky/git/project.alcentrali/officer/appcore/Controllers/Officer.php(26): CodeIgniter\HTTP\CURLRequest->put('http://localhos...', Array)
+#5 /home/rizcky/git/project.alcentrali/officer/appcore/Controllers/Officer.php(242): App\Controllers\Officer->dataRequest('api/dataaccess', Array)
+#6 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Officer->dashboard('api')
+#7 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Officer))
+#8 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /home/rizcky/git/project.alcentrali/officer/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2021-04-18 22:42:13 --> Undefined index: data-transmit
+#0 /home/rizcky/git/project.alcentrali/server/syscore/Controllers/OfficerRequest.php(269): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', '/home/rizcky/gi...', 269, Array)
+#1 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\OfficerRequest->dataRequest()
+#2 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\OfficerRequest))
+#3 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /home/rizcky/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-04-18 22:42:13 --> 22 : The requested URL returned error: 500 Internal Server Error
+#0 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(821): CodeIgniter\HTTP\Exceptions\HTTPException::forCurlError('22', 'The requested U...')
+#1 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(449): CodeIgniter\HTTP\CURLRequest->sendRequest(Array)
+#2 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(158): CodeIgniter\HTTP\CURLRequest->send('put', 'http://localhos...')
+#3 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(265): CodeIgniter\HTTP\CURLRequest->request('put', 'http://localhos...', Array)
+#4 /home/rizcky/git/project.alcentrali/officer/appcore/Controllers/Officer.php(26): CodeIgniter\HTTP\CURLRequest->put('http://localhos...', Array)
+#5 /home/rizcky/git/project.alcentrali/officer/appcore/Controllers/Officer.php(242): App\Controllers\Officer->dataRequest('api/dataaccess', Array)
+#6 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Officer->dashboard('api')
+#7 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Officer))
+#8 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /home/rizcky/git/project.alcentrali/officer/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2021-04-18 22:42:42 --> Undefined variable: cookieData
+#0 /home/rizcky/git/project.alcentrali/officer/appcore/Controllers/Officer.php(241): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', '/home/rizcky/gi...', 241, Array)
+#1 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Officer->dashboard('api')
+#2 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Officer))
+#3 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /home/rizcky/git/project.alcentrali/officer/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-04-18 22:43:26 --> Call to a member function getJSON() on array
+#0 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Officer->dashboard('api')
+#1 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Officer))
+#2 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /home/rizcky/git/project.alcentrali/officer/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2021-04-18 22:43:36 --> Call to a member function getBody() on array
+#0 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Officer->dashboard('api')
+#1 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Officer))
+#2 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /home/rizcky/git/project.alcentrali/officer/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2021-04-18 22:46:57 --> Call to a member function resultArray() on array
+#0 /home/rizcky/git/project.alcentrali/server/syscore/Controllers/OfficerRequest.php(275): App\Controllers\OfficerRequest->getApiList()
+#1 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\OfficerRequest->dataRequest()
+#2 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\OfficerRequest))
+#3 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /home/rizcky/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-04-18 22:46:57 --> 22 : The requested URL returned error: 500 Internal Server Error
+#0 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(821): CodeIgniter\HTTP\Exceptions\HTTPException::forCurlError('22', 'The requested U...')
+#1 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(449): CodeIgniter\HTTP\CURLRequest->sendRequest(Array)
+#2 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(158): CodeIgniter\HTTP\CURLRequest->send('put', 'http://localhos...')
+#3 /home/rizcky/git/project.alcentrali/engine/HTTP/CURLRequest.php(265): CodeIgniter\HTTP\CURLRequest->request('put', 'http://localhos...', Array)
+#4 /home/rizcky/git/project.alcentrali/officer/appcore/Controllers/Officer.php(26): CodeIgniter\HTTP\CURLRequest->put('http://localhos...', Array)
+#5 /home/rizcky/git/project.alcentrali/officer/appcore/Controllers/Officer.php(244): App\Controllers\Officer->dataRequest('api/dataaccess', Array)
+#6 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Officer->dashboard('api')
+#7 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Officer))
+#8 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /home/rizcky/git/project.alcentrali/officer/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2021-04-18 22:59:26 --> Invalid argument supplied for foreach()
+#0 /home/rizcky/git/project.alcentrali/officer/appcore/Views/officer/dashboard/system-api.php(55): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Invalid argumen...', '/home/rizcky/gi...', 55, Array)
+#1 /home/rizcky/git/project.alcentrali/engine/View/View.php(246): include('/home/rizcky/gi...')
+#2 /home/rizcky/git/project.alcentrali/engine/Common.php(1119): CodeIgniter\View\View->render('officer/dashboa...', Array, true)
+#3 /home/rizcky/git/project.alcentrali/officer/appcore/Controllers/Officer.php(257): view('officer/dashboa...', Array)
+#4 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Officer->dashboard('api')
+#5 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Officer))
+#6 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /home/rizcky/git/project.alcentrali/officer/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-04-18 23:25:44 --> openssl_decrypt(): IV passed is 17 bytes long which is longer than the 16 expected by selected cipher, truncating
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'openssl_decrypt...', '/home/rizcky/gi...', 29, Array)
+#1 /home/rizcky/git/project.alcentrali/officer/appcore/Libraries/Obfuscator.php(29): openssl_decrypt('\xBC\xEBr:l\x84\x15e0u\x88\x93Q\xB4\xA2...', 'aes-256-cbc', '44\x905\x0Fs;\xBD\xC4O\x8D\x03%\v\xF7...', 1, '_(\xB7\x81\xB8\xD2\xE9\xB5\xAA\xB2m\xED7N\v...')
+#2 /home/rizcky/git/project.alcentrali/officer/appcore/Controllers/BaseController.php(127): App\Libraries\Obfuscator->decrypt('\xBC\xEBr:l\x84\x15e0u\x88\x93Q\xB4\xA2...', 'NDSQNQ9zO73ET40...', '_(\xB7\x81\xB8\xD2\xE9\xB5\xAA\xB2m\xED7N\v...')
+#3 /home/rizcky/git/project.alcentrali/officer/appcore/Controllers/Officer.php(245): App\Controllers\BaseController->officerDataDecoding('fmkiddo vOtyOmy...')
+#4 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Officer->dashboard('client')
+#5 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Officer))
+#6 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /home/rizcky/git/project.alcentrali/officer/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}

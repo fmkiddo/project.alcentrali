@@ -1,0 +1,33 @@
+CRITICAL - 2020-10-19 22:53:33 --> Class 'App\Controller\BaseController' not found
+#0 /home/rizcky/git/project.alcentrali/engine/Autoloader/Autoloader.php(365): require_once()
+#1 /home/rizcky/git/project.alcentrali/engine/Autoloader/Autoloader.php(296): CodeIgniter\Autoloader\Autoloader->requireFile('/home/rizcky/gi...')
+#2 /home/rizcky/git/project.alcentrali/engine/Autoloader/Autoloader.php(258): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers...')
+#3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers...')
+#4 [internal function]: spl_autoload_call('App\\Controllers...')
+#5 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(869): class_exists('\\App\\Controller...', true)
+#6 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(394): CodeIgniter\CodeIgniter->startController()
+#7 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /home/rizcky/git/project.alcentrali/officer/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2020-10-19 23:04:15 --> Class 'App\Controller\BaseController' not found
+#0 /home/rizcky/git/project.alcentrali/engine/Autoloader/Autoloader.php(365): require_once()
+#1 /home/rizcky/git/project.alcentrali/engine/Autoloader/Autoloader.php(296): CodeIgniter\Autoloader\Autoloader->requireFile('/home/rizcky/gi...')
+#2 /home/rizcky/git/project.alcentrali/engine/Autoloader/Autoloader.php(258): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers...')
+#3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers...')
+#4 [internal function]: spl_autoload_call('App\\Controllers...')
+#5 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(869): class_exists('\\App\\Controller...', true)
+#6 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(394): CodeIgniter\CodeIgniter->startController()
+#7 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /home/rizcky/git/project.alcentrali/officer/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2020-10-19 23:04:28 --> Class 'App\Controller\BaseController' not found
+#0 /home/rizcky/git/project.alcentrali/engine/Autoloader/Autoloader.php(365): require_once()
+#1 /home/rizcky/git/project.alcentrali/engine/Autoloader/Autoloader.php(296): CodeIgniter\Autoloader\Autoloader->requireFile('/home/rizcky/gi...')
+#2 /home/rizcky/git/project.alcentrali/engine/Autoloader/Autoloader.php(258): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers...')
+#3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers...')
+#4 [internal function]: spl_autoload_call('App\\Controllers...')
+#5 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(869): class_exists('\\App\\Controller...', true)
+#6 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(394): CodeIgniter\CodeIgniter->startController()
+#7 /home/rizcky/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /home/rizcky/git/project.alcentrali/officer/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#9 {main}

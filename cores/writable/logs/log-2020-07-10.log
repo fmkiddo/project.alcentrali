@@ -1,0 +1,180 @@
+CRITICAL - 2020-07-10 10:14:02 --> Call to undefined function App\Controllers\now()
+#0 /home/rizcky/git/project.asman/engine/CodeIgniter.php(860): App\Controllers\ServerRequest->index()
+#1 /home/rizcky/git/project.asman/engine/CodeIgniter.php(381): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ServerRequest))
+#2 /home/rizcky/git/project.asman/engine/CodeIgniter.php(297): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /home/rizcky/git/project.asman/server/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2020-07-10 15:51:49 --> Class 'App\Models\ServerModel' not found
+#0 /home/rizcky/git/project.asman/server/core/Controllers/ServerRequest.php(27): App\Models\SystemKeyModel->generateServerKey()
+#1 /home/rizcky/git/project.asman/engine/CodeIgniter.php(860): App\Controllers\ServerRequest->generate_server_api_key()
+#2 /home/rizcky/git/project.asman/engine/CodeIgniter.php(381): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ServerRequest))
+#3 /home/rizcky/git/project.asman/engine/CodeIgniter.php(297): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /home/rizcky/git/project.asman/server/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2020-07-10 15:54:41 --> Cannot pass parameter 2 by reference
+#0 /home/rizcky/git/project.asman/server/core/Controllers/ServerRequest.php(27): App\Models\SystemKeyModel->generateServerKey()
+#1 /home/rizcky/git/project.asman/engine/CodeIgniter.php(860): App\Controllers\ServerRequest->generate_server_api_key()
+#2 /home/rizcky/git/project.asman/engine/CodeIgniter.php(381): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ServerRequest))
+#3 /home/rizcky/git/project.asman/engine/CodeIgniter.php(297): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /home/rizcky/git/project.asman/server/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2020-07-10 15:55:15 --> Cannot pass parameter 2 by reference
+#0 /home/rizcky/git/project.asman/server/core/Controllers/ServerRequest.php(27): App\Models\SystemKeyModel->generateServerKey()
+#1 /home/rizcky/git/project.asman/engine/CodeIgniter.php(860): App\Controllers\ServerRequest->generate_server_api_key()
+#2 /home/rizcky/git/project.asman/engine/CodeIgniter.php(381): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ServerRequest))
+#3 /home/rizcky/git/project.asman/engine/CodeIgniter.php(297): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /home/rizcky/git/project.asman/server/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2020-07-10 15:55:58 --> Cannot pass parameter 2 by reference
+#0 /home/rizcky/git/project.asman/server/core/Controllers/ServerRequest.php(27): App\Models\SystemKeyModel->generateServerKey()
+#1 /home/rizcky/git/project.asman/engine/CodeIgniter.php(860): App\Controllers\ServerRequest->generate_server_api_key()
+#2 /home/rizcky/git/project.asman/engine/CodeIgniter.php(381): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ServerRequest))
+#3 /home/rizcky/git/project.asman/engine/CodeIgniter.php(297): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /home/rizcky/git/project.asman/server/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2020-07-10 15:56:03 --> Cannot pass parameter 2 by reference
+#0 /home/rizcky/git/project.asman/server/core/Controllers/ServerRequest.php(27): App\Models\SystemKeyModel->generateServerKey()
+#1 /home/rizcky/git/project.asman/engine/CodeIgniter.php(860): App\Controllers\ServerRequest->generate_server_api_key()
+#2 /home/rizcky/git/project.asman/engine/CodeIgniter.php(381): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ServerRequest))
+#3 /home/rizcky/git/project.asman/engine/CodeIgniter.php(297): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /home/rizcky/git/project.asman/server/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2020-07-10 15:57:21 --> Cannot pass parameter 2 by reference
+#0 /home/rizcky/git/project.asman/server/core/Controllers/ServerRequest.php(27): App\Models\SystemKeyModel->generateServerKey()
+#1 /home/rizcky/git/project.asman/engine/CodeIgniter.php(860): App\Controllers\ServerRequest->generate_server_api_key()
+#2 /home/rizcky/git/project.asman/engine/CodeIgniter.php(381): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ServerRequest))
+#3 /home/rizcky/git/project.asman/engine/CodeIgniter.php(297): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /home/rizcky/git/project.asman/server/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2020-07-10 19:15:39 --> syntax error, unexpected '}'
+#0 /home/rizcky/git/project.asman/engine/Autoloader/Autoloader.php(283): CodeIgniter\Autoloader\Autoloader->requireFile('/home/rizcky/gi...')
+#1 /home/rizcky/git/project.asman/engine/Autoloader/Autoloader.php(250): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers...')
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers...')
+#3 [internal function]: spl_autoload_call('App\\Controllers...')
+#4 /home/rizcky/git/project.asman/engine/CodeIgniter.php(816): class_exists('\\App\\Controller...', true)
+#5 /home/rizcky/git/project.asman/engine/CodeIgniter.php(372): CodeIgniter\CodeIgniter->startController()
+#6 /home/rizcky/git/project.asman/engine/CodeIgniter.php(297): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /home/rizcky/git/project.asman/server/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2020-07-10 19:16:34 --> array_key_exists(): Using array_key_exists() on objects is deprecated. Use isset() or property_exists() instead
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(8192, 'array_key_exist...', '/home/rizcky/gi...', 26, Array)
+#1 /home/rizcky/git/project.asman/server/core/Controllers/ServerRequest.php(26): array_key_exists('name', Object(stdClass))
+#2 /home/rizcky/git/project.asman/engine/CodeIgniter.php(860): App\Controllers\ServerRequest->generate_server_api_key()
+#3 /home/rizcky/git/project.asman/engine/CodeIgniter.php(381): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ServerRequest))
+#4 /home/rizcky/git/project.asman/engine/CodeIgniter.php(297): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 /home/rizcky/git/project.asman/server/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2020-07-10 19:16:51 --> json_decode() expects parameter 1 to be string, object given
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'json_decode() e...', '/home/rizcky/gi...', 25, Array)
+#1 /home/rizcky/git/project.asman/server/core/Controllers/ServerRequest.php(25): json_decode(Object(stdClass), true)
+#2 /home/rizcky/git/project.asman/engine/CodeIgniter.php(860): App\Controllers\ServerRequest->generate_server_api_key()
+#3 /home/rizcky/git/project.asman/engine/CodeIgniter.php(381): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ServerRequest))
+#4 /home/rizcky/git/project.asman/engine/CodeIgniter.php(297): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 /home/rizcky/git/project.asman/server/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2020-07-10 19:17:01 --> json_decode() expects parameter 1 to be string, object given
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'json_decode() e...', '/home/rizcky/gi...', 25, Array)
+#1 /home/rizcky/git/project.asman/server/core/Controllers/ServerRequest.php(25): json_decode(Object(stdClass), true)
+#2 /home/rizcky/git/project.asman/engine/CodeIgniter.php(860): App\Controllers\ServerRequest->generate_server_api_key()
+#3 /home/rizcky/git/project.asman/engine/CodeIgniter.php(381): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ServerRequest))
+#4 /home/rizcky/git/project.asman/engine/CodeIgniter.php(297): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 /home/rizcky/git/project.asman/server/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2020-07-10 19:40:58 --> Access level to App\Controllers\ServerRequest::$response must be protected (as in class App\Controllers\BaseRESTController) or weaker
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2020-07-10 19:43:39 --> array_key_exists() expects parameter 2 to be array, null given
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'array_key_exist...', '/home/rizcky/gi...', 33, Array)
+#1 /home/rizcky/git/project.asman/server/core/Controllers/ServerRequest.php(33): array_key_exists('name', NULL)
+#2 /home/rizcky/git/project.asman/engine/CodeIgniter.php(860): App\Controllers\ServerRequest->generate_server_api_key()
+#3 /home/rizcky/git/project.asman/engine/CodeIgniter.php(381): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ServerRequest))
+#4 /home/rizcky/git/project.asman/engine/CodeIgniter.php(297): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 /home/rizcky/git/project.asman/server/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2020-07-10 20:04:28 --> Undefined variable: servers
+#0 /home/rizcky/git/project.asman/server/core/Controllers/ServerRequest.php(24): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', '/home/rizcky/gi...', 24, Array)
+#1 /home/rizcky/git/project.asman/engine/CodeIgniter.php(860): App\Controllers\ServerRequest->generate_server_api_key()
+#2 /home/rizcky/git/project.asman/engine/CodeIgniter.php(381): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ServerRequest))
+#3 /home/rizcky/git/project.asman/engine/CodeIgniter.php(297): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /home/rizcky/git/project.asman/server/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2020-07-10 20:06:04 --> array_key_exists() expects parameter 2 to be array, string given
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'array_key_exist...', '/home/rizcky/gi...', 35, Array)
+#1 /home/rizcky/git/project.asman/server/core/Controllers/ServerRequest.php(35): array_key_exists('name', '{\n"name":"fmkid...')
+#2 /home/rizcky/git/project.asman/engine/CodeIgniter.php(860): App\Controllers\ServerRequest->generate_server_api_key()
+#3 /home/rizcky/git/project.asman/engine/CodeIgniter.php(381): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ServerRequest))
+#4 /home/rizcky/git/project.asman/engine/CodeIgniter.php(297): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 /home/rizcky/git/project.asman/server/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2020-07-10 20:21:30 --> Undefined variable: auth
+#0 /home/rizcky/git/project.asman/server/core/Controllers/BaseController.php(47): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', '/home/rizcky/gi...', 47, Array)
+#1 /home/rizcky/git/project.asman/server/core/Controllers/ServerLogin.php(20): App\Controllers\BaseController->isFirstTime('')
+#2 /home/rizcky/git/project.asman/engine/CodeIgniter.php(860): App\Controllers\ServerLogin->index()
+#3 /home/rizcky/git/project.asman/engine/CodeIgniter.php(381): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ServerLogin))
+#4 /home/rizcky/git/project.asman/engine/CodeIgniter.php(297): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 /home/rizcky/git/project.asman/server/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2020-07-10 20:44:45 --> 
+#0 /home/rizcky/git/project.asman/engine/HTTP/RedirectResponse.php(92): CodeIgniter\HTTP\Exceptions\HTTPException::forInvalidRedirectRoute('')
+#1 /home/rizcky/git/project.asman/engine/Common.php(771): CodeIgniter\HTTP\RedirectResponse->route(false)
+#2 /home/rizcky/git/project.asman/server/core/Controllers/ServerLogin.php(25): redirect('404')
+#3 /home/rizcky/git/project.asman/engine/CodeIgniter.php(860): App\Controllers\ServerLogin->index()
+#4 /home/rizcky/git/project.asman/engine/CodeIgniter.php(381): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ServerLogin))
+#5 /home/rizcky/git/project.asman/engine/CodeIgniter.php(297): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /home/rizcky/git/project.asman/server/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2020-07-10 20:45:05 --> show_source(aaa): failed to open stream: No such file or directory
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'show_source(aaa...', '/home/rizcky/gi...', 25, Array)
+#1 /home/rizcky/git/project.asman/server/core/Controllers/ServerLogin.php(25): show_source('aaa')
+#2 /home/rizcky/git/project.asman/engine/CodeIgniter.php(860): App\Controllers\ServerLogin->index()
+#3 /home/rizcky/git/project.asman/engine/CodeIgniter.php(381): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ServerLogin))
+#4 /home/rizcky/git/project.asman/engine/CodeIgniter.php(297): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 /home/rizcky/git/project.asman/server/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2020-07-10 20:48:04 --> Cannot use object of type CodeIgniter\HTTP\Response as array
+#0 /home/rizcky/git/project.asman/engine/CodeIgniter.php(860): App\Controllers\ServerLogin->index()
+#1 /home/rizcky/git/project.asman/engine/CodeIgniter.php(381): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ServerLogin))
+#2 /home/rizcky/git/project.asman/engine/CodeIgniter.php(297): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /home/rizcky/git/project.asman/server/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2020-07-10 20:58:26 --> Cannot use object of type CodeIgniter\HTTP\Response as array
+#0 /home/rizcky/git/project.asman/engine/CodeIgniter.php(860): App\Controllers\ServerLogin->index()
+#1 /home/rizcky/git/project.asman/engine/CodeIgniter.php(381): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ServerLogin))
+#2 /home/rizcky/git/project.asman/engine/CodeIgniter.php(297): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /home/rizcky/git/project.asman/server/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2020-07-10 21:07:01 --> syntax error, unexpected 'else' (T_ELSE)
+#0 /home/rizcky/git/project.asman/engine/Autoloader/Autoloader.php(283): CodeIgniter\Autoloader\Autoloader->requireFile('/home/rizcky/gi...')
+#1 /home/rizcky/git/project.asman/engine/Autoloader/Autoloader.php(250): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers...')
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers...')
+#3 [internal function]: spl_autoload_call('App\\Controllers...')
+#4 /home/rizcky/git/project.asman/engine/CodeIgniter.php(816): class_exists('\\App\\Controller...', true)
+#5 /home/rizcky/git/project.asman/engine/CodeIgniter.php(372): CodeIgniter\CodeIgniter->startController()
+#6 /home/rizcky/git/project.asman/engine/CodeIgniter.php(297): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /home/rizcky/git/project.asman/server/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2020-07-10 21:07:01 --> 22 : The requested URL returned error: 500 Internal Server Error
+#0 /home/rizcky/git/project.asman/engine/HTTP/CURLRequest.php(761): CodeIgniter\HTTP\Exceptions\HTTPException::forCurlError('22', 'The requested U...')
+#1 /home/rizcky/git/project.asman/engine/HTTP/CURLRequest.php(441): CodeIgniter\HTTP\CURLRequest->sendRequest(Array)
+#2 /home/rizcky/git/project.asman/engine/HTTP/CURLRequest.php(157): CodeIgniter\HTTP\CURLRequest->send('put', 'http://localhos...')
+#3 /home/rizcky/git/project.asman/server/core/Controllers/BaseController.php(53): CodeIgniter\HTTP\CURLRequest->request('put', 'http://localhos...', Array)
+#4 /home/rizcky/git/project.asman/server/core/Controllers/ServerLogin.php(32): App\Controllers\BaseController->isFirstTime(Array)
+#5 /home/rizcky/git/project.asman/engine/CodeIgniter.php(860): App\Controllers\ServerLogin->index()
+#6 /home/rizcky/git/project.asman/engine/CodeIgniter.php(381): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ServerLogin))
+#7 /home/rizcky/git/project.asman/engine/CodeIgniter.php(297): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /home/rizcky/git/project.asman/server/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2020-07-10 21:13:57 --> Cannot use object of type CodeIgniter\HTTP\Response as array
+#0 /home/rizcky/git/project.asman/engine/CodeIgniter.php(860): App\Controllers\ServerLogin->index()
+#1 /home/rizcky/git/project.asman/engine/CodeIgniter.php(381): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ServerLogin))
+#2 /home/rizcky/git/project.asman/engine/CodeIgniter.php(297): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /home/rizcky/git/project.asman/server/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2020-07-10 21:16:39 --> Undefined index: request
+#0 /home/rizcky/git/project.asman/server/core/Controllers/BaseController.php(53): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', '/home/rizcky/gi...', 53, Array)
+#1 /home/rizcky/git/project.asman/server/core/Controllers/ServerLogin.php(32): App\Controllers\BaseController->isFirstTime(Array)
+#2 /home/rizcky/git/project.asman/engine/CodeIgniter.php(860): App\Controllers\ServerLogin->index()
+#3 /home/rizcky/git/project.asman/engine/CodeIgniter.php(381): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ServerLogin))
+#4 /home/rizcky/git/project.asman/engine/CodeIgniter.php(297): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 /home/rizcky/git/project.asman/server/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#6 {main}

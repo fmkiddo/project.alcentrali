@@ -1,0 +1,285 @@
+CRITICAL - 2021-10-27 01:17:29 --> Undefined variable: response
+#0 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/Tools.php(24): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', '/home/fmkiddo/g...', 24, Array)
+#1 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Tools->test()
+#2 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Tools))
+#3 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /home/fmkiddo/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-10-27 01:18:18 --> Undefined variable: response
+#0 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/Tools.php(24): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', '/home/fmkiddo/g...', 24, Array)
+#1 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Tools->test()
+#2 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Tools))
+#3 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /home/fmkiddo/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-10-27 01:26:58 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'abcdefghi' at line 1
+#0 /home/fmkiddo/git/project.alcentrali/engine/Database/MySQLi/Connection.php(331): mysqli->query('CREATE USER `ri...')
+#1 /home/fmkiddo/git/project.alcentrali/engine/Database/BaseConnection.php(741): CodeIgniter\Database\MySQLi\Connection->execute('CREATE USER `ri...')
+#2 /home/fmkiddo/git/project.alcentrali/engine/Database/BaseConnection.php(669): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE USER `ri...')
+#3 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/Tools.php(24): CodeIgniter\Database\BaseConnection->query('CREATE USER `ri...')
+#4 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Tools->test()
+#5 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Tools))
+#6 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /home/fmkiddo/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-10-27 01:27:24 --> Can't create database 'rizkyfm'; database exists
+#0 /home/fmkiddo/git/project.alcentrali/engine/Database/MySQLi/Connection.php(331): mysqli->query('CREATE DATABASE...')
+#1 /home/fmkiddo/git/project.alcentrali/engine/Database/BaseConnection.php(741): CodeIgniter\Database\MySQLi\Connection->execute('CREATE DATABASE...')
+#2 /home/fmkiddo/git/project.alcentrali/engine/Database/BaseConnection.php(669): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE DATABASE...')
+#3 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/Tools.php(23): CodeIgniter\Database\BaseConnection->query('CREATE DATABASE...')
+#4 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Tools->test()
+#5 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Tools))
+#6 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /home/fmkiddo/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-10-27 01:27:47 --> Password hash should be a 41-digit hexadecimal number
+#0 /home/fmkiddo/git/project.alcentrali/engine/Database/MySQLi/Connection.php(331): mysqli->query('CREATE USER `ri...')
+#1 /home/fmkiddo/git/project.alcentrali/engine/Database/BaseConnection.php(741): CodeIgniter\Database\MySQLi\Connection->execute('CREATE USER `ri...')
+#2 /home/fmkiddo/git/project.alcentrali/engine/Database/BaseConnection.php(669): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE USER `ri...')
+#3 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/Tools.php(24): CodeIgniter\Database\BaseConnection->query('CREATE USER `ri...')
+#4 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Tools->test()
+#5 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Tools))
+#6 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /home/fmkiddo/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-10-27 01:29:28 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'BY "abcdefghi"' at line 1
+#0 /home/fmkiddo/git/project.alcentrali/engine/Database/MySQLi/Connection.php(331): mysqli->query('CREATE USER `ri...')
+#1 /home/fmkiddo/git/project.alcentrali/engine/Database/BaseConnection.php(741): CodeIgniter\Database\MySQLi\Connection->execute('CREATE USER `ri...')
+#2 /home/fmkiddo/git/project.alcentrali/engine/Database/BaseConnection.php(669): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE USER `ri...')
+#3 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/Tools.php(24): CodeIgniter\Database\BaseConnection->query('CREATE USER `ri...')
+#4 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Tools->test()
+#5 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Tools))
+#6 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /home/fmkiddo/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-10-27 01:33:07 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'BY 'abcdefghi'' at line 1
+#0 /home/fmkiddo/git/project.alcentrali/engine/Database/MySQLi/Connection.php(331): mysqli->query('CREATE USER `ri...')
+#1 /home/fmkiddo/git/project.alcentrali/engine/Database/BaseConnection.php(741): CodeIgniter\Database\MySQLi\Connection->execute('CREATE USER `ri...')
+#2 /home/fmkiddo/git/project.alcentrali/engine/Database/BaseConnection.php(669): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE USER `ri...')
+#3 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/Tools.php(24): CodeIgniter\Database\BaseConnection->query('CREATE USER `ri...')
+#4 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Tools->test()
+#5 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Tools))
+#6 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /home/fmkiddo/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-10-27 01:34:00 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'BY 'new_password'' at line 1
+#0 /home/fmkiddo/git/project.alcentrali/engine/Database/MySQLi/Connection.php(331): mysqli->query('CREATE USER 'je...')
+#1 /home/fmkiddo/git/project.alcentrali/engine/Database/BaseConnection.php(741): CodeIgniter\Database\MySQLi\Connection->execute('CREATE USER 'je...')
+#2 /home/fmkiddo/git/project.alcentrali/engine/Database/BaseConnection.php(669): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE USER 'je...')
+#3 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/Tools.php(24): CodeIgniter\Database\BaseConnection->query('CREATE USER 'je...')
+#4 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Tools->test()
+#5 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Tools))
+#6 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /home/fmkiddo/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-10-27 01:34:32 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'BY `new_password`' at line 1
+#0 /home/fmkiddo/git/project.alcentrali/engine/Database/MySQLi/Connection.php(331): mysqli->query('CREATE USER 'je...')
+#1 /home/fmkiddo/git/project.alcentrali/engine/Database/BaseConnection.php(741): CodeIgniter\Database\MySQLi\Connection->execute('CREATE USER 'je...')
+#2 /home/fmkiddo/git/project.alcentrali/engine/Database/BaseConnection.php(669): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE USER 'je...')
+#3 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/Tools.php(24): CodeIgniter\Database\BaseConnection->query('CREATE USER 'je...')
+#4 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Tools->test()
+#5 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Tools))
+#6 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /home/fmkiddo/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-10-27 01:37:26 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '`abcdefghi`' at line 1
+#0 /home/fmkiddo/git/project.alcentrali/engine/Database/MySQLi/Connection.php(331): mysqli->query('CREATE USER `ri...')
+#1 /home/fmkiddo/git/project.alcentrali/engine/Database/BaseConnection.php(741): CodeIgniter\Database\MySQLi\Connection->execute('CREATE USER `ri...')
+#2 /home/fmkiddo/git/project.alcentrali/engine/Database/BaseConnection.php(669): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE USER `ri...')
+#3 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/Tools.php(24): CodeIgniter\Database\BaseConnection->query('CREATE USER `ri...')
+#4 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Tools->test()
+#5 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Tools))
+#6 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /home/fmkiddo/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-10-27 01:37:48 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'abcdefghi' at line 1
+#0 /home/fmkiddo/git/project.alcentrali/engine/Database/MySQLi/Connection.php(331): mysqli->query('CREATE USER `ri...')
+#1 /home/fmkiddo/git/project.alcentrali/engine/Database/BaseConnection.php(741): CodeIgniter\Database\MySQLi\Connection->execute('CREATE USER `ri...')
+#2 /home/fmkiddo/git/project.alcentrali/engine/Database/BaseConnection.php(669): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE USER `ri...')
+#3 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/Tools.php(24): CodeIgniter\Database\BaseConnection->query('CREATE USER `ri...')
+#4 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Tools->test()
+#5 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Tools))
+#6 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /home/fmkiddo/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-10-27 01:40:28 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '\"abcdefghi\"' at line 1
+#0 /home/fmkiddo/git/project.alcentrali/engine/Database/MySQLi/Connection.php(331): mysqli->query('CREATE USER `ri...')
+#1 /home/fmkiddo/git/project.alcentrali/engine/Database/BaseConnection.php(741): CodeIgniter\Database\MySQLi\Connection->execute('CREATE USER `ri...')
+#2 /home/fmkiddo/git/project.alcentrali/engine/Database/BaseConnection.php(669): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE USER `ri...')
+#3 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/Tools.php(24): CodeIgniter\Database\BaseConnection->query('CREATE USER `ri...')
+#4 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Tools->test()
+#5 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Tools))
+#6 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /home/fmkiddo/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-10-27 01:42:01 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'BY "abcdefghi"' at line 1
+#0 /home/fmkiddo/git/project.alcentrali/engine/Database/MySQLi/Connection.php(331): mysqli->query('CREATE USER `ri...')
+#1 /home/fmkiddo/git/project.alcentrali/engine/Database/BaseConnection.php(741): CodeIgniter\Database\MySQLi\Connection->execute('CREATE USER `ri...')
+#2 /home/fmkiddo/git/project.alcentrali/engine/Database/BaseConnection.php(669): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE USER `ri...')
+#3 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/Tools.php(24): CodeIgniter\Database\BaseConnection->query('CREATE USER `ri...')
+#4 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Tools->test()
+#5 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Tools))
+#6 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /home/fmkiddo/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-10-27 01:43:47 --> Password hash should be a 41-digit hexadecimal number
+#0 /home/fmkiddo/git/project.alcentrali/engine/Database/MySQLi/Connection.php(331): mysqli->query('CREATE USER `ri...')
+#1 /home/fmkiddo/git/project.alcentrali/engine/Database/BaseConnection.php(741): CodeIgniter\Database\MySQLi\Connection->execute('CREATE USER `ri...')
+#2 /home/fmkiddo/git/project.alcentrali/engine/Database/BaseConnection.php(669): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE USER `ri...')
+#3 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/Tools.php(24): CodeIgniter\Database\BaseConnection->query('CREATE USER `ri...')
+#4 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Tools->test()
+#5 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Tools))
+#6 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /home/fmkiddo/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-10-27 01:44:54 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '("abcdefghi")' at line 1
+#0 /home/fmkiddo/git/project.alcentrali/engine/Database/MySQLi/Connection.php(331): mysqli->query('CREATE USER `ri...')
+#1 /home/fmkiddo/git/project.alcentrali/engine/Database/BaseConnection.php(741): CodeIgniter\Database\MySQLi\Connection->execute('CREATE USER `ri...')
+#2 /home/fmkiddo/git/project.alcentrali/engine/Database/BaseConnection.php(669): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE USER `ri...')
+#3 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/Tools.php(24): CodeIgniter\Database\BaseConnection->query('CREATE USER `ri...')
+#4 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Tools->test()
+#5 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Tools))
+#6 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /home/fmkiddo/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-10-27 01:45:58 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'BY "abcdefghi" PASSWORD' at line 1
+#0 /home/fmkiddo/git/project.alcentrali/engine/Database/MySQLi/Connection.php(331): mysqli->query('CREATE USER `ri...')
+#1 /home/fmkiddo/git/project.alcentrali/engine/Database/BaseConnection.php(741): CodeIgniter\Database\MySQLi\Connection->execute('CREATE USER `ri...')
+#2 /home/fmkiddo/git/project.alcentrali/engine/Database/BaseConnection.php(669): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE USER `ri...')
+#3 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/Tools.php(24): CodeIgniter\Database\BaseConnection->query('CREATE USER `ri...')
+#4 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Tools->test()
+#5 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Tools))
+#6 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /home/fmkiddo/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-10-27 01:47:27 --> Password hash should be a 41-digit hexadecimal number
+#0 /home/fmkiddo/git/project.alcentrali/engine/Database/MySQLi/Connection.php(331): mysqli->query('CREATE USER `ri...')
+#1 /home/fmkiddo/git/project.alcentrali/engine/Database/BaseConnection.php(741): CodeIgniter\Database\MySQLi\Connection->execute('CREATE USER `ri...')
+#2 /home/fmkiddo/git/project.alcentrali/engine/Database/BaseConnection.php(669): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE USER `ri...')
+#3 /home/fmkiddo/git/project.alcentrali/server/syscore/Controllers/Tools.php(24): CodeIgniter\Database\BaseConnection->query('CREATE USER `ri...')
+#4 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(918): App\Controllers\Tools->test()
+#5 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Tools))
+#6 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /home/fmkiddo/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-10-27 03:05:11 --> syntax error, unexpected ']'
+#0 /home/fmkiddo/git/project.alcentrali/engine/Autoloader/Autoloader.php(296): CodeIgniter\Autoloader\Autoloader->requireFile('/home/fmkiddo/g...')
+#1 /home/fmkiddo/git/project.alcentrali/engine/Autoloader/Autoloader.php(258): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers...')
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers...')
+#3 [internal function]: spl_autoload_call('App\\Controllers...')
+#4 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(869): class_exists('\\App\\Controller...', true)
+#5 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(394): CodeIgniter\CodeIgniter->startController()
+#6 /home/fmkiddo/git/project.alcentrali/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /home/fmkiddo/git/project.alcentrali/server/index/index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-10-27 07:22:20 --> 22 : The requested URL returned error: 405 Method Not Allowed
+#0 /home/fmkiddo/git/project.alcentrali/cores/engine/HTTP/CURLRequest.php(821): CodeIgniter\HTTP\Exceptions\HTTPException::forCurlError('22', 'The requested U...')
+#1 /home/fmkiddo/git/project.alcentrali/cores/engine/HTTP/CURLRequest.php(449): CodeIgniter\HTTP\CURLRequest->sendRequest(Array)
+#2 /home/fmkiddo/git/project.alcentrali/cores/engine/HTTP/CURLRequest.php(158): CodeIgniter\HTTP\CURLRequest->send('put', 'http://localhos...')
+#3 /home/fmkiddo/git/project.alcentrali/cores/engine/HTTP/CURLRequest.php(265): CodeIgniter\HTTP\CURLRequest->request('put', 'http://localhos...', Array)
+#4 /home/fmkiddo/git/project.alcentrali/cores/rest-officercores/appcore/Controllers/BaseController.php(269): CodeIgniter\HTTP\CURLRequest->put('http://localhos...', Array)
+#5 /home/fmkiddo/git/project.alcentrali/cores/rest-officercores/appcore/Controllers/Starter.php(21): App\Controllers\BaseController->isServerAccessKeyConfigured()
+#6 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(918): App\Controllers\Starter->index()
+#7 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Starter))
+#8 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /home/fmkiddo/git/project.alcentrali/subs/officer/index.php(45): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2021-10-27 07:23:20 --> 22 : The requested URL returned error: 405 Method Not Allowed
+#0 /home/fmkiddo/git/project.alcentrali/cores/engine/HTTP/CURLRequest.php(821): CodeIgniter\HTTP\Exceptions\HTTPException::forCurlError('22', 'The requested U...')
+#1 /home/fmkiddo/git/project.alcentrali/cores/engine/HTTP/CURLRequest.php(449): CodeIgniter\HTTP\CURLRequest->sendRequest(Array)
+#2 /home/fmkiddo/git/project.alcentrali/cores/engine/HTTP/CURLRequest.php(158): CodeIgniter\HTTP\CURLRequest->send('put', 'http://localhos...')
+#3 /home/fmkiddo/git/project.alcentrali/cores/engine/HTTP/CURLRequest.php(265): CodeIgniter\HTTP\CURLRequest->request('put', 'http://localhos...', Array)
+#4 /home/fmkiddo/git/project.alcentrali/cores/rest-officercores/appcore/Controllers/BaseController.php(269): CodeIgniter\HTTP\CURLRequest->put('http://localhos...', Array)
+#5 /home/fmkiddo/git/project.alcentrali/cores/rest-officercores/appcore/Controllers/Starter.php(21): App\Controllers\BaseController->isServerAccessKeyConfigured()
+#6 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(918): App\Controllers\Starter->index()
+#7 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Starter))
+#8 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /home/fmkiddo/git/project.alcentrali/subs/officer/index.php(45): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2021-10-27 07:25:50 --> 22 : The requested URL returned error: 405 Method Not Allowed
+#0 /home/fmkiddo/git/project.alcentrali/cores/engine/HTTP/CURLRequest.php(821): CodeIgniter\HTTP\Exceptions\HTTPException::forCurlError('22', 'The requested U...')
+#1 /home/fmkiddo/git/project.alcentrali/cores/engine/HTTP/CURLRequest.php(449): CodeIgniter\HTTP\CURLRequest->sendRequest(Array)
+#2 /home/fmkiddo/git/project.alcentrali/cores/engine/HTTP/CURLRequest.php(158): CodeIgniter\HTTP\CURLRequest->send('put', 'http://localhos...')
+#3 /home/fmkiddo/git/project.alcentrali/cores/engine/HTTP/CURLRequest.php(265): CodeIgniter\HTTP\CURLRequest->request('put', 'http://localhos...', Array)
+#4 /home/fmkiddo/git/project.alcentrali/cores/rest-officercores/appcore/Controllers/BaseController.php(269): CodeIgniter\HTTP\CURLRequest->put('http://localhos...', Array)
+#5 /home/fmkiddo/git/project.alcentrali/cores/rest-officercores/appcore/Controllers/Starter.php(21): App\Controllers\BaseController->isServerAccessKeyConfigured()
+#6 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(918): App\Controllers\Starter->index()
+#7 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Starter))
+#8 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /home/fmkiddo/git/project.alcentrali/subs/officer/index.php(45): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2021-10-27 07:28:54 --> 22 : The requested URL returned error: 405 Method Not Allowed
+#0 /home/fmkiddo/git/project.alcentrali/cores/engine/HTTP/CURLRequest.php(821): CodeIgniter\HTTP\Exceptions\HTTPException::forCurlError('22', 'The requested U...')
+#1 /home/fmkiddo/git/project.alcentrali/cores/engine/HTTP/CURLRequest.php(449): CodeIgniter\HTTP\CURLRequest->sendRequest(Array)
+#2 /home/fmkiddo/git/project.alcentrali/cores/engine/HTTP/CURLRequest.php(158): CodeIgniter\HTTP\CURLRequest->send('put', 'http://localhos...')
+#3 /home/fmkiddo/git/project.alcentrali/cores/engine/HTTP/CURLRequest.php(265): CodeIgniter\HTTP\CURLRequest->request('put', 'http://localhos...', Array)
+#4 /home/fmkiddo/git/project.alcentrali/cores/rest-officercores/appcore/Controllers/BaseController.php(269): CodeIgniter\HTTP\CURLRequest->put('http://localhos...', Array)
+#5 /home/fmkiddo/git/project.alcentrali/cores/rest-officercores/appcore/Controllers/Starter.php(21): App\Controllers\BaseController->isServerAccessKeyConfigured()
+#6 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(918): App\Controllers\Starter->index()
+#7 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Starter))
+#8 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /home/fmkiddo/git/project.alcentrali/subs/officer/index.php(45): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2021-10-27 07:30:39 --> 22 : The requested URL returned error: 405 Method Not Allowed
+#0 /home/fmkiddo/git/project.alcentrali/cores/engine/HTTP/CURLRequest.php(821): CodeIgniter\HTTP\Exceptions\HTTPException::forCurlError('22', 'The requested U...')
+#1 /home/fmkiddo/git/project.alcentrali/cores/engine/HTTP/CURLRequest.php(449): CodeIgniter\HTTP\CURLRequest->sendRequest(Array)
+#2 /home/fmkiddo/git/project.alcentrali/cores/engine/HTTP/CURLRequest.php(158): CodeIgniter\HTTP\CURLRequest->send('put', 'http://localhos...')
+#3 /home/fmkiddo/git/project.alcentrali/cores/engine/HTTP/CURLRequest.php(265): CodeIgniter\HTTP\CURLRequest->request('put', 'http://localhos...', Array)
+#4 /home/fmkiddo/git/project.alcentrali/cores/rest-officercores/appcore/Controllers/BaseController.php(269): CodeIgniter\HTTP\CURLRequest->put('http://localhos...', Array)
+#5 /home/fmkiddo/git/project.alcentrali/cores/rest-officercores/appcore/Controllers/Starter.php(21): App\Controllers\BaseController->isServerAccessKeyConfigured()
+#6 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(918): App\Controllers\Starter->index()
+#7 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Starter))
+#8 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /home/fmkiddo/git/project.alcentrali/subs/officer/index.php(45): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2021-10-27 07:47:55 --> Cannot use object of type stdClass as array
+#0 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Controllers/ClientRequest.php(248): App\Controllers\ClientRequest->authorizationProcess()
+#1 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(918): App\Controllers\ClientRequest->clientAuthentication()
+#2 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientRequest))
+#3 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /home/fmkiddo/git/project.alcentrali/cdn/restful/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-10-27 07:54:41 --> Call to a member function getValue() on null
+#0 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Controllers/ClientRequest.php(248): App\Controllers\ClientRequest->authorizationProcess()
+#1 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(918): App\Controllers\ClientRequest->clientAuthentication()
+#2 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientRequest))
+#3 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /home/fmkiddo/git/project.alcentrali/cdn/restful/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-10-27 07:55:30 --> Cannot use object of type stdClass as array
+#0 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Controllers/ClientRequest.php(248): App\Controllers\ClientRequest->authorizationProcess()
+#1 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(918): App\Controllers\ClientRequest->clientAuthentication()
+#2 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientRequest))
+#3 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /home/fmkiddo/git/project.alcentrali/cdn/restful/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-10-27 07:56:40 --> Cannot use object of type stdClass as array
+#0 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Controllers/ClientRequest.php(248): App\Controllers\ClientRequest->authorizationProcess()
+#1 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(918): App\Controllers\ClientRequest->clientAuthentication()
+#2 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientRequest))
+#3 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /home/fmkiddo/git/project.alcentrali/cdn/restful/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-10-27 07:57:15 --> Cannot use object of type stdClass as array
+#0 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Controllers/ClientRequest.php(248): App\Controllers\ClientRequest->authorizationProcess()
+#1 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(918): App\Controllers\ClientRequest->clientAuthentication()
+#2 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientRequest))
+#3 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /home/fmkiddo/git/project.alcentrali/cdn/restful/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-10-27 07:59:39 --> Undefined offset: 0
+#0 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Controllers/ClientRequest.php(155): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined offse...', '/home/fmkiddo/g...', 155, Array)
+#1 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Controllers/ClientRequest.php(247): App\Controllers\ClientRequest->authorizationProcess()
+#2 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(918): App\Controllers\ClientRequest->clientAuthentication()
+#3 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientRequest))
+#4 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 /home/fmkiddo/git/project.alcentrali/cdn/restful/index.php(45): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2021-10-27 08:05:53 --> Undefined offset: 0
+#0 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Controllers/ClientRequest.php(155): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined offse...', '/home/fmkiddo/g...', 155, Array)
+#1 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Controllers/ClientRequest.php(247): App\Controllers\ClientRequest->authorizationProcess()
+#2 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(918): App\Controllers\ClientRequest->clientAuthentication()
+#3 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientRequest))
+#4 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 /home/fmkiddo/git/project.alcentrali/cdn/restful/index.php(45): CodeIgniter\CodeIgniter->run()
+#6 {main}

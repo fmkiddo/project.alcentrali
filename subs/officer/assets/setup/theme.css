@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+body {
+	font-face: "fondamentoregular";
+	width: 100%;
+}
+
+.header {
+	background-color: lightgrey;
+	height: 180px;
+}
+
+.page-header {
+	padding-top: 60px;
+}
+
+.page-body {
+	padding-top: 70px;
+}
+
+.input-description {
+	color: red;
+}
