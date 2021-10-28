@@ -9,6 +9,6 @@ class EnduserProfileModel extends BaseModel {
 	protected $primaryKey		= 'idx';
 	protected $returnType		= 'CodeIgniter\Entity';
 	protected $allowedFields	= [
-		'idx', 'fname', 'mname', 'lname', 'address1', 'address2', 'phone', 'email', 'created_by', 'updated_by'
+		'idx', 'fname', 'mname', 'lname', 'address1', 'address2', 'phone', 'email', 'created_by', 'updated_by', 'updated_date'
 	];
 }

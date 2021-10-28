@@ -257,7 +257,8 @@ class ClientRequest extends BaseRESTController {
 	}
 	
 	public function dataRequest () {
-		if (!($this->isPutAndJSON() || $this->isPostAndMultipart()))
+		$requestMethod = $this->request->getMethod(TRUE);
+		if (!($requestMethod === 'PUT' || $requestMethod === 'POST'))
 			return $this->respond([
 				'status'	=> 400,
 				'message'	=> 'Bad Request!'

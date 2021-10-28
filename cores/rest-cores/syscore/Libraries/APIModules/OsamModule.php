@@ -432,71 +432,130 @@ class OsamModule extends Modules {
 				$dataTransmit = $this->getDataTransmit();
 				if ($dataTransmit == NULL) $requestResponse['status'] = 500;
 				else {
-					$model = $this->initModel('EnduserModel');
-					$userid = $dataTransmit['data-loggedousr'];
-					$dataParam = $dataTransmit['param'];
-					if ($userid > 0) {
-						$find = $model->find ($userid);
-						if ($find == NULL) {
-							
+					$userIdx		= $dataTransmit['data-loggedousr'];
+					$model			= $this->initModel('EnduserModel');
+					$inputUserId	= $dataTransmit['userid'];
+					$dataParams		= $dataTransmit['param'];
+					if ($inputUserId == 0) { // new user
+						$newUsername	= $dataParams['new-username'];
+						$newUseremail	= $dataParams['new-email'];
+						$ousr			= $model->where ('username', $newUsername)->orWhere ('email', $newUseremail)->find ();
+						if (count ($ousr) > 0) {
+							$requestResponse['status'] = 500;
+							$requestResponse['message'] = 'User ' . $newUsername . ' or ' . $newUseremail . ' already taken!';
 						} else {
-							$updateParam = [
-								'ougr_idx'	=> $dataParam['update-usergroup'],
-								'email'		=> $dataParam['update-email']
+							$insertParam = [
+								'ougr_idx'		=> $dataParams['new-usergroup'],
+								'username'		=> $newUsername,
+								'email'			=> $newUseremail,
+								'password'		=> password_hash($dataParams['new-password'], PASSWORD_BCRYPT),
+								'created_by'	=> $userIdx,
+								'updated_by'	=> $userIdx,
+								'updated_date'	=> date ('Y-m-d H:i:s')
 							];
-							
-							if (array_key_exists('update-password', $dataParam)) 
-								$updateParam['password'] = password_hash($dataParam['update-password'], PASSWORD_BCRYPT);
-							
-							$model->update ($userid, $updateParam);
+							$model->insert ($insertParam);
+							$insertUserID = $model->getInsertID ();
 							
 							$model = $this->initModel('EnduserLocationModel');
-							$updateParam = [
-								'olct_idx'	=> $dataParam['update-accesslocation'],
-								'status'	=> 'assigned'
+							$insertParam = [
+								'ousr_idx'		=> $insertUserID,
+								'olct_idx'		=> $dataParams['new-accesslocation'],
+								'status'		=> 'assigned',
+								'created_by'	=> $userIdx,
+								'updated_by'	=> $userIdx,
+								'updated_date'	=> date ('Y-m-d H:i:s')
 							];
-							$model->update ($userid, $updateParam);
-
-							$requestResponse['status']	= 200;
-							$requestResponse['message']	= '';
+							$model->insert ($insertParam);
+							
+							$model = $this->initModel('EnduserProfileModel');
+							$insertParam = [
+								'idx'			=> $insertUserID,
+								'fname'			=> '',
+								'mname'			=> '',
+								'lname'			=> '',
+								'address1'		=> '',
+								'address2'		=> '',
+								'email'			=> $newUseremail,
+								'created_by'	=> $userIdx,
+								'updated_by'	=> $userIdx,
+								'updated_date'	=> date ('Y-m-d H:i:s')
+							];
+							$model->insert ($insertParam);
+							
 							$returnData = [
-								'returnCode' => 200
+								'message'	=> 'User Created!'
 							];
+							$requestResponse['status']	= 200;
 						}
 					} else {
-						$find = $model->where ('username', $dataParam['new-username'])->where ('email', $dataParam['new-email'])->findAll ();
-						if (count ($find) > 0) {
-							$requestResponse['status'] = 400;
-							$requestResponse['message'] = 'Nama User sudah ada dalam basis data!';
-						} else {
-							$insertParam = [
-								'ougr_idx'	=> $dataParam['new-usergroup'],
-								'username'	=> $dataParam['new-username'],
-								'email'		=> $dataParam['new-email'],
-								'password'	=> password_hash($dataParam['new-password'], PASSWORD_BCRYPT)
-							];
-							$model->insert ($insertParam);
-							$usrid = $model->insertID ();
-							
-							$insertParam = [
-								'ousr_idx'	=> $usrid,
-								'olct_idx'	=> $dataParam['new-accesslocation']
-							];
-							$model = $this->initModel('EnduserLocationModel');
-							$model->insert ($insertParam);
-							$usrlocid = $model->insertID ();
-							
-							if ($usrid > 0 && $usrlocid > 0) {
-								$requestResponse['status'] = 200;
-								$returnData = [
-									'returnCode' => 200
-								];
-							} else {
-								$requestResponse['status']	= 500;
-								$requestResponse['message'] = 'Error! Something happened when system trying to save your data!';
-							}
-						}
+						$returnData = $inputUserId;
 					}
+// 					$model = $this->initModel('EnduserModel');
+// 					$userid = $dataTransmit['data-loggedousr'];
+// 					$dataParam = $dataTransmit['param'];
+// 					if ($userid > 0) {
+// 						$find = $model->find ($userid);
+// 						if ($find == NULL) {
+							
+// 						} else {
+// 							$updateParam = [
+// 								'ougr_idx'	=> $dataParam['update-usergroup'],
+// 								'email'		=> $dataParam['update-email']
+// 							];
+							
+// 							if (array_key_exists('update-password', $dataParam)) 
+// 								$updateParam['password'] = password_hash($dataParam['update-password'], PASSWORD_BCRYPT);
+							
+// 							$model->update ($userid, $updateParam);
+							
+// 							$model = $this->initModel('EnduserLocationModel');
+// 							$updateParam = [
+// 								'olct_idx'	=> $dataParam['update-accesslocation'],
+// 								'status'	=> 'assigned'
+// 							];
+// 							$model->update ($userid, $updateParam);
+
+// 							$requestResponse['status']	= 200;
+// 							$requestResponse['message']	= '';
+// 							$returnData = [
+// 								'returnCode' => 200
+// 							];
+// 						}
+// 					} else {
+// 						$find = $model->where ('username', $dataParam['new-username'])->where ('email', $dataParam['new-email'])->findAll ();
+// 						if (count ($find) > 0) {
+// 							$requestResponse['status'] = 400;
+// 							$requestResponse['message'] = 'Nama User sudah ada dalam basis data!';
+// 						} else {
+// 							$insertParam = [
+// 								'ougr_idx'	=> $dataParam['new-usergroup'],
+// 								'username'	=> $dataParam['new-username'],
+// 								'email'		=> $dataParam['new-email'],
+// 								'password'	=> password_hash($dataParam['new-password'], PASSWORD_BCRYPT)
+// 							];
+// 							$model->insert ($insertParam);
+// 							$usrid = $model->insertID ();
+							
+// 							$insertParam = [
+// 								'ousr_idx'	=> $usrid,
+// 								'olct_idx'	=> $dataParam['new-accesslocation']
+// 							];
+// 							$model = $this->initModel('EnduserLocationModel');
+// 							$model->insert ($insertParam);
+// 							$usrlocid = $model->insertID ();
+							
+// 							if ($usrid > 0 && $usrlocid > 0) {
+// 								$requestResponse['status'] = 200;
+// 								$returnData = [
+// 									'returnCode' => 200
+// 								];
+// 							} else {
+// 								$requestResponse['status']	= 500;
+// 								$requestResponse['message'] = 'Error! Something happened when system trying to save your data!';
+// 							}
+// 						}
+// 					}
+					$requestResponse['status'] = 200;
 				}
 				break;
 			case 'movereq-documents':
