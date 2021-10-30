@@ -13,6 +13,6 @@ class AssetMoveInModel extends BaseModel {
 	protected $primaryKey		= 'idx';
 	protected $returnType		= 'CodeIgniter\Entity';
 	protected $allowedFields	= [
-		'docnum', 'omvo_refidx', 'omvo_ousridx', 'omvo_olctfrom', 'omvo_olctto', 'sent', 'sent_by', 'sent_date', 'received_by', 'received_date', 'created_by', 'updated_by'
+		'docnum', 'docdate', 'omvo_refidx', 'omvo_ousridx', 'omvo_olctfrom', 'omvo_olctto', 'sent', 'sent_by', 'sent_date', 'received_by', 'received_date', 'created_by', 'updated_by', 'updated_date'
 	];
 }

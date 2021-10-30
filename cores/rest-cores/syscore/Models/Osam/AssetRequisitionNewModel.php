@@ -9,6 +9,6 @@ class AssetRequisitionNewModel extends BaseModel {
 	protected $primaryKey		= 'orqn_idx';
 	protected $returnType		= 'CodeIgniter\Entity';
 	protected $allowedFields	= [
-		'orqn_idx', 'name', 'dscript', 'est_value', 'qty', 'imgs', 'created_by', 'updated_by'
+		'orqn_idx', 'name', 'dscript', 'est_value', 'qty', 'imgs', 'created_by', 'updated_by', 'updated_date'
 	];
 }

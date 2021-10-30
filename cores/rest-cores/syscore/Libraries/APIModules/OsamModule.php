@@ -156,8 +156,9 @@ class OsamModule extends Modules {
 				break;
 			case 'location':
 				$model = $this->initModel('LocationModel');
+				$locations = $model->select ('idx, code, name, phone, address, contact_person, email, notes')->find ();
 				$returnData = [
-					'locations'	=> $model->find (),
+					'locations'	=> $locations,
 					'header'	=> $model->getColumnHeader ()
 				];
 				$requestResponse['status'] = 200;
@@ -169,6 +170,56 @@ class OsamModule extends Modules {
 					'location'	=> $model->find ($dataTransmit['olctid'])
 				];
 				$requestResponse['status'] = 200;
+				break;
+			case 'update-locationprofile':
+				$dataTransmit = $this->getDataTransmit();
+				$ousrIdx = $dataTransmit['data-loggedousr'];
+				$dataForm = $dataTransmit['data-form'];
+				$olct_idx = $dataForm['idx'];
+				$model = $this->initModel('LocationModel');
+				if ($olct_idx == 0) {
+					$olct = $model->where ('code', $dataForm['location-code'])->find ();
+					if (count ($olct) > 0) {
+						$requestResponse['status']	= 500;
+						$requestResponse['message']	= 'Location code already exists!';
+					} else {
+						$insertParam = [
+							'code'				=> $dataForm['location-code'],
+							'name'				=> $dataForm['location-name'],
+							'phone'				=> $dataForm['location-phone'],
+							'address'			=> $dataForm['location-address'],
+							'contact_person'	=> $dataForm['location-pic'],
+							'email'				=> $dataForm['location-email'],
+							'notes'				=> $dataForm['location-notes'],
+							'created_by'		=> $ousrIdx,
+							'updated_by'		=> $ousrIdx,
+							'updated_date'		=> date ('Y-m-d H:i:s')
+						];
+						$model->insert ($insertParam);
+						if ($model->getInsertID () > 0) $requestResponse['status'] = 200;
+						else {
+							$requestResponse['status'] = 500;
+							$requestResponse['message'] = 'Error! Location insertion failed!';
+						}
+					}
+				} else {
+					$updateParam = [
+						'name'				=> $dataForm['location-name'],
+						'phone'				=> $dataForm['location-phone'],
+						'address'			=> $dataForm['location-address'],
+						'contact_person'	=> $dataForm['location-pic'],
+						'email'				=> $dataForm['location-email'],
+						'notes'				=> $dataForm['location-notes'],
+						'updated_by'		=> $ousrIdx,
+						'updated_date'		=> date ('Y-m-d H:i:s')
+					];
+					$model->update ($olct_idx, $updateParam);
+					if ($model->affectedRows () > 0) $requestResponse['status'] = 200;
+					else {
+						$requestResponse['status']	= 500;
+						$requestResponse['message']	= 'Error! Location profile update failed!';
+					}
+				}
 				break;
 			case 'assets-main-list':
 				$model = $this->initModel('AssetItemModel');
@@ -380,7 +431,7 @@ class OsamModule extends Modules {
 				$returnData = [];
 				$dataTransmit = $this->getDataTransmit();
 				$model = $this->initModel('LocationModel');
-				$returnData['location'] = $model->find ($dataTransmit['olctid']);
+				$returnData['location'] = $model->select ('idx, code, name, phone, address, contact_person, email, notes')->find ($dataTransmit['olctid']);
 				$returnData['locationheader'] = $model->getColumnHeader ();
 				$model = $this->initModel('SublocationModel');
 				$sublocations = $model->where ('olct_idx', $dataTransmit['olctid'])->find ();
@@ -490,71 +541,6 @@ class OsamModule extends Modules {
 					} else {
 						$returnData = $inputUserId;
 					}
-// 					$model = $this->initModel('EnduserModel');
-// 					$userid = $dataTransmit['data-loggedousr'];
-// 					$dataParam = $dataTransmit['param'];
-// 					if ($userid > 0) {
-// 						$find = $model->find ($userid);
-// 						if ($find == NULL) {
-							
-// 						} else {
-// 							$updateParam = [
-// 								'ougr_idx'	=> $dataParam['update-usergroup'],
-// 								'email'		=> $dataParam['update-email']
-// 							];
-							
-// 							if (array_key_exists('update-password', $dataParam)) 
-// 								$updateParam['password'] = password_hash($dataParam['update-password'], PASSWORD_BCRYPT);
-							
-// 							$model->update ($userid, $updateParam);
-							
-// 							$model = $this->initModel('EnduserLocationModel');
-// 							$updateParam = [
-// 								'olct_idx'	=> $dataParam['update-accesslocation'],
-// 								'status'	=> 'assigned'
-// 							];
-// 							$model->update ($userid, $updateParam);
-
-// 							$requestResponse['status']	= 200;
-// 							$requestResponse['message']	= '';
-// 							$returnData = [
-// 								'returnCode' => 200
-// 							];
-// 						}
-// 					} else {
-// 						$find = $model->where ('username', $dataParam['new-username'])->where ('email', $dataParam['new-email'])->findAll ();
-// 						if (count ($find) > 0) {
-// 							$requestResponse['status'] = 400;
-// 							$requestResponse['message'] = 'Nama User sudah ada dalam basis data!';
-// 						} else {
-// 							$insertParam = [
-// 								'ougr_idx'	=> $dataParam['new-usergroup'],
-// 								'username'	=> $dataParam['new-username'],
-// 								'email'		=> $dataParam['new-email'],
-// 								'password'	=> password_hash($dataParam['new-password'], PASSWORD_BCRYPT)
-// 							];
-// 							$model->insert ($insertParam);
-// 							$usrid = $model->insertID ();
-							
-// 							$insertParam = [
-// 								'ousr_idx'	=> $usrid,
-// 								'olct_idx'	=> $dataParam['new-accesslocation']
-// 							];
-// 							$model = $this->initModel('EnduserLocationModel');
-// 							$model->insert ($insertParam);
-// 							$usrlocid = $model->insertID ();
-							
-// 							if ($usrid > 0 && $usrlocid > 0) {
-// 								$requestResponse['status'] = 200;
-// 								$returnData = [
-// 									'returnCode' => 200
-// 								];
-// 							} else {
-// 								$requestResponse['status']	= 500;
-// 								$requestResponse['message'] = 'Error! Something happened when system trying to save your data!';
-// 							}
-// 						}
-// 					}
 					$requestResponse['status'] = 200;
 				}
 				break;
@@ -661,7 +647,8 @@ class OsamModule extends Modules {
 					'status'			=> 1,
 					'comments'			=> '',
 					'created_by'		=> $ousrIdx,
-					'updated_by'		=> $ousrIdx
+					'updated_by'		=> $ousrIdx,
+					'updated_date'		=> date ('Y-m-d H:i:s')
 				];
 				
 				$model->insert ($insertParam);
@@ -683,7 +670,8 @@ class OsamModule extends Modules {
 						'qty'			=> $formData['new-requestqty'],
 						'imgs'			=> $formData['new-imagenames'],
 						'created_by'	=> $ousrIdx,
-						'updated_by'	=> $ousrIdx
+						'updated_by'	=> $ousrIdx,
+						'updated_date'	=> date ('Y-m-d H:i:s')
 					];
 					$model	= $this->initModel('AssetRequisitionNewModel');
 					$model->insert ($rqn2);
@@ -728,7 +716,8 @@ class OsamModule extends Modules {
 					'status'			=> 1,
 					'comments'			=> '',	
 					'created_by'		=> $ousrIdx,
-					'updated_by'		=> $ousrIdx
+					'updated_by'		=> $ousrIdx,
+					'updated_date'		=> date ('Y-m-d H:i:s')
 				];
 				
 				$rqn1s	=	[];
@@ -743,7 +732,8 @@ class OsamModule extends Modules {
 									'code'			=> $data['value'],
 									'qty'			=> 0,
 									'created_by'	=> $ousrIdx,
-									'updated_by'	=> $ousrIdx
+									'updated_by'	=> $ousrIdx,
+									'updated_date'	=> date ('Y-m-d H:i:s')
 								];
 								$rqn1s[$rowId] = $rqn1;
 							}
@@ -816,7 +806,8 @@ class OsamModule extends Modules {
 					'status'			=> 1,
 					'status_comment'	=> '',
 					'created_by'		=> $ousrIdx,
-					'updated_by'		=> $ousrIdx
+					'updated_by'		=> $ousrIdx,
+					'updated_date'		=> date ('Y-m-d H:i:s')
 				];
 				
 				$mvo1Param = [];
@@ -835,7 +826,8 @@ class OsamModule extends Modules {
 									'osbl_idx'		=> 0,
 									'qty'			=> intval ($formdata['value']),
 									'created_by'	=> $ousrIdx,
-									'updated_by'	=> $ousrIdx
+									'updated_by'	=> $ousrIdx,
+									'updated_date'	=> date ('Y-m-d H:i:s')
 								];
 								array_push($mvo1Param, $paramLine);
 							}
@@ -875,7 +867,8 @@ class OsamModule extends Modules {
 					'olct_to'		=> $insertParam['olct_to'],
 					'status'		=> $insertParam['status'],
 					'created_by'	=> $insertParam['created_by'],
-					'updated_by'	=> $insertParam['updated_by']
+					'updated_by'	=> $insertParam['updated_by'],
+					'updated_date'	=> date ('Y-m-d H:i:s')
 				];
 				
 				$model->insert ($mvrInsertParam);
@@ -978,8 +971,6 @@ class OsamModule extends Modules {
 						]
 					],
 					'locations'		=> $locations,
-					'sublocations'	=> $sublocations,
-					'ousrlocation'	=> $ousrOlct,
 					'mvisList'		=> $mvis,
 					'mvisDetails'	=> $mvisDetails,
 					'mvisRcvs'		=> [],
@@ -1363,6 +1354,7 @@ class OsamModule extends Modules {
 				$lastRowDocNum = count ($lastRow) > 0 ? $lastRow[0]->docnum : NULL;
 				$docParam = [
 					'docnum'		=> $documentLib->generateDocnum(AssetMoveOutModel::DOCCODE, $lastRowDocNum),
+					'docdate'		=> date ('Y-m-d H:i:s'),
 					'approved_by'	=> 0,
 					'approval_date'	=> NULL,
 					'sent_by'		=> 0,
@@ -1387,7 +1379,8 @@ class OsamModule extends Modules {
 									'osbl_idx'		=> 0,
 									'qty'			=> intval ($param['value']),
 									'created_by'	=> $ousrIdx,
-									'updated_by'	=> $ousrIdx
+									'updated_by'	=> $ousrIdx,
+									'updated_date'	=> date ('Y-m-d H:i:s')
 								];
 								array_push($docDetails, $docDetail);
 							}
@@ -1504,7 +1497,8 @@ class OsamModule extends Modules {
 								'status'		=> 0,
 								'approval_date' => date ('Y-m-d H:i:s'),
 								'approved_by'	=> $ousrIdx,
-								'updated_by'	=> $ousrIdx
+								'updated_by'	=> $ousrIdx,
+								'updated_date'	=> date ('Y-m-d H:i:s')
 							];
 							$model->update ($omvo_idx, $updateParam);
 							$returnData = [
@@ -1521,7 +1515,8 @@ class OsamModule extends Modules {
 								'status' => 2,
 								'approval_date' => date ('Y-m-d H:i:s'),
 								'approved_by'	=> $ousrIdx,
-								'updated_by'	=> $ousrIdx
+								'updated_by'	=> $ousrIdx,
+								'updated_date'	=> date ('Y-m-d H:i:s')
 							];
 							
 							$model->update ($omvo_idx, $updateParam);
@@ -1542,6 +1537,7 @@ class OsamModule extends Modules {
 								$docnumGenerated = $document->generateDocnum(AssetMoveInModel::DOCCODE, $lastDocnum);
 								$insertParam = [
 									'docnum'		=> $docnumGenerated,
+									'docdate'		=> date ('Y-m-d H:i:s'),
 									'omvo_refidx'	=> $omvo_idx,
 									'omvo_ousridx'	=> $omvo->ousr_applicant,
 									'omvo_olctfrom'	=> $omvo->olct_from,
@@ -1550,7 +1546,8 @@ class OsamModule extends Modules {
 									'sent_date'		=> NULL,
 									'received_date'	=> NULL,
 									'created_by'	=> $ousrIdx,
-									'updated_by'	=> $ousrIdx
+									'updated_by'	=> $ousrIdx,
+									'updated_date'	=> date ('Y-m-d H:i:s')
 								];
 								
 								$model->insert ($insertParam);
@@ -1574,7 +1571,8 @@ class OsamModule extends Modules {
 								'status'		=> 3,
 								'sent_by'		=> $ousrIdx,
 								'sent_date'		=> date ('Y-m-d H:i:s'),
-								'updated_by'	=> $ousrIdx
+								'updated_by'	=> $ousrIdx,
+								'updated_date'	=> date ('Y-m-d H:i:s')
 							];
 							$model->update ($omvo_idx, $updateParam);
 							$updated = $model->affectedRows ();
@@ -1586,7 +1584,8 @@ class OsamModule extends Modules {
 									'sent'			=> true,
 									'sent_by'		=> $ousrIdx,
 									'sent_date'		=> date ('Y-m-d H:i:s'),
-									'updated_by'	=> $ousrIdx
+									'updated_by'	=> $ousrIdx,
+									'updated_date'	=> date ('Y-m-d H:i:s')
 								];
 								$model->where ('omvo_refidx', $omvo_idx)
 										->set ($updateParam)
@@ -1604,6 +1603,22 @@ class OsamModule extends Modules {
 						break;
 				}
 				$requestResponse['status'] = 200;
+				break;
+			case 'get-sublocationoflocation':
+				$dataTransmit = $this->getDataTransmit();
+				$model		= $this->initModel('SublocationModel');
+				$osbls		= $model->where ('olct_idx', $dataTransmit['target-location'])->find ();
+				if (count ($osbls) == 0) $requestResponse['status']	= 400;
+				else {
+					$dataSublocations = [];
+					foreach ($osbls as $osbl) $dataSublocations[$osbl->idx] = $osbl->name;
+					
+					$returnData = [
+						'good'	=> TRUE,
+						'data-sublocations'	=> $dataSublocations
+					];
+					$requestResponse['status'] = 200;
+				}
 				break;
 		}
 		
@@ -1664,7 +1679,8 @@ class OsamModule extends Modules {
 					'email'			=> $json['email'],
 					'password'		=> password_hash($json['entry-password'], PASSWORD_BCRYPT),
 					'created_by'	=> 0,
-					'updated_by'	=> 0
+					'updated_by'	=> 0,
+					'updated_date'	=> date ('Y-m-d H:i:s')
 				];
 				$model = $this->initModel('EnduserModel');
 				$model->insert ($insertParams);
@@ -1672,7 +1688,8 @@ class OsamModule extends Modules {
 				
 				$update = [
 					'created_by'	=> $ousrid,
-					'updated_by'	=> $ousrid
+					'updated_by'	=> $ousrid,
+					'updated_date'	=> date ('Y-m-d H:i:s')
 				];
 				$model->update ($ousrid, $update);
 				
@@ -1681,7 +1698,8 @@ class OsamModule extends Modules {
 					'olct_idx'		=> 0,
 					'status'		=> 'assigned',
 					'created_by'	=> $ousrid,
-					'updated_by'	=> $ousrid
+					'updated_by'	=> $ousrid,
+					'updated_date'	=> date ('Y-m-d H:i:s')
 				];
 				$model = $this->initModel ('EnduserLocationModel');
 				$model->insert ($insertParams);
@@ -1696,7 +1714,8 @@ class OsamModule extends Modules {
 					'phone'			=> $json['phone-num'],
 					'email'			=> $json['email'],
 					'created_by'	=> $ousrid,
-					'updated_by'	=> $ousrid
+					'updated_by'	=> $ousrid,
+					'updated_date'	=> date ('Y-m-d H:i:s')
 				];
 				$model = $this->initModel ('EnduserProfileModel');
 				$model->insert ($insertParams);

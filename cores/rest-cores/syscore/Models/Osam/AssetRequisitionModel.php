@@ -15,6 +15,6 @@ class AssetRequisitionModel extends BaseModel {
 	protected $primaryKey		= 'idx';
 	protected $returnType		= 'CodeIgniter\Entity';
 	protected $allowedFields	= [
-		'docnum', 'docdate', 'requisition_type', 'olct_idx', 'ousr_applicant', 'approved_by', 'approval_date', 'status', 'comments', 'created_by', 'updated_by'
+		'docnum', 'docdate', 'requisition_type', 'olct_idx', 'ousr_applicant', 'approved_by', 'approval_date', 'status', 'comments', 'created_by', 'updated_by', 'updated_date'
 	];
 }

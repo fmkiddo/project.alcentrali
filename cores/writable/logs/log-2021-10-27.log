@@ -283,3 +283,129 @@ CRITICAL - 2021-10-27 08:05:53 --> Undefined offset: 0
 #4 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
 #5 /home/fmkiddo/git/project.alcentrali/cdn/restful/index.php(45): CodeIgniter\CodeIgniter->run()
 #6 {main}
+CRITICAL - 2021-10-27 21:52:48 --> Undefined index: data-loggedousr
+#0 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Libraries/APIModules/OsamModule.php(436): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', '/home/fmkiddo/g...', 436, Array)
+#1 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Controllers/ClientRequest.php(72): App\Libraries\APIModules\OsamModule->executeRequest('userupdate')
+#2 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Controllers/ClientRequest.php(266): App\Controllers\ClientRequest->requestExecution()
+#3 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(918): App\Controllers\ClientRequest->dataRequest()
+#4 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientRequest))
+#5 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /home/fmkiddo/git/project.alcentrali/cdn/restful/index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2021-10-27 21:56:12 --> Undefined index: data-loggedousr
+#0 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Libraries/APIModules/OsamModule.php(436): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', '/home/fmkiddo/g...', 436, Array)
+#1 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Controllers/ClientRequest.php(72): App\Libraries\APIModules\OsamModule->executeRequest('userupdate')
+#2 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Controllers/ClientRequest.php(266): App\Controllers\ClientRequest->requestExecution()
+#3 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(918): App\Controllers\ClientRequest->dataRequest()
+#4 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientRequest))
+#5 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /home/fmkiddo/git/project.alcentrali/cdn/restful/index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2021-10-27 21:58:37 --> Undefined index: data-loggedousr
+#0 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Libraries/APIModules/OsamModule.php(436): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', '/home/fmkiddo/g...', 436, Array)
+#1 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Controllers/ClientRequest.php(72): App\Libraries\APIModules\OsamModule->executeRequest('userupdate')
+#2 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Controllers/ClientRequest.php(267): App\Controllers\ClientRequest->requestExecution()
+#3 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(918): App\Controllers\ClientRequest->dataRequest()
+#4 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientRequest))
+#5 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /home/fmkiddo/git/project.alcentrali/cdn/restful/index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2021-10-27 21:59:34 --> Undefined index: data-loggedousr
+#0 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Libraries/APIModules/OsamModule.php(436): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', '/home/fmkiddo/g...', 436, Array)
+#1 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Controllers/ClientRequest.php(72): App\Libraries\APIModules\OsamModule->executeRequest('userupdate')
+#2 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Controllers/ClientRequest.php(267): App\Controllers\ClientRequest->requestExecution()
+#3 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(918): App\Controllers\ClientRequest->dataRequest()
+#4 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientRequest))
+#5 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /home/fmkiddo/git/project.alcentrali/cdn/restful/index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2021-10-27 22:00:31 --> Undefined index: data-loggedousr
+#0 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Libraries/APIModules/OsamModule.php(436): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', '/home/fmkiddo/g...', 436, Array)
+#1 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Controllers/ClientRequest.php(72): App\Libraries\APIModules\OsamModule->executeRequest('userupdate')
+#2 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Controllers/ClientRequest.php(267): App\Controllers\ClientRequest->requestExecution()
+#3 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(918): App\Controllers\ClientRequest->dataRequest()
+#4 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientRequest))
+#5 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /home/fmkiddo/git/project.alcentrali/cdn/restful/index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2021-10-27 22:00:43 --> Undefined index: data-loggedousr
+#0 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Libraries/APIModules/OsamModule.php(436): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', '/home/fmkiddo/g...', 436, Array)
+#1 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Controllers/ClientRequest.php(72): App\Libraries\APIModules\OsamModule->executeRequest('userupdate')
+#2 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Controllers/ClientRequest.php(267): App\Controllers\ClientRequest->requestExecution()
+#3 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(918): App\Controllers\ClientRequest->dataRequest()
+#4 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientRequest))
+#5 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /home/fmkiddo/git/project.alcentrali/cdn/restful/index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2021-10-27 22:01:20 --> Undefined index: data-loggedousr
+#0 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Libraries/APIModules/OsamModule.php(436): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', '/home/fmkiddo/g...', 436, Array)
+#1 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Controllers/ClientRequest.php(72): App\Libraries\APIModules\OsamModule->executeRequest('userupdate')
+#2 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Controllers/ClientRequest.php(267): App\Controllers\ClientRequest->requestExecution()
+#3 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(918): App\Controllers\ClientRequest->dataRequest()
+#4 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientRequest))
+#5 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /home/fmkiddo/git/project.alcentrali/cdn/restful/index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2021-10-27 22:01:55 --> Undefined index: update-usergroup
+#0 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Libraries/APIModules/OsamModule.php(444): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', '/home/fmkiddo/g...', 444, Array)
+#1 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Controllers/ClientRequest.php(72): App\Libraries\APIModules\OsamModule->executeRequest('userupdate')
+#2 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Controllers/ClientRequest.php(267): App\Controllers\ClientRequest->requestExecution()
+#3 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(918): App\Controllers\ClientRequest->dataRequest()
+#4 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientRequest))
+#5 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /home/fmkiddo/git/project.alcentrali/cdn/restful/index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2021-10-27 22:02:03 --> Undefined index: update-usergroup
+#0 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Libraries/APIModules/OsamModule.php(444): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', '/home/fmkiddo/g...', 444, Array)
+#1 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Controllers/ClientRequest.php(72): App\Libraries\APIModules\OsamModule->executeRequest('userupdate')
+#2 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Controllers/ClientRequest.php(267): App\Controllers\ClientRequest->requestExecution()
+#3 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(918): App\Controllers\ClientRequest->dataRequest()
+#4 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientRequest))
+#5 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /home/fmkiddo/git/project.alcentrali/cdn/restful/index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2021-10-27 22:02:11 --> Undefined index: update-usergroup
+#0 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Libraries/APIModules/OsamModule.php(444): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', '/home/fmkiddo/g...', 444, Array)
+#1 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Controllers/ClientRequest.php(72): App\Libraries\APIModules\OsamModule->executeRequest('userupdate')
+#2 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Controllers/ClientRequest.php(267): App\Controllers\ClientRequest->requestExecution()
+#3 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(918): App\Controllers\ClientRequest->dataRequest()
+#4 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientRequest))
+#5 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /home/fmkiddo/git/project.alcentrali/cdn/restful/index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2021-10-27 22:03:09 --> Undefined index: update-usergroup
+#0 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Libraries/APIModules/OsamModule.php(444): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', '/home/fmkiddo/g...', 444, Array)
+#1 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Controllers/ClientRequest.php(72): App\Libraries\APIModules\OsamModule->executeRequest('userupdate')
+#2 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Controllers/ClientRequest.php(267): App\Controllers\ClientRequest->requestExecution()
+#3 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(918): App\Controllers\ClientRequest->dataRequest()
+#4 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientRequest))
+#5 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /home/fmkiddo/git/project.alcentrali/cdn/restful/index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2021-10-27 22:03:55 --> Undefined index: update-usergroup
+#0 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Libraries/APIModules/OsamModule.php(444): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', '/home/fmkiddo/g...', 444, Array)
+#1 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Controllers/ClientRequest.php(72): App\Libraries\APIModules\OsamModule->executeRequest('userupdate')
+#2 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Controllers/ClientRequest.php(267): App\Controllers\ClientRequest->requestExecution()
+#3 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(918): App\Controllers\ClientRequest->dataRequest()
+#4 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientRequest))
+#5 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /home/fmkiddo/git/project.alcentrali/cdn/restful/index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2021-10-27 22:04:45 --> Undefined variable: requestResponse
+#0 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Libraries/APIModules/OsamModule.php(1551): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', '/home/fmkiddo/g...', 1551, Array)
+#1 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Controllers/ClientRequest.php(72): App\Libraries\APIModules\OsamModule->executeRequest('userupdate')
+#2 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Controllers/ClientRequest.php(267): App\Controllers\ClientRequest->requestExecution()
+#3 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(918): App\Controllers\ClientRequest->dataRequest()
+#4 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientRequest))
+#5 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /home/fmkiddo/git/project.alcentrali/cdn/restful/index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2021-10-27 22:22:15 --> Undefined variable: ousrIdx
+#0 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Libraries/APIModules/OsamModule.php(464): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', '/home/fmkiddo/g...', 464, Array)
+#1 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Controllers/ClientRequest.php(72): App\Libraries\APIModules\OsamModule->executeRequest('userupdate')
+#2 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Controllers/ClientRequest.php(267): App\Controllers\ClientRequest->requestExecution()
+#3 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(918): App\Controllers\ClientRequest->dataRequest()
+#4 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientRequest))
+#5 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /home/fmkiddo/git/project.alcentrali/cdn/restful/index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
