@@ -6,6 +6,7 @@ use App\Libraries\Document;
 use App\Models\Osam\AssetMoveInModel;
 use App\Models\Osam\AssetMoveOutRequestModel;
 use App\Models\Osam\AssetRequisitionModel;
+use App\Models\Osam\AssetRemovalModel;
 
 class OsamModule extends Modules {
 	
@@ -556,16 +557,49 @@ class OsamModule extends Modules {
 				$olcts	= $model->find ();
 				foreach ($olcts as $olct) $locations[$olct->idx] = $olct->name;
 				
-				$model			= $this->initModel('AssetItemModel');
+				$model			= $this->initModel ('AssetItemModel');
 				$oitas			= $model->select ('code, name')->groupBy ('code')->find ();
 				$assets			= [];
 				foreach ($oitas as $oita) $assets[$oita->code] = $oita->name;
 				
-				$requestDocuments = [];
 				$model			= $this->initModel('AssetMoveOutRequestModel');
 				if ($ousrOlct > 0) {
+					$model			= $this->initModel ('AssetMoveOutRequestModel');
+					$omvrs			= $model->select ('omvr.docnum, omvr.docdate, \'' . AssetMoveOutRequestModel::DOCCODE . '\' as `type`, ousr.username, olct.name as `location_name`, omvr.status')
+										->join ('omvo', 'omvr.omvo_refidx=omvo.idx')->join ('ousr', 'omvo.ousr_applicant=ousr.idx')->join ('olct', 'omvr.olct_to=olct.idx')
+										->where ('omvr.oclt_to', $olct_idx)->find ();
 					
+					$model			= $this->initModel ('AssetRequisitionModel');
+					$orqns			= $model->select ('orqn.docnum, orqn.docdate, \'' . AssetRequisitionModel::DOCCODE . '\' as `type`, ousr.username, olct.name as `location_name`, orqn.status')
+										->join ('ousr', 'orqn.ousr_applicant=ousr.idx')->join ('olct', 'orqn.olct_idx=olct.idx')
+										->where ('orqn.olct_idx', $olct_idx)->find ();
+										
+					$model			= $this->initModel ('AssetRemovalModel');
+					$oarvs			= $model->select ('oarv.docnum, oarv.docdate, \'' . AssetRemovalModel::DOCCODE . '\' as `type`, ousr.username, olct.name as `location_name`, oarv.status')
+										->join ('ousr', 'oarv.ousr_applicant=ousr.idx')->join ('olct', 'oarv.olct_from=olct.idx')
+										->where ('oarv.olct_from', $olct_idx)->find ();
+				} else {
+					$model			= $this->initModel ('AssetMoveOutRequestModel');
+					$omvrs			= $model->select ('omvr.docnum, omvr.docdate, \'' . AssetMoveOutRequestModel::DOCCODE . '\' as `type`, ousr.username, olct.name as `location_name`, omvr.status')
+										->join ('omvo', 'omvr.omvo_refidx=omvo.idx')->join ('ousr', 'omvo.ousr_applicant=ousr.idx')->join ('olct', 'omvr.olct_to=olct.idx')->find ();
+					
+					$model			= $this->initModel ('AssetRequisitionModel');
+					$orqns			= $model->select ('orqn.docnum, orqn.docdate, \'' . AssetRequisitionModel::DOCCODE . '\' as `type`, ousr.username, olct.name as `location_name`, orqn.status')
+										->join ('ousr', 'orqn.ousr_applicant=ousr.idx')->join ('olct', 'orqn.olct_idx=olct.idx')->find ();
+										
+					$model			= $this->initModel ('AssetRemovalModel');
+					$oarvs			= $model->select ('oarv.docnum, oarv.docdate, \'' . AssetRemovalModel::DOCCODE . '\' as `type`, ousr.username, olct.name as `location_name`, oarv.status')
+										->join ('ousr', 'oarv.ousr_applicant=ousr.idx')->join ('olct', 'oarv.olct_from=olct.idx')->find ();
 				}
+				
+				$requestDocuments = [
+					'mvorequest'	=> [],
+					'requisition'	=> [],
+					'removal'		=> []
+				];
+				foreach ($omvrs as $omvr) array_push ($requestDocuments['mvorequest'], $omvr);
+				foreach ($orqns as $orqn) array_push ($requestDocuments['requisition'], $orqn);
+				foreach ($oarvs as $oarv) array_push ($requestDocuments['removal'], $oarv);
 				
 				$returnData = [
 					'summaries'		=> [
@@ -608,6 +642,13 @@ class OsamModule extends Modules {
 						3	=> 'Dikirim',
 						4	=> 'Diterima',
 						5	=> 'Didistribusikan'
+					],
+					'docTypes'	=> [
+						'01'		=> 'Aset Keluar',
+						'02'		=> 'Aset Masuk',
+						'03'		=> 'Permintaan Pindah',
+						'04'		=> 'Permintaan Baru',
+						'10'		=> 'Permintaan Pemusnahan'
 					]
 				];
 				$requestResponse['status']	= 200;
@@ -1619,6 +1660,66 @@ class OsamModule extends Modules {
 					];
 					$requestResponse['status'] = 200;
 				}
+				break;
+			case 'assetsdestroy-request':
+				$dataTransmit = $this->getDataTransmit();
+				$olct_idx = $dataTransmit['location-idx'];
+				$ousr_idx = $dataTransmit['data-loggedousr'];
+				
+				$model = $this->initModel('ApplicationSettingsModel');
+				$numberingFormat = $model->find ('numbering')->tag_value;
+				$numberingPeriode = $model->find ('numbering-periode')->tag_value;
+				$document = new Document ($numberingFormat, $numberingPeriode);
+				
+				$model = $this->initModel('AssetRemovalModel');
+				$orqns = $model->orderBy ('idx', 'DESC')->find ();
+				$lastDocnum = (count ($orqns) == 0) ? NULL : $orqns[0]->docnum; 
+				
+				$insertParam = [
+					'docnum'			=> $document->generateDocnum(AssetRemovalModel::DOCCODE, $lastDocnum),
+					'docdate'			=> date ('Y-m-d H:i:s'),
+					'ousr_applicant'	=> $ousr_idx,
+					'olct_from'			=> $olct_idx,
+					'approved_by'		=> 0,
+					'approval_date'		=> NULL,
+					'removed_by'		=> 0,
+					'removal_date'		=> NULL,
+					'removal_method'	=> '',
+					'status'			=> 1,
+					'comments'			=> NULL,
+					'created_by'		=> $ousr_idx,
+					'updated_by'		=> $ousr_idx,
+					'updated_date'		=> date ('Y-m-d H:i:s')
+				];
+				
+				$model->insert ($insertParam);
+				$oarv_idx = $model->getInsertID ();
+				
+				if ($oarv_idx == 0) {
+					$requestResponse['status']	= 500;
+					$requestResponse['message']	= 'Error! Document insertion failed!';
+				} else {	
+					$dataAssets = $dataTransmit['data-assets'];
+					$model = $this->initModel('AssetRemovalDetailModel');
+					foreach ($dataAssets as $data) {
+						$insertParam = [
+							'oarv_idx'		=> $oarv_idx,
+							'oita_idx'		=> $data['asset-idx'],
+							'osbl_idx'		=> $data['subloc-idx'],
+							'removal_qty'	=> $data['request-qty'],
+							'created_by'	=> $ousr_idx,
+							'updated_by'	=> $ousr_idx,
+							'updated_date'	=> date ('Y-m-d H:i:s')
+						];
+						$model->insert ($insertParam);
+					}
+					$requestResponse['status']	= 200;
+				}
+				break;
+			case 'removal-documents':
+				$dataTransmit = $this->getDataTransmit();
+				$ousr_idx = $dataTransmit['data-loggedousr'];
+				
 				break;
 		}
 		
