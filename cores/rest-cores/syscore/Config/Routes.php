@@ -48,6 +48,8 @@ $routes->put ('api/client-authentication', 'ClientRequest::clientAuthentication'
 $routes->put ('api/client-setup', 'ClientRequest::setupFirstTime');
 $routes->put ('api/client-check', 'ClientRequest::dataCheck');
 
+// $routes->add ('api/test', 'ClientRequest::shittytest');
+
 $routes->add ('client/api/request-data', 'ClientRequest::dataRequest');
 $routes->post ('client/api/data-processing', 'ClientRequest::dataRequest');
 /**

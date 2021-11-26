@@ -10,5 +10,4 @@ class ModuleModel extends BaseModel {
 	protected $table			= 'omdl';
 	protected $primaryKey		= 'idx';
 	protected $returnType		= 'CodeIgniter\Entity';
-	protected $allowedFields	= ['code', 'parent_idx', 'smarty', 'targeturl', 'icon'];
 }

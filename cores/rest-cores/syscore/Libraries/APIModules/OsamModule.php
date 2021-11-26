@@ -21,6 +21,57 @@ class OsamModule extends Modules {
 		'prepopulated-list'	=> 'Daftar Berisi'
 	];
 	
+	private function csvDataProcessing ($type, $ousr_idx, $data) {
+		$failedImport = 0;
+		$now = date ('Y-m-d H:i:s');
+		$model = NULL;
+		$addmodelnames = array ();
+		$addmodels = array ();
+		
+		switch ($type) {
+			default:
+				break;
+			case 'locations':
+				$model = $this->initModel ('LocationModel');
+				break;
+			case 'sublocations':
+				$model = $this->initModel ('SublocationModel');
+				break;
+			case 'catattributes':
+				$model = $this->initModel ('CategoryAttributeModel');
+				$addmodelnames = [
+					'CategoryAttributeDataModel'
+				];
+				break;
+			case 'categories':
+				$model = $this->initModel ('ItemCategoryModel');
+				$addmodelnames = [
+					'ItemAttributeModel'
+				];
+				break;
+			case 'assetitems':
+				$model = $this->initModel ('AssetItemModel');
+				break;
+			case 'assetitemdetails':
+				$model = $this->initModel ('ItemAttributesModel');
+				break;
+		}
+		
+		if (count ($addmodelnames) > 0) 
+			foreach ($addmodelnames as $addmodelname) array_push ($addmodels, $this->initModel ($addmodelname));
+		
+		if ($model !== NULL):
+			foreach ($data as $line) {
+				$status = $model->insertFromFile($line, $ousr_idx, $now);
+				if (!$status) $failedImport++;
+				if (count ($addmodels) > 0)
+					foreach ($addmodels as $amodel) $amodel->insertFromFile ($line, $ousr_idx, $now);
+			}
+		endif;
+		
+		return $failedImport;
+	}
+	
 	public function executeRequest($trigger): array {
 		$requestResponse;
 		
@@ -30,12 +81,29 @@ class OsamModule extends Modules {
 		 */
 		$model;
 		$returnData = [];
+		$now = date ('Y-m-d H:i:s');
 		switch ($trigger) {
 			default:
 				$requestResponse = [
 					'status'	=> 400,
 					'message'	=> 'Bad Directives!'
 				];
+				if (strpos ($trigger, 'dataupload-md') !== FALSE) {
+					$dataTransmit	= $this->getDataTransmit();
+					$whatToUpload	= str_replace('dataupload-md-', '', $trigger);
+					$dataFormat		= $this->initFormat(ucfirst($whatToUpload));
+					$ousr_idx		= $dataTransmit['data-loggedousr'];
+					if (!$dataFormat->headerCompare($dataTransmit['data-header'])) {
+						$requestResponse['status']	= 500;
+						$requestResponse['message']	= 'Error! File format not matched!';
+					} else {
+						$importFailed = $this->csvDataProcessing($whatToUpload, $ousr_idx, $dataTransmit['data-body']);
+						$returnData = [
+							'data-importfailed' => $importFailed
+						];
+						$requestResponse['status'] = 200;
+					}
+				}
 				break;
 			case 'categories':
 				$model = $this->initModel('ItemCategoryModel');
@@ -431,35 +499,120 @@ class OsamModule extends Modules {
 			case 'detailedlocation':
 				$returnData = [];
 				$dataTransmit = $this->getDataTransmit();
-				$model = $this->initModel('LocationModel');
-				$returnData['location'] = $model->select ('idx, code, name, phone, address, contact_person, email, notes')->find ($dataTransmit['olctid']);
-				$returnData['locationheader'] = $model->getColumnHeader ();
-				$model = $this->initModel('SublocationModel');
-				$sublocations = $model->where ('olct_idx', $dataTransmit['olctid'])->find ();
-				$returnData['sublocations'] = $sublocations;
-				$returnData['sblheader'] = $model->getColumnHeader ();
-				$model = $this->initModel('AssetItemModel');
-				$locationassets = $model->select ('osbl_idx, code, name, ci_name, notes, po_number, qty')->join ('oaci', 'oaci.idx = oita.oaci_idx')->where ('olct_idx', $dataTransmit['olctid'])->find ();
-				$locationassets_raw = [];
-				
-				foreach ($locationassets as $locationasset) {
-					$attribute = $locationasset->toArray ();
-					$osbl_id = $locationasset->osbl_idx;
-					foreach ($sublocations as $sublocation) 
-						if ($sublocation->idx == $osbl_id) {
-							$attribute['sublocation'] = $sublocation->name;
-							break;
-						}
+				$model	= $this->initModel('LocationModel');
+				$locationCode = $dataTransmit['data-locationcode'];
+				$olct	= $model->select ('idx, code, name, phone, address, contact_person, email, notes')->where ('code', $locationCode)->find ();
+				if (count ($olct) > 0) {
+					$olct_idx = $olct[0]->idx;
+					$returnData['location'] = $olct[0];
+					$returnData['locationheader'] = $model->getColumnHeader ();
+					$model = $this->initModel('SublocationModel');
+					$sublocations = $model->where ('olct_idx', $olct_idx)->find ();
+					$returnData['sublocations'] = $sublocations;
+					$returnData['sblheader'] = $model->getColumnHeader ();
+					$model = $this->initModel('AssetItemModel');
+					$locationassets = $model->select ('osbl_idx, code, name, ci_name, notes, po_number, qty')->join ('oaci', 'oaci.idx = oita.oaci_idx')->where ('olct_idx', $olct_idx)->find ();
+					$locationassets_raw = [];
 					
-					$assetEntity = new \CodeIgniter\Entity ();
-					$assetEntity->fill ($attribute);
-					array_push($locationassets_raw, $assetEntity);
+					foreach ($locationassets as $locationasset) {
+						$attribute = $locationasset->toArray ();
+						$osbl_id = $locationasset->osbl_idx;
+						foreach ($sublocations as $sublocation) 
+							if ($sublocation->idx == $osbl_id) {
+								$attribute['sublocation'] = $sublocation->name;
+								break;
+							}
+						
+						$assetEntity = new \CodeIgniter\Entity ();
+						$assetEntity->fill ($attribute);
+						array_push($locationassets_raw, $assetEntity);
+					}
+					
+					$returnData['locationassets'] = $locationassets_raw;
+					$returnData['assetheader'] = $model->getColumnHeader ('locationassets');
+					
+					$requestResponse['status'] = 200;
+				} else {
+					$requestResponse['status']	= 404;
+					$requestResponse['message']	= 'Location not found';
 				}
+				break;
+			case 'load-sublocation':
+				$dataTransmit	= $this->getDataTransmit();
+				$model	= $this->initModel ('LocationModel');
+				$olct	= $model->where ('code', $dataTransmit['data-locationcode'])->find ();
+				if (count ($olct) > 0) {
+					$olct_idx = $olct[0]->idx;
+					$sublocationCode = $dataTransmit['data-sublocationcode'];
+					
+					if ($sublocationCode === 0) 
+						$returnData = [
+							'data-type'		=> 'new',
+							'data-pages'	=> [
+								'data-location'		=> $olct[0],
+								'data-sublocation'	=> NULL
+							]
+						];
+					else {
+						$model	= $this->initModel('SublocationModel');
+						$osbl	= $model->where ('olct_idx', $olct_idx)->where ('code', $sublocationCode)->find ();
+						if (count ($osbl) == 0) {
+							$requestResponse['status']	= 404;
+							$requestResponse['message']	=' Error! Data could not be found!';
+						} else {
+							$returnData	= [
+								'data-type'		=> 'edit',
+								'data-pages'	=> [
+									'data-location'		=> $olct[0],
+									'data-sublocation'	=> $osbl[0]
+								]
+							];
+						}
+					}
+					$requestResponse['status']	= 200;
+				} else {
+					$requestResponse['status']	= 404;
+					$requestResponse['message']	= 'Error! Data location not found!';
+				}
+				break;
+			case 'sublocation-addupdate':
+				$dataTransmit		= $this->getDataTransmit ();
+				$locationCode		= $dataTransmit['data-locationcode'];
 				
-				$returnData['locationassets'] = $locationassets_raw;
-				$returnData['assetheader'] = $model->getColumnHeader ('locationassets');
-				
-				$requestResponse['status'] = 200;
+				$model				= $this->initModel ('LocationModel');
+				$olct				= $model->where ('code', $locationCode)->find ();
+				if (count ($olct) > 0) {
+					$olct_idx			= $olct[0]->idx;
+					$sublocationCode	= $dataTransmit['data-sublocationcode'];
+					$model				= $this->initModel ('SublocationModel');
+					$osbl				= $model->where ('olct_idx', $olct_idx)->where ('code', $sublocationCode)->find ();
+					
+					$dbParam			= [
+						'name'				=> $dataTransmit['data-description']
+					];
+					
+					$good = FALSE;
+					if (count ($osbl) > 0) {
+						$osbl_idx			= $osbl[0]->idx;
+						$good = $model->update ($osbl_idx, $dbParam);
+					} else {
+						$dbParam['olct_idx']	= $olct_idx;
+						$dbParam['code']		= $sublocationCode;
+						
+						$model->insert ($dbParam);
+						$good = ($model->getInsertID() > 0);
+					}
+					
+					$returnData = [
+						'good'	=> $good
+					];
+					
+					if ($good) $requestResponse['status']	= 200;
+					else {
+						$requestResponse['status']	= 500;
+						$requestResponse['message']	= 'Updating sublocation data failed!';
+					}
+				}
 				break;
 			case 'mgroup-retrieve':
 				$model = $this->initModel('UserGroupsModel');
@@ -562,22 +715,24 @@ class OsamModule extends Modules {
 				$assets			= [];
 				foreach ($oitas as $oita) $assets[$oita->code] = $oita->name;
 				
+				$allCount		= 0;
+				
 				$model			= $this->initModel('AssetMoveOutRequestModel');
 				if ($ousrOlct > 0) {
 					$model			= $this->initModel ('AssetMoveOutRequestModel');
 					$omvrs			= $model->select ('omvr.docnum, omvr.docdate, \'' . AssetMoveOutRequestModel::DOCCODE . '\' as `type`, ousr.username, olct.name as `location_name`, omvr.status')
 										->join ('omvo', 'omvr.omvo_refidx=omvo.idx')->join ('ousr', 'omvo.ousr_applicant=ousr.idx')->join ('olct', 'omvr.olct_to=olct.idx')
-										->where ('omvr.oclt_to', $olct_idx)->find ();
+										->where ('omvr.olct_to', $ousrOlct)->find ();
 					
 					$model			= $this->initModel ('AssetRequisitionModel');
 					$orqns			= $model->select ('orqn.docnum, orqn.docdate, \'' . AssetRequisitionModel::DOCCODE . '\' as `type`, ousr.username, olct.name as `location_name`, orqn.status')
 										->join ('ousr', 'orqn.ousr_applicant=ousr.idx')->join ('olct', 'orqn.olct_idx=olct.idx')
-										->where ('orqn.olct_idx', $olct_idx)->find ();
+										->where ('orqn.olct_idx', $ousrOlct)->find ();
 										
 					$model			= $this->initModel ('AssetRemovalModel');
 					$oarvs			= $model->select ('oarv.docnum, oarv.docdate, \'' . AssetRemovalModel::DOCCODE . '\' as `type`, ousr.username, olct.name as `location_name`, oarv.status')
 										->join ('ousr', 'oarv.ousr_applicant=ousr.idx')->join ('olct', 'oarv.olct_from=olct.idx')
-										->where ('oarv.olct_from', $olct_idx)->find ();
+										->where ('oarv.olct_from', $ousrOlct)->find ();
 				} else {
 					$model			= $this->initModel ('AssetMoveOutRequestModel');
 					$omvrs			= $model->select ('omvr.docnum, omvr.docdate, \'' . AssetMoveOutRequestModel::DOCCODE . '\' as `type`, ousr.username, olct.name as `location_name`, omvr.status')
@@ -592,11 +747,17 @@ class OsamModule extends Modules {
 										->join ('ousr', 'oarv.ousr_applicant=ousr.idx')->join ('olct', 'oarv.olct_from=olct.idx')->find ();
 				}
 				
+				$allCount		= count ($oarvs) + count ($omvrs) + count ($orqns);
+				$omvrsCount		= count ($omvrs);
+				$orqnsCount		= count ($orqns);
+				$oarvsCount		= count ($oarvs);
+				
 				$requestDocuments = [
 					'mvorequest'	=> [],
 					'requisition'	=> [],
 					'removal'		=> []
 				];
+				
 				foreach ($omvrs as $omvr) array_push ($requestDocuments['mvorequest'], $omvr);
 				foreach ($orqns as $orqn) array_push ($requestDocuments['requisition'], $orqn);
 				foreach ($oarvs as $oarv) array_push ($requestDocuments['removal'], $oarv);
@@ -606,25 +767,25 @@ class OsamModule extends Modules {
 						[
 							'id'		=> 'request-total',
 							'title'		=> '{5}',
-							'content'	=> 0,
+							'content'	=> $allCount,
 							'style'		=> 'text-white bg-primary'
 						],
 						[
 							'id'		=> 'request-new',
 							'title'		=> '{6}',
-							'content'	=> 0,
+							'content'	=> $orqnsCount,
 							'style'		=> 'text-white bg-info'
 						],
 						[
 							'id'		=> 'request-move`',
 							'title'		=> '{7}',
-							'content'	=> 0,
+							'content'	=> $omvrsCount,
 							'style'		=> 'text-white bg-success'
 						],
 						[
 							'id'		=> 'request-destroy',
 							'title'		=> '{8}',
-							'content'	=> 0,
+							'content'	=> $oarvsCount,
 							'style'		=> 'text-white bg-secondary'
 						]
 					],
@@ -1323,7 +1484,6 @@ class OsamModule extends Modules {
 						'#', 'No. Dokumen', 'Tgl. Pembuatan', 'Pemohon', 'Disetujui', 'Tgl. Persetujuan', 'Status'
 					];
 					if ($usrOlct > 0) { // if approvers is specific to location
-						$allCount = count ($model->where ('olct_from', $usrOlct)->find ());
 						$pendingCount = count ($model->where ('olct_from', $usrOlct)->where ('status', 1)->find ());
 						$declinedCount = count ($model->where ('olct_from', $usrOlct)->where ('status', 0)->find ());
 						$approvedCount = count ($model->where ('olct_from', $usrOlct)->where ('status >', 2)->find ());
@@ -1331,7 +1491,6 @@ class OsamModule extends Modules {
 						$mvos = $model->select ('omvo.docnum, omvo.docdate, ousr.username, omvo.approval_date, omvo.status')
 									->join ('ousr', 'omvo.ousr_applicant=ousr.idx')->where ('olct_from', $usrOlct)->find ();
 					} else {
-						$allCount = count ($model->find ());
 						$pendingCount = count ($model->where ('status', 1)->find ());
 						$declinedCount = count ($model->where ('status', 0)->find ());
 						$approvedCount = count ($model->where ('status >', 2)->find ());
@@ -1340,6 +1499,8 @@ class OsamModule extends Modules {
 									->join ('ousr', 'omvo.ousr_applicant=ousr.idx')->find ();
 					}
 				}
+				
+				$allCount	= count ($mvos);
 				
 				$returnData = [
 					'mvosSumm'	=> [
@@ -1717,9 +1878,181 @@ class OsamModule extends Modules {
 				}
 				break;
 			case 'removal-documents':
+				$dataTransmit	= $this->getDataTransmit ();
+				$ousr_idx = $dataTransmit['data-loggedousr'];
+				$model			= $this->initModel ('EnduserLocationModel');
+				$ousr			= $model->find ($ousr_idx);
+				$olct_idx		= $ousr->olct_idx;
+				
+				$model			= $this->initModel ('AssetRemovalModel');
+				$allCount		= 0;
+				$pendingCount	= 0;
+				$declinedCount	= 0;
+				$approvedCount	= 0;
+				$doneCount		= 0;
+				
+				if ($olct_idx > 0) {
+					$pendingCount	= count ($model->where ('status', 1)->where ('olct_from', $olct_idx)->find ());
+					$declinedCount	= count ($model->where ('status', 0)->where ('olct_from', $olct_idx)->find ());
+					$declinedCount	= count ($model->where ('status >=', 2)->where ('olct_from', $olct_idx)->find ());
+					$doneCount		= count ($model->where ('status', 4)->where ('olct_from', $olct_idx)->find ());
+					$arvs		= $model->select ('oarv.docnum, oarv.docdate, ousr.username, olct.name as `location_name`, oarv.approval_date, oarv.status')
+									->join ('ousr', 'oarv.ousr_applicant=ousr.idx')->join ('olct', 'oarv.olct_from=olct.idx')
+									->where ('oarv.olct_from', $olct_idx)->find ();
+				} else {
+					$pendingCount	= count ($model->where ('status', 1)->find ());
+					$declinedCount	= count ($model->where ('status', 0)->find ());
+					$approvedCount	= count ($model->where ('status >=', 2)->find ());
+					$doneCount		= count ($model->where ('status', 4)->find ());
+					$arvs		= $model->select ('oarv.docnum, oarv.docdate, ousr.username, olct.name as `location_name`, oarv.approval_date, oarv.status')
+									->join ('ousr', 'oarv.ousr_applicant=ousr.idx')->join ('olct', 'oarv.olct_from=olct.idx')->find ();
+				}
+				$allCount		= count ($arvs);
+				
+				$returnData = [
+					'arvSummaries'	=> [
+						[
+							'id'		=> 'removal-count',
+							'title'		=> '{4}',
+							'content'	=> $allCount,
+							'style'		=> 'text-light bg-danger'
+						],
+						[
+							'id'		=> 'removal-active',
+							'title'		=> '{5}',
+							'content'	=> $pendingCount,
+							'style'		=> 'text-dark bg-warning'
+						],
+						[
+							'id'		=> 'removal-action',
+							'title'		=> '{6}',
+							'content'	=> $declinedCount . ' / ' . $approvedCount . ' / ' . $doneCount,
+							'style'		=> 'text-light bg-success'
+						]
+					],
+					'removaldocs'	=> $arvs,
+					'docStats'	=> [
+						0	=> 'Ditolak',
+						1	=> 'Menunggu Persetujuan',
+						2	=> 'Disetujui',
+						3	=> 'Dikirim',
+						4	=> 'Diterima',
+						5	=> 'Didistribusikan'
+					]
+				];
+				$requestResponse['status'] = 200;
+				break;
+			case 'userprofile':
 				$dataTransmit = $this->getDataTransmit();
 				$ousr_idx = $dataTransmit['data-loggedousr'];
+				$model		= $this->initModel('EnduserProfileModel');
+				$usr3		= $model->find ($ousr_idx);
+				if ($usr3 === NULL) {
+					$requestResponse['status']	= 500;
+					$requestResponse['message']	= 'Error! No profile was found!';
+				} else {
+					$returnData	= [
+						'data-profile'	=> $usr3
+					];
+					$requestResponse['status'] = 200;
+				}
+				break;
+			case 'profile-update':
+				$dataTransmit = $this->getDataTransmit();
+				$dataForm = $dataTransmit['data-form'];
+				$ousr_idx = $dataTransmit['data-loggedousr'];
 				
+				$model	= $this->initModel ('EnduserModel');
+				$ousrs	= $model->find ($ousr_idx);
+				
+				$model	= $this->initModel ('EnduserProfileModel');
+				$usr3	= $model->find ($ousr_idx);
+				
+				$updateParam = [
+					'fname'			=> $dataForm['first-name'],
+					'mname'			=> $dataForm['middle-name'],
+					'lname'			=> $dataForm['last-name'],
+					'address1'		=> $dataForm['address-a'],
+					'address2'		=> $dataForm['address-b'],
+					'phone'			=> $dataForm['phone'],
+					'image'			=> $dataForm['imageName'],
+					'updated_by'	=> $ousr_idx,
+					'updated_date'	=> date ('Y-m-d H:i:s')
+				];
+				
+				$result = 0;
+				if ($usr3 !== NULL) {
+					$model->update ($ousr_idx, $updateParam);
+					$result = $model->affectedRows ();
+				} else {
+					$updateParam['email']		= $ousrs->email;
+					$updateParam['created_by']	= $ousr_idx;
+					$model->insert ($updateParam);
+					$result = $model->getInsertID ();
+				}
+				
+				if ($result === 0) {
+					$requestResponse['status'] = 200;
+					$requestResponse['message']	= 'Error! Data insertion error!';
+				} else {
+					$returnData = [
+						'good'	=> TRUE
+					];
+					$requestResponse['status'] = 200;
+				}
+				break;
+			case 'headdata': 
+				$dataTransmit = $this->getDataTransmit ();
+				$ousr_idx = $dataTransmit['data-loggedousr'];
+				$model	= $this->initModel('EnduserModel');
+				$ousrs	= $model->select ('ugr1.privilege')->join ('ugr1', 'ousr.ougr_idx=ugr1.ougr_idx')->where ('ousr.idx', $ousr_idx)->find ();
+				if (count ($ousrs) == 0) {
+					$requestResponse['status']	= 500;
+					$requestResponse['message']	= 'Error! Cannot find user group data';
+				} else {
+					$prives = explode(';', $ousrs[0]->privilege);
+					$model	= $this->initModel('ModuleModel');
+					$structures = [];
+					
+					$omdls	= $model->find ();
+					foreach ($omdls as $omdl) {
+						if (in_array ($omdl->idx, $prives)) 
+							if ($omdl->parent_idx == 0) 
+								$structures[$omdl->idx] = [
+									'id'		=> $omdl->style_id,
+									'smarty'	=> $omdl->smarty,
+									'target'	=> $omdl->targeturl,
+									'icon'		=> $omdl->icon,
+									'subs'		=> []
+								];
+							else
+								if (array_key_exists($omdl->parent_idx, $structures)) {
+									$subs = $structures[$omdl->parent_idx]['subs'];
+									$child = [
+										'id'		=> $omdl->style_id,
+										'smarty'	=> $omdl->smarty,
+										'target'	=> $omdl->targeturl,
+										'icon'		=> $omdl->icon,
+										'subs'		=> []
+									];
+									if (!array_key_exists($omdl->segment, $subs)) {
+										$subs[$omdl->segment]	= [
+											'title'		=> $omdl->title,
+											'child'		=> []
+										];
+									}
+									
+									array_push($subs[$omdl->segment]['child'], $child);
+									$structures[$omdl->parent_idx]['subs'] = $subs;
+								}
+					}
+					$returnData = [
+						'data-menustructure'	=> $structures,
+						'data-messages'			=> [],
+						'data-notifications'	=> []
+					];
+					$requestResponse['status']	= 200;
+				}
 				break;
 		}
 		
@@ -1770,6 +2103,10 @@ class OsamModule extends Modules {
 				$response	= [
 					'status'	=> 200,
 					'message'	=> (count ($ousrs) > 0)
+				];
+				$response	= [
+					'status'	=> 200,
+					'message'	=> TRUE
 				];
 				break;
 			case 'power-overwhelming':

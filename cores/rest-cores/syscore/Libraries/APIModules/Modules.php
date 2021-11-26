@@ -25,6 +25,24 @@ abstract class Modules implements ModuleInterface {
 	
 	protected function init () { }
 	
+	/**
+	 * 
+	 * @param string $formatName
+	 * @throws \RuntimeException
+	 * @return \App\Libraries\Format\DataFormat
+	 */
+	protected function initFormat ($formatName): \App\Libraries\Format\DataFormat {
+		if ($this->moduleName === NULL) throw new \RuntimeException();
+		$formatClass = 'App\Libraries\Format\\' . $this->getModuleName() . '\\' . $formatName . 'Format';
+		return new $formatClass ();
+	}
+	
+	/**
+	 * 
+	 * @param string $modelName
+	 * @throws \RuntimeException
+	 * @return \App\Models\BaseModel
+	 */
 	protected function initModel ($modelName) {
 		if ($this->moduleName === NULL) throw new \RuntimeException();
 		$modelClass = 'App\Models\\' . $this->getModuleName() . '\\' . $modelName;

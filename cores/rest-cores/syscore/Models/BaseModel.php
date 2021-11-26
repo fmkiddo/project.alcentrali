@@ -24,6 +24,10 @@ abstract class BaseModel extends Model {
 		return $isMulti;
 	}
 	
+	protected function getNow () {
+		return date ('Y-m-d H:i:s');
+	}
+	
 	/**
 	 * {@inheritDoc}
 	 * @see \CodeIgniter\Model::__construct()
@@ -64,7 +68,6 @@ abstract class BaseModel extends Model {
 			else $row = $row->getResult($this->tempReturnType);
 		} else {
 			$row = $builder->get();
-			
 			$row = $row->getResult($this->tempReturnType);
 		}
 		
@@ -75,5 +78,16 @@ abstract class BaseModel extends Model {
 		
 		return $eventData['data'];
 	}
-	
+
+	/**
+	 * 
+	 * @param array $line line of data from delimited files sent for insertion
+	 * @param int $ousr_idx user id data whom transfer the data
+	 * @param string string of date
+	 * @throws \Exception Exception thrown when the method is not modified on the subclassess
+	 * @return boolean return true if a line write is success/false if the write failed
+	 */
+	public function insertFromFile ($line = array (), $ousr_idx, $timestamps = NULL): bool {
+		throw new \Exception('Not supported!');
+	}
 }
