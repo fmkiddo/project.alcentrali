@@ -224,6 +224,21 @@ class ClientRequest extends BaseRESTController {
 		return $response;
 	}
 	
+	public function sendEmailTest () {
+		if ($this->request->getMethod(TRUE) === 'PUT') {
+			$email = \Config\Services::email();
+			$email->setFrom('rizkyfm64@gmail.com', 'Rizcky N. Ardhy');
+			$email->setTo('rizckyfm@gmail.com');
+			$email->setCC('it.jodamo@gmail.com');
+			
+			$email->setSubject('This is asset management email');
+			$email->setMessage('Test Asset Managmenet Message');
+			
+			$email->send();
+		}
+		return $this->response->setJSON(['status' => 404, 'message' => 'Page not found!']);
+	}
+	
 	public function dataCheck () {
 		if ($this->request->getMethod(TRUE) !== 'PUT') $response = ['status' => 404, 'message' => 'Page Not Found!'];
 		else {

@@ -505,15 +505,14 @@ class OsamModule extends Modules {
 				if (count ($olct) > 0) {
 					$olct_idx = $olct[0]->idx;
 					$returnData['location'] = $olct[0];
-					$returnData['locationheader'] = $model->getColumnHeader ();
 					$model = $this->initModel('SublocationModel');
 					$sublocations = $model->where ('olct_idx', $olct_idx)->find ();
 					$returnData['sublocations'] = $sublocations;
-					$returnData['sblheader'] = $model->getColumnHeader ();
 					$model = $this->initModel('AssetItemModel');
 					$locationassets = $model->select ('osbl_idx, code, name, ci_name, notes, po_number, qty')->join ('oaci', 'oaci.idx = oita.oaci_idx')->where ('olct_idx', $olct_idx)->find ();
 					$locationassets_raw = [];
 					
+					$total_qty = 0;
 					foreach ($locationassets as $locationasset) {
 						$attribute = $locationasset->toArray ();
 						$osbl_id = $locationasset->osbl_idx;
@@ -523,11 +522,13 @@ class OsamModule extends Modules {
 								break;
 							}
 						
+						$total_qty += $locationasset->qty;
 						$assetEntity = new \CodeIgniter\Entity ();
 						$assetEntity->fill ($attribute);
 						array_push($locationassets_raw, $assetEntity);
 					}
 					
+					$returnData['totalassets'] = $total_qty;
 					$returnData['locationassets'] = $locationassets_raw;
 					$returnData['assetheader'] = $model->getColumnHeader ('locationassets');
 					
@@ -2052,6 +2053,92 @@ class OsamModule extends Modules {
 						'data-notifications'	=> []
 					];
 					$requestResponse['status']	= 200;
+				}
+				break;
+			case 'docuportable':
+				$dataTransmit	= $this->getDataTransmit();
+				if (!array_key_exists ('data-loggedousr', $dataTransmit)) {
+					$returnData = [
+						'good'	=> FALSE
+					];
+					$requestResponse['status']	= 500;
+					$requestResponse['message']	= 'Unrecognized request format!';
+				} else {
+					$ousr_idx	= $dataTransmit['data-loggedousr'];
+					$ousrmodel	= $this->initModel('EnduserModel');
+					$ousr		= $ousrmodel->find ($ousr_idx);
+					if ($ousr === NULL) {
+						$returnData	=	[
+							'good'	=> FALSE
+						];
+						$requestResponse['status']	= 500;
+						$requestResponse['message']	= 'Invalid Parameter';
+					} else {
+						$docnum				= $dataTransmit['data-documentnumber'];
+						$model				= $this->initModel('ApplicationSettingsModel');
+						$numberingFormat	= $model->find ('numbering')->tag_value;
+						$numberingReset		= $model->find ('numbering-periode')->tag_value;
+						$document			= new Document($numberingFormat, $numberingReset);
+						$doccode			= $document->getDocumentCode($docnum);
+						switch ($doccode) {
+							default:
+								$returnData	= [
+									'good'	=> FALSE
+								];
+								$requestResponse['status'] = 500;
+								break;
+							case AssetMoveInModel::DOCCODE:
+								break;
+							case AssetMoveOutModel::DOCCODE:
+								$model	= $this->initModel('AssetMoveOutModel');
+								$omvos	= $model->where ('docnum', $docnum)->find ();
+								if (count ($omvos) == 0) {
+									$returnData	= [
+										'good'	=> FALSE
+									];
+									$requestResponse['status']	= 404;
+									$requestResponse['message']	= 'Data Not Found!';
+								} else {
+									$ousrProfile	= $ousrmodel->select ('usr3.fname')->join ('usr3', 'ousr.idx=usr3.idx')->find ($omvos[0]->ousr_applicant);
+									$dateOnly		= \DateTime::createFromFormat('Y-m-d H:i:s', $omvos[0]->docdate)->format('d F Y');
+									$moveOutDocument	= [
+										'document-number'		=> $omvos[0]->docnum,
+										'document-date'			=> $dateOnly,
+										'document-from'			=> '',
+										'document-to'			=> [],
+										'document-applicant'	=> $ousrProfile->fname,
+										'document-details'		=> []
+									];
+									$omvo_idx	= $omvos[0]->idx;
+									$olct_from	= $omvos[0]->olct_from;
+									$olct_to	= $omvos[0]->olct_to;
+									$model	= $this->initModel ('AssetMoveOutDetailModel');
+									$mvo1s	= $model->select ('oita.code, oita.name, osbl.name as `osbl_name`, mvo1.qty')->join ('osbl', 'mvo1.osbl_idx=osbl.idx')
+												->join ('oita', 'mvo1.oita_idx=oita.idx')->where ('mvo1.omvo_idx', $omvo_idx)->find ();
+									
+									if (count ($mvo1s) == 0) {
+										$returnData	= [
+											'good'		=> FALSE
+										];
+										$requestResponse['status']	= 500;
+										$requestResponse['message']	= 'Error! Missing document details';
+									} else {
+										$moveOutDocument['document-details']	= $mvo1s;
+										$model	= $this->initModel ('LocationModel');
+										$moveOutDocument['document-from']		= $model->find ($olct_from)->name;
+										$moveOutDocument['document-to']			= $model->find ($olct_to);
+										
+										$returnData	= [
+											'good'			=> TRUE,
+											'document-type'	=> $doccode,
+											'document'		=> $moveOutDocument
+										];
+										$requestResponse['status']	= 200;
+									}
+								}
+								break; 
+						}
+					}
 				}
 				break;
 		}

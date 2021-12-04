@@ -78,6 +78,14 @@ class Document {
 		return $numbering;
 	}
 	
+	public function getDocumentCode ($docnum) {
+		$doccode = '';
+		$typeCount	= substr_count ($this->appFormat, Document::symdoctype);
+		$typePos	= strpos ($this->appFormat, Document::symdoctype);
+		$doccode	= substr ($docnum, $typePos, $typeCount);
+		return $doccode;
+	}
+	
 	public function getStatusText ($id = 1) {
 		return $this->docstatus[$id];
 	}
