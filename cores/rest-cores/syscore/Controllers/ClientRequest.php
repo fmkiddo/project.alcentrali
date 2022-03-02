@@ -224,6 +224,12 @@ class ClientRequest extends BaseRESTController {
 		return $response;
 	}
 	
+	public function connectionTest () {
+		if ($this->request->getMethod(TRUE) === 'PUT') 
+			return $this->response->setJSON(['status' => 200, 'message' => 'Done!']);
+		else return $this->response->setJSON(['status' => 404, 'message' => 'Not Found!']);
+	}
+	
 	public function sendEmailTest () {
 		if ($this->request->getMethod(TRUE) === 'PUT') {
 			$email = \Config\Services::email();
@@ -282,5 +288,27 @@ class ClientRequest extends BaseRESTController {
 			$response = $this->requestExecution();
 			return $this->respond($response);
 		}
+	}
+	
+	public function mobileDataRequest () {
+		$requestMethod = $this->request->getMethod(TRUE);
+		if (!($requestMethod === 'PUT' || $requestMethod === 'POST'))
+			return $this->respond([
+				'status'	=> 400,
+				'message'	=> 'Bad Request!'
+			]);
+			else {
+				$response = $this->requestExecution();
+				if ($response['status'] == 200) {
+					$decodeResponse = unserialize (base64_decode ($response['message']));
+					$jsonResponse = json_encode ($decodeResponse);
+					$newResponse = [
+						'status'	=> $response['status'],
+						'message'	=> base64_encode ($jsonResponse)
+					];
+					return $this->respond ($newResponse);
+				}
+				return $this->respond ($response);
+			}
 	}
 }

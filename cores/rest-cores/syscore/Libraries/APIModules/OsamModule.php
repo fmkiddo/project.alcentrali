@@ -57,10 +57,11 @@ class OsamModule extends Modules {
 				break;
 		}
 		
-		if (count ($addmodelnames) > 0) 
-			foreach ($addmodelnames as $addmodelname) array_push ($addmodels, $this->initModel ($addmodelname));
-		
 		if ($model !== NULL):
+		
+			if (count ($addmodelnames) > 0)
+				foreach ($addmodelnames as $addmodelname) array_push ($addmodels, $this->initModel ($addmodelname));
+			
 			foreach ($data as $line) {
 				$status = $model->insertFromFile($line, $ousr_idx, $now);
 				if (!$status) $failedImport++;

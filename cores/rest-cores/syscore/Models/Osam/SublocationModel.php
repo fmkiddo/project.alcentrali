@@ -12,27 +12,30 @@ class SublocationModel extends BaseModel {
 	protected $colHeader		= ['Kode', 'Nama'];
 	
 	public function insertFromFile($line = array (), $ousr_idx, $timestamps=NULL): bool {
-		$osbl = $this->join ('olct', 'osbl.olct_idx=olct.idx')->where ('olct.code', $line[0])->where ('osbl.code', $line[1])->find ();
-		$olct = $this->from ('olct')->where ('olct.code', $line[0])->find ();
 		$result = FALSE;
+		$olct_code	= $line[0];
 		
-		if (count ($olct) > 0):
-			$olct_idx = $olct[0]->idx;
+		$olct	= $this->join ('olct', 'osbl.olct_idx=olct.idx', 'right')->where ('olct.code', $olct_code)->find ();
+		if ($olct != NULL):
+			$olct_idx	= $olct[0]->idx;
 		
-			$dbparam = [
-				'name'		=> $line[2]
-			];
-			
-			if (count ($osbl) > 0) {
+			$osbl	= $this->where ('olct_idx', $olct_idx)->where ('code', $line[1])->find ();
+			if ($osbl == NULL):
+				$param	= [
+					'olct_idx'	=> $olct_idx,
+					'code'		=> $line[1],
+					'name'		=> $line[2]
+				];
+				$this->insert ($param);
+				$result = $this->getInsertID() > 0;
+			else:
 				$osbl_idx = $osbl[0]->idx;
-				$result = $this->update ($osbl_idx, $dbparam);
-			} else {
-				$dbparam['olct_idx'] = $olct_idx;
-				$dbparam['code'] = $line[1];
-				
-				$this->insert ($dbparam);
-				$result = ($this->getInsertID() > 0);
-			}
+			
+				$param	= [
+					'name'		=> $line[2]
+				];
+				$this->update($osbl_idx, $param);
+			endif;
 		endif;
 		
 		return $result;

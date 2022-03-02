@@ -49,6 +49,8 @@ $routes->put ('api/client-setup', 'ClientRequest::setupFirstTime');
 $routes->put ('api/client-check', 'ClientRequest::dataCheck');
 
 $routes->add ('client/api/request-data', 'ClientRequest::dataRequest');
+$routes->add ('client/api/mobile-requestdata', 'ClientRequest::mobileDataRequest');
+$routes->add ('client/connection/test', 'ClientRequest::connectionTest');
 $routes->post ('client/api/data-processing', 'ClientRequest::dataRequest');
 /**
  * --------------------------------------------------------------------

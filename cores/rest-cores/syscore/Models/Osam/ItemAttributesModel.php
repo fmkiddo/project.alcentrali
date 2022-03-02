@@ -16,27 +16,33 @@ class ItemAttributesModel extends BaseModel {
 	public function insertFromFile ($line = array (), $ousr_idx, $timestamps = NULL): bool {
 		$result = FALSE;
 		
-		$oita	= $this->from ('oita')->where ('oita.code', $line[0])->find ();
-		if (count ($oita) > 0) {
-			$oita_idx	= $oita[0]->idx;
+		$octa		= $this->select ('octa.idx as `octaidx`')->join ('octa', 'ita1.octa_idx=octa.idx', 'right')->where ('octa.attr_name', $line[1])->find ();
+		if ($octa != NULL) {
+			$oita		= $this->select ('oita.idx as `oitaidx`')->join ('oita', 'ita1.oita_idx=oita.idx', 'right')->where ('oita.code', $line[0])->find ();
 			
-			$octa	= $this->from ('octa')->where ('octa.attr_name', $line[1])->find ();
-			
-			if (count ($octa) > 0) {
-				$octa_idx	= $octa[0]->idx;
-				$ita1	= $this->where ('oita_idx', $oita_idx)->where ('octa_idx', $octa_idx)->find ();
+			if ($oita != NULL) {
+				$octa_idx	= $octa[0]->octaidx;
 				
-				$dbParam	= [
-					'attr_value'	=> $line[2]
-				];
-				if (count ($ita1) > 0) {
-					$ita1_idx	= $ita[0]->idx;
-					$result		= $this->update ($ita1_idx, $dbParam);
-				} else {
-					$dbParam['oita_idx']	= $oita_idx;
-					$dbParam['octa_idx']	= $octa_idx;
-					$this->insert ($dbParam);
-					$result = ($this->getInsertID() > 0);
+				foreach ($oita as $oita_line) {
+					$oita_idx	= $oita_line->oitaidx;
+					
+					$ita1		= $this->where ('octa_idx', $octa_idx)->where ('oita_idx', $oita_idx)->find ();
+					
+					if ($ita1 == NULL) {
+						$insertParam	= [
+							'oita_idx'		=> $oita_idx,
+							'octa_idx'		=> $octa_idx,
+							'attr_value'	=> $line[2]
+						];
+						$this->insert($insertParam);
+						$result = $this->getInsertID() > 0;
+					} else {
+						$ita1_idx		= $ita1[0]->idx;
+						$updateParam	= [
+							'attr_value'	=> $line[2]
+						];
+						$result = $this->update($ita1_idx, $updateParam);
+					}
 				}
 			}
 		}
