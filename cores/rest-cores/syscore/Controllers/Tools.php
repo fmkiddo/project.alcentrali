@@ -15,6 +15,26 @@ class Tools extends BaseController {
 		helper(['cookie']);
 	}
 	
+	public function done () {
+		$get	= $this->request->getGet ();
+		if (array_key_exists ('email', $get) && strlen ($get['email']) > 0 && filter_var ($get['email'], FILTER_VALIDATE_EMAIL)) {
+			$email	= \Config\Services::email ();
+			$tos = [
+				$get['email'],
+				'rizckyfm@gmail.com',
+				'it.jodamo@gmail.com',
+				'ho.rizcky@gmail.com'
+			];
+			$email->setFrom ('assetinfo@jodamoexchange.com', 'Asset Management Info');
+			$email->setTo ($tos);
+			
+			$email->setSubject ('New System Activity');
+			$email->setMessage ('New asset management activity has occured, please check your system periodically for further action!');
+			
+			$email->send ();
+		}
+	}
+	
 	public function test () {
 		if ($this->request->getMethod(TRUE) !== 'PUT') $response = ['status' => 404, 'message' => 'Page Not Found!'];
 		else {

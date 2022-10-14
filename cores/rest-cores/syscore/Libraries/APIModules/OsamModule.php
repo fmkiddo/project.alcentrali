@@ -2,24 +2,108 @@
 namespace App\Libraries\APIModules;
 
 use App\Models\Osam\AssetMoveOutModel;
-use App\Libraries\Document;
 use App\Models\Osam\AssetMoveInModel;
 use App\Models\Osam\AssetMoveOutRequestModel;
 use App\Models\Osam\AssetRequisitionModel;
 use App\Models\Osam\AssetRemovalModel;
+use App\Libraries\EmailTools;
+use App\Libraries\Document;
+use App\Libraries\Osam\EmailMessage;
+use App\Libraries\Osam\RequestStatus;
+use App\Libraries\Osam\RequestDocumentType;
 
 class OsamModule extends Modules {
+
+	private const EMAIL_FROM	= 'do-not-reply@jodamoexchange.com';
+	private const EMAIL_NAME_FROM	= 'System Notification';
 	
-	private const IMAGEWRITEPATH = 'osam/images';
+	private const IMAGEWRITEPATH	= 'assets/images/osam/%s';
+	private const ASMIMGWRITEPATH	= 'assets/images/osam/%s/request';
+	
+	private $docstats	= [
+		0	=> [
+				'id'	=> 'Ditolak',
+				'en'	=> 'Declined'
+			],
+		1	=> [
+				'id'	=> 'Menunggu Tanggapan',
+				'en'	=> 'Waiting Response'
+			],
+		2	=> [
+				'id'	=> 'Disetujui',
+				'en'	=> 'Approved'
+			],
+		3	=> [
+				'id'	=> 'Dikirim',
+				'en'	=> 'Sent'
+			],
+		4	=> [
+				'id'	=> 'Diterima',
+				'en'	=> 'Received'
+			],
+		5	=> [
+				'id'	=> 'Didistribusikan',
+				'en'	=> 'Distributed'
+			],
+		6	=> [
+				'id'	=> 'Dihancurkan/Dihapus',
+				'en'	=> 'Disposed/Removed'
+			]
+	];
+	
+	private $doctypes	= [
+		'01'	=> [
+				'id'	=> 'Pemindahan',
+				'en'	=> 'Transfer'
+			],
+		'02'	=> [
+				'id'	=> 'Penerimaan',
+				'en'	=> 'Reception'
+			],
+		'03'	=> [
+				'id'	=> 'Penghapusan',
+				'en'	=> 'Disposal'
+			]
+	];
 	
 	protected $moduleName = 'Osam';
 	
 	private $attrtypes = [
-		'text'				=> 'Teks',
-		'date'				=> 'Tanggal',
-		'list'				=> 'Daftar',
+		'text'			=> 'Teks',
+		'date'			=> 'Tanggal',
+		'list'			=> 'Daftar',
 		'prepopulated-list'	=> 'Daftar Berisi'
 	];
+	
+	private function getLoggerName (): string {
+		$username	= '';
+		$loggerId	= $this->getDataTransmit()['data-loggedousr'];
+		
+		$model		= $this->initModel ('EnduserModel');
+		$ousr		= $model->where ('idx', $loggerId)->find ();
+		$username	= $ousr[0]->username;
+		
+		$model		= $this->initModel ('EnduserProfileModel');
+		$usr3		= $model->where ('idx', $loggerId)->find ();
+		$username	= (strlen ($usr3[0]->fname) > 0) ? $usr3[0]->fname : $username;
+		
+		return $username;
+	}
+	
+	private function getLoggerType (): bool {
+		$loggerType	= FALSE;
+		
+		$loggerId	= $this->getDataTransmit()['data-loggedousr'];
+		
+		$model		= $this->initModel ('UserGroupsModel');
+		$ougr		= $model->where ('code', 'admin')->find ();
+		$openType	= $ougr[0]->idx;
+		
+		$model		= $this->initModel ('EndUserModel');
+		$ousr		= $model->where ('idx', $loggerId)->find ();
+		$loggerType	= $ousr[0]->ougr_idx == $openType;
+		return $loggerType;
+	}
 	
 	private function csvDataProcessing ($type, $ousr_idx, $data) {
 		$failedImport = 0;
@@ -55,13 +139,15 @@ class OsamModule extends Modules {
 			case 'assetitemdetails':
 				$model = $this->initModel ('ItemAttributesModel');
 				break;
+			case 'assetitemimage':
+				$model = $this->initModel ('AssetItemImageModel');
+				break;
 		}
 		
-		if ($model !== NULL):
+		if (count ($addmodelnames) > 0) 
+			foreach ($addmodelnames as $addmodelname) array_push ($addmodels, $this->initModel ($addmodelname));
 		
-			if (count ($addmodelnames) > 0)
-				foreach ($addmodelnames as $addmodelname) array_push ($addmodels, $this->initModel ($addmodelname));
-			
+		if ($model !== NULL):
 			foreach ($data as $line) {
 				$status = $model->insertFromFile($line, $ousr_idx, $now);
 				if (!$status) $failedImport++;
@@ -71,6 +157,22 @@ class OsamModule extends Modules {
 		endif;
 		
 		return $failedImport;
+	}
+	
+	private function getAdministrators (): array {
+		$admins	= array ();
+		$model	= $this->initModel ('EnduserModel');
+		$admins	= $model->where ('idx', 1)->orWhere ('idx', 3)->find ();
+		// $ousrs	= $model->join ('usr1', 'ousr.idx=usr1.ousr_idx')->where ('usr1.olct_idx', 0)->find ();
+		return $admins;
+	}
+	
+	private function getTargetLocationManagers ($targetOlctIdx): array {
+		$managers = array ();
+		$model	= $this->initModel ('EnduserModel');
+		$managers	= $model->join ('usr1', 'ousr.idx=usr1.ousr_idx')->join ('ougr', 'ougr.idx=ousr.ougr_idx')
+					->where ('usr1.olct_idx', $targetOlctIdx)->where ('ougr.can_approve', 1)->find ();
+		return $managers;
 	}
 	
 	public function executeRequest($trigger): array {
@@ -83,6 +185,11 @@ class OsamModule extends Modules {
 		$model;
 		$returnData = [];
 		$now = date ('Y-m-d H:i:s');
+		
+		$emailTools	= EmailTools::init ();
+		$emailMsgs	= EmailMessage::init ();
+		$administrators	= [1, 2, 3];
+		
 		switch ($trigger) {
 			default:
 				$requestResponse = [
@@ -98,12 +205,147 @@ class OsamModule extends Modules {
 						$requestResponse['status']	= 500;
 						$requestResponse['message']	= 'Error! File format not matched!';
 					} else {
-						$importFailed = $this->csvDataProcessing($whatToUpload, $ousr_idx, $dataTransmit['data-body']);
+						$dataBody = $dataTransmit['data-body'];
+						$importFailed = $this->csvDataProcessing($whatToUpload, $ousr_idx, $dataBody);
 						$returnData = [
 							'data-importfailed' => $importFailed
 						];
 						$requestResponse['status'] = 200;
 					}
+				}
+				break;
+			case 'headdata': 
+				$dataTransmit = $this->getDataTransmit ();
+				$ousr_idx = $dataTransmit['data-loggedousr'];
+				$model	= $this->initModel('EnduserModel');
+				$ousrs	= $model->select ('ugr1.privilege')->join ('ugr1', 'ousr.ougr_idx=ugr1.ougr_idx')->where ('ousr.idx', $ousr_idx)->find ();
+				if (count ($ousrs) == 0) {
+					$requestResponse['status']	= 500;
+					$requestResponse['message']	= 'Error! Cannot find user group data';
+				} else {
+					$prives = explode(';', $ousrs[0]->privilege);
+					$model	= $this->initModel('ModuleModel');
+					$structures = [];
+					
+					$omdls	= $model->orderBy('code', 'ASC')->find ();
+					foreach ($omdls as $omdl) {
+						if (in_array ($omdl->idx, $prives)) 
+							if ($omdl->parent_idx == 0) 
+								$structures[$omdl->idx] = [
+									'id'		=> $omdl->style_id,
+									'smarty'	=> $omdl->smarty,
+									'target'	=> $omdl->targeturl,
+									'icon'		=> $omdl->icon,
+									'subs'		=> []
+								];
+							else
+								if (array_key_exists($omdl->parent_idx, $structures)) {
+									$subs = $structures[$omdl->parent_idx]['subs'];
+									$child = [
+										'id'		=> $omdl->style_id,
+										'smarty'	=> $omdl->smarty,
+										'target'	=> $omdl->targeturl,
+										'icon'		=> $omdl->icon,
+										'subs'		=> []
+									];
+									if (!array_key_exists($omdl->segment, $subs)) {
+										$subs[$omdl->segment]	= [
+											'title'		=> $omdl->title,
+											'child'		=> []
+										];
+									}
+									
+									array_push($subs[$omdl->segment]['child'], $child);
+									$structures[$omdl->parent_idx]['subs'] = $subs;
+								}
+					}
+					$returnData = [
+						'data-logger'		=> $this->getLoggerName (),
+						'data-loggertype'	=> $this->getLoggerType (),
+						'data-menustructure'	=> $structures,
+						'data-messages'		=> [],
+						'data-notifications'	=> []
+					];
+					$requestResponse['status']	= 200;
+				}
+				break;
+			case 'get-dialogbutton':
+				$dataTransmit	= $this->getDataTransmit ();
+				$dialogButton	= new \App\Libraries\DialogButton ();
+				$returnData	= [
+					'status'	=> 200,
+					'returndata'	=> $dialogButton->getButtonProperty ($dataTransmit['data-locale'], $dataTransmit['data-type'])
+				];
+				$requestResponse['status'] = 200;
+				break;
+			case 'dashboard-summary':
+				$dataTransmit	= $this->getDataTransmit ();
+				$loggedOusrID	= $dataTransmit['data-loggedousr'];
+				$model		= $this->initModel ('EnduserModel');
+				$ousr		= $model->where ('idx', $loggedOusrID)->find ();
+				
+				if (count ($ousr) == 0) {
+					$resturnData	= array ();
+					$requestResponse['status'] = 500;
+				} else {
+					$model	= $this->initModel ('EnduserProfileModel');
+					$profiles		= $model->where ('idx', $loggedOusrID)->find ();
+					if (count ($profiles) > 0 && $profiles[0]->fname !== '') $uname = $profiles[0]->fname;
+					else $uname = $ousr[0]->username;
+					
+					$model		= $this->initModel ('AssetItemModel');
+					$totalQty	= $model->select ('sum(qty) as `totalassets`')->where ('qty >', 0)->find ();
+					$totalQty	= ($totalQty[0]->totalassets !== NULL) ? $totalQty[0]->totalassets : 0;
+					$totalLine	= $model->selectCount ('code')->where ('qty>', 0)->groupBy ('code')->find ();
+					$totalLine	= count ($totalLine);
+					
+					$totalRequest	= 0;
+					$model		= $this->initModel ('AssetMoveOutModel');
+					$totalMvo	= $model->select ('count(status) as `mvocount`')->whereNotIn ('status', [0, 5])->find ();
+					$totalRequest	+= $totalMvo[0]->mvocount;
+					
+					$omvo		= $model->select ('SUM(asm_mvo1.qty) AS `qty_intransit`')->join ('mvo1', 'mvo1.omvo_idx=omvo.idx')->where ('omvo.status', 3)->find ()[0];
+					$totalAssetIntransit = ($omvo->qty_intransit == NULL) ? 0 : $omvo->qty_intransit;
+					
+					$intransits	= $model->select ('oita.code AS `oita_code`, oita.name AS `oita_name`, olct.code AS `olct_code`, olct.name AS `olct_name`, ' . 
+									'osbl.name AS `osbl_name`, mvo1.qty, omvo.docnum AS `omvo_docnum`, omvi.docnum AS `omvi_docnum`, omvo.status')
+								->join ('mvo1', 'mvo1.omvo_idx=omvo.idx', 'left')->join ('omvi', 'omvi.omvo_refidx=omvo.idx', 'left')
+								->join ('oita', 'oita.idx=mvo1.oita_idx', 'left')->join ('olct', 'olct.idx=mvo1.olct_idx', 'left')
+								->join ('osbl', 'osbl.idx=mvo1.osbl_idx', 'left')->where ('omvo.status', 3)->find ();
+					
+					$onProgs	= array ();
+					$newReqs	= array ();
+					$results	= $model->select ('omvo.docnum, omvo.docdate, "01" AS `type`')->where ('status', 1)->find ();
+					
+					foreach ($results as $result) array_push ($newReqs, $result);
+					
+					$results	= $model->select ('omvo.docnum, omvo.docdate, "01" AS `type`, omvo.status')->where ('status>', 1)->where ('status<', 5)->find ();
+					
+					foreach ($results as $result) array_push ($onProgs, $result);
+					
+					$model		= $this->initModel ('AssetRemovalModel');
+					$results	= $model->select ('oarv.docnum, oarv.docdate, "10" AS `type`')->where ('status', 1)->find ();
+					
+					foreach ($results as $result) array_push ($newReqs, $result);
+					
+					$results	= $model->select ('oarv.docnum, oarv.docdate, "10" AS `type`, oarv.status')->where ('status', 2)->find ();
+					
+					foreach ($results as $result) array_push ($onProgs, $result);
+					
+					$returnData	= [
+						'data-infos'	=> [
+							'assets-qty'		=> $totalQty,
+							'assets-types'		=> $totalLine,
+							'pend-request'		=> $totalRequest,
+							'assets-intransit'	=> $totalAssetIntransit,
+							'intransits'		=> $intransits,
+							'newrequests'		=> $newReqs,
+							'progressing'		=> $onProgs
+						],
+						'docStats'	=> $this->docstats,
+						'docTypes'	=> $this->doctypes
+					];
+					$requestResponse['status'] = 200;
 				}
 				break;
 			case 'categories':
@@ -293,7 +535,7 @@ class OsamModule extends Modules {
 				break;
 			case 'assets-main-list':
 				$model = $this->initModel('AssetItemModel');
-				$assets = $model->select ('code, name, SUM(qty) AS `total`')->groupBy ('code')
+				$assets = $model->select ('code, name, SUM(qty) AS `total`')->where ('qty >', 0)->groupBy ('code')
 								->orderBy ('code', 'ASC')->get ()->getResultArray ();
 				$returnData = [
 					'assets-data' 	=> $assets,
@@ -306,26 +548,26 @@ class OsamModule extends Modules {
 				$dataTransmit = $this->getDataTransmit();
 				$assetCode = $dataTransmit['assetcode'];
 				$assets = $model->select ('oita.idx, code, name, oaci_idx, ci_name, ci_dscript, loan_time, sum(qty) as totalqty')->join ('oaci', 'oita.oaci_idx=oaci.idx')
-								->where ('code', $assetCode)->groupby ('code')->find ()[0];
+								->where ('code', $assetCode)->where ('qty >', 0)->groupby ('code')->find ()[0];
 				$oita_idx = $assets->idx;
 				$detail = [
-					'Kode'				=> $assets->code,
-					'Nama'				=> $assets->name,
-					'Kategori'			=> $assets->ci_name,
-					'Deskripsi'			=> $assets->ci_dscript,
+					'Kode'			=> $assets->code,
+					'Nama'			=> $assets->name,
+					'Kategori'		=> $assets->ci_name,
+					'Deskripsi'		=> $assets->ci_dscript,
 					'Waktu Guna (jam)'	=> $assets->loan_time,
 					'Total Aset'		=> $assets->totalqty
 				];
 				
 				$locations = $model->select ('olct_idx, olct.code, olct.name')->join ('olct', 'olct.idx=oita.olct_idx', 'LEFT')
-								->where ('oita.code', $assetCode)->groupby ('olct_idx')->find ();
+								->where ('oita.code', $assetCode)->where ('qty >', 0)->groupby ('olct_idx')->find ();
 				
 				$condition = [
 					'oita.code' => $assetCode,
 					'qty >' => 0
 				];
 				$sbl1 = $model->select ('olct.code, osbl.name, oita.qty')->join ('olct', 'oita.olct_idx=olct.idx')->join ('osbl', 'oita.osbl_idx=osbl.idx')
-							->where ($condition)->orderby ('olct.code')->find ();
+							->where ($condition)->where ('qty >', 0)->orderby ('olct.code')->find ();
 				$sublocations = [
 					'header'	=> ['Sublokasi', 'Qty'],
 					'data'		=> []
@@ -361,11 +603,35 @@ class OsamModule extends Modules {
 					array_push($attrdetail, $attrrow);
 				}
 				
+				$images	= array ();
+				$model	= $this->initModel ('AssetItemImageModel');
+				$ita2	= $model->where ('oita_idx', $oita_idx)->find ();
+				
+				if (count ($ita2) > 0) {
+					$clientCode	= $this->getClientCode ();
+					$index		= 0;
+					foreach ($ita2 as $ita) {
+						$imagePath	= sprintf (OsamModule::IMAGEWRITEPATH, $clientCode);
+						$filePath	= $imagePath . '/' . $ita->image;
+						$file		= new \CodeIgniter\Files\File ($filePath);
+						$fileContent	= base64_encode (file_get_contents ($filePath));
+						
+						$images[$index]	= [
+							'filename'	=> $ita->image,
+							'mime'		=> $file->getMimeType (),
+							'size'		=> $file->getSize (),
+							'contents'	=> $fileContent
+						];
+						$index++;
+					}
+				}
+				
 				$returnData = [
-					'details'		=> $detail,
+					'details'	=> $detail,
 					'attrdetail'	=> $attrdetail,
-					'locations'		=> $locations,
-					'sublocations'	=> $sublocations
+					'locations'	=> $locations,
+					'sublocations'	=> $sublocations,
+					'images'	=> $images
 				];
 				
 				$requestResponse['status'] = 200;
@@ -376,7 +642,11 @@ class OsamModule extends Modules {
 					$model = $this->initModel('AssetItemModel');
 					$items = [];
 					$items = $model->select ('oita.idx, oita.code, osbl.name as `sublocname`, oita.name, oita.qty')->join ('osbl', 'osbl.idx=oita.osbl_idx')
-									->where ('oita.qty >=', '1')->where ('oita.olct_idx', $dataTransmit['from-location'])->like ('oita.code', $dataTransmit['barcode-search'])
+									->where ('oita.qty >', 0)->where ('oita.olct_idx', $dataTransmit['from-location'])
+									->groupStart ()
+										->like ('oita.code', strtoupper ($dataTransmit['barcode-search']), 'both')
+										->orLike ('oita.name', strtoupper ($dataTransmit['barcode-search']), 'both')
+									->groupEnd ()
 									->orderBy ('oita.idx', 'ASC')->find ();
 					$returnData = [
 						'good'			=> true,
@@ -390,8 +660,8 @@ class OsamModule extends Modules {
 					$assetitems = $model->where ('olct_idx', $dataTransmit['from-location'])->orderBy ('osbl_idx', 'ASC')->find ();
 					
 					$returnData = [
-						'good'			=> true,
-						'sublocs'		=> $sublocs,
+						'good'		=> true,
+						'sublocs'	=> $sublocs,
 						'assetitems'	=> $assetitems
 					];
 				}
@@ -531,7 +801,6 @@ class OsamModule extends Modules {
 					
 					$returnData['totalassets'] = $total_qty;
 					$returnData['locationassets'] = $locationassets_raw;
-					$returnData['assetheader'] = $model->getColumnHeader ('locationassets');
 					
 					$requestResponse['status'] = 200;
 				} else {
@@ -641,7 +910,7 @@ class OsamModule extends Modules {
 				else {
 					$userIdx		= $dataTransmit['data-loggedousr'];
 					$model			= $this->initModel('EnduserModel');
-					$inputUserId	= $dataTransmit['userid'];
+					$inputUserId		= $dataTransmit['userid'];
 					$dataParams		= $dataTransmit['param'];
 					if ($inputUserId == 0) { // new user
 						$newUsername	= $dataParams['new-username'];
@@ -695,7 +964,15 @@ class OsamModule extends Modules {
 							$requestResponse['status']	= 200;
 						}
 					} else {
-						$returnData = $inputUserId;
+						$updateParams	= [
+							'email'		=> $dataParams['update-email'],
+							'password'	=> password_hash($dataParams['update-password'], PASSWORD_BCRYPT),
+							'updated_by'	=> $userIdx
+						];
+						$model->update ($inputUserId, $updateParams);
+						$returnData	= [
+							'message'	=> 'User Updated!'
+						];
 					}
 					$requestResponse['status'] = 200;
 				}
@@ -710,7 +987,7 @@ class OsamModule extends Modules {
 				$model	= $this->initModel('LocationModel');
 				$locations = [];
 				$olcts	= $model->find ();
-				foreach ($olcts as $olct) $locations[$olct->idx] = $olct->name;
+				foreach ($olcts as $olct) $locations[$olct->idx] = ['code' => $olct->code, 'name' => $olct->name];
 				
 				$model			= $this->initModel ('AssetItemModel');
 				$oitas			= $model->select ('code, name')->groupBy ('code')->find ();
@@ -798,14 +1075,7 @@ class OsamModule extends Modules {
 						'data-locations'	=> $locations,
 						'data-assets'		=> $assets
 					],
-					'docStats'	=> [
-						0	=> 'Ditolak',
-						1	=> 'Menunggu Persetujuan',
-						2	=> 'Disetujui',
-						3	=> 'Dikirim',
-						4	=> 'Diterima',
-						5	=> 'Didistribusikan'
-					],
+					'docStats'	=> $this->docstats,
 					'docTypes'	=> [
 						'01'		=> 'Aset Keluar',
 						'02'		=> 'Aset Masuk',
@@ -831,15 +1101,15 @@ class OsamModule extends Modules {
 				break;
 			case 'newassetreq-requisition':
 				$dataTransmit		= $this->getDataTransmit();
-				$ousrIdx			= $dataTransmit['data-loggedousr'];
-				$formData			= $dataTransmit['data-formnewasset'];
-				$model				= $this->initModel('ApplicationSettingsModel');
+				$ousrIdx		= $dataTransmit['data-loggedousr'];
+				$formData		= $dataTransmit['data-formnewasset'];
+				$model			= $this->initModel('ApplicationSettingsModel');
 				$numberingFormat	= $model->find ('numbering')->tag_value;
 				$numberingReset		= $model->find ('numbering-periode')->tag_value;
-				$document			= new Document ($numberingFormat, $numberingReset);
-				$model				= $this->initModel('AssetRequisitionModel');
-				$orqns				= $model->orderBy ('idx', 'DESC')->find ();
-				$lastDocnum			= count ($orqns) > 0 ? $orqns[0]->docnum : NULL;
+				$document		= new Document ($numberingFormat, $numberingReset);
+				$model			= $this->initModel('AssetRequisitionModel');
+				$orqns			= $model->orderBy ('idx', 'DESC')->find ();
+				$lastDocnum		= count ($orqns) > 0 ? $orqns[0]->docnum : NULL;
 				$insertParam		= [
 					'docnum'			=> $document->generateDocnum(AssetRequisitionModel::DOCCODE, $lastDocnum),
 					'docdate'			=> date ('Y-m-d H:i:s'),
@@ -867,12 +1137,13 @@ class OsamModule extends Modules {
 					$requestResponse['status'] = 500;
 				} else {
 					$rqn2	= [
-						'orqn_idx'		=> $insertID,
-						'name'			=> $formData['new-name'],
-						'dscript'		=> $formData['new-description'],
-						'est_value'		=> $formData['new-valueestimation'],
-						'qty'			=> $formData['new-requestqty'],
-						'imgs'			=> $formData['new-imagenames'],
+						'orqn_idx'	=> $insertID,
+						'name'		=> $formData['name'],
+						'dscript'	=> $formData['description'],
+						'est_value'	=> $formData['valueestimation'],
+						'qty'		=> $formData['requestqty'],
+						'remarks'	=> $formData['remarks'],
+						'imgs'		=> $formData['imagenames'],
 						'created_by'	=> $ousrIdx,
 						'updated_by'	=> $ousrIdx,
 						'updated_date'	=> date ('Y-m-d H:i:s')
@@ -899,58 +1170,46 @@ class OsamModule extends Modules {
 				break;
 			case 'existing-requisition':
 				$dataTransmit		= $this->getDataTransmit();
-				$ousrIdx			= $dataTransmit['data-loggedousr'];
-				$formData			= $dataTransmit['data-formrequest'];
-				$model				= $this->initModel('ApplicationSettingsModel');
+				$ousrIdx		= $dataTransmit['data-loggedousr'];
+				$formData		= $dataTransmit['data-formrequest'];
+				$model			= $this->initModel('ApplicationSettingsModel');
 				$numberingFormat	= $model->find ('numbering')->tag_value;
 				$numberingReset		= $model->find ('numbering-periode')->tag_value;
-				$document			= new Document ($numberingFormat, $numberingReset);
+				$document		= new Document ($numberingFormat, $numberingReset);
 				
-				$model				= $this->initModel('AssetRequisitionModel');
-				$orqns				= $model->orderBy ('idx', 'DESC')->find ();
-				$lastDocnum			= count ($orqns) > 0 ? $orqns[0]->docnum : NULL;
+				$model			= $this->initModel('AssetRequisitionModel');
+				$orqns			= $model->orderBy ('idx', 'DESC')->find ();
+				$lastDocnum		= count ($orqns) > 0 ? $orqns[0]->docnum : NULL;
 				$insertParam		= [
-					'docnum'			=> $document->generateDocnum(AssetRequisitionModel::DOCCODE, $lastDocnum),
-					'docdate'			=> date ('Y-m-d H:i:s'),
+					'docnum'		=> $document->generateDocnum(AssetRequisitionModel::DOCCODE, $lastDocnum),
+					'docdate'		=> date ('Y-m-d H:i:s'),
 					'requisition_type'	=> AssetRequisitionModel::REQTYPEEXT, 
-					'olct_idx'			=> 0,
+					'olct_idx'		=> $formData['data-locationidx'],
 					'ousr_applicant'	=> $ousrIdx,
 					'approved_by'		=> 0,
 					'approval_date'		=> NULL,
-					'status'			=> 1,
-					'comments'			=> '',	
+					'status'		=> 1,
+					'comments'		=> '',	
 					'created_by'		=> $ousrIdx,
 					'updated_by'		=> $ousrIdx,
 					'updated_date'		=> date ('Y-m-d H:i:s')
 				];
 				
 				$rqn1s	=	[];
-				foreach ($formData as $data) {
-					switch ($data['name']) {
-						default:
-							$name = $data['name'];
-							if (strpos($name, 'sample-code-') !== FALSE) {
-								$rowId = str_replace('sample-code-', '', $name);
-								$rqn1 = [
-									'orqn_idx'		=> 0,
-									'code'			=> $data['value'],
-									'qty'			=> 0,
-									'created_by'	=> $ousrIdx,
-									'updated_by'	=> $ousrIdx,
-									'updated_date'	=> date ('Y-m-d H:i:s')
-								];
-								$rqn1s[$rowId] = $rqn1;
-							}
-							
-							if (strpos($name, 'input-reqextqty-') !== FALSE) {
-								$rowId = str_replace ('input-reqextqty-', '', $name);
-								$rqn1s[$rowId]['qty'] = $data['value'];
-							}
-							break;
-						case 'requisition-location':
-							$insertParam['olct_idx'] = $data['value'];
-							break;
-					}
+				$additionData	= $formData['data-additions'];
+				$idx = 0;
+				foreach ($additionData as $lineData) {
+					$rqn1	= [
+						'orqn_idx'	=> 0,
+						'code'		=> $lineData['code'],
+						'qty'		=> $lineData['qty'],
+						'remarks'	=> $lineData['remarks'],
+						'created_by'	=> $ousrIdx,
+						'updated_by'	=> $ousrIdx,
+						'updated_date'	=> date ('Y-m-d H:i:s')
+					];
+					$rqn1s[$idx] = $rqn1;
+					$idx++;
 				}
 				
 				$model->insert ($insertParam);
@@ -986,28 +1245,28 @@ class OsamModule extends Modules {
 				break;
 			case 'moveout-request':
 				$dataTransmit		= $this->getDataTransmit();
-				$ousrIdx			= $dataTransmit['data-loggedousr'];
-				$model				= $this->initModel('ApplicationSettingsModel');
+				$ousrIdx		= $dataTransmit['data-loggedousr'];
+				$model			= $this->initModel('ApplicationSettingsModel');
 				$numberingFormat	= $model->find ('numbering')->tag_value;
 				$numberingReset		= $model->find ('numbering-periode')->tag_value;
-				$document			= new Document ($numberingFormat, $numberingReset);
+				$document		= new Document ($numberingFormat, $numberingReset);
 				
-				$model				= $this->initModel('AssetMoveOutModel');
-				$omvos				= $model->orderBy ('idx', 'DESC')->find ();
-				$lastDocnum			= count ($omvos) > 0 ? $omvos[0]->docnum : NULL;
+				$model			= $this->initModel('AssetMoveOutModel');
+				$omvos			= $model->orderBy ('idx', 'DESC')->find ();
+				$lastDocnum		= count ($omvos) > 0 ? $omvos[0]->docnum : NULL;
 				$insertParam		= [
-					'docnum'			=> $document->generateDocnum(AssetMoveOutModel::DOCCODE, $lastDocnum),
-					'docdate'			=> date ('Y-m-d H:i:s'),
-					'olct_from'			=> 0,
-					'olct_to'			=> 0,
+					'docnum'		=> $document->generateDocnum(AssetMoveOutModel::DOCCODE, $lastDocnum),
+					'docdate'		=> date ('Y-m-d H:i:s'),
+					'olct_from'		=> 0,
+					'olct_to'		=> 0,
 					'ousr_applicant'	=> $ousrIdx,
 					'approved_by'		=> 0,
 					'approval_date'		=> NULL,
-					'sent_by'			=> 0,
-					'sent_date'			=> NULL,
+					'sent_by'		=> 0,
+					'sent_date'		=> NULL,
 					'received_by'		=> 0,
 					'received_date'		=> NULL,
-					'status'			=> 1,
+					'status'		=> 1,
 					'status_comment'	=> '',
 					'created_by'		=> $ousrIdx,
 					'updated_by'		=> $ousrIdx,
@@ -1024,11 +1283,11 @@ class OsamModule extends Modules {
 							if (!is_bool($strPos)) {
 								$itemId = str_replace('itemmove-qty-', '', $paramName);
 								$paramLine = [
-									'omvo_idx'		=> 0,
-									'oita_idx'		=> intval($itemId),
-									'olct_idx'		=> 0,
-									'osbl_idx'		=> 0,
-									'qty'			=> intval ($formdata['value']),
+									'omvo_idx'	=> 0,
+									'oita_idx'	=> intval($itemId),
+									'olct_idx'	=> 0,
+									'osbl_idx'	=> 0,
+									'qty'		=> intval ($formdata['value']),
 									'created_by'	=> $ousrIdx,
 									'updated_by'	=> $ousrIdx,
 									'updated_date'	=> date ('Y-m-d H:i:s')
@@ -1051,9 +1310,9 @@ class OsamModule extends Modules {
 				$model		= $this->initModel('AssetItemModel');
 				for ($id = 0; $id < count ($mvo1Param); $id++) {
 					$oita	= $model->find ($mvo1Param[$id]['oita_idx']);
-					$mvo1Param[$id]['omvo_idx']		= $insertId;
-					$mvo1Param[$id]['olct_idx']		= $insertParam['olct_from'];
-					$mvo1Param[$id]['osbl_idx']		= $oita->osbl_idx;
+					$mvo1Param[$id]['omvo_idx']	= $insertId;
+					$mvo1Param[$id]['olct_idx']	= $insertParam['olct_from'];
+					$mvo1Param[$id]['osbl_idx']	= $oita->osbl_idx;
 				}
 				
 				$model		= $this->initModel('AssetMoveOutDetailModel');
@@ -1064,19 +1323,56 @@ class OsamModule extends Modules {
 				$lastOmvrDocNum = count ($omvrs) > 0 ? $omvrs[0]->docnum : NULL;
 				
 				$mvrInsertParam	= [
-					'docnum'		=> $document->generateDocnum(AssetMoveOutRequestModel::DOCCODE, $lastOmvrDocNum),
-					'docdate'		=> $insertParam['docdate'],
+					'docnum'	=> $document->generateDocnum(AssetMoveOutRequestModel::DOCCODE, $lastOmvrDocNum),
+					'docdate'	=> $insertParam['docdate'],
 					'omvo_refidx'	=> $insertId,
-					'olct_from'		=> $insertParam['olct_from'],
-					'olct_to'		=> $insertParam['olct_to'],
-					'status'		=> $insertParam['status'],
+					'olct_from'	=> $insertParam['olct_from'],
+					'olct_to'	=> $insertParam['olct_to'],
+					'status'	=> $insertParam['status'],
 					'created_by'	=> $insertParam['created_by'],
 					'updated_by'	=> $insertParam['updated_by'],
 					'updated_date'	=> date ('Y-m-d H:i:s')
 				];
 				
 				$model->insert ($mvrInsertParam);
-				$good = ($model->getInsertID () > 0);
+				$omvr_idx	= $model->getInsertID ();
+				$documents	= $model->select ('omvr.docnum, omvo.docnum as `docnum_transfer`, omvo.docdate, olct.name as `docfrom`, ousr.username, usr3.fname as `front_name`')
+								->join ('omvo', 'omvo.idx=omvr.omvo_refidx')->join ('olct', 'olct.idx=omvo.olct_from')
+								->join ('ousr', 'ousr.idx=omvo.ousr_applicant')->join ('usr3', 'usr3.idx=omvo.ousr_applicant')
+								->where ('omvr.idx', $omvr_idx)->find ();
+				
+				$good = ($omvr_idx > 0 && count ($documents) > 0);
+				
+				if ($good) {
+					$document	= $documents[0];
+					$msgType	= 'move-00';
+					$msgParam	= [
+						'document'	=> [
+							'docnum'		=> $document->docnum,
+							'docnum_transfer'	=> $document->docnum_transfer,
+							'docdate'		=> $document->docdate,
+							'docfrom'		=> $document->docfrom,
+							'docapp'		=> ($document->fname == '') ? $document->username : $document->fname
+						]
+					];
+					
+					$subject	= sprintf ($emailMsgs->getSubject ($msgType), $document->docnum);
+					$template	= view ('emails/osam/' . $msgType, $msgParam);
+					
+					$emails		= array ();
+					
+					$model		= $this->initModel ('EnduserModel');
+					$ousr_admins	= $model->whereIn ('idx', [1,2,3])->find ();
+					
+					foreach ($ousr_admins as $ousr_admin) array_push ($emails, $ousr_admin->email);
+					$ousr_managers	= $model->join ('usr1', 'usr1.ousr_idx=ousr.idx')->join ('ougr', 'ougr.idx=ousr.ougr_idx')
+								->where ('usr1.olct_idx', $insertParam['olct_from'])->where ('ougr.can_approve', TRUE)->find ();
+								
+					foreach ($ousr_managers as $ousr_manager) array_push ($emails, $ousr_manager->email);
+					
+					$emailTools->emailNotifTools ($emails, $subject, $template, OsamModule::EMAIL_FROM, OsamModule::EMAIL_NAME_FROM);
+					$emailTools->emailSend ();
+				}
 				
 				$returnData = [
 					'good'		=> $good
@@ -1178,14 +1474,7 @@ class OsamModule extends Modules {
 					'mvisList'		=> $mvis,
 					'mvisDetails'	=> $mvisDetails,
 					'mvisRcvs'		=> [],
-					'docStats'		=> [
-						0	=> 'Ditolak',
-						1	=> 'Menunggu Persetujuan',
-						2	=> 'Disetujui',
-						3	=> 'Dikirim',
-						4	=> 'Diterima',
-						5	=> 'Didistribusikan'
-					]
+					'docStats'		=> $this->docstats
 				];
 				
 				$requestResponse['status'] = 200;
@@ -1198,32 +1487,65 @@ class OsamModule extends Modules {
 					$docnum		= $dataTransmit['data-docnum'];
 					
 					$model		= $this->initModel('AssetMoveInModel');
-					$omvi		= $model->select ('omvi.idx, omvi.docnum, omvi.sent, omvi.docdate, omvi.received_by, omvi.received_date, omvi.omvo_refidx, omvo.docnum as `ref_docnum`, ' .
+					$omvi		= $model->select ('omvi.idx, omvi.docnum, omvi.sent, omvi.docdate, omvi.received_by, omvi.received_date, ' .
+									'omvi.distributed_by, omvi.distributed_date, omvi.omvo_refidx, omvo.docnum as `ref_docnum`, ' .
 									'omvo.docdate as `ref_docdate`, ousr.username, omvi.omvo_olctfrom, omvi.omvo_olctto, omvi.sent_by, omvi.sent_date')
 									->join ('omvo', 'omvi.omvo_refidx=omvo.idx')->join ('ousr', 'omvi.omvo_ousridx=ousr.idx')
 									->where ('omvi.docnum', $docnum)->find ();
-					$document	= $omvi[0];
-					$omviIdx	= $document->idx;
-					$refDocIdx	= $document->omvo_refidx;
-					$refOlctTo	= $document->omvo_olctto;
-					$moveinSent = ($document->sent == 1);
-					$moveinReceived = ($document->received_by > 0);
+					$document		= $omvi[0];
+					$omviIdx		= $document->idx;
+					$refDocIdx		= $document->omvo_refidx;
+					$refOlctTo		= $document->omvo_olctto;
+					$moveinSent		= ($document->sent == 1);
+					$moveinReceived 	= ($document->received_by > 0);
+					$moveinDistribute	= ($document->distributed_by > 0);
 					
-					if ($moveinReceived) $omviThs = ['#', 'Barcode', 'Deskripsi', 'Sublokasi Asal', 'Sublokasi Tujuan', 'Qty'];
-					else $omviThs = ['#', 'Barcode', 'Deskripsi', 'Sublokasi Asal', 'Qty'];
+					if ($moveinReceived) $omviThs = [
+						'id'	=> ['#', 'Barcode', 'Deskripsi', 'Sublokasi Asal', 'Sublokasi Tujuan', 'Qty'],
+						'en'	=> ['#', 'Barcode', 'Description', 'Origin Sublocation', 'Destination Sublocation', 'Qty']
+					];
+					else $omviThs = [
+						'id'	=> ['#', 'Barcode', 'Deskripsi', 'Sublokasi Asal', 'Qty'],
+						'en'	=> ['#', 'Barcode', 'Description', 'Origin Sublocation', 'Qty']
+					];
+					
+					$model		= $this->initModel ('AssetMoveOutModel');
+					$omvo		= $model->where ('idx', $refDocIdx)->find ();
 					
 					$moveinDetailed = [];
-					if ($moveinReceived) {
-						$model		= $this->initModel('AssetMoveInDetailModel');
-						$mvidetails	= $model->select ('mvi1.oita_fromidx, osbl.name as `osbl_name`')->join ('osbl', 'mvi1.osbl_idx=osbl.idx')
-											->where ('mvi1.omvi_idx', $omviIdx)->find ();
-						foreach ($mvidetails as $detail) $moveinDetailed[$detail->oita_fromidx] = $detail->osbl_name;
+					if (!$moveinDistribute) {
+						$model	= $this->initModel ('AssetMoveOutDetailModel');
+						
+						if (!$moveinReceived) $mvi1s	= $model->select ('mvo1.oita_idx, oita.code, oita.name, osbl.name as `osbl_src`, mvo1.qty');
+						else $model->select ('mvo1.oita_idx, oita.code, oita.name, osbl.name as `osbl_src`, "NULL" as `osbl_dest`, mvo1.qty');
+						$mvi1s = $model->join ('oita', 'mvo1.oita_idx=oita.idx')->join ('osbl', 'mvo1.osbl_idx=osbl.idx')
+								->where ('mvo1.omvo_idx', $refDocIdx)->find ();
+					} else {
+						$model	= $this->initModel ('AssetMoveInDetailModel');
+						$mvi1s = $model->select ('mvi1.oita_idx, oita.code, oita.name, oita.osbl_idx as `osbl_src`, osbl.name as `osbl_dest`, mvi1.qty')
+								->join ('oita', 'oita.idx=mvi1.oita_fromidx')->join ('osbl', 'osbl.idx=mvi1.osbl_idx')
+								->where ('mvi1.omvi_idx', $omviIdx)->groupBy ('mvi1.line_idx')->find ();
 					}
 					
-					$model = $this->initModel('AssetMoveOutDetailModel');
-					$mvi1		= $model->select ('mvo1.oita_idx, oita.code, oita.name, osbl.name as `osbl_name`, mvo1.qty')
-									->join ('oita', 'mvo1.oita_idx=oita.idx')->join ('osbl', 'mvo1.osbl_idx=osbl.idx')
-									->where ('mvo1.omvo_idx', $refDocIdx)->find ();
+					foreach ($mvi1s	as $key => $mvi1) 
+					
+						if (!$moveinReceived) 
+							$moveinDetailed[$key]	= [
+								'oita_idx'		=> $mvi1->oita_idx,
+								'code'			=> $mvi1->code,
+								'name'			=> $mvi1->name,
+								'sublocation_src'	=> $mvi1->osbl_src,
+								'qty'			=> $mvi1->qty
+							];
+						else 
+							$moveinDetailed[$key]	= [
+								'oita_idx'		=> $mvi1->oita_idx,
+								'code'			=> $mvi1->code,
+								'name'			=> $mvi1->name,
+								'sublocation_src'	=> $mvi1->osbl_src,
+								'sublocation_dest'	=> $mvi1->osbl_dest,
+								'qty'			=> $mvi1->qty
+							];
 									
 					$model		= $this->initModel('EnduserModel');
 					$ousr		= $model->join ('usr1', 'ousr.idx=usr1.ousr_idx')->find ($ousrIdx);
@@ -1238,50 +1560,114 @@ class OsamModule extends Modules {
 					foreach ($olcts as $olct) $locations[$olct->idx] = $olct->name;
 					
 					$sublocations = [];
-					if ($moveinSent) {
-						$model	= $this->initModel('SublocationModel');
-						$osbls	= $model->select ('idx, name')->where ('olct_idx', $refOlctTo)->find ();
-						foreach ($osbls as $osbl) $sublocations[$osbl->idx] = $osbl->name;
+					if ($moveinDistribute) {
+						$model		= $this->initModel ('SublocationModel');
+						for ($index = 0; $index < count ($moveinDetailed); $index++) {
+							$osbl_src	= $moveinDetailed[$index]['sublocation_src'];
+							$osbl		= $model->find ($osbl_src);
+							$moveinDetailed[$index]['sublocation_src'] = $osbl->name;
+						}
 					}
 					
 					$returnData = [
-						'good'			=> TRUE,
+						'good'		=> TRUE,
 						'dataTransmit'	=> [
-							'data-locationfrom' => $locations[$document->omvo_olctfrom],
+							'data-locationfrom' 	=> $locations[$document->omvo_olctfrom],
 							'data-locationto'	=> $locations[$document->omvo_olctto],
 							'data-usersent'		=> ($document->sent_by == 0 ? 'Belum Dikirim' : $users[$document->sent_by]),
 							'data-userreceived'	=> ($document->sent_by == 0 ? 'Belum Dikirim' : ($document->received_by == 0 ? 'Belum Diterima' : $users[$document->received_by])),
+							'data-userdistribute'	=> ($document->distributed_by == 0 ? 'Belum Didistribusikan' : $users[$document->distributed_by]),
 							'data-movein'		=> $document,
 							'data-moveinheads'	=> $omviThs,
-							'data-moveindetail'	=> $mvi1,
-							'data-moveinrcvd'	=> $moveinDetailed
+							'data-moveindetail'	=> $moveinDetailed,
 						],
-						'docnum'		=> $docnum,
-						'isSent'		=> $moveinSent,
+						'docnum'	=> $docnum,
+						'isSent'	=> $moveinSent,
 						'isReceived'	=> $moveinReceived,
-						'btnClose'		=> 'Tutup',
+						'isDistributed'	=> $moveinDistribute,
+						'btnClose'	=> 'Tutup',
 						'btnReceived'	=> 'Diterima',
 						'statusText'	=> [
-							'ns'		=> 'Belum Dikirim',
-							'nr'		=> 'Belum Diterima'
+							'ns'		=> [
+								'id'		=> 'Belum Dikirim',
+								'en'		=> 'Not Sent'
+							],
+							'nr'		=> [
+								'id'		=> 'Belum Diterima',
+								'en'		=> 'Not Received'
+							],
+							'nd'		=> [
+								'id'		=> 'Belum Didistribusikan',
+								'en'		=> 'Not Distributed'
+							]
 						],
 						'titles'		=> [
-							'doctitle'		=> 'Dokumen Kedatangan Aset',
-							'refdoctitle'	=> 'Referensi Dokumen Perpindahan Aset',
-							'refdocdetail'	=> 'Detail Referensi Dokumen Perpindahan Aset'
+							'doctitle'		=> [
+								'id'			=> 'Dokumen Kedatangan Aset',
+								'en'			=> 'Incoming Asset Document'
+							],
+							'refdoctitle'		=> [
+								'id'			=> 'Referensi Dokumen Perpindahan Aset',
+								'en'			=> 'Asset Transfer Document Reference'
+							],
+							'refdocdetail'		=> [
+								'id'			=> 'Detil Referensi Dokumen Perpindahan Aset',
+								'en'			=> 'Asset Transfer Document Reference Details'
+							]
 						],
 						'labels'		=> [
-							'docnum'		=> 'No. Dokumen:',
-							'docdate'		=> 'Tgl. Dokumen:',
-							'received_by'	=> 'Penerima',
-							'received_date'	=> 'Tgl. Penerimaan',
-							'ref_docnum'	=> 'No. Dokumen Referensi:',
-							'ref_docdate'	=> 'Tgl. Dokumen Referensi:',
-							'username'		=> 'Pembuat:',
-							'omvo_olctfrom'	=> 'Lokasi Asal:',
-							'omvo_olctto'	=> 'Lokasi Tujuan:',
-							'sent_by'		=> 'Telah Dikirim Oleh:',
-							'sent_date'		=> 'Tgl. Pengiriman:'
+							'docnum'		=> [
+								'id'			=> 'No. Dokumen:',
+								'en'			=> 'Document No.:'
+							],
+							'docdate'		=> [
+								'id'			=> 'Tgl. Dokumen:',
+								'en'			=> 'Document Date:'
+							],
+							'received_by'		=> [
+								'id'			=> 'Penerima:',
+								'en'			=> 'Receiver:'
+							],
+							'received_date'		=> [
+								'id'			=> 'Tgl. Penerimaan:',
+								'en'			=> 'Received Date:'
+							],
+							'ref_docnum'		=> [
+								'id'			=> 'No. Dokumen Referensi:',
+								'en'			=> 'Reference Document No:'
+							],
+							'ref_docdate'		=> [
+								'id'			=> 'Tgl. Dokumen Referensi:',
+								'en'			=> 'Reference Document Date:'
+							],
+							'username'		=> [
+								'id'			=> 'Pembuat:',
+								'en'			=> 'Created By:'
+							],
+							'omvo_olctfrom'		=> [
+								'id'			=> 'Lokasi Asal:',
+								'en'			=> 'Origin:'
+							],
+							'omvo_olctto'		=> [
+								'id'			=> 'Lokasi Tujuan:',
+								'en'			=> 'Destination:'
+							],
+							'sent_by'		=> [
+								'id'			=> 'Telah Dikirim Oleh:',
+								'en'			=> 'Sent By:'
+							],
+							'sent_date'		=> [
+								'id'			=> 'Tgl. Pengiriman:',
+								'en'			=> 'Sent Date:'
+							],
+							'distributed_by'	=> [
+								'id'			=> 'Didistribusikan Oleh:',
+								'en'			=> 'Distributed By:'
+							],
+							'distributed_date'	=> [
+								'id'			=> 'Tgl. Pendistribusian;',
+								'en'			=> 'Distribution Date:'
+							]
 						]
 					];
 				}
@@ -1299,32 +1685,51 @@ class OsamModule extends Modules {
 					$docnum		= $dataTransmit['docnum'];
 					$model		= $this->initModel('AssetMoveInModel');
 					$omvi		= $model->where ('docnum', $docnum)->find ();
+					$now		= date ('Y-m-d H:i:s');
 					if (count ($omvi) == 0) {
 						$returnData = [
 							'message'	=> 'Error! Document ' . $docnum . ' was not found!'
 						];
 						$requestResponse['status'] = 500;
 					} else {
-						$omviIdx		= $omvi[0]->idx;
+						$omviIdx	= $omvi[0]->idx;
 						$omvo_refidx	= $omvi[0]->omvo_refidx;
-						$updateParam	= [
+						$updateParams	= [
 							'received_by'	=> $ousrIdx,
-							'received_date'	=> date ('Y-m-d H:i:s'),
-							'updated_by'	=> $ousrIdx
+							'received_date'	=> $now,
+							'updated_by'	=> $ousrIdx,
+							'updated_date'	=> $now
 						];
-						$model->update ($omviIdx, $updateParam);
+						$model->update ($omviIdx, $updateParams);
 						$updated = $model->affectedRows ();
 						
 						$updateParam	= [
 							'received_by'	=> $ousrIdx,
-							'received_date'	=> date ('Y-m-d H:i:s'),
-							'status'		=> 4,
-							'updated_by'	=> $ousrIdx
+							'received_date'	=> $now,
+							'status'	=> 4,
+							'updated_by'	=> $ousrIdx,
+							'updated_date'	=> $now
 						];
+						
+						$model	= $this->initModel ('AssetMoveOutRequestModel');
+						$omvr	= $model->where ('omvo_refidx', $omvo_refidx)->where ('status', 3)->find ();
+						if (count ($omvr) > 0) {
+							$omvr_idx = $omvr[0]->idx;
+							$updateParams = [
+								'status'	=> 4,
+								'updated_by'	=> $ousrIdx,
+								'updated_date'	=> date ('Y-m-d H:i:s')
+							];
+							$model->update ($omvr_idx, $updateParams);
+							$updated += $model->affectedRows ();
+						}
 						
 						$model	= $this->initModel('AssetMoveOutModel');
 						$model->update ($omvo_refidx, $updateParam);
 						$updated += $model->affectedRows ();
+						
+						$omvo	= $model->select ('omvo.idx, omvo.docnum, omvo.docdate, ousr.username, usr3.fname, omvo.olct_from, omvo.olct_to')
+								->join ('ousr', 'ousr.idx=omvo.received_by')->join ('usr3', 'usr3.idx=omvo.received_by')->where ('omvo.idx', $omvo_refidx)->find ()[0];
 						
 						if ($updated == 0) {
 							$returnData = [
@@ -1333,6 +1738,35 @@ class OsamModule extends Modules {
 							];
 							$requestResponse['status']	= 500;
 						} else {
+							$olct_from	= $omvo->olct_from;
+							$olct_to	= $omvo->olct_to;
+							$msgType	= 'move-04';
+							$msgParams	= [
+								'document'	=> [
+									'docnum'	=> $omvo->docnum,
+									'docdate'	=> $omvo->docdate,
+									'docrcv'	=> ($omvo->fname == '') ? $omvo->username : $omvo->fname,
+									'docrcvtime'	=> date ('Y-m-d H:i:s')
+								]
+							];
+							
+							
+							$subject	= sprintf ($emailMsgs->getSubject ($msgType), $omvo->docnum, $msgParams['document']['docrcv']);
+							$template	= view ('emails/osam/' . $msgType, $msgParams);
+							
+							$emails		= array ();
+							$ousr_model	= $this->initModel ('EnduserModel');
+							$recipients	= $ousr_model->whereIn ('idx', $administrators)->find ();
+							
+							foreach ($recipients as $recipient) array_push ($emails, $recipient->email);
+							
+							$recipients	= $ousr_model->join ('usr1', 'usr1.ousr_idx=ousr.idx')->whereIn ('usr1.olct_idx', [$olct_from, $olct_to])->find ();
+							
+							foreach ($recipients as $recipient) array_push ($emails, $recipient->email);
+							
+							$emailTools->emailNotifTools ($emails, $subject, $template, OsamModule::EMAIL_FROM, OsamModule::EMAIL_NAME_FROM);
+							$emailTools->emailSend ();
+							
 							$returnData = [
 								'good'		=> TRUE,
 								'message'	=> 'success'
@@ -1343,119 +1777,169 @@ class OsamModule extends Modules {
 				}
 				break;
 			case 'moveindo-assetdistribution':
+				$good = FALSE;
 				$dataTransmit = $this->getDataTransmit();
 				$ousrIdx = $dataTransmit['data-loggedousr'];
-				$target_olct = 0;
-				$targetDocnum = '';
-				$mvi1s = [];
+				$mviDocNum = $dataTransmit['data-mvidocnum'];
 				
-				foreach ($dataTransmit as $key => $data) {
-					if (is_numeric($key)) {
-						$dataName = $data['name'];
-						$dataValue = $data['value'];
-						if (strpos ($dataName, 'tolocation-id') !== false) $target_olct = $dataValue;
-						if (strpos ($dataName, 'item-id-') !== false) {
-							$rowId = str_replace('item-id-', '', $dataName);
-							$mvi1s[$rowId] = [
-								'omvi_idx'		=> 0,
-								'oita_fromidx'	=> 0,
-								'oita_idx'		=> $dataValue,
-								'olct_idx'		=> $target_olct,
-								'osbl_idx'		=> 0,
-								'qty'			=> 0,
-								'created_by'	=> $ousrIdx,
-								'updated_by'	=> $ousrIdx
-							];
-						}
-						if (strpos ($dataName, 'to-sublocation-') !== false) {
-							$rowId = str_replace('to-sublocation-', '', $dataName);
-							$mvi1s[$rowId]['osbl_idx'] = $dataValue;
-						}
-						if (strpos ($dataName, 'move-qty-') !== false) {
-							$rowId = str_replace('move-qty-', '', $dataName);
-							$mvi1s[$rowId]['qty'] = $dataValue;
-						}
-						if ($dataName === 'movein-docnum') $targetDocnum = $dataValue;
-					}
-				}
+				$omvi_model	= $this->initModel ('AssetMoveInModel');
+				$omvis		= $omvi_model->select ('omvi.*, omvo.docnum as `omvo_docnum`, omvo.docdate as `omvo_docdate`')->join ('omvo', 'omvo.idx=omvi.omvo_refidx')->where ('omvi.docnum', $mviDocNum)->find ();
+				$mvi1Sum 	= 0;
+				$message 	= '';
 				
-				$model			= $this->initModel ('AssetMoveInModel');
-				$omvi			= $model->where ('docnum', $targetDocnum)->find ()[0];
-				$omviIdx		= $omvi->idx;
-				$fromolct		= $omvi->omvo_olctfrom;
-				$omvo_refidx	= $omvi->omvo_refidx;
-				for ($id = 0; $id < count ($mvi1s); $id++) {
-					$mvi1s[$id]['omvi_idx'] = $omviIdx;
-					$mvi1s[$id]['oita_fromidx'] = $fromolct;
-				}
-				
-				$model		= $this->initModel ('AssetMoveInDetailModel');
-				foreach ($mvi1s as $insertParam) $model->insert ($insertParam);
-				$mvi1InsertID = $model->getInsertID ();
-				
-				$good = true;
-				
-				if ($mvi1InsertID == 0) $good = false;
+				if (count ($omvis) == 0) $good = FALSE;
 				else {
-					$model		= $this->initModel ('AssetMoveOutModel');
-					$updateStatus	= [
-						'status'		=> 5,
-						'updated_by'	=> $ousrIdx
-					];
-					$model->update ($omvo_refidx, $updateStatus);
+					$omvi		= $omvis[0];
+					$omvo_docnum	= $omvi->omvo_docnum;
+					$omvo_docdate	= $omvi->omvo_docdate;
+					$omvi_idx	= $omvi->idx;
+					$omvo_refidx	= $omvi->omvo_refidx;
+					$omvo_olctfrom	= $omvi->omvo_olctfrom;
+					$omvo_olctto	= $omvi->omvo_olctto;
+					$now		= date ('Y-m-d H:i:s');
 					
-					$model = $this->initModel('AssetItemModel');
-					foreach ($mvi1s as $mvi1) {
-						$oitaIdx	= $mvi1['oita_idx'];
-						$fromOita	= $model->find ($oitaIdx);
-						$fromQty	= $fromOita->qty;
-						$fromCode	= $fromOita->code;
-						$toOlct		= $mvi1['olct_idx'];
-						$toOsbl		= $mvi1['osbl_idx'];
-						$toQty		= $mvi1['qty'];
+					$oita_model	= $this->initModel ('AssetItemModel');
+					$mvi1_model	= $this->initModel ('AssetMoveInDetailModel');
+					
+					$mviParams	= $dataTransmit['data-mviparams'];
+					
+					foreach ($mviParams as $mviParam) {
+						$oitafrom_idx	= $mviParam['oita_idx'];
+						$osblto_idx	= $mviParam['osbl_idx'];
+						$qty_to		= $mviParam['qty'];
 						
-						$toOitas	= $model->where ('osbl_idx', $toOsbl)->where ('olct_idx', $toOlct)->where ('code', $fromCode)->find ();
-						if (count ($toOitas) == 0) {
-							$insertNewOITA	= [
-								'olct_idx'			=> $toOlct,
-								'osbl_idx'			=> $toOsbl,
-								'oaci_idx'			=> $fromOita->oaci_idx,
-								'oast_idx'			=> $fromOita->oast_idx,
-								'code'				=> $fromCode,
-								'name'				=> $fromOita->name,
-								'notes'				=> $fromOita->notes,
-								'po_number'			=> $fromOita->po_number,
-								'acquisition_value'	=> $fromOita->acquisition_value,
-								'loan_time'			=> $fromOita->loan_time,
-								'qty'				=> $toQty
-							];
-							$model->insert ($insertNewOITA);
-							if ($model->getInsertID () == 0) $good = false;
-						} else {
-							$toOita		= $toOitas[0];
-							$toOitaIdx	= $toOita->idx;
-							$toOldQty	= $toOita->qty;
-							$toNewQty	= $toOldQty + $toQty;
-							$updateToOITA	= [
-								'qty'	=> $toNewQty
-							];
-							$model->update ($toOitaIdx, $updateToOITA);
-							if ($model->getAffectedRows () == 0) $good = false; 
+						$oitafrom	= $oita_model->where ('idx', $oitafrom_idx)->find ();
+						if (count ($oitafrom) > 0) {
+							$oitacode	= $oitafrom[0]->code;
+							
+							$oitato		= $oita_model->where ('code', $oitacode)->where ('olct_idx', $omvo_olctto)->where ('osbl_idx', $osblto_idx)->find ();
+							$updated	= 0;
+							if (count ($oitato) == 0) {
+								$insertParams	= [
+									'olct_idx'		=> $omvo_olctto,
+									'osbl_idx'		=> $osblto_idx,
+									'oaci_idx'		=> $oitafrom[0]->oaci_idx,
+									'oast_idx'		=> $oitafrom[0]->oast_idx,
+									'code'			=> $oitacode,
+									'name'			=> $oitafrom[0]->name,
+									'notes'			=> '',
+									'po_number'		=> '',
+									'acquisition_value'	=> $oitafrom[0]->acquisition_value,
+									'loan_time'		=> $oitafrom[0]->loan_time,
+									'qty'			=> $qty_to
+								];
+								$oita_model->insert ($insertParams);
+								$updated = $oita_model->getInsertID ();
+								
+								$ita1_model	= $this->initModel ('ItemAttributesModel');
+								$ita1sfrom	= $ita1_model->where ('oita_idx', $oitafrom_idx)->find ();
+								foreach ($ita1sfrom as $ita1from) {
+									$insertParams	= [
+										'oita_idx'	=> $updated,
+										'octa_idx'	=> $ita1from->octa_idx,
+										'attr_value'	=> $ita1from->attr_value
+									];
+									$ita1_model->insert ($insertParams);
+								}
+							} else {
+								$oitato_idx	= $oitato[0]->idx;
+								$qty_toinit	= $oitato[0]->qty;
+								
+								$updateParams	= [
+									'qty'			=> ($qty_toinit + $qty_to)
+								];
+								$oita_model->update ($oitato_idx, $updateParams);
+								$updated = $oitato_idx;
+							}
+							
+							if ($updated > 0) {
+								$insertParams	= [
+									'omvi_idx'	=> $omvi_idx,
+									'oita_fromidx'	=> $oitafrom_idx,
+									'oita_idx'	=> $updated,
+									'olct_idx'	=> $omvo_olctto,
+									'osbl_idx'	=> $osblto_idx,
+									'qty'		=> $qty_to,
+									'created_by'	=> $ousrIdx,
+									'updated_by'	=> $ousrIdx,
+									'updated_date'	=> $now
+								];
+								$mvi1_model->insert ($insertParams);
+							}
 						}
+					}
+					
+					$mvi1sSum	= $mvi1_model->select ('sum(qty) as `total`')->where ('omvi_idx', $omvi_idx)->find ();
+					$mvi1Sum	= $mvi1sSum[0]->total;
+					
+					$model		= $this->initModel ('AssetMoveOutDetailModel');
+					$mvo1sSum	= $model->select ('sum(qty) as `total`')->where ('omvo_idx', $omvo_refidx)->find ();
+					$mvo1Sum	= $mvo1sSum[0]->total;
+					
+					if ($mvo1Sum == $mvi1Sum) {
+						$model	= $this->initModel ('AssetMoveOutModel');
+						$updateParams	= [
+							'status'	=> 5,
+							'updated_by'	=> $ousrIdx,
+							'updated_date'	=> $now
+						];
 						
-						if ($good) {
-							$fromNewQty	= $fromQty - $toQty;
-							$updateFromOita = [
-								'qty'	=> $fromNewQty
+						$model->update ($omvo_refidx, $updateParams);
+						
+						$model	= $this->initModel ('AssetMoveOutRequestModel');
+						$omvr	= $model->where ('omvo_refidx', $omvo_refidx)->find ();
+						if (count ($omvr) > 0) {
+							$updateParams	= [
+								'status'	=> 5,
+								'updated_by'	=> $ousrIdx,
+								'updated_date'	=> $now
 							];
-							$model->update ($oitaIdx, $updateFromOita);
+							$model->update ($omvo_refidx, $updateParams);
+							
+							$updateParams	= [
+								'distributed_by'	=> $ousrIdx,
+								'distributed_date'	=> $now
+							];
+							$omvi_model->update ($omvi_idx, $updateParams);
 						}
+						$good = TRUE;
+						$message = "Data updated";
+					}
+					
+					if ($good) {
+						$model		= $this->initModel ('EnduserModel');
+						$ousr		= $model->select ('ousr.username, usr3.fname')->join ('usr3', 'usr3.idx=ousr.idx')->where ('ousr.idx', $ousrIdx)->find ()[0];
+						
+						$docdist	= ($ousr->fname == '') ? $ousr->username : $ousr->fname;
+						$msgType	= 'move-05';
+						$msgParams	= [
+							'document'	=> [
+								'docnum'	=> $omvo_docnum,
+								'docdate'	=> $omvo_docdate,
+								'docdist'	=> $docdist,
+								'docdisttime'	=> $now
+							]
+						];
+						
+						$subject	= sprintf ($emailMsgs->getSubject ($msgType), $omvo_docnum, $docdist) ;
+						$template	= view ('emails/osam/' . $msgType, $msgParams);
+						
+						$emails	= array ();
+						
+						$receptors	= $model->whereIn ('idx', $administrators)->find ();
+						foreach ($receptors as $receptor) array_push ($emails, $receptor->email);
+						
+						$receptors	= $model->join ('usr1', 'usr1.ousr_idx=ousr.idx')->whereIn ('olct_idx', [$omvo_olctfrom, $omvo_olctto])->find ();
+						foreach ($receptors as $receptor) array_push ($emails, $receptor->email);
+						
+						$emailTools->emailNotifTools ($emails, $subject, $template, OsamModule::EMAIL_FROM, OsamModule::EMAIL_NAME_FROM);
+						$emailTools->emailSend ();
 					}
 				}
 				
 				$returnData = [
 					'good'		=> $good,
-					'message'	=> 'data updated!'
+					'message'	=> $message
 				];
 				$requestResponse['status'] = 200;
 				break;
@@ -1473,29 +1957,29 @@ class OsamModule extends Modules {
 				$model		= $this->initModel('AssetMoveOutModel');
 				if (!$canApprove) {
 					$allCount = count ($model->where ('ousr_applicant', $ousrIdx)->find ());
-					$pendingCount = count ($model->where ('ousr_applicant', $ousrIdx)->where ('status', 1)->find ());
-					$declinedCount = count ($model->where ('ousr_applicant', $ousrIdx)->where ('status', 0)->find ());
-					$approvedCount = count ($model->where ('ousr_applicant', $ousrIdx)->where ('status >=', 2)->find ());
-					$doneCount = count ($model->where ('ousr_applicant', $ousrIdx)->where ('status', '4')->find ());
+					$pendingCount = count ($model->where ('ousr_applicant', $ousrIdx)->where ('olct_from', $usrOlct)->where ('status', 1)->find ());
+					$declinedCount = count ($model->where ('ousr_applicant', $ousrIdx)->where ('olct_from', $usrOlct)->where ('status', 0)->find ());
+					$approvedCount = count ($model->where ('ousr_applicant', $ousrIdx)->where ('olct_from', $usrOlct)->where ('status >=', 2)->find ());
+					$doneCount = count ($model->where ('ousr_applicant', $ousrIdx)->where ('olct_from', $usrOlct)->where ('status', '4')->find ());
 					$mvosHead = [
-						'#', 'No. Dokumen', 'Tgl. Pembuatan', 'Disetujui', 'Tgl. Persetujuan', 'Status'
+						'{8}', '{9}', '{10}', '{11}', '{12}', '{13}'
 					];
 					$mvos = $model->select ('omvo.docnum, omvo.docdate, omvo.approval_date, omvo.status')->where ('olct_from', $usrOlct)->find ();
 				} else {
 					$mvosHead = [
-						'#', 'No. Dokumen', 'Tgl. Pembuatan', 'Pemohon', 'Disetujui', 'Tgl. Persetujuan', 'Status'
+						'{8}', '{9}', '{10}', '{14}', '{11}', '{12}', '{13}'
 					];
 					if ($usrOlct > 0) { // if approvers is specific to location
 						$pendingCount = count ($model->where ('olct_from', $usrOlct)->where ('status', 1)->find ());
 						$declinedCount = count ($model->where ('olct_from', $usrOlct)->where ('status', 0)->find ());
-						$approvedCount = count ($model->where ('olct_from', $usrOlct)->where ('status >', 2)->find ());
+						$approvedCount = count ($model->where ('olct_from', $usrOlct)->where ('status >=', 2)->find ());
 						$doneCount = count ($model->where ('olct_from', $usrOlct)->where ('status', 4)->find ());
 						$mvos = $model->select ('omvo.docnum, omvo.docdate, ousr.username, omvo.approval_date, omvo.status')
 									->join ('ousr', 'omvo.ousr_applicant=ousr.idx')->where ('olct_from', $usrOlct)->find ();
 					} else {
 						$pendingCount = count ($model->where ('status', 1)->find ());
 						$declinedCount = count ($model->where ('status', 0)->find ());
-						$approvedCount = count ($model->where ('status >', 2)->find ());
+						$approvedCount = count ($model->where ('status >=', 2)->find ());
 						$doneCount = count ($model->where ('status', '4')->find ());
 						$mvos = $model->select ('omvo.docnum, omvo.docdate, ousr.username, omvo.approval_date, omvo.status')
 									->join ('ousr', 'omvo.ousr_applicant=ousr.idx')->find ();
@@ -1508,19 +1992,19 @@ class OsamModule extends Modules {
 					'mvosSumm'	=> [
 						[
 							'id' => 'moveout-count',
-							'title' => 'Jumlah Dokumen Aset Keluar',
+							'title' => '{4}',
 							'content' => $allCount,
 							'style' => 'text-white bg-danger'
 						],
 						[
 							'id' => 'moveout-active',
-							'title' => 'Jumlah Dokumen Menunggu Persetujuan',
+							'title' => '{5}',
 							'content' => $pendingCount,
 							'style' => 'text-dark bg-warning'
 						],
 						[
 							'id' => 'moveout-finished',
-							'title' => 'Ditolak / Disetujui / Selesai',
+							'title' => '{6}',
 							'content' => $declinedCount . ' / ' . $approvedCount . ' / ' . $doneCount,
 							'style' => 'text-white bg-success'
 						]
@@ -1528,14 +2012,7 @@ class OsamModule extends Modules {
 					'locations'	=> $locations,
 					'mvosList'	=> $mvos,
 					'mvosHead'	=> $mvosHead,
-					'docStats'	=> [
-						0	=> 'Ditolak',
-						1	=> 'Menunggu Persetujuan',
-						2	=> 'Disetujui',
-						3	=> 'Dikirim',
-						4	=> 'Diterima',
-						5	=> 'Didistribusikan'
-					]
+					'docStats'	=> $this->docstats
 				];
 				
 				$requestResponse['status'] = 200;
@@ -1556,8 +2033,9 @@ class OsamModule extends Modules {
 				$model = $this->initModel ('AssetMoveOutModel');
 				$lastRow = $model->orderBy ('idx', 'DESC')->find ();
 				$lastRowDocNum = count ($lastRow) > 0 ? $lastRow[0]->docnum : NULL;
+				$generatedDocnum	= $documentLib->generateDocnum(AssetMoveOutModel::DOCCODE, $lastRowDocNum);
 				$docParam = [
-					'docnum'		=> $documentLib->generateDocnum(AssetMoveOutModel::DOCCODE, $lastRowDocNum),
+					'docnum'		=> $generatedDocnum,
 					'docdate'		=> date ('Y-m-d H:i:s'),
 					'approved_by'	=> 0,
 					'approval_date'	=> NULL,
@@ -1600,6 +2078,9 @@ class OsamModule extends Modules {
 						case 'moveout-tolocation':
 							$docParam['olct_to'] = $param['value'];
 							break;
+						case 'moveout-remarks':
+							$docParam['remarks'] = $param['value'];
+							break;
 					}
 				}
 				
@@ -1617,9 +2098,11 @@ class OsamModule extends Modules {
 				
 				$model = $this->initModel('AssetMoveOutDetailModel');
 				foreach ($docDetails as $insert) $model->insert ($insert);
+				
+				$good	= ($omvoId > 0);
 
 				$returnData = [
-					'good'		=> TRUE,
+					'good'		=> $good,
 					'message'	=> 'New documents successfully created!'
 				];
 				$requestResponse['status'] = 200;
@@ -1650,16 +2133,22 @@ class OsamModule extends Modules {
 						'#', 'Barcode', 'Deskripsi', 'Asal Sublokasi', 'Qty'
 					];
 					
-					$document = new Document ();
+					$model = $this->initModel('ApplicationSettingsModel');
+					$result = $model->find ('numbering');
+					$numberingFormat	= $result === NULL ? Document::DEFNUMBERFORMAT : $result->tag_value;
+					$result = $model->find ('numbering-periode');
+					$numberingPeriode	= $result === NULL ? Document::PERIODEMONTHLY : $result->tag_value;
+					
+					$document = new Document ($numberingFormat, $numberingPeriode, $this->docstats);
 					$documentStatus = $document->getStatusText($omvo['status']);
 					
 					$returnData = [
 						'good' => TRUE,
 						'dataTransmit' => [
-							'data-canapprove'		=> $ousr->can_approve,
-							'data-cansend'			=> $ousr->can_send,
-							'data-moveout'			=> $omvo,
-							'data-moveoutheads'		=> $mvoThs,
+							'data-canapprove'	=> $ousr->can_approve,
+							'data-cansend'		=> $ousr->can_send,
+							'data-moveout'		=> $omvo,
+							'data-moveoutheads'	=> $mvoThs,
 							'data-moveoutdetail'	=> $mvo1s
 						],
 						'dataHead' => 'Dokumen No. ' . $docnum,
@@ -1689,24 +2178,79 @@ class OsamModule extends Modules {
 				$ousrIdx = $dataTransmit['data-loggedousr'];
 				
 				$model = $this->initModel('AssetMoveOutModel');
-				$omvo = $model->where ('docnum', $docnum)->find ()[0];
-				$omvo_idx = $omvo->idx;
+				$omvo = $model->select ('omvo.idx, omvo.docnum, omvo.docdate, omvo.olct_from, omvo.olct_to, omvo.ousr_applicant, ousr.username, usr3.fname')
+						->join ('ousr', 'ousr.idx=omvo.ousr_applicant')->join ('usr3', 'usr3.idx=omvo.ousr_applicant')->where ('docnum', $docnum)->find ();
+				$omvo_idx = $omvo[0]->idx;
 				switch ($action) {
 					default:
 						break;
 					case 'decline':
 						if ($omvo === NULL) ;
 						else {
+							$document	= $omvo[0];
+							$olct_from	= $document->olct_from;
+							$olct_to	= $document->olct_to;
+							$approvalDate	= date ('Y-m-d H:i:s');
 							$updateParam = [
-								'status'		=> 0,
-								'approval_date' => date ('Y-m-d H:i:s'),
+								'status'	=> 0,
+								'approval_date' => $approvalDate,
 								'approved_by'	=> $ousrIdx,
 								'updated_by'	=> $ousrIdx,
-								'updated_date'	=> date ('Y-m-d H:i:s')
+								'updated_date'	=> $approvalDate
 							];
 							$model->update ($omvo_idx, $updateParam);
+							$good = ($model->affectedRows () > 0);
+							
+							if (!$good) ;
+							else {
+								
+								$msgType	= 'move-01';
+								$msgParams	= [
+									'document'	=> [
+										'docnum'	=> $document->docnum,
+										'docdate'	=> $document->docdate,
+										'docapp'	=> ($document->fname == '') ? $document->username : $document->fname,
+										'docaction'	=> '',
+										'docacttime'	=> $approvalDate
+									]
+								];
+								
+								$model		= $this->initModel ('EnduserModel');
+								$rejector	= $model->select ('ousr.username, usr3.fname')->join ('usr3', 'usr3.idx=ousr.idx')
+											->where ('ousr.idx', $ousrIdx)->find ()[0];
+								$msgParams['document']['docaction']	= ($rejector->fname == '') ? $rejector->username : $rejector->fname;
+								
+								$subject	= sprintf ($emailMsgs->getSubject ($msgType), $document->docnum);
+								$template	= view ('emails/osam/' . $msgType, $msgParams);
+								
+								$emails		= array ();
+								$receptors	= $model->join ('usr1', 'usr1.ousr_idx=ousr.idx')->where ('usr1.olct_idx', $olct_to)
+											->orWhere ('usr1.olct_idx', $olct_from)->find ();
+								
+								foreach ($receptors as $receptor) array_push ($emails, $receptor->email);
+								
+								$receptors	= $model->whereIn ('idx', $administrators)->find ();
+								
+								foreach ($receptors as $receptor) array_push ($emails, $receptor->email);
+								
+								$emailTools->emailNotifTools ($emails, $subject, $template, OsamModule::EMAIL_FROM, OsamModule::EMAIL_NAME_FROM);
+								$emailTools->emailSend ();
+							}
+							
+							$model		= $this->initModel ('AssetMoveOutRequestModel');
+							$omvr		= $model->where ('omvo_refidx', $omvo_idx)->find ();
+							if (count ($omvr) > 0) {
+								$omvr_idx	= $omvr[0]->idx;
+								$updateParams	= [
+									'status'	=> 0,
+									'updated_by'	=> $ousrIdx,
+									'updated_date'	=> $approvalDate
+								];
+								$model->update ($omvr_idx, $updateParams);
+							}
+							
 							$returnData = [
-								'good'		=> TRUE,
+								'good'		=> $good,
 								'status'	=> 200,
 								'message'	=> 'Permintaan di tolak'
 							];
@@ -1715,97 +2259,205 @@ class OsamModule extends Modules {
 					case 'approve':
 						if ($omvo === NULL) ;
 						else {
-							$updateParam = [
-								'status' => 2,
-								'approval_date' => date ('Y-m-d H:i:s'),
+							$document	= $omvo[0];
+							$olct_from	= $document->olct_from;
+							$olct_to	= $document->olct_to;
+							$approvalDate	= date ('Y-m-d H:i:s');
+							$updateParams = [
+								'status'	=> 2,
+								'approval_date' => $approvalDate,
 								'approved_by'	=> $ousrIdx,
 								'updated_by'	=> $ousrIdx,
-								'updated_date'	=> date ('Y-m-d H:i:s')
+								'updated_date'	=> $approvalDate
 							];
 							
-							$model->update ($omvo_idx, $updateParam);
-							$updated = $model->affectedRows ();
-
-							$updated = 1;
+							$model->update ($omvo_idx, $updateParams);
+							$good = ($model->affectedRows () > 0);
 							
-							if ($updated < 0) ;
+							if (!$good) ;
 							else {
-								$model = $this->initModel('ApplicationSettingsModel');
-								$numberingFormat = $model->find ('numbering')->tag_value;
-								$numberingPeriode = $model->find ('numbering-periode')->tag_value;
-								
-								$document = new Document ($numberingFormat, $numberingPeriode);
-								$model = $this->initModel('AssetMoveInModel');
-								$lastOmvi = $model->orderBy ('idx', 'DESC')->find ();
-								$lastDocnum = (count ($lastOmvi) == 0) ? NULL : $lastOmvi[0]->docnum;
-								$docnumGenerated = $document->generateDocnum(AssetMoveInModel::DOCCODE, $lastDocnum);
-								$insertParam = [
-									'docnum'		=> $docnumGenerated,
-									'docdate'		=> date ('Y-m-d H:i:s'),
-									'omvo_refidx'	=> $omvo_idx,
-									'omvo_ousridx'	=> $omvo->ousr_applicant,
-									'omvo_olctfrom'	=> $omvo->olct_from,
-									'omvo_olctto'	=> $omvo->olct_to,
-									'sent'			=> FALSE,
-									'sent_date'		=> NULL,
-									'received_date'	=> NULL,
-									'created_by'	=> $ousrIdx,
-									'updated_by'	=> $ousrIdx,
-									'updated_date'	=> date ('Y-m-d H:i:s')
+								$msgType	= 'move-02';
+								$msgParams	= [
+									'document'	=> [
+										'docnum'	=> $document->docnum,
+										'docdate'	=> $document->docdate,
+										'docapp'	=> ($document->fname == '') ? $document->username : $document->fname,
+										'docaction'	=> '',
+										'docacttime'	=> $approvalDate
+									]
 								];
 								
-								$model->insert ($insertParam);
-								$omviid = $model->insertID ();
+								$model		= $this->initModel ('EnduserModel');
+								$approval	= $model->select ('ousr.username, usr3.fname')->join ('usr3', 'usr3.idx=ousr.idx')
+											->where ('ousr.idx', $ousrIdx)->find ()[0];
+								$msgParams['document']['docaction'] = ($approval->fname == '') ? $approval->username : $approval->fname;
 								
-								if ($omviid < 1) ;
-								else 
-									$returnData = [
-										'good'		=> TRUE,
-										'status'	=> 200,
-										'message'	=> 'Permintaan disetujui!'
+								$subject	= sprintf ($emailMsgs->getSubject ($msgType), $document->docnum, $msgParams['document']['docaction']);
+								$template	= view ('emails/osam/' . $msgType, $msgParams);
+								
+								$emails		= array ();
+								
+								$receptors	= $model->join ('usr1', 'usr1.ousr_idx=ousr.idx')->whereIn ('usr1.olct_idx', [$olct_to, $olct_from])->find ();
+								//$receptors	= $model->join ('usr1', 'usr1.ousr_idx=ousr.idx')->where ('usr1.olct_idx', $olct_to)
+								//			->orWhere ('usr1.olct_idx', $olct_from)->find ();
+								
+								foreach ($receptors as $receptor) array_push ($emails, $receptor->email);
+								
+								$receptors	= $model->whereIn ('idx', $administrators)->find ();
+								
+								foreach ($receptors as $receptor) array_push ($emails, $receptor->email);
+								
+								$emailTools->emailNotifTools ($emails, $subject, $template, OsamModule::EMAIL_FROM, OsamModule::EMAIL_NAME_FROM);
+								$emailTools->emailSend ();
+								
+								$model		= $this->initModel ('AssetMoveOutRequestModel');
+								$omvr		= $model->where ('omvo_refidx', $omvo_idx)->find ();
+								if (count ($omvr) > 0) {
+									$omvr_idx	= $omvr[0]->idx;
+									$updateParams	= [
+										'status'	=> 2,
+										'updated_by'	=> $ousrIdx,
+										'updated_date'	=> $approvalDate
 									];
+									$model->update ($omvr_idx, $updateParams);
+								}
+								
+								$returnData = [
+									'good'		=> $good,
+									'status'	=> 200,
+									'message'	=> 'Permintaan disetujui!'
+								];
 							}
 						}
 						break;
 					case 'marksent':
 						if ($omvo === NULL) ;
 						else {
-							$model = $this->initModel('AssetMoveOutModel');
-							$updateParam = [
-								'status'		=> 3,
-								'sent_by'		=> $ousrIdx,
-								'sent_date'		=> date ('Y-m-d H:i:s'),
+							$document	= $omvo[0];
+							$olct_from	= $document->olct_from;
+							$olct_to	= $document->olct_to;
+							$sentDate	= date ('Y-m-d H:i:s');
+							$updateParams = [
+								'status'	=> 3,
+								'sent_by'	=> $ousrIdx,
+								'sent_date'	=> $sentDate,
 								'updated_by'	=> $ousrIdx,
-								'updated_date'	=> date ('Y-m-d H:i:s')
+								'updated_date'	=> $sentDate
 							];
-							$model->update ($omvo_idx, $updateParam);
-							$updated = $model->affectedRows ();
+							$model->update ($omvo_idx, $updateParams);
+							$good = ($model->affectedRows () > 0);
 							
-							if ($updated < 0) ;
+							
+							if (!$good) ;
 							else {
-								$model = $this->initModel('AssetMoveInModel');
-								$updateParam = [
-									'sent'			=> true,
-									'sent_by'		=> $ousrIdx,
-									'sent_date'		=> date ('Y-m-d H:i:s'),
-									'updated_by'	=> $ousrIdx,
-									'updated_date'	=> date ('Y-m-d H:i:s')
+								$model		= $this->initModel ('AssetMoveOutDetailModel');
+								$mvo1s		= $model->where ('omvo_idx', $omvo_idx)->find ();
+								
+								$msgType	= 'move-03';
+								$msgParams	= [
+									'document'	=> [
+										'docnum'	=> $document->docnum,
+										'docdate'	=> $document->docdate,
+										'docapp'	=> ($document->fname == '') ? $document->username : $document->fname,
+										'docsender'	=> '',
+										'docsenttime'	=> $sentDate
+									]
 								];
-								$model->where ('omvo_refidx', $omvo_idx)
-										->set ($updateParam)
-										->update ();
-								$updated = $model->affectedRows ();
-								if ($updated == 0) ;
-								else
-									$returnData = [
-										'good'		=> TRUE,
-										'status'	=> 200,
-										'message'	=> 'Dokumen telah ditandai sebagai dikirim!'
+								
+								$emails	= array ();
+								
+								$model	= $this->initModel ('EnduserModel');
+								$sender	= $model->select ('ousr.email, ousr.username, usr3.fname')->join ('usr3', 'usr3.idx=ousr.idx')->where ('ousr.idx', $ousrIdx)->find ()[0];
+								
+								$msgParams['document']['docsender'] = $sender->fname == '' ? $sender->username : $sender->fname;
+								array_push ($emails, $sender->email);
+								
+								$receptors	= $model->join ('usr1', 'usr1.ousr_idx=ousr.idx')->whereIn ('usr1.olct_idx', [$olct_from, $olct_to])->find ();
+								
+								foreach ($receptors as $receptor) array_push ($emails, $receptor->email);
+								
+								$receptors	= $model->whereIn ('idx', $administrators)->find ();
+								
+								foreach ($receptors as $receptor) array_push ($emails, $receptor->email);
+								
+								$subject	= sprintf ($emailMsgs->getSubject ($msgType), $document->docnum);
+								$template	= view ('emails/osam/' . $msgType, $msgParams);
+
+								$emailTools->emailNotifTools ($emails, $subject, $template, OsamModule::EMAIL_FROM, OsamModule::EMAIL_NAME_FROM);
+								$emailTools->emailSend ();
+								
+								$model = $this->initModel('ApplicationSettingsModel');
+								$numberingFormat = $model->find ('numbering')->tag_value;
+								$numberingPeriode = $model->find ('numbering-periode')->tag_value;
+								
+								$documentNumbering = new Document ($numberingFormat, $numberingPeriode);
+								
+								$model = $this->initModel('AssetMoveInModel');
+								$lastOmvi = $model->orderBy ('idx', 'DESC')->find ();
+								$lastDocnum = (count ($lastOmvi) == 0) ? NULL : $lastOmvi[0]->docnum;
+								$docnumGenerated = $documentNumbering->generateDocnum(AssetMoveInModel::DOCCODE, $lastDocnum);
+								
+								$insertParams	= [
+									'docnum'		=> $docnumGenerated,
+									'docdate'		=> $sentDate,
+									'omvo_refidx'		=> $omvo_idx,
+									'omvo_ousridx'		=> $document->ousr_applicant,
+									'omvo_olctfrom'		=> $olct_from,
+									'omvo_olctto'		=> $olct_to,
+									'sent'			=> 1,
+									'sent_by'		=> $ousrIdx,
+									'sent_date'		=> $sentDate,
+									'received_by'		=> 0,
+									'received_date'		=> NULL,
+									'distributed_by'	=> 0,
+									'distributed_date'	=> NULL,
+									'created_by'		=> $ousrIdx,
+									'updated_by'		=> $ousrIdx,
+									'updated_date'		=> $sentDate
+								];
+								
+								$model->insert ($insertParams);
+								$omvi_idx = $model->insertID ();
+								
+								$model = $this->initModel ('AssetItemModel');
+								foreach ($mvo1s as $mvo1) {
+									$mvo1_oitaidx	= $mvo1->oita_idx;
+									$mvo1_oitaqty	= $mvo1->qty;
+									
+									$currQty	= $model->where ('idx', $mvo1_oitaidx)->find ()[0]->qty;
+									$updateParams	= [
+										'qty'	=> ($currQty - $mvo1->qty)
 									];
+									$model->update ($mvo1_oitaidx, $updateParams);
+								}
+								
+								$model		= $this->initModel ('AssetMoveOutRequestModel');
+								$omvr		= $model->where ('omvo_refidx', $omvo_idx)->find ();
+								
+								if (count ($omvr) > 0) {
+									$omvr_idx	= $omvr[0]->idx;
+									$updateParams	= [
+										'status'	=> 3,
+										'updated_by'	=> $ousrIdx,
+										'updated_date'	=> $sentDate
+									];
+									$model->update ($omvr_idx, $updateParams);
+								}
+								
+								$returnData = [
+									'good'		=> $good,
+									'status'	=> 200,
+									'message'	=> 'Dokumen telah ditandai sebagai dikirim!'
+								];
 							}
 						}
 						break;
 				}
+				$requestResponse['status'] = 200;
+				break;
+			case 'procure-documentdetailed':
+				$dataTransmit	= $this->getDataTransmit ();
+				$returnData	= $dataTransmit;
 				$requestResponse['status'] = 200;
 				break;
 			case 'get-sublocationoflocation':
@@ -1824,6 +2476,23 @@ class OsamModule extends Modules {
 					$requestResponse['status'] = 200;
 				}
 				break;
+			case 'get-sublocationassetlists':
+				$dataTransmit	= $this->getDataTransmit ();
+				$model		= $this->initModel ('AssetItemModel');
+				$oitas		= $model->select ('oita.idx, oita.code, oita.name, oita.qty')->where ('olct_idx', $dataTransmit['data-locationidx'])
+							->where ('osbl_idx', $dataTransmit['data-sublocationidx'])->find ();
+				if (count ($oitas) == 0)
+					$returnData	= [
+						'good'	=> FALSE,
+						'data'	=> NULL
+					];
+				else $returnData	= [
+					'good'		=> TRUE,
+					'data-assets'	=> $oitas
+				];
+				
+				$requestResponse['status']	= 200;
+				break;
 			case 'assetsdestroy-request':
 				$dataTransmit = $this->getDataTransmit();
 				$olct_idx = $dataTransmit['location-idx'];
@@ -1838,21 +2507,24 @@ class OsamModule extends Modules {
 				$orqns = $model->orderBy ('idx', 'DESC')->find ();
 				$lastDocnum = (count ($orqns) == 0) ? NULL : $orqns[0]->docnum; 
 				
+				$generatedDocnum	= $document->generateDocnum(AssetRemovalModel::DOCCODE, $lastDocnum);
+				$now			= date ('Y-m-d H:i:s');
+				
 				$insertParam = [
-					'docnum'			=> $document->generateDocnum(AssetRemovalModel::DOCCODE, $lastDocnum),
-					'docdate'			=> date ('Y-m-d H:i:s'),
+					'docnum'		=> $generatedDocnum,
+					'docdate'		=> $now,
 					'ousr_applicant'	=> $ousr_idx,
-					'olct_from'			=> $olct_idx,
+					'olct_from'		=> $olct_idx,
 					'approved_by'		=> 0,
 					'approval_date'		=> NULL,
 					'removed_by'		=> 0,
 					'removal_date'		=> NULL,
 					'removal_method'	=> '',
-					'status'			=> 1,
-					'comments'			=> NULL,
+					'status'		=> 1,
+					'comments'		=> NULL,
 					'created_by'		=> $ousr_idx,
 					'updated_by'		=> $ousr_idx,
-					'updated_date'		=> date ('Y-m-d H:i:s')
+					'updated_date'		=> $now
 				];
 				
 				$model->insert ($insertParam);
@@ -1861,88 +2533,38 @@ class OsamModule extends Modules {
 				if ($oarv_idx == 0) {
 					$requestResponse['status']	= 500;
 					$requestResponse['message']	= 'Error! Document insertion failed!';
-				} else {	
+				} else {
 					$dataAssets = $dataTransmit['data-assets'];
 					$model = $this->initModel('AssetRemovalDetailModel');
 					foreach ($dataAssets as $data) {
 						$insertParam = [
-							'oarv_idx'		=> $oarv_idx,
-							'oita_idx'		=> $data['asset-idx'],
-							'osbl_idx'		=> $data['subloc-idx'],
+							'oarv_idx'	=> $oarv_idx,
+							'oita_idx'	=> $data['asset-idx'],
+							'osbl_idx'	=> $data['subloc-idx'],
+							'remarks'	=> $data['remarks'],
 							'removal_qty'	=> $data['request-qty'],
 							'created_by'	=> $ousr_idx,
 							'updated_by'	=> $ousr_idx,
-							'updated_date'	=> date ('Y-m-d H:i:s')
+							'updated_date'	=> $now
 						];
 						$model->insert ($insertParam);
 					}
+					
+					$msgType	= 'destroy-00';
+					$msgParams	= [
+						'document'	=> [
+							'docnum'	=> $generatedDocnum,
+							'docdate'	=> $now,
+							'docloc'	=> '',
+							'docapp'	=> ''
+						]
+					];
+					
+					$subject	= sprintf ($emailMsgs->getSubject ($msgType), $generatedDocnum);
+					$template	= view ('emails/osam/' . $msgType, $msgParams);
+					
 					$requestResponse['status']	= 200;
 				}
-				break;
-			case 'removal-documents':
-				$dataTransmit	= $this->getDataTransmit ();
-				$ousr_idx = $dataTransmit['data-loggedousr'];
-				$model			= $this->initModel ('EnduserLocationModel');
-				$ousr			= $model->find ($ousr_idx);
-				$olct_idx		= $ousr->olct_idx;
-				
-				$model			= $this->initModel ('AssetRemovalModel');
-				$allCount		= 0;
-				$pendingCount	= 0;
-				$declinedCount	= 0;
-				$approvedCount	= 0;
-				$doneCount		= 0;
-				
-				if ($olct_idx > 0) {
-					$pendingCount	= count ($model->where ('status', 1)->where ('olct_from', $olct_idx)->find ());
-					$declinedCount	= count ($model->where ('status', 0)->where ('olct_from', $olct_idx)->find ());
-					$declinedCount	= count ($model->where ('status >=', 2)->where ('olct_from', $olct_idx)->find ());
-					$doneCount		= count ($model->where ('status', 4)->where ('olct_from', $olct_idx)->find ());
-					$arvs		= $model->select ('oarv.docnum, oarv.docdate, ousr.username, olct.name as `location_name`, oarv.approval_date, oarv.status')
-									->join ('ousr', 'oarv.ousr_applicant=ousr.idx')->join ('olct', 'oarv.olct_from=olct.idx')
-									->where ('oarv.olct_from', $olct_idx)->find ();
-				} else {
-					$pendingCount	= count ($model->where ('status', 1)->find ());
-					$declinedCount	= count ($model->where ('status', 0)->find ());
-					$approvedCount	= count ($model->where ('status >=', 2)->find ());
-					$doneCount		= count ($model->where ('status', 4)->find ());
-					$arvs		= $model->select ('oarv.docnum, oarv.docdate, ousr.username, olct.name as `location_name`, oarv.approval_date, oarv.status')
-									->join ('ousr', 'oarv.ousr_applicant=ousr.idx')->join ('olct', 'oarv.olct_from=olct.idx')->find ();
-				}
-				$allCount		= count ($arvs);
-				
-				$returnData = [
-					'arvSummaries'	=> [
-						[
-							'id'		=> 'removal-count',
-							'title'		=> '{4}',
-							'content'	=> $allCount,
-							'style'		=> 'text-light bg-danger'
-						],
-						[
-							'id'		=> 'removal-active',
-							'title'		=> '{5}',
-							'content'	=> $pendingCount,
-							'style'		=> 'text-dark bg-warning'
-						],
-						[
-							'id'		=> 'removal-action',
-							'title'		=> '{6}',
-							'content'	=> $declinedCount . ' / ' . $approvedCount . ' / ' . $doneCount,
-							'style'		=> 'text-light bg-success'
-						]
-					],
-					'removaldocs'	=> $arvs,
-					'docStats'	=> [
-						0	=> 'Ditolak',
-						1	=> 'Menunggu Persetujuan',
-						2	=> 'Disetujui',
-						3	=> 'Dikirim',
-						4	=> 'Diterima',
-						5	=> 'Didistribusikan'
-					]
-				];
-				$requestResponse['status'] = 200;
 				break;
 			case 'userprofile':
 				$dataTransmit = $this->getDataTransmit();
@@ -2003,61 +2625,78 @@ class OsamModule extends Modules {
 					$requestResponse['status'] = 200;
 				}
 				break;
-			case 'headdata': 
-				$dataTransmit = $this->getDataTransmit ();
-				$ousr_idx = $dataTransmit['data-loggedousr'];
-				$model	= $this->initModel('EnduserModel');
-				$ousrs	= $model->select ('ugr1.privilege')->join ('ugr1', 'ousr.ougr_idx=ugr1.ougr_idx')->where ('ousr.idx', $ousr_idx)->find ();
-				if (count ($ousrs) == 0) {
-					$requestResponse['status']	= 500;
-					$requestResponse['message']	= 'Error! Cannot find user group data';
-				} else {
-					$prives = explode(';', $ousrs[0]->privilege);
-					$model	= $this->initModel('ModuleModel');
-					$structures = [];
-					
-					$omdls	= $model->find ();
-					foreach ($omdls as $omdl) {
-						if (in_array ($omdl->idx, $prives)) 
-							if ($omdl->parent_idx == 0) 
-								$structures[$omdl->idx] = [
-									'id'		=> $omdl->style_id,
-									'smarty'	=> $omdl->smarty,
-									'target'	=> $omdl->targeturl,
-									'icon'		=> $omdl->icon,
-									'subs'		=> []
-								];
-							else
-								if (array_key_exists($omdl->parent_idx, $structures)) {
-									$subs = $structures[$omdl->parent_idx]['subs'];
-									$child = [
-										'id'		=> $omdl->style_id,
-										'smarty'	=> $omdl->smarty,
-										'target'	=> $omdl->targeturl,
-										'icon'		=> $omdl->icon,
-										'subs'		=> []
-									];
-									if (!array_key_exists($omdl->segment, $subs)) {
-										$subs[$omdl->segment]	= [
-											'title'		=> $omdl->title,
-											'child'		=> []
-										];
-									}
-									
-									array_push($subs[$omdl->segment]['child'], $child);
-									$structures[$omdl->parent_idx]['subs'] = $subs;
-								}
+			case 'load-assetimages':
+				helper ('filesystem');
+				$clientCode	= $this->getClientCode ();
+				$imageLoadPath	= sprintf (OsamModule::IMAGEWRITEPATH, $clientCode);
+				$filenames	= get_filenames	($imageLoadPath);
+				$imageList	= array ();
+				$index		= 0;
+				foreach ($filenames as $filename) {
+					$filepath	= $imageLoadPath . '/' . $filename;
+					$file		= new \CodeIgniter\Files\File ($filepath);
+					$fileMime	= $file->getMimeType ();
+					if ($fileMime === 'image/gif' || $fileMime === 'image/jpeg' || $fileMime === 'image/png') {
+						$imageList[$index]	= [
+							'name'		=> $filename,
+							'size'		=> $file->getSize (),
+							'mime'		=> $file->getMimeType (),
+							'lastc'		=> filectime ($filepath),
+							'content'	=> base64_encode (file_get_contents ($filepath))
+						];
+						$index++;
 					}
-					$returnData = [
-						'data-menustructure'	=> $structures,
-						'data-messages'			=> [],
-						'data-notifications'	=> []
-					];
-					$requestResponse['status']	= 200;
 				}
+				
+				$model	= $this->initModel ('EnduserModel');
+				$uStat	= $model->select ('ougr_idx')->where ('idx', $this->getDataTransmit ()['data-loggedousr'])->find ()[0];
+				$returnData	= [
+					'data-userstat'		=> $uStat->ougr_idx,
+					'data-imagelist'	=> $imageList
+				];
+				$requestResponse['status']	= 200;
+				break;
+			case 'images-bulkupload':
+				helper ('filesystem');
+				$clientCode	= $this->getClientCode ();
+				$savePath	= sprintf (OsamModule::IMAGEWRITEPATH, $clientCode);
+				
+				$dataTransmit	= $this->getDataTransmit ();
+				$dataFiles	= $dataTransmit['data-images'];
+				$done		= 0;
+				
+				if (!file_exists ($savePath)) mkdir ($savePath, 0755, TRUE);
+				foreach ($dataFiles as $dataFile) {
+					$fileSavePath	= $savePath . '/' . $dataFile['name'];
+					$fileContents	= base64_decode ($dataFile['content']);
+					$writeSuccess	= write_file ($fileSavePath, $fileContents);
+					if ($writeSuccess) $done++;
+				}
+				
+				$returnData	= [
+					'data-writesuccess'	=> $done
+				];
+				$requestResponse['status']	= 200;
+				break;
+			case 'images-removals':
+				helper ('filesystem');
+				$dataTransmit	= $this->getDataTransmit ();
+				$clientCode	= $this->getClientCode ();
+				$deleted	= 0;
+				foreach ($dataTransmit as $filename) {
+					$savePath	= sprintf (OsamModule::IMAGEWRITEPATH, $clientCode);
+					$fileSavePath	= $savePath . '/' . $filename;
+					if (unlink ($fileSavePath)) $deleted++;
+				}
+				
+				$returnData	= [
+					'good'		=> ($deleted > 0),
+					'delsuccess'	=> $deleted
+				];
+				$requestResponse['status']	= 200;
 				break;
 			case 'docuportable':
-				$dataTransmit	= $this->getDataTransmit();
+				$dataTransmit	= $this->getDataTransmit ();
 				if (!array_key_exists ('data-loggedousr', $dataTransmit)) {
 					$returnData = [
 						'good'	=> FALSE
@@ -2077,8 +2716,8 @@ class OsamModule extends Modules {
 					} else {
 						$docnum				= $dataTransmit['data-documentnumber'];
 						$model				= $this->initModel('ApplicationSettingsModel');
-						$numberingFormat	= $model->find ('numbering')->tag_value;
-						$numberingReset		= $model->find ('numbering-periode')->tag_value;
+						$numberingFormat		= $model->find ('numbering')->tag_value;
+						$numberingReset			= $model->find ('numbering-periode')->tag_value;
 						$document			= new Document($numberingFormat, $numberingReset);
 						$doccode			= $document->getDocumentCode($docnum);
 						switch ($doccode) {
@@ -2142,6 +2781,314 @@ class OsamModule extends Modules {
 					}
 				}
 				break;
+			case 'procure-summaries':
+				$dataTransmit	= $this->getDataTransmit ();
+				$loggedOusr	= $dataTransmit['data-loggedousr'];
+				$locale		= $dataTransmit['data-locale'];
+				$model		= $this->initModel ('EnduserModel');
+				$ousr		= $model->join ('usr1', 'ousr.idx=usr1.ousr_idx')->where ('ousr.idx', $loggedOusr)->find ();
+				$ougr		= $ousr[0]->ougr_idx;
+				$olct_idx	= $ousr[0]->olct_idx;
+				
+				$summaries	= [
+					'pending'	=> 0,
+					'approved'	=> 0,
+					'declined'	=> 0
+				];
+				$requestList	= [
+				];
+				
+				$model	= $this->initModel ('AssetRequisitionModel');
+				
+				if ($ougr == 1) {
+					$orqn	= $model->select ('orqn.docnum, orqn.docdate, ousr.username, orqn.requisition_type, orqn.status')
+							->join ('ousr', 'ousr.idx=orqn.ousr_applicant')->where ('status >=', 1)->find ();
+				} else {
+					$orqn	= $model->select ('orqn.docnum, orqn.docdate, ousr.username, orqn.requisition_type, orqn.status')
+							->join ('ousr', 'ousr.idx=orqn.ousr_applicant')->where ('olct_idx', $olct_idx)->where ('status >=', 1)->find ();
+				}
+				
+				$reqStatus	= new RequestStatus ();
+				$reqDocType	= new RequestDocumentType ();
+				
+				foreach ($orqn as $key => $rqn) {
+					$requestList[$key]	= [
+						$rqn->docnum,
+						$rqn->docdate,
+						$rqn->username,
+						$reqDocType->getTypeText ($locale, $rqn->requisition_type),
+						$reqStatus->getTypeText ($locale, $rqn->status)
+					];
+					
+					switch ($rqn->status) {
+						default:
+							break;
+						case 0: 
+							$summaries['declined']++;
+							break;
+						case 1: 
+							$summaries['pending']++;
+							break;
+						case 2:
+							$summaries['approved']++;
+							break;
+					}
+				}
+				
+				$returnData	= [
+					'summaries'	=> $summaries,
+					'requestlist'	=> $requestList,
+					'styles'	=> [
+						'pending'	=> 'text-white bg-warning',
+						'approved'	=> 'text-white bg-success',
+						'declined'	=> 'text-white bg-danger'
+					],
+					'titles'	=> [
+						'pending'	=> '{4}',
+						'approved'	=> '{5}',
+						'declined'	=> '{6}'
+					]
+				];
+				
+				$requestResponse['status']	= 200;
+				break;
+			case 'removal-documents':
+				$dataTransmit	= $this->getDataTransmit ();
+				$ousr_idx = $dataTransmit['data-loggedousr'];
+				$model		= $this->initModel ('EnduserLocationModel');
+				$ousr		= $model->find ($ousr_idx);
+				$olct_idx	= $ousr->olct_idx;
+				
+				$model		= $this->initModel ('AssetRemovalModel');
+				$allCount	= 0;
+				$pendingCount	= 0;
+				$declinedCount	= 0;
+				$approvedCount	= 0;
+				$doneCount	= 0;
+				
+				if ($olct_idx > 0) {
+					$pendingCount	= count ($model->where ('status', 1)->where ('olct_from', $olct_idx)->find ());
+					$declinedCount	= count ($model->where ('status', 0)->where ('olct_from', $olct_idx)->find ());
+					$declinedCount	= count ($model->where ('status >=', 2)->where ('olct_from', $olct_idx)->find ());
+					$doneCount	= count ($model->where ('status', 4)->where ('olct_from', $olct_idx)->find ());
+					$arvs		= $model->select ('oarv.docnum, oarv.docdate, ousr.username, olct.name as `location_name`, oarv.approval_date, oarv.status')
+									->join ('ousr', 'oarv.ousr_applicant=ousr.idx')->join ('olct', 'oarv.olct_from=olct.idx')
+									->where ('oarv.olct_from', $olct_idx)->find ();
+				} else {
+					$pendingCount	= count ($model->where ('status', 1)->find ());
+					$declinedCount	= count ($model->where ('status', 0)->find ());
+					$approvedCount	= count ($model->where ('status >=', 2)->find ());
+					$doneCount	= count ($model->where ('status', 4)->find ());
+					$arvs		= $model->select ('oarv.docnum, oarv.docdate, ousr.username, olct.name as `location_name`, oarv.approval_date, oarv.status')
+									->join ('ousr', 'oarv.ousr_applicant=ousr.idx')->join ('olct', 'oarv.olct_from=olct.idx')->find ();
+				}
+				$allCount		= count ($arvs);
+				
+				$documentsPending	= $model->select ('oarv.idx, oarv.docnum, oarv.docdate, ousr.username, olct.name, usr3.fname, oarv.approved_by, oarv.approval_date, oarv.status')
+								->join ('ousr', 'ousr.idx=oarv.ousr_applicant')->join ('usr3', 'usr3.idx=ousr.idx')->join ('olct', 'olct.idx=oarv.olct_from')
+								->where ('status', 2)->find ();
+				$pending		= [];
+				
+				$model			= $this->initModel ('AssetRemovalDetailModel');
+				
+				foreach ($documentsPending as $key => $document) {
+					$oarv_idx	= $document->idx;
+					
+					$arv1s		= $model->select ('arv1.line_idx, oita.code, oita.name, osbl.name as `osbl_name`, arv1.removal_qty')
+								->join ('oita', 'oita.idx=arv1.oita_idx')->join ('osbl', 'osbl.idx=arv1.osbl_idx')
+								->where ('oarv_idx', $oarv_idx)->find ();
+					$pendingDetail	= [];
+					
+					foreach ($arv1s as $lineKey => $arv1) 
+						$pendingDetail[$lineKey] = [
+							'arv1_idx'	=> $arv1->line_idx,
+							'barcode'	=> $arv1->code,
+							'dscript'	=> $arv1->name,
+							'sublocation'	=> $arv1->osbl_name,
+							'remove_qty'	=> $arv1->removal_qty
+						];
+					
+					$aDocument = [
+						'docidx'	=> $document->idx,
+						'docnum'	=> $document->docnum,
+						'docdate'	=> $document->docdate,
+						'username'	=> $document->username,
+						'surname'	=> $document->fname,
+						'location'	=> $document->name,
+						'approved_by'	=> $document->approved_by,
+						'approval_date'	=> $document->approval_date,
+						'status'	=> $document->status,
+						'details'	=> $pendingDetail
+					];
+					
+					$pending[$key] = $aDocument;
+				}
+				
+				$returnData = [
+					'arvSummaries'	=> [
+						[
+							'id'		=> 'removal-count',
+							'title'		=> '{4}',
+							'content'	=> $allCount,
+							'style'		=> 'text-light bg-danger'
+						],
+						[
+							'id'		=> 'removal-active',
+							'title'		=> '{5}',
+							'content'	=> $pendingCount,
+							'style'		=> 'text-dark bg-warning'
+						],
+						[
+							'id'		=> 'removal-action',
+							'title'		=> '{6}',
+							'content'	=> $declinedCount . ' / ' . $approvedCount . ' / ' . $doneCount,
+							'style'		=> 'text-light bg-success'
+						]
+					],
+					'removaldocs'	=> $arvs,
+					'pendingDocs'	=> $pending,
+					'docStats'	=> $this->docstats
+				];
+				$requestResponse['status'] = 200;
+				break;
+			case 'removal-documentdetailed':
+				$dataTransmit	= $this->getDataTransmit ();
+				$ousr_idx	= $dataTransmit['data-loggedousr'];
+				$model = $this->initModel ('EnduserModel');
+				$ousr  = $model->select ('ougr.can_remove')->join ('ougr', 'ougr.idx=ousr.ougr_idx')->where ('ousr.idx', $ousr_idx)->find ();
+				$can_remove = ($ousr[0]->can_approve == 1);
+				
+				$good = FALSE;
+				
+				$model = $this->initModel ('AssetRemovalDetailModel');
+				$oarvs = $model->select ('oarv.idx, oarv.status, oarv.docnum, oita.code as `barcode`, oita.name as `dscript`, osbl.name as `osbl_name`, arv1.remarks, arv1.removal_qty')
+						->join ('oarv', 'oarv.idx=arv1.oarv_idx')->join ('oita', 'oita.idx=arv1.oita_idx')->join ('osbl', 'osbl.idx=arv1.osbl_idx')
+						->where ('oarv.docnum', $dataTransmit['data-docnum'])->find ();
+						
+				if (count ($oarvs) == 0) 
+					$returnData = [
+						'good'		=> $good,
+						'message'	=> [
+							'id'		=> 'Error! Dokumen tidak ditemukan!',
+							'en'		=> 'Error! Document not found!'
+						]
+					];
+				else {
+					$good = TRUE;
+					$returnData	= [
+						'good'		=> $good,
+						'transmit'	=> [
+							'status'	=> intval ($oarvs[0]->status),
+							'userstat'	=> $can_remove,
+							'details'	=> $oarvs
+						],
+						'labels'	=> [
+							'buttons'	=> [
+								'approve'	=> [
+									'id'		=> 'Setujui',
+									'en'		=> 'Approve'
+								],
+								'decline'	=> [
+									'id'		=> 'Tolak',
+									'en'		=> 'Decline'
+								]
+							]
+						]
+					];
+				}
+				$requestResponse['status']	= 200;
+				break;
+			case 'destroy-doaction':
+				$dataTransmit	= $this->getDataTransmit ();
+				$model		= $this->initModel ('AssetRemovalModel');
+				$ousr_idx	= $dataTransmit['data-loggedousr'];
+				$oarv		= $model->where ('docnum', $dataTransmit['data-docnum'])->find ();
+				
+				if (count ($oarv) == 0) 
+					$returnData	= [
+						'good'		=> FALSE,
+						'message'	=> [
+							'id'		=> 'Error! Dokumen tidak ditemukan!',
+							'en'		=> 'Error! Document not found!'
+						]
+					];
+				else {
+					$oarv_idx	= $oarv[0]->idx;
+					$appoved	= $dataTransmit['data-doaction'] === 'approve';
+					if (!$appoved) 
+						$updateParams	= [
+							'status'	=> 0,
+							'updated_by'	=> $ousr_idx,
+							'updated_date'	=> date ('Y-m-d H:i:s')
+						];
+					else 
+						$updateParams	= [
+							'status'	=> 2,
+							'approved_by'	=> $ousr_idx,
+							'approval_date'	=> date ('Y-m-d H:i:s'),
+							'updated_by'	=> $ousr_idx,
+							'updated_date'	=> date ('Y-m-d H:i:s')
+						];
+						
+					$model->update ($oarv_idx, $updateParams);
+					$returnData	= [
+						'good'		=> TRUE,
+						'message'	=> [
+							'id'		=> 'Dokumen berhasil di perbarui!',
+							'en'		=> 'Document has been updated!'
+						]
+					];
+				}
+				$requestResponse['status']	= 200;
+				break;
+			case 'removal-doaction':
+				$dataTransmit	= $this->getDataTransmit ();
+				$oarv_idx	= $dataTransmit['data-docidx'];
+				$ousr_idx	= $dataTransmit['data-loggedousr'];
+				$details	= $dataTransmit['data-detailupdate'];
+				
+				foreach ($details as $key => $detail) {
+					$arv_lineid	= $detail['data-lineid'];
+					$model		= $this->initModel ('AssetRemovalDetailModel');
+					$arv1		= $model->where ('line_idx', $arv_lineid)->find ();
+					$oita_idx	= $arv1[0]->oita_idx;
+					
+					$updateParams	= [
+						'removal_method'	=> $detail['data-method'],
+						'updated_by'		=> $ousr_idx,
+						'updated_date'		=> date ('Y-m-d H:i:s')
+					];
+					$model->update (['line_idx' => $arv_lineid], $updateParams);
+					
+					$updateQty	= $detail['data-qty'];
+					$model		= $this->initModel ('AssetItemModel');
+					$oita		= $model->where ('idx', $oita_idx)->find ();
+					
+					$updateParams	= [
+						'qty'	=> ($oita[0]->qty - $updateQty)
+					];
+					$model->update ($oita_idx, $updateParams);
+				}
+				
+				$model	= $this->initModel ('AssetRemovalModel');
+				$updateParams = [
+					'status'	=> 6,
+					'removed_by'	=> $ousr_idx,
+					'removal_date'	=> date ('Y-m-d H:i:s'),
+					'updated_by'	=> $ousr_idx,
+					'updated_date'	=> date ('Y-m-d H:i:s')
+				];
+				$model->update ($oarv_idx, $updateParams);
+				
+				$returnData	= [
+					'good'		=> TRUE,
+					'message'	=> [
+						'id'		=> 'Dokumen berhasil diperbarui!',
+						'en'		=> 'Document has been updated!'
+					]
+				];
+				$requestResponse['status']	= 200;
+				break;
 		}
 		
 		if ($requestResponse['status'] == 200) $requestResponse['message']	= base64_encode(serialize($returnData));
@@ -2156,6 +3103,14 @@ class OsamModule extends Modules {
 		 */
 		$model = NULL;
 		$response = [];
+		
+		$emailTools = EmailTools::init ();
+		$emailMsgs = EmailMessage::init ();
+		$targetNotifs = [
+			'it.jodamo@gmail.com'
+		];
+		$locale = 'id';
+		
 		switch ($trigger) {
 			default:
 				$response = [
@@ -2172,17 +3127,45 @@ class OsamModule extends Modules {
 				if ($ousr == NULL) $response = ['status' => 404, 'message' => 'User Not Found!'];
 				else {
 					$user = $ousr[0];
+					array_push ($targetNotifs, $user->email);
 					$dataPassword = $dataTransmit['form-data']['data-password'];
-					if (!password_verify($dataPassword, $user->password)) $response = ['status' => 401, 'message' => 'Password Not Match!'];
-					else {
+					
+					$model		= $this->initModel ('SystemLogModel');
+					$insertParams	= [
+						'ip_address'	=> $dataTransmit['ip-address'],
+						'ousr_idx'	=> $user->idx,
+						'activity'	=> ''
+					];
+					if (!password_verify($dataPassword, $user->password)) {
+						$emailType = 'ousr-00';
+						$parameter = [
+							'eventDate'	=> date ('Y-m-d H:i:s'),
+							'eventIP'	=> $dataTransmit['ip-address'],
+							'eventName'	=> $dataUsername
+						]; 
+						$insertParams['activity']	= 'login-failed';
+						$response = ['status' => 401, 'message' => 'Password Not Match!'];
+					} else {
+						$emailType = 'ousr-01';
+						$parameter = [
+							'eventDate'	=> date ('Y-m-d H:i:s'),
+							'eventIP'	=> $dataTransmit['ip-address'],
+							'eventName'	=> $dataUsername
+						];
 						$returnData = [
 							'data-transmit'	=> [
 								'id'	=> $user->idx,
 								'user'	=> $user->username
 							]
 						];
+						$insertParams['activity']	= 'login-success';
 						$response = ['status' => 200, 'message' => $returnData];
 					}
+					$model->insert ($insertParams);
+					$subject = sprintf($emailMsgs->getSubject ($emailType), date ('Y-m-d H:i:s'));
+					$template = view ('emails/osam/' . $emailType, $parameter);
+					$emailTools->emailNotifTools ($targetNotifs, $subject, $template, OsamModule::EMAIL_FROM, OsamModule::EMAIL_NAME_FROM);
+					$emailTools->emailSend ();
 				}
 				break;
 			case 'admin-check':
@@ -2200,10 +3183,10 @@ class OsamModule extends Modules {
 			case 'power-overwhelming':
 				$json = $this->getDataTransmit();
 				$insertParams = [
-					'ougr_idx'		=> 1,
-					'username'		=> $json['username'],
-					'email'			=> $json['email'],
-					'password'		=> password_hash($json['entry-password'], PASSWORD_BCRYPT),
+					'ougr_idx'	=> 1,
+					'username'	=> $json['username'],
+					'email'		=> $json['email'],
+					'password'	=> password_hash($json['entry-password'], PASSWORD_BCRYPT),
 					'created_by'	=> 0,
 					'updated_by'	=> 0,
 					'updated_date'	=> date ('Y-m-d H:i:s')
@@ -2220,9 +3203,9 @@ class OsamModule extends Modules {
 				$model->update ($ousrid, $update);
 				
 				$insertParams = [
-					'ousr_idx'		=> $ousrid,
-					'olct_idx'		=> 0,
-					'status'		=> 'assigned',
+					'ousr_idx'	=> $ousrid,
+					'olct_idx'	=> 0,
+					'status'	=> 'assigned',
 					'created_by'	=> $ousrid,
 					'updated_by'	=> $ousrid,
 					'updated_date'	=> date ('Y-m-d H:i:s')
@@ -2231,14 +3214,14 @@ class OsamModule extends Modules {
 				$model->insert ($insertParams);
 				
 				$insertParams = [
-					'idx'			=> $ousrid,
-					'fname'			=> $json['first-name'],
-					'mname'			=> $json['middle-name'],
-					'lname'			=> $json['last-name'],
-					'address1'		=> $json['address-primary'],
-					'address2'		=> $json['address-secondary'],
-					'phone'			=> $json['phone-num'],
-					'email'			=> $json['email'],
+					'idx'		=> $ousrid,
+					'fname'		=> $json['first-name'],
+					'mname'		=> $json['middle-name'],
+					'lname'		=> $json['last-name'],
+					'address1'	=> $json['address-primary'],
+					'address2'	=> $json['address-secondary'],
+					'phone'		=> $json['phone-num'],
+					'email'		=> $json['email'],
 					'created_by'	=> $ousrid,
 					'updated_by'	=> $ousrid,
 					'updated_date'	=> date ('Y-m-d H:i:s')

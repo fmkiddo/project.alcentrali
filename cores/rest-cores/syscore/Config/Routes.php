@@ -30,8 +30,8 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->add ('data/test', 'Tools::test');
 
+$routes->add ('data/test', 'Tools::test');
 $routes->get ('servertools/home', 'Tools::home');
 $routes->get ('servertools/serverkey-generator', 'Tools::generator');
 $routes->put ('servertools/serverkey-generator', 'Tools::generator');
@@ -48,9 +48,9 @@ $routes->put ('api/client-authentication', 'ClientRequest::clientAuthentication'
 $routes->put ('api/client-setup', 'ClientRequest::setupFirstTime');
 $routes->put ('api/client-check', 'ClientRequest::dataCheck');
 
+$routes->add ('test/test-app', 'TestController::test');
 $routes->add ('client/api/request-data', 'ClientRequest::dataRequest');
 $routes->add ('client/api/mobile-requestdata', 'ClientRequest::mobileDataRequest');
-$routes->add ('client/connection/test', 'ClientRequest::connectionTest');
 $routes->post ('client/api/data-processing', 'ClientRequest::dataRequest');
 /**
  * --------------------------------------------------------------------

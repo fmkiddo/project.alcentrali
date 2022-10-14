@@ -78,6 +78,7 @@ class ClientRequest extends BaseRESTController {
 		$clientAuth		= $this->decodeAuth();
 		$clientModel = model ('App\Models\ClientModel');
 		return $clientModel->find ($clientAuth[0]);
+		// return $clientModel->find ('osamjodex_617906f1d431f');
 	}
 	
 	private function serverRequest ($authString) {
@@ -289,7 +290,7 @@ class ClientRequest extends BaseRESTController {
 			return $this->respond($response);
 		}
 	}
-	
+
 	public function mobileDataRequest () {
 		$requestMethod = $this->request->getMethod(TRUE);
 		if (!($requestMethod === 'PUT' || $requestMethod === 'POST'))
@@ -297,18 +298,18 @@ class ClientRequest extends BaseRESTController {
 				'status'	=> 400,
 				'message'	=> 'Bad Request!'
 			]);
-			else {
-				$response = $this->requestExecution();
-				if ($response['status'] == 200) {
-					$decodeResponse = unserialize (base64_decode ($response['message']));
-					$jsonResponse = json_encode ($decodeResponse);
-					$newResponse = [
-						'status'	=> $response['status'],
-						'message'	=> base64_encode ($jsonResponse)
-					];
-					return $this->respond ($newResponse);
-				}
-				return $this->respond ($response);
+		else {
+			$response = $this->requestExecution();
+			if ($response['status'] == 200) {
+				$decodeResponse = unserialize (base64_decode ($response['message']));
+				$jsonResponse = json_encode ($decodeResponse);
+				$newResponse = [
+					'status'	=> $response['status'],
+					'message'	=> base64_encode ($jsonResponse)
+				];
+				return $this->respond ($newResponse);
 			}
+			return $this->respond ($response);
+		}
 	}
 }

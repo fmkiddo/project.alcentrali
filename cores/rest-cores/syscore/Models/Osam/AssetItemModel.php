@@ -12,28 +12,39 @@ class AssetItemModel extends BaseModel {
 	protected $allowedFields	= ['olct_idx', 'osbl_idx', 'oaci_idx', 'oast_idx', 'code', 'name', 'notes', 'po_number', 'acquisition_value', 'loan_time', 'qty'];
 	protected $colHeader		= [
 		'locationassets'	=> ['Kode', 'Nama', 'Sublokasi', 'Kategori', 'Notes', 'No. PO', 'Qty'],
-		'mainassets'		=> ['Kode', 'Nama', 'Jumlah']
+		'mainassets'		=> ['{5}', '{6}', '{7}']
 	];
 	
 	public function insertFromFile ($line = array (), $ousr_idx, $timestamps = NULL): bool {
 		$result		= FALSE;
-		$olct		= $this->select ('oita.idx, olct.idx as `olctidx`')->join ('olct', 'oita.olct_idx=olct.idx', 'right')->where ('olct.code', $line[2])->find ();
+		$olct_code	= '';
+		$osbl_code	= '';
+		$fieldCount	= count ($line);
+		$index = 0;
+		foreach ($line as $column) {
+			if ($index == 2) $olct_code	= $column;
+			if ($index == 3) {
+				$osbl_code	= $column;
+				break;
+			}
+			$index++;
+		}
 		
+		$olct		= $this->select ('oita.idx, olct.idx as `olctidx`')->join ('olct', 'oita.olct_idx=olct.idx', 'right')->where ('olct.code', $olct_code)->find ();
 		if ($olct != NULL) {
-			$olct_idx	= $olct[0]->olctidx;
-			
+			$olct_idx = $olct[0]->olctidx;
 			$osbl	= $this->select ('oita.idx, osbl.idx as `osblidx`')->join ('osbl', 'oita.osbl_idx=osbl.idx', 'right')
-							->where ('osbl.olct_idx', $olct_idx)->where ('osbl.code', $line[3])->find ();
+							->where ('osbl.olct_idx', $olct_idx)->where ('osbl.code', $osbl_code)->find ();
 			
 			if ($osbl != NULL) {
 				$osbl_idx	= $osbl[0]->osblidx;
 				$oaci		= $this->select ('oita.idx, oaci.idx as `oaciidx`')->join ('oaci', 'oita.oaci_idx=oaci.idx', 'right')
 									->where ('oaci.ci_name', $line[4])->find ();
-				
+									
 				if ($oaci != NULL) {
 					$oaci_idx		= $oaci[0]->oaciidx;
 					
-					$oast		= $this->select ('oita.idx, oast.idx as `oastidx`')->join ('oast', 'oita.oast_idx=oast.idx', 'right')->where ('oast.name', $line[5])->find ();
+					$oast		= $this->select ('oita.idx, oita.qty, oast.idx as `oastidx`')->join ('oast', 'oita.oast_idx=oast.idx', 'right')->where ('oast.name', $line[5])->find ();
 					$oast_idx	= ($oast == NULL) ? 1 : $oast[0]->oastidx;
 					
 					$oita		= $this->where ('oaci_idx', $oaci_idx)->where ('osbl_idx', $osbl_idx)->where ('olct_idx', $olct_idx)->where ('code', $line[0])->find ();
@@ -48,7 +59,7 @@ class AssetItemModel extends BaseModel {
 							'name'				=> $line[1],
 							'notes'				=> $line[6],
 							'po_number'			=> $line[7],
-							'acquisition_value'	=> $line[8],
+							'acquisition_value'		=> $line[8],
 							'loan_time'			=> $line[9],
 							'qty'				=> $line[10]
 						];
@@ -56,13 +67,14 @@ class AssetItemModel extends BaseModel {
 						$result	= $this->getInsertID() > 0;
 					} else {
 						$oita_idx		= $oita[0]->idx;
+						$lastQty		= $oita[0]->qty;
 						$updateParam	= [
 							'name'				=> $line[1],
 							'notes'				=> $line[6],
 							'po_number'			=> $line[7],
-							'acquisition_value'	=> $line[8],
+							'acquisition_value'		=> $line[8],
 							'loan_time'			=> $line[9],
-							'qty'				=> $line[10]
+							'qty'				=> $lastQty + intval ($line[10])
 						];
 						$result = $this->update($oita_idx, $updateParam);
 					}

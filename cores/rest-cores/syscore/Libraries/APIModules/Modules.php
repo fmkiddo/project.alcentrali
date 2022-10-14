@@ -54,4 +54,15 @@ abstract class Modules implements ModuleInterface {
 		if ($method === 'PUT') return $this->request->getJSON (TRUE)['data-transmit'];
 		return [];
 	}
+	
+	protected function getClientCode () {
+		$authsData	= $this->request->getHeader ('Authorization')->getValue ();
+		$authsData	= str_replace ('Basic ', '', $authsData);
+		$authsData	= base64_decode ($authsData);
+		$authsData	= str_replace (':', '', $authsData);
+		$authsData	= base64_decode ($authsData);
+		$authsData	= str_replace ('"', '', $authsData);
+		$auths		= explode ('#', $authsData);
+		return $auths[0];
+	}
 }
