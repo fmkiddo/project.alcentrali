@@ -1,0 +1,82 @@
+CRITICAL - 2021-12-01 02:43:22 --> Undefined variable: requestResponse
+#0 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Libraries/APIModules/OsamModule.php(2062): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', '/home/fmkiddo/g...', 2062, Array)
+#1 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Controllers/ClientRequest.php(72): App\Libraries\APIModules\OsamModule->executeRequest('docuportable')
+#2 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Controllers/ClientRequest.php(282): App\Controllers\ClientRequest->requestExecution()
+#3 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(918): App\Controllers\ClientRequest->dataRequest()
+#4 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientRequest))
+#5 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /home/fmkiddo/git/project.alcentrali/cdn/restful/index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2021-12-01 19:40:18 --> Undefined variable: requestResponse
+#0 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Libraries/APIModules/OsamModule.php(2109): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', '/home/fmkiddo/g...', 2109, Array)
+#1 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Controllers/ClientRequest.php(72): App\Libraries\APIModules\OsamModule->executeRequest('docuportable')
+#2 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Controllers/ClientRequest.php(282): App\Controllers\ClientRequest->requestExecution()
+#3 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(918): App\Controllers\ClientRequest->dataRequest()
+#4 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientRequest))
+#5 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /home/fmkiddo/git/project.alcentrali/cdn/restful/index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2021-12-01 19:40:40 --> Undefined variable: requestResponse
+#0 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Libraries/APIModules/OsamModule.php(2112): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', '/home/fmkiddo/g...', 2112, Array)
+#1 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Controllers/ClientRequest.php(72): App\Libraries\APIModules\OsamModule->executeRequest('docuportable')
+#2 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Controllers/ClientRequest.php(282): App\Controllers\ClientRequest->requestExecution()
+#3 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(918): App\Controllers\ClientRequest->dataRequest()
+#4 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientRequest))
+#5 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /home/fmkiddo/git/project.alcentrali/cdn/restful/index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2021-12-01 19:41:47 --> Undefined variable: requestResponse
+#0 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Libraries/APIModules/OsamModule.php(2114): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', '/home/fmkiddo/g...', 2114, Array)
+#1 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Controllers/ClientRequest.php(72): App\Libraries\APIModules\OsamModule->executeRequest('docuportable')
+#2 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Controllers/ClientRequest.php(282): App\Controllers\ClientRequest->requestExecution()
+#3 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(918): App\Controllers\ClientRequest->dataRequest()
+#4 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientRequest))
+#5 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /home/fmkiddo/git/project.alcentrali/cdn/restful/index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2021-12-01 19:55:50 --> Undefined variable: requestResponse
+#0 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Libraries/APIModules/OsamModule.php(2118): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', '/home/fmkiddo/g...', 2118, Array)
+#1 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Controllers/ClientRequest.php(72): App\Libraries\APIModules\OsamModule->executeRequest('docuportable')
+#2 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Controllers/ClientRequest.php(282): App\Controllers\ClientRequest->requestExecution()
+#3 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(918): App\Controllers\ClientRequest->dataRequest()
+#4 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientRequest))
+#5 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /home/fmkiddo/git/project.alcentrali/cdn/restful/index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2021-12-01 20:08:42 --> Undefined variable: requestResponse
+#0 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Libraries/APIModules/OsamModule.php(2136): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', '/home/fmkiddo/g...', 2136, Array)
+#1 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Controllers/ClientRequest.php(72): App\Libraries\APIModules\OsamModule->executeRequest('docuportable')
+#2 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Controllers/ClientRequest.php(282): App\Controllers\ClientRequest->requestExecution()
+#3 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(918): App\Controllers\ClientRequest->dataRequest()
+#4 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientRequest))
+#5 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /home/fmkiddo/git/project.alcentrali/cdn/restful/index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2021-12-01 20:22:40 --> Too few arguments to function CodeIgniter\Database\BaseBuilder::where(), 0 passed in /home/fmkiddo/git/project.alcentrali/cores/engine/Model.php on line 1818 and at least 1 expected
+#0 /home/fmkiddo/git/project.alcentrali/cores/engine/Model.php(1818): CodeIgniter\Database\BaseBuilder->where()
+#1 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Libraries/APIModules/OsamModule.php(2107): CodeIgniter\Model->__call('where', Array)
+#2 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Controllers/ClientRequest.php(72): App\Libraries\APIModules\OsamModule->executeRequest('docuportable')
+#3 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Controllers/ClientRequest.php(282): App\Controllers\ClientRequest->requestExecution()
+#4 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(918): App\Controllers\ClientRequest->dataRequest()
+#5 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientRequest))
+#6 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /home/fmkiddo/git/project.alcentrali/cdn/restful/index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-12-01 20:23:21 --> Undefined offset: 0
+#0 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Libraries/APIModules/OsamModule.php(2107): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined offse...', '/home/fmkiddo/g...', 2107, Array)
+#1 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Controllers/ClientRequest.php(72): App\Libraries\APIModules\OsamModule->executeRequest('docuportable')
+#2 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Controllers/ClientRequest.php(282): App\Controllers\ClientRequest->requestExecution()
+#3 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(918): App\Controllers\ClientRequest->dataRequest()
+#4 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientRequest))
+#5 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /home/fmkiddo/git/project.alcentrali/cdn/restful/index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2021-12-01 20:34:41 --> Trying to get property 'fname' of non-object
+#0 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Libraries/APIModules/OsamModule.php(2108): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to get p...', '/home/fmkiddo/g...', 2108, Array)
+#1 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Controllers/ClientRequest.php(72): App\Libraries\APIModules\OsamModule->executeRequest('docuportable')
+#2 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Controllers/ClientRequest.php(282): App\Controllers\ClientRequest->requestExecution()
+#3 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(918): App\Controllers\ClientRequest->dataRequest()
+#4 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientRequest))
+#5 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /home/fmkiddo/git/project.alcentrali/cdn/restful/index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}

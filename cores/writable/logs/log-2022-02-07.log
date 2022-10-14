@@ -1,0 +1,82 @@
+CRITICAL - 2022-02-07 22:31:55 --> unlink(/home/fmkiddo/git/project.alcentrali/cores/writable/debugbar/debugbar_1644208616.json): No such file or directory
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'unlink(/home/fm...', '/home/fmkiddo/g...', 106, Array)
+#1 /home/fmkiddo/git/project.alcentrali/cores/engine/Debug/Toolbar/Collectors/History.php(106): unlink('/home/fmkiddo/g...')
+#2 /home/fmkiddo/git/project.alcentrali/cores/engine/Debug/Toolbar.php(483): CodeIgniter\Debug\Toolbar\Collectors\History->setFiles(1644209000, 20)
+#3 /home/fmkiddo/git/project.alcentrali/cores/engine/Debug/Toolbar.php(455): CodeIgniter\Debug\Toolbar->format(Array, 'html')
+#4 /home/fmkiddo/git/project.alcentrali/cores/rest-officercores/appcore/Config/Events.php(50): CodeIgniter\Debug\Toolbar->respond()
+#5 [internal function]: CodeIgniter\Events\Events::Config\{closure}()
+#6 /home/fmkiddo/git/project.alcentrali/cores/engine/Events/Events.php(188): call_user_func(Object(Closure))
+#7 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(293): CodeIgniter\Events\Events::trigger('pre_system')
+#8 /home/fmkiddo/git/project.alcentrali/subs/officer/index.php(45): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-02-07 22:31:55 --> unlink(/home/fmkiddo/git/project.alcentrali/cores/writable/debugbar/debugbar_1644208616.json): No such file or directory
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'unlink(/home/fm...', '/home/fmkiddo/g...', 106, Array)
+#1 /home/fmkiddo/git/project.alcentrali/cores/engine/Debug/Toolbar/Collectors/History.php(106): unlink('/home/fmkiddo/g...')
+#2 /home/fmkiddo/git/project.alcentrali/cores/engine/Debug/Toolbar.php(483): CodeIgniter\Debug\Toolbar\Collectors\History->setFiles(1644209046, 20)
+#3 /home/fmkiddo/git/project.alcentrali/cores/engine/Debug/Toolbar.php(455): CodeIgniter\Debug\Toolbar->format(Array, 'html')
+#4 /home/fmkiddo/git/project.alcentrali/cores/rest-officercores/appcore/Config/Events.php(50): CodeIgniter\Debug\Toolbar->respond()
+#5 [internal function]: CodeIgniter\Events\Events::Config\{closure}()
+#6 /home/fmkiddo/git/project.alcentrali/cores/engine/Events/Events.php(188): call_user_func(Object(Closure))
+#7 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(293): CodeIgniter\Events\Events::trigger('pre_system')
+#8 /home/fmkiddo/git/project.alcentrali/subs/officer/index.php(45): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-02-07 22:36:52 --> Class 'App\Database\Structures\Opore' not found
+#0 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Controllers/DataForgery.php(71): App\Controllers\DataForgery->instatiateStructure('opore')
+#1 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(918): App\Controllers\DataForgery->start_forgery()
+#2 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DataForgery))
+#3 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /home/fmkiddo/git/project.alcentrali/cdn/restful/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-02-07 22:36:52 --> 22 : The requested URL returned error: 500 Internal Server Error
+#0 /home/fmkiddo/git/project.alcentrali/cores/engine/HTTP/CURLRequest.php(821): CodeIgniter\HTTP\Exceptions\HTTPException::forCurlError('22', 'The requested U...')
+#1 /home/fmkiddo/git/project.alcentrali/cores/engine/HTTP/CURLRequest.php(449): CodeIgniter\HTTP\CURLRequest->sendRequest(Array)
+#2 /home/fmkiddo/git/project.alcentrali/cores/engine/HTTP/CURLRequest.php(158): CodeIgniter\HTTP\CURLRequest->send('put', 'http://localhos...')
+#3 /home/fmkiddo/git/project.alcentrali/cores/engine/HTTP/CURLRequest.php(265): CodeIgniter\HTTP\CURLRequest->request('put', 'http://localhos...', Array)
+#4 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Controllers/OfficerRequest.php(584): CodeIgniter\HTTP\CURLRequest->put('http://localhos...', Array)
+#5 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(918): App\Controllers\OfficerRequest->dataRequest()
+#6 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\OfficerRequest))
+#7 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /home/fmkiddo/git/project.alcentrali/cdn/restful/index.php(45): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-02-07 22:36:52 --> 22 : The requested URL returned error: 500 Internal Server Error
+#0 /home/fmkiddo/git/project.alcentrali/cores/engine/HTTP/CURLRequest.php(821): CodeIgniter\HTTP\Exceptions\HTTPException::forCurlError('22', 'The requested U...')
+#1 /home/fmkiddo/git/project.alcentrali/cores/engine/HTTP/CURLRequest.php(449): CodeIgniter\HTTP\CURLRequest->sendRequest(Array)
+#2 /home/fmkiddo/git/project.alcentrali/cores/engine/HTTP/CURLRequest.php(158): CodeIgniter\HTTP\CURLRequest->send('put', 'http://localhos...')
+#3 /home/fmkiddo/git/project.alcentrali/cores/engine/HTTP/CURLRequest.php(265): CodeIgniter\HTTP\CURLRequest->request('put', 'http://localhos...', Array)
+#4 /home/fmkiddo/git/project.alcentrali/cores/rest-officercores/appcore/Controllers/Officer.php(26): CodeIgniter\HTTP\CURLRequest->put('http://localhos...', Array)
+#5 /home/fmkiddo/git/project.alcentrali/cores/rest-officercores/appcore/Controllers/Officer.php(197): App\Controllers\Officer->dataRequest('api/dataaccess', Array)
+#6 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(918): App\Controllers\Officer->dataprocessing('client-processi...')
+#7 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Officer))
+#8 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /home/fmkiddo/git/project.alcentrali/subs/officer/index.php(45): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-02-07 22:52:57 --> Class 'App\Database\Structures\Opore' not found
+#0 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Controllers/DataForgery.php(71): App\Controllers\DataForgery->instatiateStructure('opore')
+#1 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(918): App\Controllers\DataForgery->start_forgery()
+#2 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DataForgery))
+#3 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /home/fmkiddo/git/project.alcentrali/cdn/restful/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-02-07 22:52:57 --> 22 : The requested URL returned error: 500 Internal Server Error
+#0 /home/fmkiddo/git/project.alcentrali/cores/engine/HTTP/CURLRequest.php(821): CodeIgniter\HTTP\Exceptions\HTTPException::forCurlError('22', 'The requested U...')
+#1 /home/fmkiddo/git/project.alcentrali/cores/engine/HTTP/CURLRequest.php(449): CodeIgniter\HTTP\CURLRequest->sendRequest(Array)
+#2 /home/fmkiddo/git/project.alcentrali/cores/engine/HTTP/CURLRequest.php(158): CodeIgniter\HTTP\CURLRequest->send('put', 'http://localhos...')
+#3 /home/fmkiddo/git/project.alcentrali/cores/engine/HTTP/CURLRequest.php(265): CodeIgniter\HTTP\CURLRequest->request('put', 'http://localhos...', Array)
+#4 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Controllers/OfficerRequest.php(584): CodeIgniter\HTTP\CURLRequest->put('http://localhos...', Array)
+#5 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(918): App\Controllers\OfficerRequest->dataRequest()
+#6 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\OfficerRequest))
+#7 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /home/fmkiddo/git/project.alcentrali/cdn/restful/index.php(45): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-02-07 22:52:57 --> 22 : The requested URL returned error: 500 Internal Server Error
+#0 /home/fmkiddo/git/project.alcentrali/cores/engine/HTTP/CURLRequest.php(821): CodeIgniter\HTTP\Exceptions\HTTPException::forCurlError('22', 'The requested U...')
+#1 /home/fmkiddo/git/project.alcentrali/cores/engine/HTTP/CURLRequest.php(449): CodeIgniter\HTTP\CURLRequest->sendRequest(Array)
+#2 /home/fmkiddo/git/project.alcentrali/cores/engine/HTTP/CURLRequest.php(158): CodeIgniter\HTTP\CURLRequest->send('put', 'http://localhos...')
+#3 /home/fmkiddo/git/project.alcentrali/cores/engine/HTTP/CURLRequest.php(265): CodeIgniter\HTTP\CURLRequest->request('put', 'http://localhos...', Array)
+#4 /home/fmkiddo/git/project.alcentrali/cores/rest-officercores/appcore/Controllers/Officer.php(26): CodeIgniter\HTTP\CURLRequest->put('http://localhos...', Array)
+#5 /home/fmkiddo/git/project.alcentrali/cores/rest-officercores/appcore/Controllers/Officer.php(197): App\Controllers\Officer->dataRequest('api/dataaccess', Array)
+#6 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(918): App\Controllers\Officer->dataprocessing('client-processi...')
+#7 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Officer))
+#8 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /home/fmkiddo/git/project.alcentrali/subs/officer/index.php(45): CodeIgniter\CodeIgniter->run()
+#10 {main}

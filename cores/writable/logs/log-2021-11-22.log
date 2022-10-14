@@ -1,0 +1,11 @@
+CRITICAL - 2021-11-22 22:49:14 --> Undefined variable: line
+#0 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Models/BaseModel.php(68): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', '/home/fmkiddo/g...', 68, Array)
+#1 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Controllers/ClientRequest.php(47): App\Models\BaseModel->find()
+#2 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Controllers/ClientRequest.php(52): App\Controllers\ClientRequest->getClientAPI('1')
+#3 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Controllers/ClientRequest.php(96): App\Controllers\ClientRequest->initModules(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\Entity))
+#4 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Controllers/ClientRequest.php(231): App\Controllers\ClientRequest->serverRequest('Basic SW05ellXM...')
+#5 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(918): App\Controllers\ClientRequest->dataCheck()
+#6 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientRequest))
+#7 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /home/fmkiddo/git/project.alcentrali/cdn/restful/index.php(45): CodeIgniter\CodeIgniter->run()
+#9 {main}

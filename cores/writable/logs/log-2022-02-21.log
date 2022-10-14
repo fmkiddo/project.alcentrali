@@ -1,0 +1,12 @@
+CRITICAL - 2022-02-21 01:53:58 --> Unable to connect to the database.
+#0 /home/fmkiddo/git/project.alcentrali/cores/engine/Database/BaseConnection.php(646): CodeIgniter\Database\BaseConnection->initialize()
+#1 /home/fmkiddo/git/project.alcentrali/cores/engine/Database/BaseBuilder.php(1860): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Models/BaseModel.php(65): CodeIgniter\Database\BaseBuilder->get()
+#3 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Controllers/ClientRequest.php(198): App\Models\BaseModel->find('osamjodex_6172d...')
+#4 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Controllers/ClientRequest.php(85): App\Controllers\ClientRequest->verifyClientKey('Basic SW05ellXM...')
+#5 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Controllers/ClientRequest.php(252): App\Controllers\ClientRequest->serverRequest('Basic SW05ellXM...')
+#6 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(918): App\Controllers\ClientRequest->dataCheck()
+#7 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientRequest))
+#8 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /home/fmkiddo/git/project.alcentrali/cdn/restful/index.php(45): CodeIgniter\CodeIgniter->run()
+#10 {main}

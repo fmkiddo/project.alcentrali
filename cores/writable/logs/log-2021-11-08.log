@@ -1,0 +1,64 @@
+CRITICAL - 2021-11-08 19:46:56 --> Undefined variable: requestResponse
+#0 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Libraries/APIModules/OsamModule.php(1796): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', '/home/fmkiddo/g...', 1796, Array)
+#1 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Controllers/ClientRequest.php(72): App\Libraries\APIModules\OsamModule->executeRequest('profile-update')
+#2 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Controllers/ClientRequest.php(267): App\Controllers\ClientRequest->requestExecution()
+#3 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(918): App\Controllers\ClientRequest->dataRequest()
+#4 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientRequest))
+#5 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /home/fmkiddo/git/project.alcentrali/cdn/restful/index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2021-11-08 20:35:07 --> Undefined index: last-name
+#0 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Libraries/APIModules/OsamModule.php(1750): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', '/home/fmkiddo/g...', 1750, Array)
+#1 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Controllers/ClientRequest.php(72): App\Libraries\APIModules\OsamModule->executeRequest('profile-update')
+#2 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Controllers/ClientRequest.php(267): App\Controllers\ClientRequest->requestExecution()
+#3 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(918): App\Controllers\ClientRequest->dataRequest()
+#4 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientRequest))
+#5 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /home/fmkiddo/git/project.alcentrali/cdn/restful/index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2021-11-08 20:35:42 --> Undefined index: last-name
+#0 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Libraries/APIModules/OsamModule.php(1750): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', '/home/fmkiddo/g...', 1750, Array)
+#1 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Controllers/ClientRequest.php(72): App\Libraries\APIModules\OsamModule->executeRequest('profile-update')
+#2 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Controllers/ClientRequest.php(267): App\Controllers\ClientRequest->requestExecution()
+#3 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(918): App\Controllers\ClientRequest->dataRequest()
+#4 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientRequest))
+#5 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /home/fmkiddo/git/project.alcentrali/cdn/restful/index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2021-11-08 20:35:46 --> Undefined index: last-name
+#0 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Libraries/APIModules/OsamModule.php(1750): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', '/home/fmkiddo/g...', 1750, Array)
+#1 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Controllers/ClientRequest.php(72): App\Libraries\APIModules\OsamModule->executeRequest('profile-update')
+#2 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Controllers/ClientRequest.php(267): App\Controllers\ClientRequest->requestExecution()
+#3 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(918): App\Controllers\ClientRequest->dataRequest()
+#4 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientRequest))
+#5 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /home/fmkiddo/git/project.alcentrali/cdn/restful/index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2021-11-08 20:37:11 --> Field 'idx' doesn't have a default value
+#0 /home/fmkiddo/git/project.alcentrali/cores/engine/Database/MySQLi/Connection.php(331): mysqli->query('INSERT INTO `as...')
+#1 /home/fmkiddo/git/project.alcentrali/cores/engine/Database/BaseConnection.php(741): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `as...')
+#2 /home/fmkiddo/git/project.alcentrali/cores/engine/Database/BaseConnection.php(669): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `as...')
+#3 /home/fmkiddo/git/project.alcentrali/cores/engine/Database/BaseBuilder.php(2249): CodeIgniter\Database\BaseConnection->query('INSERT INTO `as...', Array, false)
+#4 /home/fmkiddo/git/project.alcentrali/cores/engine/Model.php(755): CodeIgniter\Database\BaseBuilder->insert()
+#5 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Libraries/APIModules/OsamModule.php(1757): CodeIgniter\Model->insert(Array)
+#6 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Controllers/ClientRequest.php(72): App\Libraries\APIModules\OsamModule->executeRequest('profile-update')
+#7 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Controllers/ClientRequest.php(267): App\Controllers\ClientRequest->requestExecution()
+#8 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(918): App\Controllers\ClientRequest->dataRequest()
+#9 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientRequest))
+#10 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 /home/fmkiddo/git/project.alcentrali/cdn/restful/index.php(45): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2021-11-08 20:42:44 --> Field 'idx' doesn't have a default value
+#0 /home/fmkiddo/git/project.alcentrali/cores/engine/Database/MySQLi/Connection.php(331): mysqli->query('INSERT INTO `as...')
+#1 /home/fmkiddo/git/project.alcentrali/cores/engine/Database/BaseConnection.php(741): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `as...')
+#2 /home/fmkiddo/git/project.alcentrali/cores/engine/Database/BaseConnection.php(669): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `as...')
+#3 /home/fmkiddo/git/project.alcentrali/cores/engine/Database/BaseBuilder.php(2249): CodeIgniter\Database\BaseConnection->query('INSERT INTO `as...', Array, false)
+#4 /home/fmkiddo/git/project.alcentrali/cores/engine/Model.php(755): CodeIgniter\Database\BaseBuilder->insert()
+#5 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Libraries/APIModules/OsamModule.php(1757): CodeIgniter\Model->insert(Array)
+#6 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Controllers/ClientRequest.php(72): App\Libraries\APIModules\OsamModule->executeRequest('profile-update')
+#7 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Controllers/ClientRequest.php(267): App\Controllers\ClientRequest->requestExecution()
+#8 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(918): App\Controllers\ClientRequest->dataRequest()
+#9 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientRequest))
+#10 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 /home/fmkiddo/git/project.alcentrali/cdn/restful/index.php(45): CodeIgniter\CodeIgniter->run()
+#12 {main}

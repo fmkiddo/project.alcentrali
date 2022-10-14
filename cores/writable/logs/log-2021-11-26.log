@@ -1,0 +1,28 @@
+CRITICAL - 2021-11-26 21:17:37 --> Unknown column 'oita.qty' in 'field list'
+#0 /home/fmkiddo/git/project.alcentrali/cores/engine/Database/MySQLi/Connection.php(331): mysqli->query('SELECT sum(oita...')
+#1 /home/fmkiddo/git/project.alcentrali/cores/engine/Database/BaseConnection.php(741): CodeIgniter\Database\MySQLi\Connection->execute('SELECT sum(oita...')
+#2 /home/fmkiddo/git/project.alcentrali/cores/engine/Database/BaseConnection.php(669): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT sum(oita...')
+#3 /home/fmkiddo/git/project.alcentrali/cores/engine/Database/BaseBuilder.php(1860): CodeIgniter\Database\BaseConnection->query('SELECT sum(oita...', Array, false)
+#4 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Models/BaseModel.php(70): CodeIgniter\Database\BaseBuilder->get()
+#5 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Libraries/APIModules/OsamModule.php(528): App\Models\BaseModel->find()
+#6 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Controllers/ClientRequest.php(72): App\Libraries\APIModules\OsamModule->executeRequest('detailedlocatio...')
+#7 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Controllers/ClientRequest.php(282): App\Controllers\ClientRequest->requestExecution()
+#8 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(918): App\Controllers\ClientRequest->dataRequest()
+#9 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientRequest))
+#10 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 /home/fmkiddo/git/project.alcentrali/cdn/restful/index.php(45): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2021-11-26 21:17:51 --> Unknown column 'oita.qty' in 'field list'
+#0 /home/fmkiddo/git/project.alcentrali/cores/engine/Database/MySQLi/Connection.php(331): mysqli->query('SELECT sum(oita...')
+#1 /home/fmkiddo/git/project.alcentrali/cores/engine/Database/BaseConnection.php(741): CodeIgniter\Database\MySQLi\Connection->execute('SELECT sum(oita...')
+#2 /home/fmkiddo/git/project.alcentrali/cores/engine/Database/BaseConnection.php(669): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT sum(oita...')
+#3 /home/fmkiddo/git/project.alcentrali/cores/engine/Database/BaseBuilder.php(1860): CodeIgniter\Database\BaseConnection->query('SELECT sum(oita...', Array, false)
+#4 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Models/BaseModel.php(70): CodeIgniter\Database\BaseBuilder->get()
+#5 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Libraries/APIModules/OsamModule.php(528): App\Models\BaseModel->find()
+#6 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Controllers/ClientRequest.php(72): App\Libraries\APIModules\OsamModule->executeRequest('detailedlocatio...')
+#7 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Controllers/ClientRequest.php(282): App\Controllers\ClientRequest->requestExecution()
+#8 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(918): App\Controllers\ClientRequest->dataRequest()
+#9 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientRequest))
+#10 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 /home/fmkiddo/git/project.alcentrali/cdn/restful/index.php(45): CodeIgniter\CodeIgniter->run()
+#12 {main}

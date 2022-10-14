@@ -7,10 +7,24 @@ class AssetMoveOutModel extends BaseModel {
 	
 	public const DOCCODE		= '01';
 	
-	protected $table			= 'omvo';
+	protected $table		= 'omvo';
 	protected $primaryKey		= 'idx';
 	protected $returnType		= 'CodeIgniter\Entity';
 	protected $allowedFields	= [
-		'docnum', 'docdate', 'olct_from', 'olct_to', 'ousr_applicant', 'approved_by', 'approval_date', 'sent_by', 'sent_date', 'received_by', 'received_date', 'status', 'created_by', 'updated_by'
+		'docnum', 
+		'docdate', 
+		'olct_from', 
+		'olct_to', 
+		'ousr_applicant', 
+		'approved_by', 
+		'approval_date', 
+		'sent_by', 
+		'sent_date', 
+		'received_by', 
+		'received_date', 
+		'remark', 
+		'status', 
+		'created_by', 
+		'updated_by'
 	];
 }

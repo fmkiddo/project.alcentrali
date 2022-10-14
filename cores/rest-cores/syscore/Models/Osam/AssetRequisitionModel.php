@@ -11,10 +11,10 @@ class AssetRequisitionModel extends BaseModel {
 	public const REQTYPENEW		= 1;
 	public const REQTYPEEXT		= 2;
 	
-	protected $table			= 'orqn';
+	protected $table		= 'orqn';
 	protected $primaryKey		= 'idx';
 	protected $returnType		= 'CodeIgniter\Entity';
 	protected $allowedFields	= [
-		'docnum', 'docdate', 'requisition_type', 'olct_idx', 'ousr_applicant', 'approved_by', 'approval_date', 'status', 'comments', 'created_by', 'updated_by', 'updated_date'
+		'docnum', 'docdate', 'requisition_type', 'olct_idx', 'ousr_applicant', 'remark', 'approved_by', 'approval_date', 'status', 'comments', 'created_by', 'updated_by', 'updated_date'
 	];
 }

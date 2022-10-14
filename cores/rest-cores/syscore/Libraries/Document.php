@@ -86,7 +86,7 @@ class Document {
 		return $doccode;
 	}
 	
-	public function getStatusText ($id = 1) {
-		return $this->docstatus[$id];
+	public function getStatusText ($id = 1, $locale='id') {
+		return $this->docstatus[$id][$locale];
 	}
 }

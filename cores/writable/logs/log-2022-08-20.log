@@ -1,0 +1,24 @@
+CRITICAL - 2022-08-20 02:31:10 --> Unable to connect to the database.
+#0 /home/fmkiddo/git/project.alcentrali/cores/engine/Database/BaseConnection.php(646): CodeIgniter\Database\BaseConnection->initialize()
+#1 /home/fmkiddo/git/project.alcentrali/cores/engine/Database/BaseBuilder.php(1860): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Models/BaseModel.php(70): CodeIgniter\Database\BaseBuilder->get()
+#3 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Libraries/APIModules/OsamModule.php(2445): App\Models\BaseModel->find()
+#4 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Controllers/ClientRequest.php(180): App\Libraries\APIModules\OsamModule->serverRequest('admin-check')
+#5 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Controllers/ClientRequest.php(270): App\Controllers\ClientRequest->authorizationProcess()
+#6 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(918): App\Controllers\ClientRequest->clientAuthentication()
+#7 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientRequest))
+#8 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /home/fmkiddo/git/project.alcentrali/cdn/restful/index.php(45): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-08-20 02:31:23 --> Unable to connect to the database.
+#0 /home/fmkiddo/git/project.alcentrali/cores/engine/Database/BaseConnection.php(646): CodeIgniter\Database\BaseConnection->initialize()
+#1 /home/fmkiddo/git/project.alcentrali/cores/engine/Database/BaseBuilder.php(1860): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Models/BaseModel.php(70): CodeIgniter\Database\BaseBuilder->get()
+#3 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Libraries/APIModules/OsamModule.php(2445): App\Models\BaseModel->find()
+#4 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Controllers/ClientRequest.php(180): App\Libraries\APIModules\OsamModule->serverRequest('admin-check')
+#5 /home/fmkiddo/git/project.alcentrali/cores/rest-cores/syscore/Controllers/ClientRequest.php(270): App\Controllers\ClientRequest->authorizationProcess()
+#6 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(918): App\Controllers\ClientRequest->clientAuthentication()
+#7 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientRequest))
+#8 /home/fmkiddo/git/project.alcentrali/cores/engine/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /home/fmkiddo/git/project.alcentrali/cdn/restful/index.php(45): CodeIgniter\CodeIgniter->run()
+#10 {main}
